@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1123</width>
+    <height>533</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>RoboRock Control Center</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,1">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1,0">
+      <item>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="title">
+         <string>Control</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <property name="bottomMargin">
+              <number>10</number>
+             </property>
+             <item>
+              <widget class="QToolButton" name="toolButton_Dock">
+               <property name="toolTip">
+                <string>Goto Charger</string>
+               </property>
+               <property name="statusTip">
+                <string>Goto Charger</string>
+               </property>
+               <property name="text">
+                <string notr="true"/>
+               </property>
+               <property name="icon">
+                <iconset resource="../rrcc.qrc">
+                 <normaloff>:/png/png/big_charger.png</normaloff>:/png/png/big_charger.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>75</width>
+                 <height>110</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="toolButton_Start">
+               <property name="toolTip">
+                <string>Start Cleaning</string>
+               </property>
+               <property name="statusTip">
+                <string>Start Cleaning</string>
+               </property>
+               <property name="text">
+                <string notr="true"/>
+               </property>
+               <property name="icon">
+                <iconset resource="../rrcc.qrc">
+                 <normaloff>:/png/png/big_start.png</normaloff>:/png/png/big_start.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>75</width>
+                 <height>110</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="toolButton_Spot">
+               <property name="toolTip">
+                <string>Spot Cleaning</string>
+               </property>
+               <property name="statusTip">
+                <string>Spot Cleaning</string>
+               </property>
+               <property name="text">
+                <string notr="true"/>
+               </property>
+               <property name="icon">
+                <iconset resource="../rrcc.qrc">
+                 <normaloff>:/png/png/big_spot.png</normaloff>:/png/png/big_spot.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>75</width>
+                 <height>110</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="toolButton_Pause">
+               <property name="toolTip">
+                <string>Pause Cleaning</string>
+               </property>
+               <property name="statusTip">
+                <string>Pause Cleaning</string>
+               </property>
+               <property name="text">
+                <string notr="true"/>
+               </property>
+               <property name="icon">
+                <iconset resource="../rrcc.qrc">
+                 <normaloff>:/png/png/big_pause.png</normaloff>:/png/png/big_pause.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>75</width>
+                 <height>110</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="toolButton_Stop">
+               <property name="toolTip">
+                <string>Stop Cleaning</string>
+               </property>
+               <property name="statusTip">
+                <string>Stop Cleaning</string>
+               </property>
+               <property name="text">
+                <string notr="true"/>
+               </property>
+               <property name="icon">
+                <iconset resource="../rrcc.qrc">
+                 <normaloff>:/png/png/big_stop.png</normaloff>:/png/png/big_stop.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>75</width>
+                 <height>110</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="toolButton_Find">
+               <property name="toolTip">
+                <string>Find Cleaner</string>
+               </property>
+               <property name="statusTip">
+                <string>Find Cleaner</string>
+               </property>
+               <property name="text">
+                <string notr="true"/>
+               </property>
+               <property name="icon">
+                <iconset resource="../rrcc.qrc">
+                 <normaloff>:/png/png/big_speak.png</normaloff>:/png/png/big_speak.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>75</width>
+                 <height>110</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>15</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>15</number>
+                 </property>
+                 <item>
+                  <widget class="QDial" name="dial">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="toolTip">
+                    <string>Set Custom Fanspeed</string>
+                   </property>
+                   <property name="statusTip">
+                    <string>Set Custom Fanspeed</string>
+                   </property>
+                   <property name="minimum">
+                    <number>1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>100</number>
+                   </property>
+                   <property name="singleStep">
+                    <number>1</number>
+                   </property>
+                   <property name="pageStep">
+                    <number>5</number>
+                   </property>
+                   <property name="notchesVisible">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_Fanspeed">
+                   <property name="text">
+                    <string notr="true">0</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QGridLayout" name="gridLayout_3">
+                 <property name="topMargin">
+                  <number>2</number>
+                 </property>
+                 <property name="verticalSpacing">
+                  <number>7</number>
+                 </property>
+                 <item row="3" column="0">
+                  <widget class="QToolButton" name="toolButton_Fanspeed4">
+                   <property name="toolTip">
+                    <string>Set Maximum Fanspeed</string>
+                   </property>
+                   <property name="statusTip">
+                    <string>Set Maximum Fanspeed</string>
+                   </property>
+                   <property name="text">
+                    <string notr="true"/>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../rrcc.qrc">
+                     <normaloff>:/png/png/fan_4.png</normaloff>:/png/png/fan_4.png</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QToolButton" name="toolButton_Fanspeed3">
+                   <property name="toolTip">
+                    <string>Set Turbo Fanspeed</string>
+                   </property>
+                   <property name="statusTip">
+                    <string>Set Turbo Fanspeed</string>
+                   </property>
+                   <property name="text">
+                    <string notr="true"/>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../rrcc.qrc">
+                     <normaloff>:/png/png/fan_3.png</normaloff>:/png/png/fan_3.png</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QToolButton" name="toolButton_Fanspeed1">
+                   <property name="toolTip">
+                    <string>Set Quiet Fanspeed</string>
+                   </property>
+                   <property name="statusTip">
+                    <string>Set Quiet Fanspeed</string>
+                   </property>
+                   <property name="text">
+                    <string notr="true"/>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../rrcc.qrc">
+                     <normaloff>:/png/png/fan_1.png</normaloff>:/png/png/fan_1.png</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QToolButton" name="toolButton_Fanspeed2">
+                   <property name="toolTip">
+                    <string>Set Balanced Fanspeed</string>
+                   </property>
+                   <property name="statusTip">
+                    <string>Set Balanced Fanspeed</string>
+                   </property>
+                   <property name="text">
+                    <string notr="true"/>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../rrcc.qrc">
+                     <normaloff>:/png/png/fan_2.png</normaloff>:/png/png/fan_2.png</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QProgressBar" name="progressBar_Battery">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>Battery Level</string>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="title">
+         <string>Consumables</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <layout class="QGridLayout" name="gridLayout">
+           <property name="horizontalSpacing">
+            <number>10</number>
+           </property>
+           <item row="3" column="1">
+            <widget class="QProgressBar" name="progressBar_Sensors">
+             <property name="toolTip">
+              <string>Sensors</string>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+             <property name="format">
+              <string notr="true">%p% [ 30h ]</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QProgressBar" name="progressBar_Filter">
+             <property name="toolTip">
+              <string>Filter</string>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+             <property name="format">
+              <string notr="true">%p% [ 150h ]</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_5">
+             <property name="toolTip">
+              <string>Sidebrush</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="../rrcc.qrc">:/png/png/brush-s.png</pixmap>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QProgressBar" name="progressBar_Mainbrush">
+             <property name="toolTip">
+              <string>Mainbrush</string>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+             <property name="format">
+              <string notr="true">%p% [ 300h ]</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_4">
+             <property name="toolTip">
+              <string>Mainbrush</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="../rrcc.qrc">:/png/png/brush-m.png</pixmap>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QProgressBar" name="progressBar_Sidebrush">
+             <property name="toolTip">
+              <string>Sidebrush</string>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+             <property name="format">
+              <string notr="true">%p% [ 200h ]</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_7">
+             <property name="toolTip">
+              <string>Sensors</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="../rrcc.qrc">:/png/png/sensor.png</pixmap>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_6">
+             <property name="toolTip">
+              <string>Filter</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="../rrcc.qrc">:/png/png/filter.png</pixmap>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QToolButton" name="toolButton_Mainbrush">
+             <property name="toolTip">
+              <string>Reset Mainbrush</string>
+             </property>
+             <property name="statusTip">
+              <string>Reset Mainbrush</string>
+             </property>
+             <property name="text">
+              <string notr="true"/>
+             </property>
+             <property name="icon">
+              <iconset resource="../rrcc.qrc">
+               <normaloff>:/png/png/reset.png</normaloff>:/png/png/reset.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QToolButton" name="toolButton_Sidebrush">
+             <property name="toolTip">
+              <string>Reset Sidebrush</string>
+             </property>
+             <property name="statusTip">
+              <string>Reset Sidebrush</string>
+             </property>
+             <property name="text">
+              <string notr="true"/>
+             </property>
+             <property name="icon">
+              <iconset resource="../rrcc.qrc">
+               <normaloff>:/png/png/reset.png</normaloff>:/png/png/reset.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QToolButton" name="toolButton_Filter">
+             <property name="toolTip">
+              <string>Reset Filter</string>
+             </property>
+             <property name="statusTip">
+              <string>Reset Filter</string>
+             </property>
+             <property name="text">
+              <string notr="true"/>
+             </property>
+             <property name="icon">
+              <iconset resource="../rrcc.qrc">
+               <normaloff>:/png/png/reset.png</normaloff>:/png/png/reset.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QToolButton" name="toolButton_Sensors">
+             <property name="toolTip">
+              <string>Reset Sensors</string>
+             </property>
+             <property name="statusTip">
+              <string>Reset Sensors</string>
+             </property>
+             <property name="text">
+              <string notr="true"/>
+             </property>
+             <property name="icon">
+              <iconset resource="../rrcc.qrc">
+               <normaloff>:/png/png/reset.png</normaloff>:/png/png/reset.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_4">
+        <property name="title">
+         <string>Totals</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0">
+         <item>
+          <widget class="QLabel" name="label_Serial">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>Serial Number</string>
+           </property>
+           <property name="text">
+            <string notr="true">?</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <property name="horizontalSpacing">
+            <number>10</number>
+           </property>
+           <item row="0" column="1">
+            <widget class="QLCDNumber" name="lcdNumber_Area">
+             <property name="toolTip">
+              <string>Cleaned Area</string>
+             </property>
+             <property name="digitCount">
+              <number>9</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLCDNumber" name="lcdNumber_Count">
+             <property name="toolTip">
+              <string>Cleaning Count</string>
+             </property>
+             <property name="digitCount">
+              <number>9</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label">
+             <property name="toolTip">
+              <string>Cleaned Area</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="../rrcc.qrc">:/png/png/compass.png</pixmap>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="toolTip">
+              <string>Cleaned Hours</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="../rrcc.qrc">:/png/png/clock.png</pixmap>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLCDNumber" name="lcdNumber_Hours">
+             <property name="toolTip">
+              <string>Cleaned Hours</string>
+             </property>
+             <property name="digitCount">
+              <number>9</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="toolTip">
+              <string>Cleaning Count</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="../rrcc.qrc">:/png/png/counter.png</pixmap>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_map">
+      <property name="title">
+       <string>Map [ Zoom Factor = 1.00 ]</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QGraphicsView" name="graphicsView">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 0, 0, 0);</string>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1123</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionRefresh"/>
+    <addaction name="separator"/>
+    <addaction name="actionSetup"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Info</string>
+    </property>
+    <addaction name="actionHelp"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionTimer"/>
+    <addaction name="actionHistory"/>
+    <addaction name="separator"/>
+    <addaction name="actionLogger"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuTools"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string notr="true">toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionExit"/>
+   <addaction name="separator"/>
+   <addaction name="actionRefresh"/>
+   <addaction name="separator"/>
+   <addaction name="actionMap"/>
+   <addaction name="separator"/>
+   <addaction name="actionSetup"/>
+   <addaction name="separator"/>
+   <addaction name="actionLogger"/>
+   <addaction name="separator"/>
+   <addaction name="actionTimer"/>
+   <addaction name="actionHistory"/>
+   <addaction name="separator"/>
+   <addaction name="actionHelp"/>
+   <addaction name="actionAbout"/>
+  </widget>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/exit.png</normaloff>:/png/png/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="statusTip">
+    <string>Exit Program</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/info.png</normaloff>:/png/png/info.png</iconset>
+   </property>
+   <property name="text">
+    <string>About</string>
+   </property>
+   <property name="statusTip">
+    <string>Show About</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/help.png</normaloff>:/png/png/help.png</iconset>
+   </property>
+   <property name="text">
+    <string>Help</string>
+   </property>
+   <property name="statusTip">
+    <string>Show Help</string>
+   </property>
+  </action>
+  <action name="actionTimer">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/timer.png</normaloff>:/png/png/timer.png</iconset>
+   </property>
+   <property name="text">
+    <string>Timer</string>
+   </property>
+   <property name="toolTip">
+    <string>Timer</string>
+   </property>
+   <property name="statusTip">
+    <string>Manage Timer</string>
+   </property>
+  </action>
+  <action name="actionHistory">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/history.png</normaloff>:/png/png/history.png</iconset>
+   </property>
+   <property name="text">
+    <string>History</string>
+   </property>
+   <property name="toolTip">
+    <string>History</string>
+   </property>
+   <property name="statusTip">
+    <string>Show History</string>
+   </property>
+  </action>
+  <action name="actionSetup">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/setup.png</normaloff>:/png/png/setup.png</iconset>
+   </property>
+   <property name="text">
+    <string>Setup</string>
+   </property>
+   <property name="toolTip">
+    <string>Setup</string>
+   </property>
+   <property name="statusTip">
+    <string>Configure Settings</string>
+   </property>
+  </action>
+  <action name="actionLogger">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/logger.png</normaloff>:/png/png/logger.png</iconset>
+   </property>
+   <property name="text">
+    <string>Logger</string>
+   </property>
+   <property name="toolTip">
+    <string>Logger</string>
+   </property>
+   <property name="statusTip">
+    <string>Show Log</string>
+   </property>
+  </action>
+  <action name="actionRefresh">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/refresh.png</normaloff>:/png/png/refresh.png</iconset>
+   </property>
+   <property name="text">
+    <string>Refresh</string>
+   </property>
+   <property name="toolTip">
+    <string>Refresh</string>
+   </property>
+   <property name="statusTip">
+    <string>Refresh Status</string>
+   </property>
+  </action>
+  <action name="actionMap">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/map.png</normaloff>:/png/png/map.png</iconset>
+   </property>
+   <property name="text">
+    <string>Map</string>
+   </property>
+   <property name="statusTip">
+    <string>Show Map</string>
+   </property>
+  </action>
+  <action name="actionMenu_Map_Reset">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/zoom.png</normaloff>:/png/png/zoom.png</iconset>
+   </property>
+   <property name="text">
+    <string>Reset Zoom</string>
+   </property>
+  </action>
+  <action name="actionMenu_Map_Goto">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/goto.png</normaloff>:/png/png/goto.png</iconset>
+   </property>
+   <property name="text">
+    <string>Goto Position</string>
+   </property>
+  </action>
+  <action name="actionMenu_Map_FlipH">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Flip Horizontal</string>
+   </property>
+   <property name="toolTip">
+    <string>Flip Horizontal</string>
+   </property>
+  </action>
+  <action name="actionMenu_Map_FlipV">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Flip Vertical</string>
+   </property>
+   <property name="toolTip">
+    <string>Flip Vertical</string>
+   </property>
+  </action>
+  <action name="actionMenu_Map_SwapY">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Swap Up/Down</string>
+   </property>
+   <property name="toolTip">
+    <string>Swap Up/Down</string>
+   </property>
+  </action>
+  <action name="actionMenu_Map_Rotate0">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Rotate 0°</string>
+   </property>
+   <property name="toolTip">
+    <string>Rotate 0°</string>
+   </property>
+  </action>
+  <action name="actionMenu_Map_Rotate90">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Rotate 90°</string>
+   </property>
+   <property name="toolTip">
+    <string>Rotate 90°</string>
+   </property>
+  </action>
+  <action name="actionMenu_Map_Rotate180">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Rotate 180°</string>
+   </property>
+   <property name="toolTip">
+    <string>Rotate 180°</string>
+   </property>
+  </action>
+  <action name="actionMenu_Map_Rotate270">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Rotate 270°</string>
+   </property>
+   <property name="toolTip">
+    <string>Rotate 270°</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../rrcc.qrc"/>
+ </resources>
+ <connections/>
+</ui>

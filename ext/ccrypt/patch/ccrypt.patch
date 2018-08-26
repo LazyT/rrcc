@@ -1,0 +1,11 @@
+--- platform.h.org	2018-03-03 00:37:29.000000000 +0100
++++ platform.h	2018-08-07 13:59:12.000000000 +0200
+@@ -17,7 +17,7 @@
+ /* Windows/MinGW, dummy replacements for some POSIX functions */
+ #ifdef __MINGW32__
+ 
+-#error "Ccrypt cannot currently be compiled under MinGW. For details, see platform.h"
++//#error "Ccrypt cannot currently be compiled under MinGW. For details, see platform.h"
+ /* Some problems with MinGW are:
+    - there is no way to read passwords from console in MinGW that
+      works for Windows console, Msys console, Cygwin console, and

@@ -1,0 +1,194 @@
+--- qsshsocket.h.org	2017-02-23 22:25:12.000000000 +0100
++++ qsshsocket.h	2018-08-10 19:14:33.146938895 +0200
+@@ -36,7 +36,9 @@
+         /*! \brief There was an error writing to a remote file. This could possibly be due to user permissions.*/
+         ScpWriteError,
+         /*! \brief The credentials of a user on the remote host could not be authenticated.*/
+-        PasswordAuthenticationFailedError
++        PasswordAuthenticationFailedError,
++        /*! \brief The private key of a user on the remote host could not be authenticated.*/
++        KeyAuthenticationFailedError
+     };
+ 
+     /*!
+@@ -94,6 +96,14 @@
+     void login(QString user, QString password);
+ 
+     /*!
++        \param prv The private key to login with;
++        \brief This function to login to the currently connected host given private key.
++        On success, the signal authenticated is emitted while error is emmited on failure.
++    */
++
++    void setKey(QString key);
++
++    /*!
+         \brief Returns the port of the current connection. If not connected to a remote host, this returns -1.
+     */
+     int port();
+@@ -204,7 +214,7 @@
+     int m_port;
+     bool m_loggedIn ;
+     QThread * m_thread;
+-    QString m_workingDirectory,m_nextWorkingDir,m_user, m_host,m_password;
++    QString m_workingDirectory,m_nextWorkingDir,m_user, m_host,m_password,m_key;
+     SSHOperation m_currentOperation;
+     ssh_session m_session;
+     bool m_connected,m_run;
+--- qsshsocket.cpp.org	2017-02-23 22:25:12.000000000 +0100
++++ qsshsocket.cpp	2018-08-11 11:09:38.142030435 +0200
+@@ -1,7 +1,7 @@
+ #include "qsshsocket.h"
+ #include <QFileInfo>
+ // if compiling in windows, add needed flags.
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__MINGW32__)
+ #   include <io.h>
+ 
+ typedef int mode_t;
+@@ -45,6 +45,7 @@
+     m_host = "";
+     m_user = "";
+     m_password = "";
++    m_key = "";
+     m_port = -1;
+     m_loggedIn = false;
+     m_session  = NULL;
+@@ -78,8 +79,8 @@
+                 int verbosity = SSH_LOG_PROTOCOL;
+ 
+                 // set the pertinant ssh session options
+-                ssh_options_set(m_session, SSH_OPTIONS_HOST, m_host.toAscii().data());
+-                ssh_options_set(m_session, SSH_OPTIONS_USER, m_user.toAscii().data());
++                ssh_options_set(m_session, SSH_OPTIONS_HOST, m_host.toUtf8().data());
++                ssh_options_set(m_session, SSH_OPTIONS_USER, m_user.toUtf8().data());
+                 ssh_options_set(m_session, SSH_OPTIONS_LOG_VERBOSITY, &verbosity);
+                 ssh_options_set(m_session, SSH_OPTIONS_PORT, &m_port);
+ 
+@@ -108,7 +109,7 @@
+             {
+ 
+                 // try authenticating current user at remote host
+-                int worked = ssh_userauth_password(m_session, m_user.toAscii().data(), m_password.toAscii().data());
++                int worked = ssh_userauth_password(m_session, m_user.toUtf8().data(), m_password.toUtf8().data());
+ 
+ 
+                 // if successful, store user password.
+@@ -126,6 +127,36 @@
+ 
+ 
+             }
++            // check to see if a username and a private key have been given
++            else if(m_user != "" && m_key != "")
++            {
++                ssh_key private_key;
++
++                if(ssh_pki_import_privkey_base64(m_key.toUtf8().data(), NULL, NULL, NULL, &private_key) == SSH_OK)
++                {
++                    // try authenticating current user at remote host
++                    int worked = ssh_userauth_publickey(m_session, m_user.toUtf8().data(), private_key);
++
++                    // if successful, store user key.
++                    if (worked == SSH_OK)
++                    {
++                        loginSuccessful();
++                        m_loggedIn = true;
++                    }
++                    else
++                    {
++                        m_user = "";
++                        m_key = "";
++                        error(PasswordAuthenticationFailedError);
++                    }
++                }
++                else
++                {
++                    m_user = "";
++                    m_key = "";
++                    error(KeyAuthenticationFailedError);
++                }
++            }
+         }
+         // if all ssh setup has been completed, check to see if we have any commands to execute
+         else if (!m_currentOperation.executed)
+@@ -147,7 +178,7 @@
+ 
+                 // attempt to execute shell command
+                 while (requestResponse == SSH_AGAIN)
+-                    requestResponse = ssh_channel_request_exec(channel, m_currentOperation.adminCommand.toAscii().data());
++                    requestResponse = ssh_channel_request_exec(channel, m_currentOperation.adminCommand.toUtf8().data());
+ 
+                 // if attempt not executed, close connection then return
+                 if (requestResponse != SSH_OK)
+@@ -168,6 +199,17 @@
+                         totalBytes += newBytes;
+                 }while (newBytes > 0);
+ 
++                // read in command error
++                if(!totalBytes)
++                {
++                    do
++                    {
++                        newBytes = ssh_channel_read(channel, &(buffer.data()[totalBytes]), buffer.size() - totalBytes, 1);
++                        if (newBytes > 0)
++                            totalBytes += newBytes;
++                    }while (newBytes > 0);
++                }
++
+                 // close channel
+                 ssh_channel_send_eof(channel);
+                 ssh_channel_close(channel);
+@@ -189,7 +231,7 @@
+             // if all ssh setup has been completed, check to see if we have any file transfers to execute
+             else if (m_currentOperation.type == Pull)
+             {
+-                ssh_scp scpSession = ssh_scp_new(m_session,SSH_SCP_READ, m_currentOperation.remotePath.toAscii().data());
++                ssh_scp scpSession = ssh_scp_new(m_session,SSH_SCP_READ, m_currentOperation.remotePath.toUtf8().data());
+                 if (scpSession == NULL)
+                     error(ScpChannelCreationError);
+ 
+@@ -254,7 +296,7 @@
+             else if (m_currentOperation.type == Push)
+             {
+                 // attempt to create new scp from ssh session.
+-                ssh_scp scpSession = ssh_scp_new(m_session,SSH_SCP_WRITE, m_currentOperation.remotePath.toAscii().data());
++                ssh_scp scpSession = ssh_scp_new(m_session,SSH_SCP_WRITE, m_currentOperation.remotePath.toUtf8().data());
+ 
+                 // if creation failed, return
+                 if (scpSession == NULL)
+@@ -291,7 +333,7 @@
+ 
+                 // attempt to authorize pushing bytes over scp socket
+                 // if this fails, close scp session and return.
+-                if (ssh_scp_push_file(scpSession, m_currentOperation.remotePath.toAscii().data(), buffer.size(), S_IRUSR | S_IWUSR) != SSH_OK)
++                if (ssh_scp_push_file(scpSession, m_currentOperation.remotePath.toUtf8().data(), buffer.size(), S_IRUSR | S_IWUSR) != SSH_OK)
+                 {
+                     ssh_scp_close(scpSession);
+                     ssh_scp_free(scpSession);
+@@ -334,12 +376,15 @@
+     m_host = "";
+     m_user = "";
+     m_password = "";
++    m_key = "";
+     m_port = -1;
+     m_loggedIn = false;
+     if (m_session != NULL)
+     {
+         ssh_disconnect(m_session);
+         ssh_free(m_session);
++
++        disconnected();
+     }
+     m_session = NULL;
+ }
+@@ -354,6 +399,10 @@
+     m_user = user;
+     m_password = password;
+ }
++void QSshSocket::setKey(QString key)
++{
++    m_key = key;
++}
+ void QSshSocket::executeCommand(QString command)
+ {
+     m_currentOperation.type = Command;
