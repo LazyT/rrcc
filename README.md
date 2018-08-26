@@ -16,11 +16,17 @@ The current version supports the following features:
 * control dnd and carpet modes
 * set wifi ssid and key
 * convert 96->32 byte token
+* multi language (English and German)
+* cross platform (same look & feel on Windows, Linux, MacOS)
 
 Only on rooted devices:
 
 * extract token via ssh
 * map functions (goto spot, zone cleaning, show coordinates, flip hor/ver, rotate 90/180/270°, zoom)
+
+## Screenshots
+
+![main window](https://raw.github.com/LazyT/rrcc/gh-pages/screenshots/mainwindow.png)
 
 ## Build from Source
 
