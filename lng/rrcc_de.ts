@@ -1415,17 +1415,22 @@ Fehlercode: %1</translation>
 <context>
     <name>zonesDialog</name>
     <message>
-        <location filename="../zones.cpp" line="18"/>
+        <location filename="../zones.cpp" line="10"/>
+        <source>Delete</source>
+        <translation>Löschen</translation>
+    </message>
+    <message>
+        <location filename="../zones.cpp" line="20"/>
         <source>Zone %1 / %2</source>
         <translation>Bereich %1 / %2</translation>
     </message>
     <message>
-        <location filename="../zones.cpp" line="35"/>
+        <location filename="../zones.cpp" line="37"/>
         <source>Please enter a label for this zone!</source>
         <translation>Bitte ein Label für diese Zone eingeben!</translation>
     </message>
     <message>
-        <location filename="../zones.cpp" line="53"/>
+        <location filename="../zones.cpp" line="55"/>
         <source>Really delete zone &quot;%1&quot;?</source>
         <translation>Den Bereich &quot;%1&quot; wirklich löschen?</translation>
     </message>

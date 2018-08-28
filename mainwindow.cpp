@@ -5,9 +5,6 @@ int main(int argc, char *argv[])
 	QApplication app(argc, argv);
 	MainWindow win;
 
-	app.setStyle("Fusion");
-	app.setAttribute(Qt::AA_DisableWindowContextHelpButton);
-
 	win.show();
 
 	return app.exec();
@@ -15,6 +12,9 @@ int main(int argc, char *argv[])
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
+    QApplication::setStyle("Fusion");
+    QApplication::setAttribute(Qt::AA_DisableWindowContextHelpButton);
+
 	if(!QLocale::system().name().startsWith("en_"))
 	{
 		if(appTranslator.load("rrcc_" + QLocale::system().name(), QApplication::applicationDirPath() + "/lng"))

@@ -11,6 +11,8 @@ zonesDialog::zonesDialog(QWidget *parent) : QDialog(parent)
 	{
 		comboBox_zone->addItem(zone.label);
 	}
+
+	buttonBox->button(QDialogButtonBox::Discard)->setText(tr("Delete"));
 }
 
 void zonesDialog::on_comboBox_zone_currentIndexChanged(int index)
