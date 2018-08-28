@@ -53,6 +53,7 @@ void zonesDialog::on_buttonBox_clicked(QAbstractButton *button)
 		if(QMessageBox::question(this, APPNAME, tr("Really delete zone \"%1\"?").arg(comboBox_zone->currentText()), QMessageBox::Yes | QMessageBox::No,  QMessageBox::Yes) ==  QMessageBox::Yes)
 		{
 			((MainWindow*)parent())->cfg.zones.removeAt(index);
+			((MainWindow*)parent())->menu_map_zones->removeAction(((MainWindow*)parent())->menu_map_zones->actions().at(index));
 
 			if(!((MainWindow*)parent())->cfg.zones.count())
 			{
@@ -61,8 +62,6 @@ void zonesDialog::on_buttonBox_clicked(QAbstractButton *button)
 			else
 			{
 				comboBox_zone->removeItem(index);
-
-				((MainWindow*)parent())->menu_map_zones->removeAction(((MainWindow*)parent())->menu_map_zones->actions().at(index));
 			}
 		}
 	}
