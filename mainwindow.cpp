@@ -54,9 +54,19 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	rubberBand = new QRubberBand(QRubberBand::Rectangle, graphicsView);
 
 	menu_map = new QMenu(this);
+	menu_map_zones = new QMenu(tr("Zone Cleaning"), this);
+	menu_map_zones->setIcon(QIcon(":/png/png/zone.png"));
+
+	foreach(CLEANZONE zone, cfg.zones)
+	{
+		menu_map_zones->addAction(QIcon(":/png/png/zone.png"), zone.label);
+	}
+
 	menu_map->addAction(actionMenu_Map_Reset);
 	menu_map->addSeparator();
 	menu_map->addAction(actionMenu_Map_Goto);
+	menu_map->addSeparator();
+	menu_map->addMenu(menu_map_zones);
 	menu_map->addSeparator();
 	menu_map->addAction(actionMenu_Map_Rotate0);
 	menu_map->addAction(actionMenu_Map_Rotate90);
@@ -139,6 +149,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 void MainWindow::getConfig()
 {
 	QSettings ini(CFG, QSettings::IniFormat);
+	int count;
+	CLEANZONE zone;
+
+	ini.setIniCodec("UTF-8");
 
 	cfg.ip = ini.value("IP-Address", "255.255.255.255").toString();
 	cfg.token = ini.value("AES-Token", "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF").toString();
@@ -158,11 +172,29 @@ void MainWindow::getConfig()
 	cfg.rotate = ini.value("Rotate", 0).toInt();
 	cfg.swap_y = ini.value("Swap-Y", false).toBool();
 	ini.endGroup();
+
+	ini.beginGroup("ZONES");
+	count = ini.beginReadArray("Data");
+	for(int i = 0; i < count; ++i)
+	{
+		ini.setArrayIndex(i);
+		zone.label = ini.value("Label").toString();
+		zone.x1 = ini.value("PosX1").toInt();
+		zone.y1 = ini.value("PosY1").toInt();
+		zone.x2 = ini.value("PosX2").toInt();
+		zone.y2 = ini.value("PosY2").toInt();
+		zone.times = ini.value("Times").toInt();
+		cfg.zones.append(zone);
+	}
+	ini.endArray();
+	ini.endGroup();
 }
 
 void MainWindow::setConfig()
 {
 	QSettings ini(CFG, QSettings::IniFormat);
+
+	ini.setIniCodec("UTF-8");
 
 	ini.setValue("IP-Address", cfg.ip);
 	ini.setValue("AES-Token", cfg.token);
@@ -182,6 +214,25 @@ void MainWindow::setConfig()
 	ini.setValue("Rotate", cfg.rotate);
 	ini.setValue("Swap-Y", cfg.swap_y);
 	ini.endGroup();
+
+	ini.remove("ZONES");
+	if(cfg.zones.count())
+	{
+		ini.beginGroup("ZONES");
+		ini.beginWriteArray("Data");
+		for(int i = 0; i < cfg.zones.count(); ++i)
+		{
+			ini.setArrayIndex(i);
+			ini.setValue("Label", cfg.zones.at(i).label);
+			ini.setValue("PosX1", cfg.zones.at(i).x1);
+			ini.setValue("PosY1", cfg.zones.at(i).y1);
+			ini.setValue("PosX2", cfg.zones.at(i).x2);
+			ini.setValue("PosY2", cfg.zones.at(i).y2);
+			ini.setValue("Times", cfg.zones.at(i).times);
+		}
+		ini.endArray();
+		ini.endGroup();
+	}
 
 	ini.sync();
 }
@@ -881,6 +932,18 @@ void MainWindow::on_actionHistory_triggered()
 	}
 }
 
+void MainWindow::on_actionZones_triggered()
+{
+	if(cfg.zones.count())
+	{
+		zonesDialog(this).exec();
+	}
+	else
+	{
+		QMessageBox::information(this, APPNAME, tr("No cleaning zones defined yet."));
+	}
+}
+
 void MainWindow::on_actionHelp_triggered()
 {
 	QMessageBox::information(this, APPNAME, tr("Help not implemented yet, sorry..."));
@@ -1260,6 +1323,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 			QPointF src = graphicsView->mapToScene(rubber_pos) * MAPFACTOR;
 			QPointF dst = graphicsView->mapToScene(graphicsView->mapFromGlobal(event->globalPos())) * MAPFACTOR;
 			int x1, y1, x2, y2;
+			int rc;
 
 			rubberBand->hide();
 
@@ -1285,9 +1349,27 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 				y2 = cfg.swap_y ? src.y() : MAPSIZE - src.y();
 			}
 
-			if(src != dst && QMessageBox::question(this, APPNAME, tr("Start zone cleaning for selected region?\n\n[ %1 / %2 - %3 / %4 ]").arg(x1).arg(y1).arg(x2).arg(y2), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+			if(src != dst)
 			{
-				sendUDP(QString(MIIO_APP_ZONED_CLEAN).arg(x1).arg(y1).arg(x2).arg(y2).arg(1).arg("%1"));
+				rc = QMessageBox::question(this, APPNAME, tr("Start zone cleaning for selected region?\n\n[ %1 / %2 - %3 / %4 ]").arg(x1).arg(y1).arg(x2).arg(y2), QMessageBox::Yes | QMessageBox::No | QMessageBox::Save, QMessageBox::Yes);
+
+				if(rc == QMessageBox::Yes)
+				{
+					sendUDP(QString(MIIO_APP_ZONED_CLEAN).arg(x1).arg(y1).arg(x2).arg(y2).arg(1).arg("%1"));
+				}
+				else if(rc == QMessageBox::Save)
+				{
+					CLEANZONE zone = { QString("Zone %1").arg(cfg.zones.count() + 1), x1, y1, x2, y2, 1 };
+
+					cfg.zones.append(zone);
+
+					menu_map_zones->addAction(QIcon(":/png/png/zone.png"), zone.label);
+
+					if(cfg.zones.count() == 1)
+					{
+						QMessageBox::information(this, APPNAME, tr("You can customize all zones later with the zone editor."));
+					}
+				}
 			}
 		}
 		else if(event->button() == Qt::MiddleButton)
@@ -1391,6 +1473,21 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 			else if(selected->objectName() == "actionMenu_Map_SwapY")
 			{
 				cfg.swap_y = selected->isChecked();
+			}
+			else
+			{
+				foreach(CLEANZONE zone, cfg.zones)
+				{
+					if(zone.label == selected->text())
+					{
+						if(QMessageBox::question(this, APPNAME, tr("Start cleaning for zone \"%1\"?").arg(zone.label), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+						{
+							sendUDP(QString(MIIO_APP_ZONED_CLEAN).arg(zone.x1).arg(zone.y1).arg(zone.x2).arg(zone.y2).arg(zone.times).arg("%1"));
+						}
+
+						break;
+					}
+				}
 			}
 		}
 	}

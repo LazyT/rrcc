@@ -2,8 +2,8 @@ QT          += core gui widgets network
 
 TARGET      = rrcc
 
-SOURCES     += mainwindow.cpp history.cpp timer.cpp setup.cpp logger.cpp upload.cpp packager.cpp unpackager.cpp converter.cpp about.cpp
-HEADERS     += mainwindow.h   history.h   timer.h   setup.h   logger.h   upload.h   packager.h   unpackager.h   converter.h   about.h
+SOURCES     += mainwindow.cpp history.cpp timer.cpp setup.cpp logger.cpp upload.cpp packager.cpp unpackager.cpp converter.cpp about.cpp zones.cpp
+HEADERS     += mainwindow.h   history.h   timer.h   setup.h   logger.h   upload.h   packager.h   unpackager.h   converter.h   about.h   zones.h
 
 INCLUDEPATH += ext/qaes
 SOURCES     += ext/qaes/qaesencryption.cpp
@@ -24,7 +24,7 @@ SOURCES     += ext/qsshsocket/qsshsocket.cpp
 HEADERS     *= ext/qsshsocket/qsshsocket.h
 LIBS        += -lssh
 
-FORMS       += res/ui/mainwindow.ui res/ui/history.ui res/ui/timer.ui res/ui/setup.ui res/ui/logger.ui res/ui/upload.ui res/ui/packager.ui res/ui/unpackager.ui res/ui/converter.ui res/ui/about.ui
+FORMS       += res/ui/mainwindow.ui res/ui/history.ui res/ui/timer.ui res/ui/setup.ui res/ui/logger.ui res/ui/upload.ui res/ui/packager.ui res/ui/unpackager.ui res/ui/converter.ui res/ui/about.ui res/ui/zones.ui
 RESOURCES   += res/rrcc.qrc
 
 TRANSLATIONS+= lng/rrcc_de.ts

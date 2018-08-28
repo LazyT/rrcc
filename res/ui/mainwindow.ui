@@ -733,6 +733,8 @@
     <addaction name="actionTimer"/>
     <addaction name="actionHistory"/>
     <addaction name="separator"/>
+    <addaction name="actionZones"/>
+    <addaction name="separator"/>
     <addaction name="actionLogger"/>
    </widget>
    <addaction name="menuFile"/>
@@ -765,6 +767,8 @@
    <addaction name="separator"/>
    <addaction name="actionTimer"/>
    <addaction name="actionHistory"/>
+   <addaction name="separator"/>
+   <addaction name="actionZones"/>
    <addaction name="separator"/>
    <addaction name="actionHelp"/>
    <addaction name="actionAbout"/>
@@ -988,6 +992,21 @@
    </property>
    <property name="toolTip">
     <string>Rotate 270°</string>
+   </property>
+  </action>
+  <action name="actionZones">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/zone.png</normaloff>:/png/png/zone.png</iconset>
+   </property>
+   <property name="text">
+    <string>Zones</string>
+   </property>
+   <property name="toolTip">
+    <string>Zones</string>
+   </property>
+   <property name="statusTip">
+    <string>Edit Zones</string>
    </property>
   </action>
  </widget>

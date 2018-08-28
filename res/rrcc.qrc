@@ -69,5 +69,6 @@
         <file>png/dock.png</file>
         <file>png/goto.png</file>
         <file>png/zoom.png</file>
+        <file>png/zone.png</file>
     </qresource>
 </RCC>

@@ -310,7 +310,7 @@ void setupDialog::ssh_loginSuccessful()
 	ssh->executeCommand("cat /mnt/data/miio/device.token");
 }
 
-void setupDialog::ssh_commandExecuted(QString command,QString response)
+void setupDialog::ssh_commandExecuted(__attribute__((unused)) QString command, QString response)
 {
 	QByteArray token = response.toUtf8().toHex();
 

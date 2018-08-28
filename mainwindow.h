@@ -2,8 +2,8 @@
 #define MAINWINDOW_H
 
 #define APPNAME "RoboRock Control Center"
-#define APPVERS "0.6.0"
-#define APPDATE "25.08.2018"
+#define APPVERS "0.6.1"
+#define APPDATE "28.08.2018"
 
 #include <QApplication>
 #include <QMainWindow>
@@ -50,6 +50,7 @@
 #include "unpackager.h"
 #include "converter.h"
 #include "about.h"
+#include "zones.h"
 
 #define CFG QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/.rrcc/rrcc.cfg"
 #define LOG QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/rrcc.log"
@@ -114,6 +115,16 @@ struct TIMER
 	int fanspeed;
 };
 
+struct CLEANZONE
+{
+	QString label;
+	int x1;
+	int y1;
+	int x2;
+	int y2;
+	int times;
+};
+
 class MainWindow : public QMainWindow, private Ui::MainWindow
 {
 	Q_OBJECT
@@ -122,6 +133,7 @@ public:
 
 	explicit MainWindow(QWidget *parent = 0);
 
+	QMenu *menu_map_zones;
 	QByteArray did, cnt;
 	uint timediff;
 	QString src_ip;
@@ -163,6 +175,7 @@ public:
 		bool flip_v;
 		bool swap_y;
 		int rotate;
+		QVector<CLEANZONE> zones;
 
 	}cfg;
 
@@ -314,6 +327,7 @@ private slots:
 	void on_actionLogger_triggered();
 	void on_actionTimer_triggered();
 	void on_actionHistory_triggered();
+	void on_actionZones_triggered();
 	void on_actionHelp_triggered();
 	void on_actionAbout_triggered();
 
