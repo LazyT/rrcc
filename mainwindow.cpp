@@ -1028,7 +1028,7 @@ void MainWindow::on_toolButton_Mainbrush_clicked()
 	{
 		if(sendUDP(MIIO_GET_CONSUMABLE))
 		{
-			progressBar_Mainbrush->setValue((100 * robo.consumable.main_brush_work_time) / WORKTIME_MAINBRUSH);
+			progressBar_Mainbrush->setValue(100 - (100 * robo.consumable.main_brush_work_time) / WORKTIME_MAINBRUSH);
 			progressBar_Mainbrush->setFormat(QString("%p% [%1h]").arg(QString::number(robo.consumable.main_brush_work_time / 3600.0, 'f', 2)));
 		}
 	}
@@ -1040,7 +1040,7 @@ void MainWindow::on_toolButton_Sidebrush_clicked()
 	{
 		if(sendUDP(MIIO_GET_CONSUMABLE))
 		{
-			progressBar_Sidebrush->setValue((100 * robo.consumable.side_brush_work_time) / WORKTIME_SIDEBRUSH);
+			progressBar_Sidebrush->setValue(100 - (100 * robo.consumable.side_brush_work_time) / WORKTIME_SIDEBRUSH);
 			progressBar_Sidebrush->setFormat(QString("%p% [%1h]").arg(QString::number(robo.consumable.side_brush_work_time / 3600.0, 'f', 2)));
 		}
 	}
@@ -1052,7 +1052,7 @@ void MainWindow::on_toolButton_Filter_clicked()
 	{
 		if(sendUDP(MIIO_GET_CONSUMABLE))
 		{
-			progressBar_Filter->setValue((100 * robo.consumable.filter_work_time) / WORKTIME_FILTER);
+			progressBar_Filter->setValue(100 - (100 * robo.consumable.filter_work_time) / WORKTIME_FILTER);
 			progressBar_Filter->setFormat(QString("%p% [%1h]").arg(QString::number(robo.consumable.filter_work_time / 3600.0, 'f', 2)));
 		}
 	}
@@ -1064,7 +1064,7 @@ void MainWindow::on_toolButton_Sensors_clicked()
 	{
 		if(sendUDP(MIIO_GET_CONSUMABLE))
 		{
-			progressBar_Sensors->setValue((100 * robo.consumable.sensor_dirty_time) / WORKTIME_SENSOR);
+			progressBar_Sensors->setValue(100 - (100 * robo.consumable.sensor_dirty_time) / WORKTIME_SENSOR);
 			progressBar_Sensors->setFormat(QString("%p% [%1h]").arg(QString::number(robo.consumable.sensor_dirty_time / 3600.0, 'f', 2)));
 		}
 	}
