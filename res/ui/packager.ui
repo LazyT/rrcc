@@ -32,6 +32,9 @@
           <height>0</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Filename</string>
+        </property>
         <property name="text">
          <string notr="true">?</string>
         </property>
@@ -42,6 +45,9 @@
       </item>
       <item>
        <widget class="QProgressBar" name="progressBar_compress">
+        <property name="toolTip">
+         <string>Compression Status</string>
+        </property>
         <property name="value">
          <number>0</number>
         </property>
@@ -49,6 +55,9 @@
       </item>
       <item>
        <widget class="QProgressBar" name="progressBar_encrypt">
+        <property name="toolTip">
+         <string>Encryption Status</string>
+        </property>
         <property name="value">
          <number>0</number>
         </property>
@@ -61,6 +70,9 @@
         </property>
         <item>
          <widget class="QLabel" name="label_count">
+          <property name="toolTip">
+           <string>Filecount</string>
+          </property>
           <property name="text">
            <string notr="true">0 / 0</string>
           </property>
@@ -68,6 +80,9 @@
         </item>
         <item>
          <widget class="QLabel" name="label_size">
+          <property name="toolTip">
+           <string>Filesize</string>
+          </property>
           <property name="text">
            <string notr="true">0 Byte</string>
           </property>
@@ -78,6 +93,9 @@
         </item>
         <item>
          <widget class="QLabel" name="label_time">
+          <property name="toolTip">
+           <string>Elapsed Time</string>
+          </property>
           <property name="text">
            <string notr="true">00h:00m:00s</string>
           </property>

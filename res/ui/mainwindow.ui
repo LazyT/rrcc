@@ -907,6 +907,9 @@
    <property name="text">
     <string>Reset Zoom</string>
    </property>
+   <property name="statusTip">
+    <string>Reset Zoom</string>
+   </property>
   </action>
   <action name="actionMenu_Map_Goto">
    <property name="icon">
@@ -914,6 +917,9 @@
      <normaloff>:/png/png/goto.png</normaloff>:/png/png/goto.png</iconset>
    </property>
    <property name="text">
+    <string>Goto Position</string>
+   </property>
+   <property name="statusTip">
     <string>Goto Position</string>
    </property>
   </action>
@@ -927,6 +933,9 @@
    <property name="toolTip">
     <string>Flip Horizontal</string>
    </property>
+   <property name="statusTip">
+    <string>Flip Horizontal</string>
+   </property>
   </action>
   <action name="actionMenu_Map_FlipV">
    <property name="checkable">
@@ -936,6 +945,9 @@
     <string>Flip Vertical</string>
    </property>
    <property name="toolTip">
+    <string>Flip Vertical</string>
+   </property>
+   <property name="statusTip">
     <string>Flip Vertical</string>
    </property>
   </action>
@@ -949,6 +961,9 @@
    <property name="toolTip">
     <string>Swap Up/Down</string>
    </property>
+   <property name="statusTip">
+    <string>Swap Up/Down</string>
+   </property>
   </action>
   <action name="actionMenu_Map_Rotate0">
    <property name="checkable">
@@ -958,6 +973,9 @@
     <string>Rotate 0°</string>
    </property>
    <property name="toolTip">
+    <string>Rotate 0°</string>
+   </property>
+   <property name="statusTip">
     <string>Rotate 0°</string>
    </property>
   </action>
@@ -971,6 +989,9 @@
    <property name="toolTip">
     <string>Rotate 90°</string>
    </property>
+   <property name="statusTip">
+    <string>Rotate 90°</string>
+   </property>
   </action>
   <action name="actionMenu_Map_Rotate180">
    <property name="checkable">
@@ -982,6 +1003,9 @@
    <property name="toolTip">
     <string>Rotate 180°</string>
    </property>
+   <property name="statusTip">
+    <string>Rotate 180°</string>
+   </property>
   </action>
   <action name="actionMenu_Map_Rotate270">
    <property name="checkable">
@@ -991,6 +1015,9 @@
     <string>Rotate 270°</string>
    </property>
    <property name="toolTip">
+    <string>Rotate 270°</string>
+   </property>
+   <property name="statusTip">
     <string>Rotate 270°</string>
    </property>
   </action>

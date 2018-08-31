@@ -52,6 +52,9 @@
      <property name="cursor" stdset="0">
       <cursorShape>ArrowCursor</cursorShape>
      </property>
+     <property name="toolTip">
+      <string>Copyright Notice</string>
+     </property>
      <property name="readOnly">
       <bool>true</bool>
      </property>
@@ -73,6 +76,9 @@
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
+       <property name="toolTip">
+        <string>Communicate with Users</string>
+       </property>
        <property name="styleSheet">
         <string notr="true">QLabel{image:url(:/png/png/home-48.png)}
 QLabel:hover{image:url(:/png/png/home-64.png)}</string>
@@ -93,6 +99,9 @@ QLabel:hover{image:url(:/png/png/home-64.png)}</string>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
+       <property name="toolTip">
+        <string>Spend a Beer</string>
+       </property>
        <property name="styleSheet">
         <string notr="true">QLabel{image:url(:/png/png/gift-48.png)}
 QLabel:hover{image:url(:/png/png/gift-64.png)}</string>
@@ -112,6 +121,9 @@ QLabel:hover{image:url(:/png/png/gift-64.png)}</string>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="toolTip">
+        <string>Send an E-Mail</string>
        </property>
        <property name="styleSheet">
         <string notr="true">QLabel{image:url(:/png/png/mail-48.png)}
@@ -183,6 +195,9 @@ QLabel:hover{image:url(:/png/png/mail-64.png)}</string>
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="0" column="1">
       <widget class="QLabel" name="label_ccrypt">
+       <property name="toolTip">
+        <string>Used Dependencies</string>
+       </property>
        <property name="text">
         <string notr="true">&lt;a href=&quot;http://ccrypt.sourceforge.net&quot;&gt;ccrypt&lt;/a&gt;</string>
        </property>
@@ -193,6 +208,9 @@ QLabel:hover{image:url(:/png/png/mail-64.png)}</string>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_qaes">
+       <property name="toolTip">
+        <string>Used Dependencies</string>
+       </property>
        <property name="text">
         <string notr="true">&lt;a href=&quot;https://github.com/bricke/Qt-AES&quot;&gt;QAES&lt;/a&gt;</string>
        </property>
@@ -203,6 +221,9 @@ QLabel:hover{image:url(:/png/png/mail-64.png)}</string>
      </item>
      <item row="0" column="0">
       <widget class="QLabel" name="label_qsshsocket">
+       <property name="toolTip">
+        <string>Used Dependencies</string>
+       </property>
        <property name="text">
         <string notr="true">&lt;a href=&quot;https://github.com/mikemvk/QSshSocket&quot;&gt;QSshSocket&lt;/a&gt;</string>
        </property>
@@ -213,6 +234,9 @@ QLabel:hover{image:url(:/png/png/mail-64.png)}</string>
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_qarchive">
+       <property name="toolTip">
+        <string>Used Dependencies</string>
+       </property>
        <property name="text">
         <string notr="true">&lt;a href=&quot;https://github.com/antony-jr/QArchive&quot;&gt;QArchive&lt;/a&gt;</string>
        </property>
@@ -223,6 +247,9 @@ QLabel:hover{image:url(:/png/png/mail-64.png)}</string>
      </item>
      <item row="2" column="1">
       <widget class="QLabel" name="label_zlib">
+       <property name="toolTip">
+        <string>Used Dependencies</string>
+       </property>
        <property name="text">
         <string notr="true">&lt;a href=&quot;https://zlib.net&quot;&gt;zlib&lt;/a&gt;</string>
        </property>
@@ -233,6 +260,9 @@ QLabel:hover{image:url(:/png/png/mail-64.png)}</string>
      </item>
      <item row="1" column="1">
       <widget class="QLabel" name="label_libarchive">
+       <property name="toolTip">
+        <string>Used Dependencies</string>
+       </property>
        <property name="text">
         <string notr="true">&lt;a href=&quot;https://www.libarchive.org&quot;&gt;libarchive&lt;/a&gt;</string>
        </property>
@@ -243,6 +273,9 @@ QLabel:hover{image:url(:/png/png/mail-64.png)}</string>
      </item>
      <item row="1" column="2">
       <widget class="QLabel" name="label_openssl">
+       <property name="toolTip">
+        <string>Used Dependencies</string>
+       </property>
        <property name="text">
         <string notr="true">&lt;a href=&quot;https://www.openssl.org&quot;&gt;openssl&lt;/a&gt;</string>
        </property>
@@ -253,6 +286,9 @@ QLabel:hover{image:url(:/png/png/mail-64.png)}</string>
      </item>
      <item row="0" column="2">
       <widget class="QLabel" name="label_libssh">
+       <property name="toolTip">
+        <string>Used Dependencies</string>
+       </property>
        <property name="text">
         <string notr="true">&lt;a href=&quot;https://www.libssh.org&quot;&gt;libssh&lt;/a&gt;</string>
        </property>
@@ -263,6 +299,9 @@ QLabel:hover{image:url(:/png/png/mail-64.png)}</string>
      </item>
      <item row="2" column="2">
       <widget class="QLabel" name="label_qt">
+       <property name="toolTip">
+        <string>Used Dependencies</string>
+       </property>
        <property name="text">
         <string notr="true">&lt;a href=&quot;https://www.qt.io&quot;&gt;Qt&lt;/a&gt;</string>
        </property>

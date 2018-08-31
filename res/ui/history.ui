@@ -37,7 +37,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox"/>
+         <widget class="QComboBox" name="comboBox">
+          <property name="toolTip">
+           <string>Select Cleaning Record</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -68,6 +72,9 @@
         </item>
         <item row="0" column="1">
          <widget class="QLCDNumber" name="lcdNumber_start">
+          <property name="toolTip">
+           <string>Starting Time</string>
+          </property>
           <property name="digitCount">
            <number>8</number>
           </property>
@@ -85,6 +92,9 @@
         </item>
         <item row="1" column="1">
          <widget class="QLCDNumber" name="lcdNumber_stop">
+          <property name="toolTip">
+           <string>Ending Time</string>
+          </property>
           <property name="digitCount">
            <number>8</number>
           </property>
@@ -102,6 +112,9 @@
         </item>
         <item row="2" column="1">
          <widget class="QLCDNumber" name="lcdNumber_duration">
+          <property name="toolTip">
+           <string>Cleaning Duration</string>
+          </property>
           <property name="digitCount">
            <number>8</number>
           </property>
@@ -119,6 +132,9 @@
         </item>
         <item row="3" column="1">
          <widget class="QLCDNumber" name="lcdNumber_area">
+          <property name="toolTip">
+           <string>Cleaned Area</string>
+          </property>
           <property name="digitCount">
            <number>8</number>
           </property>
@@ -147,6 +163,9 @@
         </item>
         <item>
          <widget class="QLabel" name="label_error_text">
+          <property name="toolTip">
+           <string>Cleaning Result</string>
+          </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
           </property>

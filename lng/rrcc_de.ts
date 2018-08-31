@@ -14,19 +14,52 @@
         <translation>Version %1 - %2</translation>
     </message>
     <message>
-        <location filename="../res/ui/about.ui" line="134"/>
+        <location filename="../res/ui/about.ui" line="56"/>
+        <source>Copyright Notice</source>
+        <translation>Urheberrechtshinweis</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/about.ui" line="80"/>
+        <source>Communicate with Users</source>
+        <translation>Mit Anwendern kommunizieren</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/about.ui" line="103"/>
+        <source>Spend a Beer</source>
+        <translation>Ein Bier ausgeben</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/about.ui" line="126"/>
+        <source>Send an E-Mail</source>
+        <translation>Eine E-Mail senden</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/about.ui" line="146"/>
         <source>E-Mail</source>
         <translation>E-Mail</translation>
     </message>
     <message>
-        <location filename="../res/ui/about.ui" line="150"/>
+        <location filename="../res/ui/about.ui" line="162"/>
         <source>Donation</source>
         <translation>Spende</translation>
     </message>
     <message>
-        <location filename="../res/ui/about.ui" line="166"/>
+        <location filename="../res/ui/about.ui" line="178"/>
         <source>Forum</source>
         <translation>Forum</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/about.ui" line="199"/>
+        <location filename="../res/ui/about.ui" line="212"/>
+        <location filename="../res/ui/about.ui" line="225"/>
+        <location filename="../res/ui/about.ui" line="238"/>
+        <location filename="../res/ui/about.ui" line="251"/>
+        <location filename="../res/ui/about.ui" line="264"/>
+        <location filename="../res/ui/about.ui" line="277"/>
+        <location filename="../res/ui/about.ui" line="290"/>
+        <location filename="../res/ui/about.ui" line="303"/>
+        <source>Used Dependencies</source>
+        <translation>Verwendete Abhängigkeiten</translation>
     </message>
 </context>
 <context>
@@ -41,6 +74,16 @@
         <source>Paste your 96 Byte Token to convert into 32 Byte Token</source>
         <translation>96 Byte Token einfügen um in 32 Byte Token umzuwandeln</translation>
     </message>
+    <message>
+        <location filename="../res/ui/converter.ui" line="36"/>
+        <source>96 Byte Token</source>
+        <translation>96 Byte Token</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/converter.ui" line="52"/>
+        <source>32 Byte Token</source>
+        <translation>32 Byte Token</translation>
+    </message>
 </context>
 <context>
     <name>Dialog_History</name>
@@ -53,6 +96,36 @@
         <location filename="../res/ui/history.ui" line="24"/>
         <source>Details</source>
         <translation>Details</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/history.ui" line="42"/>
+        <source>Select Cleaning Record</source>
+        <translation>Reinigungsprotokoll auswählen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/history.ui" line="76"/>
+        <source>Starting Time</source>
+        <translation>Startzeit</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/history.ui" line="96"/>
+        <source>Ending Time</source>
+        <translation>Endzeit</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/history.ui" line="116"/>
+        <source>Cleaning Duration</source>
+        <translation>Reinigungsdauer</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/history.ui" line="136"/>
+        <source>Cleaned Area</source>
+        <translation>Gereinigter Bereich</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/history.ui" line="167"/>
+        <source>Cleaning Result</source>
+        <translation>Reinigungsergebnis</translation>
     </message>
 </context>
 <context>
@@ -120,6 +193,36 @@
         <source>Progress</source>
         <translation>Fortschritt</translation>
     </message>
+    <message>
+        <location filename="../res/ui/packager.ui" line="36"/>
+        <source>Filename</source>
+        <translation>Dateiname</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/packager.ui" line="49"/>
+        <source>Compression Status</source>
+        <translation>Komprimierungsstatus</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/packager.ui" line="59"/>
+        <source>Encryption Status</source>
+        <translation>Verschlüsselungsstatus</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/packager.ui" line="74"/>
+        <source>Filecount</source>
+        <translation>Dateianzahl</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/packager.ui" line="84"/>
+        <source>Filesize</source>
+        <translation>Dateigröße</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/packager.ui" line="97"/>
+        <source>Elapsed Time</source>
+        <translation>Verstrichene Zeit</translation>
+    </message>
 </context>
 <context>
     <name>Dialog_Setup</name>
@@ -139,87 +242,217 @@
         <translation>IP-Adresse</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="82"/>
+        <location filename="../res/ui/setup.ui" line="64"/>
+        <source>IP-Address of Robot</source>
+        <translation>IP-Adresse des Roboters</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="85"/>
         <source>Message-ID</source>
         <translation>Nachrichten-ID</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="119"/>
+        <location filename="../res/ui/setup.ui" line="101"/>
+        <source>Message-ID Counter</source>
+        <translation>Nachrichten-ID Zähler</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="125"/>
         <source>AES-Token</source>
         <translation>AES-Token</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="199"/>
+        <location filename="../res/ui/setup.ui" line="147"/>
+        <source>AES-Token to encrypt Messages</source>
+        <translation>AES-Token zur Verschlüsselung der Nachrichten</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="166"/>
+        <source>Extract Token via SSH (Root required)</source>
+        <translation>Token über SSH extrahieren (Root erforderlich)</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="186"/>
+        <source>Convert 96 Byte to 32 Byte Token</source>
+        <translation>Umwandeln von 96 Byte in 32 Byte Token</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="214"/>
         <source>Sound</source>
         <translation>Sound</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="205"/>
+        <location filename="../res/ui/setup.ui" line="220"/>
         <source>Volume</source>
         <translation>Lautstärke</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="252"/>
+        <location filename="../res/ui/setup.ui" line="236"/>
+        <source>Voice Volume</source>
+        <translation>Sprachlautstärke</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="270"/>
+        <source>Enable/Disable Do Not Disturb Mode</source>
+        <translation>Nicht Stören Modus aktivieren/deaktivieren</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="273"/>
         <source>Do Not Disturb</source>
         <translation>Nicht Stören</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="293"/>
+        <location filename="../res/ui/setup.ui" line="301"/>
+        <source>Starting Time</source>
+        <translation>Startzeit</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="311"/>
+        <source>Ending Time</source>
+        <translation>Endzeit</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="321"/>
         <source>Voice</source>
         <translation>Stimme</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="376"/>
+        <location filename="../res/ui/setup.ui" line="343"/>
+        <source>Install Voice Package</source>
+        <translation>Sprachpaket installieren</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="363"/>
+        <source>Create Voice Package from wav Files</source>
+        <translation>Sprachpaket aus wav Dateien erstellen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="383"/>
+        <source>Extract wav Files from Voice Package</source>
+        <translation>wav Dateien aus Sprachpaket extrahieren</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="413"/>
         <source>Misc</source>
         <translation>Verschiedenes</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="382"/>
+        <location filename="../res/ui/setup.ui" line="419"/>
+        <source>Enable/Disable Carpet Mode</source>
+        <translation>Teppich-Modus aktivieren/deaktivieren</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="422"/>
         <source>Carpet Mode</source>
         <translation>Teppich-Modus</translation>
     </message>
     <message>
+        <location filename="../res/ui/setup.ui" line="437"/>
+        <source>Parameter Integral</source>
+        <translation>Parameter Integral</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="453"/>
+        <source>Parameter High</source>
+        <translation>Parameter Hoch</translation>
+    </message>
+    <message>
         <location filename="../res/ui/setup.ui" line="469"/>
+        <source>Parameter Low</source>
+        <translation>Parameter Niedrig</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="485"/>
+        <source>Parameter Stalltime</source>
+        <translation>Parameter Wartezeit</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="498"/>
+        <source>Reset all Parameter to Defaults</source>
+        <translation>Alle Parameter auf Standardwerte zurücksetzen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="524"/>
         <source>Reserved</source>
         <translation>Reserviert</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="489"/>
+        <location filename="../res/ui/setup.ui" line="544"/>
         <source>Username</source>
         <translation>Benutzername</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="518"/>
+        <location filename="../res/ui/setup.ui" line="560"/>
+        <source>SSH Username</source>
+        <translation>SSH Benutzername</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="576"/>
+        <source>Enable/Disable Login via Password</source>
+        <translation>Login mit Passwort aktivieren/deaktivieren</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="579"/>
         <source>Password</source>
         <translation>Passwort</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="555"/>
+        <location filename="../res/ui/setup.ui" line="601"/>
+        <source>SSH Password</source>
+        <translation>SSH Passwort</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="619"/>
+        <source>Enable/Disable Login via Key</source>
+        <translation>Login mit Schlüssel aktivieren/deaktivieren</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="622"/>
         <source>Keyfile</source>
         <translation>Schlüssel-Datei</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="612"/>
+        <location filename="../res/ui/setup.ui" line="644"/>
+        <source>SSH private Key</source>
+        <translation>SSH privater Schlüssel</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="657"/>
+        <source>Select SSH Keyfile</source>
+        <translation>SSH-Schlüsseldatei auswählen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="685"/>
         <source>WiFi</source>
         <translation>WLAN</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="618"/>
+        <location filename="../res/ui/setup.ui" line="691"/>
         <source>Credentials</source>
         <translation>Anmeldedaten</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="636"/>
+        <location filename="../res/ui/setup.ui" line="709"/>
+        <source>SSID for WiFi Connection</source>
+        <translation>SSID für WLAN-Verbindung</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="712"/>
         <source>&lt;SSID&gt;</source>
         <translation>&lt;SSID&gt;</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="663"/>
+        <location filename="../res/ui/setup.ui" line="739"/>
+        <source>Key for WiFi Connection</source>
+        <translation>Schlüssel für WLAN-Verbindung</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="742"/>
         <source>&lt;KEY&gt;</source>
         <translation>&lt;SCHLÜSSEL&gt;</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="685"/>
+        <location filename="../res/ui/setup.ui" line="764"/>
         <source>Set new credentials will change your device token!</source>
         <translation>Setzen neuer Zugangsdaten wird das Geräte-Token ändern!</translation>
     </message>
@@ -237,82 +470,172 @@
         <translation>Details</translation>
     </message>
     <message>
-        <location filename="../res/ui/timer.ui" line="33"/>
+        <location filename="../res/ui/timer.ui" line="32"/>
+        <source>Select Fanspeed</source>
+        <translation>Lüfterdrehzahl wählen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="36"/>
         <source>Quiet</source>
         <translation>Leise</translation>
     </message>
     <message>
-        <location filename="../res/ui/timer.ui" line="38"/>
+        <location filename="../res/ui/timer.ui" line="41"/>
         <source>Balanced</source>
         <translation>Ausgewogen</translation>
     </message>
     <message>
-        <location filename="../res/ui/timer.ui" line="43"/>
+        <location filename="../res/ui/timer.ui" line="46"/>
         <source>Turbo</source>
         <translation>Turbo</translation>
     </message>
     <message>
-        <location filename="../res/ui/timer.ui" line="48"/>
+        <location filename="../res/ui/timer.ui" line="51"/>
         <source>Maximum</source>
         <translation>Maximal</translation>
     </message>
     <message>
         <location filename="../res/ui/timer.ui" line="59"/>
+        <source>Timer Identifier</source>
+        <translation>Timer Kennung</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="66"/>
+        <source>Enable/Disable Timer</source>
+        <translation>Timer aktivieren/deaktivieren</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="69"/>
         <source>Active</source>
         <translation>Aktiviert</translation>
     </message>
     <message>
-        <location filename="../res/ui/timer.ui" line="199"/>
+        <location filename="../res/ui/timer.ui" line="96"/>
+        <source>Selected Hour</source>
+        <translation>Gewählte Stunde</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="109"/>
+        <source>Select Hour</source>
+        <translation>Stunde auswählen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="131"/>
+        <source>Selected Day</source>
+        <translation>Gewählter Tag</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="144"/>
+        <source>Selected Month</source>
+        <translation>Gewählter Monat</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="157"/>
+        <source>Select Day</source>
+        <translation>Tag auswählen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="179"/>
+        <source>Select Month</source>
+        <translation>Monat auswählen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="201"/>
+        <source>Select Minute</source>
+        <translation>Minute auswählen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="220"/>
+        <source>Selected Minute</source>
+        <translation>Gewählte Minute</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="233"/>
         <source>Hour</source>
         <translation>Stunde</translation>
     </message>
     <message>
-        <location filename="../res/ui/timer.ui" line="209"/>
+        <location filename="../res/ui/timer.ui" line="243"/>
         <source>Minute</source>
         <translation>Minute</translation>
     </message>
     <message>
-        <location filename="../res/ui/timer.ui" line="219"/>
+        <location filename="../res/ui/timer.ui" line="253"/>
         <source>Day</source>
         <translation>Tag</translation>
     </message>
     <message>
-        <location filename="../res/ui/timer.ui" line="229"/>
+        <location filename="../res/ui/timer.ui" line="263"/>
         <source>Month</source>
         <translation>Monat</translation>
     </message>
     <message>
-        <location filename="../res/ui/timer.ui" line="252"/>
+        <location filename="../res/ui/timer.ui" line="286"/>
+        <source>Start Tuesdays</source>
+        <translation>Starte Dienstags</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="289"/>
         <source>Tue</source>
         <translation>Di</translation>
     </message>
     <message>
-        <location filename="../res/ui/timer.ui" line="268"/>
+        <location filename="../res/ui/timer.ui" line="305"/>
+        <source>Start Saturdays</source>
+        <translation>Starte Samstags</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="308"/>
         <source>Sat</source>
         <translation>Sa</translation>
     </message>
     <message>
-        <location filename="../res/ui/timer.ui" line="284"/>
+        <location filename="../res/ui/timer.ui" line="324"/>
+        <source>Start Thursdays</source>
+        <translation>Starte Donnerstags</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="327"/>
         <source>Thu</source>
         <translation>Do</translation>
     </message>
     <message>
-        <location filename="../res/ui/timer.ui" line="300"/>
+        <location filename="../res/ui/timer.ui" line="343"/>
+        <source>Start Mondays</source>
+        <translation>Starte Montags</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="346"/>
         <source>Mon</source>
         <translation>Mo</translation>
     </message>
     <message>
-        <location filename="../res/ui/timer.ui" line="316"/>
+        <location filename="../res/ui/timer.ui" line="362"/>
+        <source>Start Fridays</source>
+        <translation>Starte Freitags</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="365"/>
         <source>Fri</source>
         <translation>Fr</translation>
     </message>
     <message>
-        <location filename="../res/ui/timer.ui" line="332"/>
+        <location filename="../res/ui/timer.ui" line="381"/>
+        <source>Start Wednesdays</source>
+        <translation>Starte Mittwochs</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="384"/>
         <source>Wed</source>
         <translation>Mi</translation>
     </message>
     <message>
-        <location filename="../res/ui/timer.ui" line="348"/>
+        <location filename="../res/ui/timer.ui" line="400"/>
+        <source>Start Sundays</source>
+        <translation>Starte Sonntags</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/timer.ui" line="403"/>
         <source>Sun</source>
         <translation>So</translation>
     </message>
@@ -329,6 +652,36 @@
         <source>Progress</source>
         <translation>Fortschritt</translation>
     </message>
+    <message>
+        <location filename="../res/ui/unpackager.ui" line="36"/>
+        <source>Filename</source>
+        <translation>Dateiname</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/unpackager.ui" line="49"/>
+        <source>Decryption Status</source>
+        <translation>Entschlüsselungsstatus</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/unpackager.ui" line="59"/>
+        <source>Decompression Status</source>
+        <translation>Dekomprimierungsstatus</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/unpackager.ui" line="74"/>
+        <source>Filecount</source>
+        <translation>Dateianzahl</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/unpackager.ui" line="84"/>
+        <source>Filesize</source>
+        <translation>Dateigröße</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/unpackager.ui" line="97"/>
+        <source>Elapsed Time</source>
+        <translation>Verstrichene Zeit</translation>
+    </message>
 </context>
 <context>
     <name>Dialog_Upload</name>
@@ -342,6 +695,31 @@
         <source>Progress</source>
         <translation>Fortschritt</translation>
     </message>
+    <message>
+        <location filename="../res/ui/upload.ui" line="36"/>
+        <source>Filename</source>
+        <translation>Dateiname</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/upload.ui" line="49"/>
+        <source>Upload Status</source>
+        <translation>Uploadstatus</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/upload.ui" line="59"/>
+        <source>Install Status</source>
+        <translation>Installationsstatus</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/upload.ui" line="74"/>
+        <source>Transfered Bytes</source>
+        <translation>Übertragene Bytes</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/upload.ui" line="87"/>
+        <source>Elapsed Time</source>
+        <translation>Verstrichene Zeit</translation>
+    </message>
 </context>
 <context>
     <name>Dialog_Zones</name>
@@ -354,6 +732,41 @@
         <location filename="../res/ui/zones.ui" line="24"/>
         <source>Zone</source>
         <translation>Bereich</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/zones.ui" line="30"/>
+        <source>Zone Label</source>
+        <translation>Bereichsbezeichnung</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/zones.ui" line="42"/>
+        <source>Starting Position (X1)</source>
+        <translation>Startposition (X1)</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/zones.ui" line="55"/>
+        <source>Ending Position (X2)</source>
+        <translation>Endposition (X2)</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/zones.ui" line="68"/>
+        <source>Starting Position (Y1)</source>
+        <translation>Startposition (Y1)</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/zones.ui" line="81"/>
+        <source>Ending Position (Y2)</source>
+        <translation>Endposition (Y2)</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/zones.ui" line="94"/>
+        <source>Cleaning Cycles</source>
+        <translation>Reinigungszyklen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/zones.ui" line="110"/>
+        <source>Current Zone</source>
+        <translation>Aktueller Bereich</translation>
     </message>
 </context>
 <context>
@@ -532,64 +945,73 @@
     </message>
     <message>
         <location filename="../res/ui/mainwindow.ui" line="908"/>
+        <location filename="../res/ui/mainwindow.ui" line="911"/>
         <source>Reset Zoom</source>
         <translation>Zoom rücksetzen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="917"/>
+        <location filename="../res/ui/mainwindow.ui" line="920"/>
+        <location filename="../res/ui/mainwindow.ui" line="923"/>
         <source>Goto Position</source>
         <translation>Gehe zu Position</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="925"/>
-        <location filename="../res/ui/mainwindow.ui" line="928"/>
+        <location filename="../res/ui/mainwindow.ui" line="931"/>
+        <location filename="../res/ui/mainwindow.ui" line="934"/>
+        <location filename="../res/ui/mainwindow.ui" line="937"/>
         <source>Flip Horizontal</source>
         <translation>Horizontal spiegeln</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="936"/>
-        <location filename="../res/ui/mainwindow.ui" line="939"/>
+        <location filename="../res/ui/mainwindow.ui" line="945"/>
+        <location filename="../res/ui/mainwindow.ui" line="948"/>
+        <location filename="../res/ui/mainwindow.ui" line="951"/>
         <source>Flip Vertical</source>
         <translation>Vertikal spiegeln</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="947"/>
-        <location filename="../res/ui/mainwindow.ui" line="950"/>
+        <location filename="../res/ui/mainwindow.ui" line="959"/>
+        <location filename="../res/ui/mainwindow.ui" line="962"/>
+        <location filename="../res/ui/mainwindow.ui" line="965"/>
         <source>Swap Up/Down</source>
         <translation>Aufwärts/Abwärts tauschen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="958"/>
-        <location filename="../res/ui/mainwindow.ui" line="961"/>
+        <location filename="../res/ui/mainwindow.ui" line="973"/>
+        <location filename="../res/ui/mainwindow.ui" line="976"/>
+        <location filename="../res/ui/mainwindow.ui" line="979"/>
         <source>Rotate 0°</source>
         <translation>0° Rotieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="969"/>
-        <location filename="../res/ui/mainwindow.ui" line="972"/>
+        <location filename="../res/ui/mainwindow.ui" line="987"/>
+        <location filename="../res/ui/mainwindow.ui" line="990"/>
+        <location filename="../res/ui/mainwindow.ui" line="993"/>
         <source>Rotate 90°</source>
         <translation>90° Rotieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="980"/>
-        <location filename="../res/ui/mainwindow.ui" line="983"/>
+        <location filename="../res/ui/mainwindow.ui" line="1001"/>
+        <location filename="../res/ui/mainwindow.ui" line="1004"/>
+        <location filename="../res/ui/mainwindow.ui" line="1007"/>
         <source>Rotate 180°</source>
         <translation>180° Rotieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="991"/>
-        <location filename="../res/ui/mainwindow.ui" line="994"/>
+        <location filename="../res/ui/mainwindow.ui" line="1015"/>
+        <location filename="../res/ui/mainwindow.ui" line="1018"/>
+        <location filename="../res/ui/mainwindow.ui" line="1021"/>
         <source>Rotate 270°</source>
         <translation>270° Rotieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1003"/>
-        <location filename="../res/ui/mainwindow.ui" line="1006"/>
+        <location filename="../res/ui/mainwindow.ui" line="1030"/>
+        <location filename="../res/ui/mainwindow.ui" line="1033"/>
         <source>Zones</source>
         <translation>Zonen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1009"/>
+        <location filename="../res/ui/mainwindow.ui" line="1036"/>
         <source>Edit Zones</source>
         <translation>Zonen anpassen</translation>
     </message>
@@ -1415,7 +1837,7 @@ Fehlercode: %1</translation>
 <context>
     <name>zonesDialog</name>
     <message>
-        <location filename="../zones.cpp" line="10"/>
+        <location filename="../zones.cpp" line="15"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>

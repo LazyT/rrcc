@@ -26,6 +26,9 @@
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="QComboBox" name="comboBox_zone">
+        <property name="toolTip">
+         <string>Zone Label</string>
+        </property>
         <property name="editable">
          <bool>true</bool>
         </property>
@@ -35,6 +38,9 @@
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
          <widget class="QSpinBox" name="spinBox_x1">
+          <property name="toolTip">
+           <string>Starting Position (X1)</string>
+          </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
@@ -45,6 +51,9 @@
         </item>
         <item row="1" column="0">
          <widget class="QSpinBox" name="spinBox_x2">
+          <property name="toolTip">
+           <string>Ending Position (X2)</string>
+          </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
@@ -55,6 +64,9 @@
         </item>
         <item row="0" column="1">
          <widget class="QSpinBox" name="spinBox_y1">
+          <property name="toolTip">
+           <string>Starting Position (Y1)</string>
+          </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
@@ -65,6 +77,9 @@
         </item>
         <item row="1" column="1">
          <widget class="QSpinBox" name="spinBox_y2">
+          <property name="toolTip">
+           <string>Ending Position (Y2)</string>
+          </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
@@ -75,6 +90,9 @@
         </item>
         <item row="2" column="0">
          <widget class="QSpinBox" name="spinBox_times">
+          <property name="toolTip">
+           <string>Cleaning Cycles</string>
+          </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
@@ -88,6 +106,9 @@
         </item>
         <item row="2" column="1">
          <widget class="QLabel" name="label_current">
+          <property name="toolTip">
+           <string>Current Zone</string>
+          </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
           </property>
