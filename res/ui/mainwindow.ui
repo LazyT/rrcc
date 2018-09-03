@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>RoboRock Control Center</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../rrcc.qrc">
+    <normaloff>:/ico/ico/app.ico</normaloff>:/ico/ico/app.ico</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,1">
     <item>
