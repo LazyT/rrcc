@@ -59,7 +59,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 	foreach(CLEANZONE zone, cfg.zones)
 	{
-		menu_map_zones->addAction(QIcon(":/png/png/zone.png"), zone.label);
+		QAction *action = new QAction(QIcon(":/png/png/zone.png"), zone.label, this);
+
+		action->setStatusTip(tr("Clean Zone %1").arg(zone.label));
+
+		menu_map_zones->addAction(action);
 	}
 
 	menu_map->addAction(actionMenu_Map_Reset);
