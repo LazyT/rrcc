@@ -313,6 +313,8 @@ private:
 	QNetworkAccessManager *netmgr;
 	QGraphicsScene *scene;
 	QPoint drag_pos, rubber_pos;
+	QRect zone_preview_rect = {0, 0, 0, 0};
+	QGraphicsRectItem *zone_preview_item = NULL;
 	QMenu *menu_map;
 	QActionGroup *group_map;
 	QRubberBand *rubberBand;
@@ -353,6 +355,9 @@ private slots:
 	void timer_setFanspeed();
 
 	void httpFinished(QNetworkReply*);
+
+	void hovered(QAction*);
+	void aboutToHide();
 
 	void resizeEvent(QResizeEvent*);
 	void mousePressEvent(QMouseEvent*);

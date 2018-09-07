@@ -57,6 +57,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	menu_map_zones = new QMenu(tr("Zone Cleaning"), this);
 	menu_map_zones->setIcon(QIcon(":/png/png/zone.png"));
 
+	connect(menu_map_zones, SIGNAL(hovered(QAction*)), this, SLOT(hovered(QAction*)));
+	connect(menu_map_zones, SIGNAL(aboutToHide()), this, SLOT(aboutToHide()));
+
 	foreach(CLEANZONE zone, cfg.zones)
 	{
 		QAction *action = new QAction(QIcon(":/png/png/zone.png"), zone.label, this);
@@ -1086,6 +1089,8 @@ void MainWindow::drawMapFromJson(QByteArray map)
 	int x1, y1, x2, y2;
 	int angle = 0;
 
+	zone_preview_item = NULL;
+
 	scene->clear();
 
 	png_dock = scene->addPixmap(QPixmap(":/png/png/dock.png"));
@@ -1145,6 +1150,11 @@ void MainWindow::drawMapFromJson(QByteArray map)
 		y1 = y2;
 	}
 
+	if(zone_preview_rect.width() && zone_preview_rect.height())
+	{
+		zone_preview_item = scene->addRect(zone_preview_rect, QPen(Qt::red), QBrush(QColor(255, 0, 0, 64)));
+	}
+
 	png_robo->setPos(x1, y1);
 	png_robo->setRotation(360 - angle);
 
@@ -1169,6 +1179,42 @@ void MainWindow::httpFinished(QNetworkReply *reply)
 		actionMap->setChecked(false);
 
 		QMessageBox::warning(this, APPNAME, tr("Map function is only available on rooted devices running Valetudo!\n\n%1").arg(reply->errorString()));
+	}
+}
+
+void MainWindow::hovered(QAction *action)
+{
+	int index = 0;
+
+	foreach(QAction *current, menu_map_zones->actions())
+	{
+		if(current == action)
+		{
+			break;
+		}
+
+		index++;
+	}
+
+	zone_preview_rect = QRect(cfg.zones.at(index).x1 / MAPFACTOR, (MAPSIZE - cfg.zones.at(index).y2) / MAPFACTOR, qAbs(cfg.zones.at(index).x1 - cfg.zones.at(index).x2) / MAPFACTOR, qAbs(cfg.zones.at(index).y1 - cfg.zones.at(index).y2) / MAPFACTOR);
+
+	if(zone_preview_item)
+	{
+		scene->removeItem(zone_preview_item);
+	}
+
+	zone_preview_item = scene->addRect(zone_preview_rect, QPen(Qt::red), QBrush(QColor(255, 0, 0, 64)));
+}
+
+void MainWindow::aboutToHide()
+{
+	zone_preview_rect = QRect();
+
+	if(zone_preview_item)
+	{
+		scene->removeItem(zone_preview_item);
+
+		zone_preview_item = NULL;
 	}
 }
 
