@@ -739,32 +739,32 @@
         <translation>Bereichsbezeichnung</translation>
     </message>
     <message>
-        <location filename="../res/ui/zones.ui" line="42"/>
+        <location filename="../res/ui/zones.ui" line="45"/>
         <source>Starting Position (X1)</source>
         <translation>Startposition (X1)</translation>
     </message>
     <message>
-        <location filename="../res/ui/zones.ui" line="55"/>
+        <location filename="../res/ui/zones.ui" line="58"/>
         <source>Ending Position (X2)</source>
         <translation>Endposition (X2)</translation>
     </message>
     <message>
-        <location filename="../res/ui/zones.ui" line="68"/>
+        <location filename="../res/ui/zones.ui" line="71"/>
         <source>Starting Position (Y1)</source>
         <translation>Startposition (Y1)</translation>
     </message>
     <message>
-        <location filename="../res/ui/zones.ui" line="81"/>
+        <location filename="../res/ui/zones.ui" line="84"/>
         <source>Ending Position (Y2)</source>
         <translation>Endposition (Y2)</translation>
     </message>
     <message>
-        <location filename="../res/ui/zones.ui" line="94"/>
+        <location filename="../res/ui/zones.ui" line="97"/>
         <source>Cleaning Cycles</source>
         <translation>Reinigungszyklen</translation>
     </message>
     <message>
-        <location filename="../res/ui/zones.ui" line="110"/>
+        <location filename="../res/ui/zones.ui" line="113"/>
         <source>Current Zone</source>
         <translation>Aktueller Bereich</translation>
     </message>
@@ -981,28 +981,28 @@
         <location filename="../res/ui/mainwindow.ui" line="980"/>
         <location filename="../res/ui/mainwindow.ui" line="983"/>
         <source>Rotate 0°</source>
-        <translation>0° Rotieren</translation>
+        <translation>0° drehen</translation>
     </message>
     <message>
         <location filename="../res/ui/mainwindow.ui" line="991"/>
         <location filename="../res/ui/mainwindow.ui" line="994"/>
         <location filename="../res/ui/mainwindow.ui" line="997"/>
         <source>Rotate 90°</source>
-        <translation>90° Rotieren</translation>
+        <translation>90° drehen</translation>
     </message>
     <message>
         <location filename="../res/ui/mainwindow.ui" line="1005"/>
         <location filename="../res/ui/mainwindow.ui" line="1008"/>
         <location filename="../res/ui/mainwindow.ui" line="1011"/>
         <source>Rotate 180°</source>
-        <translation>180° Rotieren</translation>
+        <translation>180° drehen</translation>
     </message>
     <message>
         <location filename="../res/ui/mainwindow.ui" line="1019"/>
         <location filename="../res/ui/mainwindow.ui" line="1022"/>
         <location filename="../res/ui/mainwindow.ui" line="1025"/>
         <source>Rotate 270°</source>
-        <translation>270° Rotieren</translation>
+        <translation>270° drehen</translation>
     </message>
     <message>
         <location filename="../res/ui/mainwindow.ui" line="1034"/>
@@ -1126,12 +1126,22 @@
         <translation>Bereichsreinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="63"/>
+        <location filename="../mainwindow.cpp" line="58"/>
+        <source>Rotation</source>
+        <translation>Drehung</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="59"/>
+        <source>Flipping</source>
+        <translation>Spiegelung</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="71"/>
         <source>Clean Zone %1</source>
         <translation>Reinige Bereich %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="117"/>
+        <location filename="../mainwindow.cpp" line="129"/>
         <source>Please configure your device:
 
 If your device is not provisioned yet connect to the wifi hotspot (&quot;roborock-vacuum...&quot;) and then click OK.
@@ -1144,12 +1154,12 @@ Wenn Ihr Gerät noch nicht eingerichtet ist, verbinden Sie sich mit dem WLAN-Hot
 Wenn Sie Ihren Token bereits haben, klicken Sie einfach auf OK.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="396"/>
+        <location filename="../mainwindow.cpp" line="408"/>
         <source>Token not set, please configure your device token first!</source>
         <translation>Token nicht gesetzt, bitte konfigurieren Sie zuerst Ihren Geräte-Token!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="440"/>
+        <location filename="../mainwindow.cpp" line="452"/>
         <source>Network connection timed out!
 
 Please check ip / token / msgid...</source>
@@ -1158,27 +1168,27 @@ Please check ip / token / msgid...</source>
 Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="915"/>
+        <location filename="../mainwindow.cpp" line="927"/>
         <source>No timers found, create new?</source>
         <translation>Keine Timer gefunden, einen Neuen erstellen?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="933"/>
+        <location filename="../mainwindow.cpp" line="945"/>
         <source>No cleaning history found.</source>
         <translation>Kein Reinigungsverlauf gefunden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="945"/>
+        <location filename="../mainwindow.cpp" line="957"/>
         <source>No cleaning zones defined yet.</source>
         <translation>Es sind noch keine Reinigungsbereiche definiert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="951"/>
+        <location filename="../mainwindow.cpp" line="963"/>
         <source>Help not implemented yet, sorry...</source>
         <translation>Hilfe noch nicht implementiert, sorry....</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1169"/>
+        <location filename="../mainwindow.cpp" line="1188"/>
         <source>Map function is only available on rooted devices running Valetudo!
 
 %1</source>
@@ -1187,13 +1197,13 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1273"/>
-        <location filename="../mainwindow.cpp" line="1405"/>
+        <location filename="../mainwindow.cpp" line="1328"/>
+        <location filename="../mainwindow.cpp" line="1460"/>
         <source>Map [ Zoom Factor = %1 ]</source>
         <translation>Karte [ Zoomfaktor = %1 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1356"/>
+        <location filename="../mainwindow.cpp" line="1411"/>
         <source>Start zone cleaning for selected region?
 
 [ %1 / %2 - %3 / %4 ]</source>
@@ -1202,12 +1212,12 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 [ %1 / %2 - %3 / %4 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1372"/>
+        <location filename="../mainwindow.cpp" line="1427"/>
         <source>You can customize all zones later with the zone editor.</source>
         <translation>Alle Zonen können später mit dem Zoneneditor angepasst werden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1429"/>
+        <location filename="../mainwindow.cpp" line="1484"/>
         <source>Send robot to selected position?
 
 [ %1 / %2 ]</source>
@@ -1216,17 +1226,17 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 [ %1 / %2 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1436"/>
+        <location filename="../mainwindow.cpp" line="1491"/>
         <source>Please select position inside the map!</source>
         <translation>Bitte Position innerhalb der Karte wählen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1485"/>
+        <location filename="../mainwindow.cpp" line="1540"/>
         <source>Start cleaning for zone &quot;%1&quot;?</source>
         <translation>Reinigung für Zone &quot;%1&quot; starten?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1514"/>
+        <location filename="../mainwindow.cpp" line="1569"/>
         <source>Really exit program?</source>
         <translation>Programm wirklich beenden?</translation>
     </message>

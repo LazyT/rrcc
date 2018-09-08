@@ -315,7 +315,7 @@ private:
 	QPoint drag_pos, rubber_pos;
 	QRect zone_preview_rect = {0, 0, 0, 0};
 	QGraphicsRectItem *zone_preview_item = NULL;
-	QMenu *menu_map;
+	QMenu *menu_map, *menu_map_rotation, *menu_map_flipping;
 	QActionGroup *group_map;
 	QRubberBand *rubberBand;
 	qreal scale;

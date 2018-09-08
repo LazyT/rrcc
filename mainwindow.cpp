@@ -55,7 +55,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 	menu_map = new QMenu(this);
 	menu_map_zones = new QMenu(tr("Zone Cleaning"), this);
+	menu_map_rotation = new QMenu(tr("Rotation"), this);
+	menu_map_flipping = new QMenu(tr("Flipping"), this);
 	menu_map_zones->setIcon(QIcon(":/png/png/zone.png"));
+	menu_map_rotation->setIcon(QIcon(":/png/png/rotate.png"));
+	menu_map_flipping->setIcon(QIcon(":/png/png/flip.png"));
 
 	connect(menu_map_zones, SIGNAL(hovered(QAction*)), this, SLOT(hovered(QAction*)));
 	connect(menu_map_zones, SIGNAL(aboutToHide()), this, SLOT(aboutToHide()));
@@ -69,19 +73,22 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 		menu_map_zones->addAction(action);
 	}
 
+	menu_map_rotation->addAction(actionMenu_Map_Rotate0);
+	menu_map_rotation->addAction(actionMenu_Map_Rotate90);
+	menu_map_rotation->addAction(actionMenu_Map_Rotate180);
+	menu_map_rotation->addAction(actionMenu_Map_Rotate270);
+	menu_map_flipping->addAction(actionMenu_Map_FlipH);
+	menu_map_flipping->addAction(actionMenu_Map_FlipV);
+
 	menu_map->addAction(actionMenu_Map_Reset);
 	menu_map->addSeparator();
 	menu_map->addAction(actionMenu_Map_Goto);
 	menu_map->addSeparator();
 	menu_map->addMenu(menu_map_zones);
 	menu_map->addSeparator();
-	menu_map->addAction(actionMenu_Map_Rotate0);
-	menu_map->addAction(actionMenu_Map_Rotate90);
-	menu_map->addAction(actionMenu_Map_Rotate180);
-	menu_map->addAction(actionMenu_Map_Rotate270);
+	menu_map->addMenu(menu_map_rotation);
 	menu_map->addSeparator();
-	menu_map->addAction(actionMenu_Map_FlipH);
-	menu_map->addAction(actionMenu_Map_FlipV);
+	menu_map->addMenu(menu_map_flipping);
 	menu_map->addSeparator();
 	menu_map->addAction(actionMenu_Map_SwapY);
 

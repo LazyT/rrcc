@@ -70,5 +70,7 @@
         <file>png/goto.png</file>
         <file>png/zoom.png</file>
         <file>png/zone.png</file>
+        <file>png/rotate.png</file>
+        <file>png/flip.png</file>
     </qresource>
 </RCC>
