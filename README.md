@@ -28,6 +28,14 @@ Only on rooted devices:
 
 ![main window](https://raw.github.com/LazyT/rrcc/gh-pages/screenshots/mainwindow.png)
 
+## Download
+
+Download and install the latest version for your operating system:
+
+* [Windows = win-*.exe](https://github.com/LazyT/rrcc/releases)
+* [MacOS = mac-*.dmg](https://github.com/LazyT/rrcc/releases)
+* [Linux = lin-*.AppImage](https://github.com/LazyT/rrcc/releases)
+
 ## Build from Source
 
 If the installer binaries doesn't work for you build it yourself:
