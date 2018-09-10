@@ -22,7 +22,7 @@ The current version supports the following features:
 Only on rooted devices:
 
 * extract token via ssh
-* map functions (goto spot, zone cleaning, show coordinates, flip hor/ver, rotate 90/180/270°, zoom)
+* map functions via [Valetudo](https://github.com/hypfer/valetudo) (goto spot, zone cleaning, show coordinates, flip hor/ver, rotate 90/180/270°, zoom)
 
 ## Screenshots
 
@@ -30,11 +30,19 @@ Only on rooted devices:
 
 ## Download
 
-Download and install the latest version for your operating system:
+Download the latest version for your operating system. All 3 files (exe, dmg, AppImage) contain the binary, translations and required libraries to run RRCC on the target platform without installing anything.
 
-* [Windows = win-*.exe](https://github.com/LazyT/rrcc/releases)
-* [MacOS = mac-*.dmg](https://github.com/LazyT/rrcc/releases)
-* [Linux = lin-*.AppImage](https://github.com/LazyT/rrcc/releases)
+* [Windows (exe)](https://github.com/LazyT/rrcc/releases)
+
+This is an [7zip](https://www.7-zip.org) self extracting archive. It will be automatically extracted to "%temp%\7zxxxxxxxx" and after that the "rrcc.exe" is started. You can copy this directory or extract the file with 7z if you want the content.
+
+* [MacOS (dmg)](https://github.com/LazyT/rrcc/releases)
+
+This is an Apple disc image. You can mount and run or copy the application.
+
+* [Linux (AppImage)](https://github.com/LazyT/rrcc/releases)
+
+This is an [AppImage](https://appimage.org) package. Don't forget to "chmod +x *.AppImage" after download and then run it. You can use the parameter "--appimage-extract" if you want the content.
 
 ## Build from Source
 
