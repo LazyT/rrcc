@@ -741,8 +741,16 @@
     <addaction name="separator"/>
     <addaction name="actionLogger"/>
    </widget>
+   <widget class="QMenu" name="menuValetudo">
+    <property name="title">
+     <string>Valetudo</string>
+    </property>
+    <addaction name="actionValetudoInstall"/>
+    <addaction name="actionValetudoUninstall"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuTools"/>
+   <addaction name="menuValetudo"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -1038,6 +1046,36 @@
    </property>
    <property name="statusTip">
     <string>Edit Zones</string>
+   </property>
+  </action>
+  <action name="actionValetudoInstall">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/compress.png</normaloff>:/png/png/compress.png</iconset>
+   </property>
+   <property name="text">
+    <string>Install</string>
+   </property>
+   <property name="toolTip">
+    <string>Install Valetudo</string>
+   </property>
+   <property name="statusTip">
+    <string>Install Valetudo</string>
+   </property>
+  </action>
+  <action name="actionValetudoUninstall">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/decompress.png</normaloff>:/png/png/decompress.png</iconset>
+   </property>
+   <property name="text">
+    <string>Uninstall</string>
+   </property>
+   <property name="toolTip">
+    <string>Uninstall Valetudo</string>
+   </property>
+   <property name="statusTip">
+    <string>Uninstall Valetudo</string>
    </property>
   </action>
  </widget>

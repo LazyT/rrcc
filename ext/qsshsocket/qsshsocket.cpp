@@ -76,7 +76,7 @@ void QSshSocket::run()
                 m_session = ssh_new();
 
                 //set logging to verbose so all errors can be debugged if crash happens
-                int verbosity = SSH_LOG_PROTOCOL;
+                int verbosity = SSH_LOG_NOLOG;
 
                 // set the pertinant ssh session options
                 ssh_options_set(m_session, SSH_OPTIONS_HOST, m_host.toUtf8().data());
@@ -147,7 +147,7 @@ void QSshSocket::run()
                     {
                         m_user = "";
                         m_key = "";
-                        error(PasswordAuthenticationFailedError);
+                        error(KeyAuthenticationFailedError);
                     }
                 }
                 else

@@ -958,6 +958,30 @@ void MainWindow::on_actionZones_triggered()
 	}
 }
 
+void MainWindow::on_actionValetudoInstall_triggered()
+{
+	if(cfg.ssh_pass.isEmpty() && cfg.ssh_pkey.isEmpty())
+	{
+		QMessageBox::warning(this, APPNAME, tr("Please setup your ssh settings first!"));
+	}
+	else
+	{
+		installerDialog(this).exec();
+	}
+}
+
+void MainWindow::on_actionValetudoUninstall_triggered()
+{
+	if(cfg.ssh_pass.isEmpty() && cfg.ssh_pkey.isEmpty())
+	{
+		QMessageBox::warning(this, APPNAME, tr("Please setup your ssh settings first!"));
+	}
+	else
+	{
+		uninstallerDialog(this).exec();
+	}
+}
+
 void MainWindow::on_actionHelp_triggered()
 {
 	QMessageBox::information(this, APPNAME, tr("Help not implemented yet, sorry..."));

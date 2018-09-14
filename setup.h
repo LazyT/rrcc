@@ -17,21 +17,6 @@ private:
 	QTimer timerVolume;
 	QSshSocket *ssh;
 
-	QStringList ssh_error_strings
-	{
-		"SocketError",
-		"SessionCreationError",
-		"ChannelCreationError",
-		"ScpChannelCreationError",
-		"ScpPullRequestError",
-		"ScpPushRequestError",
-		"ScpFileNotCreatedError",
-		"ScpReadError",
-		"ScpWriteError",
-		"PasswordAuthenticationFailedError",
-		"KeyAuthenticationFailedError"
-	};
-
 private slots:
 
 	void on_horizontalSlider_volume_valueChanged(int);

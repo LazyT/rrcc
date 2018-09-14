@@ -129,6 +129,59 @@
     </message>
 </context>
 <context>
+    <name>Dialog_Installer</name>
+    <message>
+        <location filename="../res/ui/installer.ui" line="14"/>
+        <source>Valetudo Installation</source>
+        <translation>Valetudo Installation</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="26"/>
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="42"/>
+        <source>Copy Config to Robot</source>
+        <translation>Konfig zum Roboter kopieren</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="75"/>
+        <source>Get Config from Github</source>
+        <translation>Konfig von Github laden</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="151"/>
+        <source>Copy Binary to Robot</source>
+        <translation>Programm zum Roboter kopieren</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="184"/>
+        <source>Get Binary from Github</source>
+        <translation>Programm von Github laden</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="220"/>
+        <source>Start Service Valetudo</source>
+        <translation>Dienst Valetudo starten</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="263"/>
+        <source>Change Binary Rights</source>
+        <translation>Programmrechte anpassen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="316"/>
+        <source>Stop Service Valetudo</source>
+        <translation>Dienst Valetudo stoppen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="349"/>
+        <source>Log</source>
+        <translation>Log</translation>
+    </message>
+</context>
+<context>
     <name>Dialog_Logger</name>
     <message>
         <location filename="../res/ui/logger.ui" line="14"/>
@@ -641,6 +694,39 @@
     </message>
 </context>
 <context>
+    <name>Dialog_Uninstaller</name>
+    <message>
+        <location filename="../res/ui/uninstaller.ui" line="14"/>
+        <source>Valetudo Uninstallation</source>
+        <translation>Valetudo Deinstallation</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/uninstaller.ui" line="26"/>
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/uninstaller.ui" line="69"/>
+        <source>Remove Config from Robot</source>
+        <translation>Konfig vom Roboter löschen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/uninstaller.ui" line="102"/>
+        <source>Stop Service Valetudo</source>
+        <translation>Dienst Valetudo stoppen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/uninstaller.ui" line="135"/>
+        <source>Remove Binary from Robot</source>
+        <translation>Programm vom Roboter löschen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/uninstaller.ui" line="168"/>
+        <source>Log</source>
+        <translation>Log</translation>
+    </message>
+</context>
+<context>
     <name>Dialog_Unpackager</name>
     <message>
         <location filename="../res/ui/unpackager.ui" line="14"/>
@@ -939,81 +1025,108 @@
         <translation>Karte [ Zoomfaktor = 1.00 ]</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="900"/>
+        <location filename="../res/ui/mainwindow.ui" line="746"/>
+        <source>Valetudo</source>
+        <translation>Valetudo</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/mainwindow.ui" line="908"/>
         <source>Map</source>
         <translation>Karte</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="912"/>
-        <location filename="../res/ui/mainwindow.ui" line="915"/>
+        <location filename="../res/ui/mainwindow.ui" line="920"/>
+        <location filename="../res/ui/mainwindow.ui" line="923"/>
         <source>Reset Zoom</source>
         <translation>Zoom rücksetzen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="924"/>
-        <location filename="../res/ui/mainwindow.ui" line="927"/>
+        <location filename="../res/ui/mainwindow.ui" line="932"/>
+        <location filename="../res/ui/mainwindow.ui" line="935"/>
         <source>Goto Position</source>
         <translation>Gehe zu Position</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="935"/>
-        <location filename="../res/ui/mainwindow.ui" line="938"/>
-        <location filename="../res/ui/mainwindow.ui" line="941"/>
+        <location filename="../res/ui/mainwindow.ui" line="943"/>
+        <location filename="../res/ui/mainwindow.ui" line="946"/>
+        <location filename="../res/ui/mainwindow.ui" line="949"/>
         <source>Flip Horizontal</source>
         <translation>Horizontal spiegeln</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="949"/>
-        <location filename="../res/ui/mainwindow.ui" line="952"/>
-        <location filename="../res/ui/mainwindow.ui" line="955"/>
+        <location filename="../res/ui/mainwindow.ui" line="957"/>
+        <location filename="../res/ui/mainwindow.ui" line="960"/>
+        <location filename="../res/ui/mainwindow.ui" line="963"/>
         <source>Flip Vertical</source>
         <translation>Vertikal spiegeln</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="963"/>
-        <location filename="../res/ui/mainwindow.ui" line="966"/>
-        <location filename="../res/ui/mainwindow.ui" line="969"/>
+        <location filename="../res/ui/mainwindow.ui" line="971"/>
+        <location filename="../res/ui/mainwindow.ui" line="974"/>
+        <location filename="../res/ui/mainwindow.ui" line="977"/>
         <source>Swap Up/Down</source>
         <translation>Aufwärts/Abwärts tauschen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="977"/>
-        <location filename="../res/ui/mainwindow.ui" line="980"/>
-        <location filename="../res/ui/mainwindow.ui" line="983"/>
+        <location filename="../res/ui/mainwindow.ui" line="985"/>
+        <location filename="../res/ui/mainwindow.ui" line="988"/>
+        <location filename="../res/ui/mainwindow.ui" line="991"/>
         <source>Rotate 0°</source>
         <translation>0° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="991"/>
-        <location filename="../res/ui/mainwindow.ui" line="994"/>
-        <location filename="../res/ui/mainwindow.ui" line="997"/>
+        <location filename="../res/ui/mainwindow.ui" line="999"/>
+        <location filename="../res/ui/mainwindow.ui" line="1002"/>
+        <location filename="../res/ui/mainwindow.ui" line="1005"/>
         <source>Rotate 90°</source>
         <translation>90° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1005"/>
-        <location filename="../res/ui/mainwindow.ui" line="1008"/>
-        <location filename="../res/ui/mainwindow.ui" line="1011"/>
+        <location filename="../res/ui/mainwindow.ui" line="1013"/>
+        <location filename="../res/ui/mainwindow.ui" line="1016"/>
+        <location filename="../res/ui/mainwindow.ui" line="1019"/>
         <source>Rotate 180°</source>
         <translation>180° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1019"/>
-        <location filename="../res/ui/mainwindow.ui" line="1022"/>
-        <location filename="../res/ui/mainwindow.ui" line="1025"/>
+        <location filename="../res/ui/mainwindow.ui" line="1027"/>
+        <location filename="../res/ui/mainwindow.ui" line="1030"/>
+        <location filename="../res/ui/mainwindow.ui" line="1033"/>
         <source>Rotate 270°</source>
         <translation>270° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1034"/>
-        <location filename="../res/ui/mainwindow.ui" line="1037"/>
+        <location filename="../res/ui/mainwindow.ui" line="1042"/>
+        <location filename="../res/ui/mainwindow.ui" line="1045"/>
         <source>Zones</source>
         <translation>Zonen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1040"/>
+        <location filename="../res/ui/mainwindow.ui" line="1048"/>
         <source>Edit Zones</source>
         <translation>Zonen anpassen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/mainwindow.ui" line="1057"/>
+        <source>Install</source>
+        <translation>Installation</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/mainwindow.ui" line="1060"/>
+        <location filename="../res/ui/mainwindow.ui" line="1063"/>
+        <source>Install Valetudo</source>
+        <translation>Valetudo installieren</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/mainwindow.ui" line="1072"/>
+        <source>Uninstall</source>
+        <translation>Deinstallation</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/mainwindow.ui" line="1075"/>
+        <location filename="../res/ui/mainwindow.ui" line="1078"/>
+        <source>Uninstall Valetudo</source>
+        <translation>Valetudo deinstallieren</translation>
     </message>
     <message>
         <location filename="../res/ui/mainwindow.ui" line="718"/>
@@ -1031,92 +1144,92 @@
         <translation>Werkzeuge</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="786"/>
+        <location filename="../res/ui/mainwindow.ui" line="794"/>
         <source>Exit</source>
         <translation>Beenden</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="789"/>
+        <location filename="../res/ui/mainwindow.ui" line="797"/>
         <source>Exit Program</source>
         <translation>Programm beenden</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="798"/>
+        <location filename="../res/ui/mainwindow.ui" line="806"/>
         <source>About</source>
         <translation>Über</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="801"/>
+        <location filename="../res/ui/mainwindow.ui" line="809"/>
         <source>Show About</source>
         <translation>Zeige Info</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="810"/>
+        <location filename="../res/ui/mainwindow.ui" line="818"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="813"/>
+        <location filename="../res/ui/mainwindow.ui" line="821"/>
         <source>Show Help</source>
         <translation>Zeige Hilfe</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="822"/>
-        <location filename="../res/ui/mainwindow.ui" line="825"/>
+        <location filename="../res/ui/mainwindow.ui" line="830"/>
+        <location filename="../res/ui/mainwindow.ui" line="833"/>
         <source>Timer</source>
         <translation>Zeitsteuerung</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="828"/>
+        <location filename="../res/ui/mainwindow.ui" line="836"/>
         <source>Manage Timer</source>
         <translation>Zeitsteuerung verwalten</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="837"/>
-        <location filename="../res/ui/mainwindow.ui" line="840"/>
+        <location filename="../res/ui/mainwindow.ui" line="845"/>
+        <location filename="../res/ui/mainwindow.ui" line="848"/>
         <source>History</source>
         <translation>Verlauf</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="843"/>
+        <location filename="../res/ui/mainwindow.ui" line="851"/>
         <source>Show History</source>
         <translation>Verlauf anzeigen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="852"/>
-        <location filename="../res/ui/mainwindow.ui" line="855"/>
+        <location filename="../res/ui/mainwindow.ui" line="860"/>
+        <location filename="../res/ui/mainwindow.ui" line="863"/>
         <source>Setup</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="858"/>
+        <location filename="../res/ui/mainwindow.ui" line="866"/>
         <source>Configure Settings</source>
         <translation>Einstellungen konfigurieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="867"/>
-        <location filename="../res/ui/mainwindow.ui" line="870"/>
+        <location filename="../res/ui/mainwindow.ui" line="875"/>
+        <location filename="../res/ui/mainwindow.ui" line="878"/>
         <source>Logger</source>
         <translation>Logger</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="873"/>
+        <location filename="../res/ui/mainwindow.ui" line="881"/>
         <source>Show Log</source>
         <translation>Protokoll anzeigen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="882"/>
-        <location filename="../res/ui/mainwindow.ui" line="885"/>
+        <location filename="../res/ui/mainwindow.ui" line="890"/>
+        <location filename="../res/ui/mainwindow.ui" line="893"/>
         <source>Refresh</source>
         <translation>Aktualisieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="888"/>
+        <location filename="../res/ui/mainwindow.ui" line="896"/>
         <source>Refresh Status</source>
         <translation>Status aktualisieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="903"/>
+        <location filename="../res/ui/mainwindow.ui" line="911"/>
         <source>Show Map</source>
         <translation>Karte anzeigen</translation>
     </message>
@@ -1183,12 +1296,18 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
         <translation>Es sind noch keine Reinigungsbereiche definiert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="963"/>
+        <location filename="../mainwindow.cpp" line="965"/>
+        <location filename="../mainwindow.cpp" line="977"/>
+        <source>Please setup your ssh settings first!</source>
+        <translation>Bitte zuerst die SSH-Einstellungen vornehmen!</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="987"/>
         <source>Help not implemented yet, sorry...</source>
         <translation>Hilfe noch nicht implementiert, sorry....</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1188"/>
+        <location filename="../mainwindow.cpp" line="1212"/>
         <source>Map function is only available on rooted devices running Valetudo!
 
 %1</source>
@@ -1197,13 +1316,13 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1328"/>
-        <location filename="../mainwindow.cpp" line="1460"/>
+        <location filename="../mainwindow.cpp" line="1352"/>
+        <location filename="../mainwindow.cpp" line="1484"/>
         <source>Map [ Zoom Factor = %1 ]</source>
         <translation>Karte [ Zoomfaktor = %1 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1411"/>
+        <location filename="../mainwindow.cpp" line="1435"/>
         <source>Start zone cleaning for selected region?
 
 [ %1 / %2 - %3 / %4 ]</source>
@@ -1212,12 +1331,12 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 [ %1 / %2 - %3 / %4 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1427"/>
+        <location filename="../mainwindow.cpp" line="1451"/>
         <source>You can customize all zones later with the zone editor.</source>
         <translation>Alle Zonen können später mit dem Zoneneditor angepasst werden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1484"/>
+        <location filename="../mainwindow.cpp" line="1508"/>
         <source>Send robot to selected position?
 
 [ %1 / %2 ]</source>
@@ -1226,177 +1345,177 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 [ %1 / %2 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1491"/>
+        <location filename="../mainwindow.cpp" line="1515"/>
         <source>Please select position inside the map!</source>
         <translation>Bitte Position innerhalb der Karte wählen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1540"/>
+        <location filename="../mainwindow.cpp" line="1564"/>
         <source>Start cleaning for zone &quot;%1&quot;?</source>
         <translation>Reinigung für Zone &quot;%1&quot; starten?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1569"/>
+        <location filename="../mainwindow.cpp" line="1593"/>
         <source>Really exit program?</source>
         <translation>Programm wirklich beenden?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="147"/>
+        <location filename="../mainwindow.h" line="149"/>
         <source>No error</source>
         <translation>Kein Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="148"/>
+        <location filename="../mainwindow.h" line="150"/>
         <source>Archive has bad data</source>
         <translation>Archiv hat fehlerhafte Daten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="149"/>
+        <location filename="../mainwindow.h" line="151"/>
         <source>Archive does not exist or no permission</source>
         <translation>Archiv existiert nicht oder keine Berechtigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="150"/>
+        <location filename="../mainwindow.h" line="152"/>
         <source>Unknown error</source>
         <translation>Unbekannter Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="151"/>
+        <location filename="../mainwindow.h" line="153"/>
         <source>Fatal error</source>
         <translation>Schwerwiegender Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="152"/>
+        <location filename="../mainwindow.h" line="154"/>
         <source>Wrong password for archive</source>
         <translation>Falsches Passwort für Archiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="153"/>
+        <location filename="../mainwindow.h" line="155"/>
         <source>Empty password for archive</source>
         <translation>Leeres Kennwort für Archiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="154"/>
+        <location filename="../mainwindow.h" line="156"/>
         <source>Cannot create archive</source>
         <translation>Archiv kann nicht erstellt werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="155"/>
+        <location filename="../mainwindow.h" line="157"/>
         <source>Cannot open added file</source>
         <translation>Hinzugefügte Datei kann nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="156"/>
+        <location filename="../mainwindow.h" line="158"/>
         <source>Cannot read added file</source>
         <translation>Hinzugefügte Datei kann nicht gelesen werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="157"/>
+        <location filename="../mainwindow.h" line="159"/>
         <source>Cannot find extraction destination</source>
         <translation>Extraktionsziel kann nicht gefunden werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="158"/>
+        <location filename="../mainwindow.h" line="160"/>
         <source>File does not exists</source>
         <translation>Datei existiert nicht</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="159"/>
+        <location filename="../mainwindow.h" line="161"/>
         <source>Extraction destination invalid</source>
         <translation>Extraktionsziel ungültig</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="160"/>
+        <location filename="../mainwindow.h" line="162"/>
         <source>Memory allocation failed</source>
         <translation>Speicherzuweisung fehlgeschlagen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="161"/>
+        <location filename="../mainwindow.h" line="163"/>
         <source>Cannot open existing file</source>
         <translation>Vorhandene Datei kann nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="284"/>
+        <location filename="../mainwindow.h" line="301"/>
         <source>Starting</source>
         <translation>Starten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="285"/>
+        <location filename="../mainwindow.h" line="302"/>
         <source>Charger disconnected</source>
         <translation>Ladegerät getrennt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="286"/>
+        <location filename="../mainwindow.h" line="303"/>
         <source>Idle</source>
         <translation>Leerlauf</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="287"/>
+        <location filename="../mainwindow.h" line="304"/>
         <source>Remote control active</source>
         <translation>Fernbedienung aktiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="288"/>
+        <location filename="../mainwindow.h" line="305"/>
         <source>Cleaning</source>
         <translation>Reinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="289"/>
+        <location filename="../mainwindow.h" line="306"/>
         <source>Returning home</source>
         <translation>Rückkehr nach Hause</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="290"/>
+        <location filename="../mainwindow.h" line="307"/>
         <source>Manual mode</source>
         <translation>Manueller Betrieb</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="291"/>
+        <location filename="../mainwindow.h" line="308"/>
         <source>Charging</source>
         <translation>Aufladen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="292"/>
+        <location filename="../mainwindow.h" line="309"/>
         <source>Charging problem</source>
         <translation>Ladeproblem</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="293"/>
+        <location filename="../mainwindow.h" line="310"/>
         <source>Paused</source>
         <translation>Pausiert</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="294"/>
+        <location filename="../mainwindow.h" line="311"/>
         <source>Spot cleaning</source>
         <translation>Bereichsreinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="295"/>
+        <location filename="../mainwindow.h" line="312"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="296"/>
+        <location filename="../mainwindow.h" line="313"/>
         <source>Shutting down</source>
         <translation>Herunterfahren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="297"/>
+        <location filename="../mainwindow.h" line="314"/>
         <source>Updating</source>
         <translation>Aktualisierung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="298"/>
+        <location filename="../mainwindow.h" line="315"/>
         <source>Docking</source>
         <translation>Andocken</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="299"/>
+        <location filename="../mainwindow.h" line="316"/>
         <source>Going to target</source>
         <translation>Unterwegs zum Ziel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="300"/>
+        <location filename="../mainwindow.h" line="317"/>
         <source>Zoned cleaning</source>
         <translation>Zonenreinigung</translation>
     </message>
@@ -1536,6 +1655,125 @@ Möchten Sie trotzdem die weitere Entwicklung des Projektes unterstützen?</tran
         <location filename="../history.h" line="38"/>
         <source>Unpowered charging station</source>
         <translation>Ladestation ohne Stromzufuhr</translation>
+    </message>
+</context>
+<context>
+    <name>installerDialog</name>
+    <message>
+        <location filename="../installer.cpp" line="10"/>
+        <source>Install</source>
+        <translation>Installieren</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="52"/>
+        <source>No Valetudo releases found on Github!</source>
+        <translation>Keine Valetudo Releases auf Github gefunden!</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="70"/>
+        <source>GET: %1 started
+</source>
+        <translation>GET: %1 gestartet
+</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="138"/>
+        <source>GET: failed -&gt; %1
+</source>
+        <translation>GET: fehlgeschlagen -&gt; %1
+</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="146"/>
+        <source>Download Valetudo release list from Github failed!
+
+%1</source>
+        <translation>Download der Valetudo Release-Liste von Github fehlgeschlagen!
+
+%1</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="160"/>
+        <source>GET: finished
+</source>
+        <translation>GET: abgeschlossen
+</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="216"/>
+        <source>SSH: connected
+</source>
+        <translation>SSH: verbunden
+</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="237"/>
+        <source>SSH: logged in
+</source>
+        <translation>SSH: angemeldet
+</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="244"/>
+        <source>SCP: finished
+</source>
+        <translation>SCP: abgeschlossen
+</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="250"/>
+        <location filename="../installer.cpp" line="270"/>
+        <source>SCP: %1 -&gt; %2 started
+</source>
+        <translation>SCP: %1 -&gt; %2 gestartet
+</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="264"/>
+        <source>SSH: %1 -&gt; %2
+</source>
+        <translation>SSH: %1 -&gt; %2
+</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="290"/>
+        <source>SSH: disconnected
+</source>
+        <translation>SSH: getrennt
+</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="295"/>
+        <location filename="../installer.cpp" line="361"/>
+        <location filename="../installer.cpp" line="368"/>
+        <source>Valetudo installation failed!</source>
+        <translation>Valetudo Installation fehlgeschlagen!</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="295"/>
+        <source>Valetudo installation finished.
+
+Read log for details.</source>
+        <translation>Valetudo Installation abgeschlossen.
+
+Das Protokoll für weitere Informationen lesen.</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="302"/>
+        <source>SSH: %1
+</source>
+        <translation>SSH: %1
+</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="315"/>
+        <source>Really abort download?</source>
+        <translation>Download wirklich abbrechen?</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="324"/>
+        <source>Can not abort current operation, please wait...</source>
+        <translation>Kann die laufende Operation nicht abbrechen, bitte warten...</translation>
     </message>
 </context>
 <context>
@@ -1785,6 +2023,68 @@ Wait until device has connected to your wifi and then press OK...</source>
         <location filename="../timer.cpp" line="23"/>
         <source>Del Timer</source>
         <translation>Timer löschen</translation>
+    </message>
+</context>
+<context>
+    <name>uninstallerDialog</name>
+    <message>
+        <location filename="../uninstaller.cpp" line="10"/>
+        <source>Uninstall</source>
+        <translation>Deinstallieren</translation>
+    </message>
+    <message>
+        <location filename="../uninstaller.cpp" line="41"/>
+        <source>SSH: connected
+</source>
+        <translation>SSH: verbunden
+</translation>
+    </message>
+    <message>
+        <location filename="../uninstaller.cpp" line="62"/>
+        <source>SSH: logged in
+</source>
+        <translation>SSH: angemeldet
+</translation>
+    </message>
+    <message>
+        <location filename="../uninstaller.cpp" line="69"/>
+        <source>SSH: %1 -&gt; %2
+</source>
+        <translation>SSH: %1 -&gt; %2
+</translation>
+    </message>
+    <message>
+        <location filename="../uninstaller.cpp" line="93"/>
+        <source>SSH: disconnected
+</source>
+        <translation>SSH: getrennt
+</translation>
+    </message>
+    <message>
+        <location filename="../uninstaller.cpp" line="98"/>
+        <source>Valetudo uninstallation failed!</source>
+        <translation>Valetudo Deinstallation fehlgeschlagen!</translation>
+    </message>
+    <message>
+        <location filename="../uninstaller.cpp" line="98"/>
+        <source>Valetudo uninstallation finished.
+
+Read log for details.</source>
+        <translation>Valetudo Deinstallation abgeschlossen.
+
+Das Protokoll für weitere Informationen lesen.</translation>
+    </message>
+    <message>
+        <location filename="../uninstaller.cpp" line="105"/>
+        <source>SSH: %1
+</source>
+        <translation>SSH: %1
+</translation>
+    </message>
+    <message>
+        <location filename="../uninstaller.cpp" line="118"/>
+        <source>Can not abort current operation, please wait...</source>
+        <translation>Kann die laufende Operation nicht abbrechen, bitte warten...</translation>
     </message>
 </context>
 <context>

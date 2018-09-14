@@ -51,6 +51,8 @@
 #include "converter.h"
 #include "about.h"
 #include "zones.h"
+#include "installer.h"
+#include "uninstaller.h"
 
 #define CFG QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/.rrcc/rrcc.cfg"
 #define LOG QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/rrcc.log"
@@ -159,6 +161,21 @@ public:
 		tr("Extraction destination invalid"),
 		tr("Memory allocation failed"),
 		tr("Cannot open existing file")
+	};
+
+	QStringList ssh_error_strings
+	{
+		"SocketError",
+		"SessionCreationError",
+		"ChannelCreationError",
+		"ScpChannelCreationError",
+		"ScpPullRequestError",
+		"ScpPushRequestError",
+		"ScpFileNotCreatedError",
+		"ScpReadError",
+		"ScpWriteError",
+		"PasswordAuthenticationFailedError",
+		"KeyAuthenticationFailedError"
 	};
 
 	struct CONFIG
@@ -330,6 +347,8 @@ private slots:
 	void on_actionTimer_triggered();
 	void on_actionHistory_triggered();
 	void on_actionZones_triggered();
+	void on_actionValetudoInstall_triggered();
+	void on_actionValetudoUninstall_triggered();
 	void on_actionHelp_triggered();
 	void on_actionAbout_triggered();
 

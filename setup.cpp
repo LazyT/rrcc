@@ -337,7 +337,7 @@ void setupDialog::ssh_error(QSshSocket::SshError error)
 {
 	ssh->disconnectFromHost();
 
-	QMessageBox::warning(this, APPNAME, tr("SSH connection error!\n\n%1").arg(ssh_error_strings.at(error)));
+	QMessageBox::warning(this, APPNAME, tr("SSH connection error!\n\n%1").arg(((MainWindow*)parent())->ssh_error_strings.at(error)));
 }
 
 void setupDialog::reject()
