@@ -23,8 +23,9 @@ private:
 	QFile *file;
 	int size;
 	quint64 total;
-	bool finished;
-	bool canceled;
+	bool finished = false;
+	bool canceled = false;
+	bool requested = false;
 
 private slots:
 

@@ -10,12 +10,9 @@ uploadDialog::uploadDialog(QWidget *parent, QFile *package) : QDialog(parent)
 	file = package;
 
 	label_file->setText(QFileInfo(file->fileName()).fileName());
-	label_bytes->setText(QString("0 / %1 Byte").arg(size));
+	label_bytes->setText(QString("0 / %1 Byte").arg(file->size()));
 
 	connect(&timer, SIGNAL(timeout()), this, SLOT(timer_refreshTime()));
-
-	finished = false;
-	canceled = false;
 
 	time.start();
 	timer.start(500);
@@ -39,7 +36,26 @@ void uploadDialog::startUploading()
 	{
 		if(((MainWindow*)parent())->sendUDP(MIIO_GET_CURRENT_SOUND))
 		{
-			((MainWindow*)parent())->sendUDP(QString(MIIO_DNLD_INSTALL_SOUND).arg(QString("http://192.168.1.1:8080/%1").arg(QFileInfo(file->fileName()).fileName())).arg(QString(QCryptographicHash::hash(pkg, QCryptographicHash::Md5).toHex())).arg(((MainWindow*)parent())->robo.currentsound.sid_in_use).arg("%1"));
+			if(!((MainWindow*)parent())->sendUDP(QString(MIIO_DNLD_INSTALL_SOUND).arg(QString("http://%1:8080/%2").arg(((MainWindow*)parent())->src_ip).arg(QFileInfo(file->fileName()).fileName())).arg(QString(QCryptographicHash::hash(pkg, QCryptographicHash::Md5).toHex())).arg(((MainWindow*)parent())->robo.currentsound.sid_in_use).arg("%1")))
+			{
+				timer.stop();
+
+				canceled = true;
+
+				QMessageBox::warning(this, APPNAME, tr("Could not start voice installation!"));
+
+				close();
+			}
+		}
+		else
+		{
+			timer.stop();
+
+			canceled = true;
+
+			QMessageBox::warning(this, APPNAME, tr("Could not detect current voice id!"));
+
+			close();
 		}
 	}
 	else
@@ -59,6 +75,17 @@ void uploadDialog::timer_refreshTime()
 	QTime elapsed = QTime::fromMSecsSinceStartOfDay(time.elapsed());
 
 	label_time->setText(QString("%1h:%2m:%3s").arg(elapsed.hour(), 2, 10, QChar('0')).arg(elapsed.minute(), 2, 10, QChar('0')).arg(elapsed.second(), 2, 10, QChar('0')));
+
+	if(!requested && time.elapsed() >= 15000)
+	{
+		timer.stop();
+
+		canceled = true;
+
+		QMessageBox::warning(this, APPNAME, tr("Robot does not send voice package request!\n\nMake sure your firewall accepts incoming tcp connections for\n\n   %1 -> %2:8080\n\nand try again...").arg(((MainWindow*)parent())->cfg.ip).arg(((MainWindow*)parent())->src_ip));
+
+		close();
+	}
 }
 
 void uploadDialog::newConnection()
@@ -68,6 +95,8 @@ void uploadDialog::newConnection()
 	connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
 	connect(socket, SIGNAL(disconnected()), this, SLOT(disconnected()));
 	connect(socket, SIGNAL(bytesWritten(qint64)), this, SLOT(bytesWritten(qint64)));
+
+	requested = true;
 }
 
 void uploadDialog::readyRead()
@@ -110,19 +139,20 @@ void uploadDialog::disconnected()
 
 	progressBar_install->setValue(50);
 
-	while(((MainWindow*)parent())->robo.soundprogress.sid_in_progress)
+	do
 	{
 		((MainWindow*)parent())->sendUDP(MIIO_GET_SOUND_PROGRESS);
 
 		QThread::msleep(1000);
 		QCoreApplication::processEvents();
 	}
+	while(((MainWindow*)parent())->robo.soundprogress.sid_in_progress);
 
 	timer.stop();
 
 	progressBar_install->setValue(100);
 
-	((MainWindow*)parent())->robo.soundprogress.error ? QMessageBox::warning(this, APPNAME, tr("Voice upload failed!\n\nErrorcode: %1").arg(((MainWindow*)parent())->robo.soundprogress.error)) : QMessageBox::information(this, APPNAME, tr("Voice upload sucessfull."));
+	((MainWindow*)parent())->robo.soundprogress.error ? QMessageBox::warning(this, APPNAME, tr("Voice installation failed!\n\nErrorcode: %1").arg(((MainWindow*)parent())->robo.soundprogress.error)) : QMessageBox::information(this, APPNAME, tr("Voice installation successful."));
 
 	close();
 }

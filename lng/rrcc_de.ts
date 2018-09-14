@@ -1816,7 +1816,17 @@ Wait until device has connected to your wifi and then press OK...</source>
 <context>
     <name>uploadDialog</name>
     <message>
-        <location filename="../upload.cpp" line="51"/>
+        <location filename="../upload.cpp" line="45"/>
+        <source>Could not start voice installation!</source>
+        <translation>Die Sprachinstallation konnte nicht gestartet werden!</translation>
+    </message>
+    <message>
+        <location filename="../upload.cpp" line="56"/>
+        <source>Could not detect current voice id!</source>
+        <translation>Die aktuelle Sprache konnte nicht erkannt werden!</translation>
+    </message>
+    <message>
+        <location filename="../upload.cpp" line="67"/>
         <source>Could not start HTTP server!
 
 %1</source>
@@ -1825,26 +1835,43 @@ Wait until device has connected to your wifi and then press OK...</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../upload.cpp" line="104"/>
+        <location filename="../upload.cpp" line="85"/>
+        <source>Robot does not send voice package request!
+
+Make sure your firewall accepts incoming tcp connections for
+
+   %1 -&gt; %2:8080
+
+and try again...</source>
+        <translation>Roboter sendet keine Sprachpaketanforderung!
+
+Sicherstellen das die Firewall eingehende TCP-Verbindungen für
+
+   %1 -&gt; %2:8080
+
+akzeptiert und erneut versuchen...</translation>
+    </message>
+    <message>
+        <location filename="../upload.cpp" line="133"/>
         <source>Upload aborted by user!</source>
         <translation>Upload vom Benutzer abgebrochen!</translation>
     </message>
     <message>
-        <location filename="../upload.cpp" line="125"/>
-        <source>Voice upload failed!
+        <location filename="../upload.cpp" line="155"/>
+        <source>Voice installation failed!
 
 Errorcode: %1</source>
-        <translation>Stimmen-Upload fehlgeschlagen!
+        <translation>Sprachinstallation fehlgeschlagen!
 
 Fehlercode: %1</translation>
     </message>
     <message>
-        <location filename="../upload.cpp" line="125"/>
-        <source>Voice upload sucessfull.</source>
-        <translation>Stimmen-Upload erfolgreich.</translation>
+        <location filename="../upload.cpp" line="155"/>
+        <source>Voice installation successful.</source>
+        <translation>Sprachinstallation erfolgreich.</translation>
     </message>
     <message>
-        <location filename="../upload.cpp" line="134"/>
+        <location filename="../upload.cpp" line="164"/>
         <source>Really abort upload?</source>
         <translation>Upload wirklich abbrechen?</translation>
     </message>
