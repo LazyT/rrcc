@@ -354,6 +354,9 @@ void installerDialog::on_buttonBox_clicked(QAbstractButton *button)
 		progressBar_chmod_bin->setValue(0);
 		progressBar_start_service->setValue(0);
 
+		progressBar_download_bin->setFormat("");
+		progressBar_download_cfg->setFormat("");
+
 		plainTextEdit->clear();
 
 		if(Download(comboBox->itemData(comboBox->currentIndex()).toString()))
