@@ -699,6 +699,22 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QProgressBar" name="progressBar_MapRefresh">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>3</height>
+          </size>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="textVisible">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </item>

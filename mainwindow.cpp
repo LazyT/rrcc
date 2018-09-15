@@ -1030,6 +1030,8 @@ void MainWindow::on_dial_valueChanged(int value)
 
 void MainWindow::timer_refreshMap()
 {
+	progressBar_MapRefresh->setValue(0);
+
 	netmgr->get(QNetworkRequest(QUrl(QString("http://%1/api/map/latest").arg(cfg.ip))));
 }
 
@@ -1197,6 +1199,8 @@ void MainWindow::drawMapFromJson(QByteArray map)
 
 void MainWindow::httpFinished(QNetworkReply *reply)
 {
+	progressBar_MapRefresh->setValue(100);
+
 	if(!reply->error())
 	{
 		QByteArray data = reply->readAll();
