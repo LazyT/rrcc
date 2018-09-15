@@ -886,8 +886,6 @@ void MainWindow::on_actionMap_toggled(bool checked)
 		setWindowFlags(Qt::Window | Qt::CustomizeWindowHint | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
 		layout()->setSizeConstraint(QLayout::SetMinAndMaxSize);
 
-		timerMap.start(5000);
-
 		emit timer_refreshMap();
 	}
 	else
@@ -1204,6 +1202,9 @@ void MainWindow::httpFinished(QNetworkReply *reply)
 		QByteArray data = reply->readAll();
 
 		drawMapFromJson(data);
+
+		timerMap.setSingleShot(true);
+		timerMap.start(5000);
 	}
 	else
 	{
