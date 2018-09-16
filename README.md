@@ -46,7 +46,7 @@ This is an [AppImage](https://appimage.org) package. Don't forget to "chmod +x *
 
 ## Build from Source
 
-If the installer binaries doesn't work for you build it yourself:
+If the release binaries doesn't work for you build it yourself:
 
 1) checkout the source code
 
