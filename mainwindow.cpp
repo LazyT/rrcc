@@ -1232,7 +1232,7 @@ void MainWindow::hovered(QAction *action)
 		index++;
 	}
 
-	zone_preview_rect = QRect(cfg.zones.at(index).x1 / MAPFACTOR, (MAPSIZE - cfg.zones.at(index).y2) / MAPFACTOR, qAbs(cfg.zones.at(index).x1 - cfg.zones.at(index).x2) / MAPFACTOR, qAbs(cfg.zones.at(index).y1 - cfg.zones.at(index).y2) / MAPFACTOR);
+	zone_preview_rect = QRect(cfg.zones.at(index).x1 / MAPFACTOR, (cfg.swap_y ? cfg.zones.at(index).y1 : MAPSIZE - cfg.zones.at(index).y2) / MAPFACTOR, qAbs(cfg.zones.at(index).x1 - cfg.zones.at(index).x2) / MAPFACTOR, qAbs(cfg.zones.at(index).y1 - cfg.zones.at(index).y2) / MAPFACTOR);
 
 	if(zone_preview_item)
 	{
@@ -1408,31 +1408,28 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 		{
 			QPointF src = graphicsView->mapToScene(rubber_pos) * MAPFACTOR;
 			QPointF dst = graphicsView->mapToScene(graphicsView->mapFromGlobal(event->globalPos())) * MAPFACTOR;
-			int x1, y1, x2, y2;
+			int x1, y1, x2, y2, swap;
 			int rc;
 
 			rubberBand->hide();
 
-			if(src.x() < dst.x())
+			x1 = src.x();
+			y1 = cfg.swap_y ? src.y() : MAPSIZE - src.y();
+			x2 = dst.x();
+			y2 = cfg.swap_y ? dst.y() : MAPSIZE - dst.y();
+
+			if(x1 > x2)
 			{
-				x1 = src.x();
-				x2 = dst.x();
-			}
-			else
-			{
-				x1 = dst.x();
-				x2 = src.x();
+				swap = x1;
+				x1 = x2;
+				x2 = swap;
 			}
 
-			if(src.y() > dst.y())
+			if(y1 > y2)
 			{
-				y1 = cfg.swap_y ? src.y() : MAPSIZE - src.y();
-				y2 = cfg.swap_y ? dst.y() : MAPSIZE - dst.y();
-			}
-			else
-			{
-				y1 = cfg.swap_y ? dst.y() : MAPSIZE - dst.y();
-				y2 = cfg.swap_y ? src.y() : MAPSIZE - src.y();
+				swap = y1;
+				y1 = y2;
+				y2 = swap;
 			}
 
 			if(src != dst)
