@@ -471,41 +471,46 @@
     </message>
     <message>
         <location filename="../res/ui/setup.ui" line="657"/>
+        <source>SSH private Key Passphrase</source>
+        <translation>SSH privater Schlüssel Passphrase</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/setup.ui" line="670"/>
         <source>Select SSH Keyfile</source>
         <translation>SSH-Schlüsseldatei auswählen</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="685"/>
+        <location filename="../res/ui/setup.ui" line="698"/>
         <source>WiFi</source>
         <translation>WLAN</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="691"/>
+        <location filename="../res/ui/setup.ui" line="704"/>
         <source>Credentials</source>
         <translation>Anmeldedaten</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="709"/>
+        <location filename="../res/ui/setup.ui" line="722"/>
         <source>SSID for WiFi Connection</source>
         <translation>SSID für WLAN-Verbindung</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="712"/>
+        <location filename="../res/ui/setup.ui" line="725"/>
         <source>&lt;SSID&gt;</source>
         <translation>&lt;SSID&gt;</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="739"/>
+        <location filename="../res/ui/setup.ui" line="752"/>
         <source>Key for WiFi Connection</source>
         <translation>Schlüssel für WLAN-Verbindung</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="742"/>
+        <location filename="../res/ui/setup.ui" line="755"/>
         <source>&lt;KEY&gt;</source>
         <translation>&lt;SCHLÜSSEL&gt;</translation>
     </message>
     <message>
-        <location filename="../res/ui/setup.ui" line="764"/>
+        <location filename="../res/ui/setup.ui" line="777"/>
         <source>Set new credentials will change your device token!</source>
         <translation>Setzen neuer Zugangsdaten wird das Geräte-Token ändern!</translation>
     </message>
@@ -1025,211 +1030,211 @@
         <translation>Karte [ Zoomfaktor = 1.00 ]</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="746"/>
+        <location filename="../res/ui/mainwindow.ui" line="762"/>
         <source>Valetudo</source>
         <translation>Valetudo</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="908"/>
+        <location filename="../res/ui/mainwindow.ui" line="924"/>
         <source>Map</source>
         <translation>Karte</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="920"/>
-        <location filename="../res/ui/mainwindow.ui" line="923"/>
+        <location filename="../res/ui/mainwindow.ui" line="936"/>
+        <location filename="../res/ui/mainwindow.ui" line="939"/>
         <source>Reset Zoom</source>
         <translation>Zoom rücksetzen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="932"/>
-        <location filename="../res/ui/mainwindow.ui" line="935"/>
+        <location filename="../res/ui/mainwindow.ui" line="948"/>
+        <location filename="../res/ui/mainwindow.ui" line="951"/>
         <source>Goto Position</source>
         <translation>Gehe zu Position</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="943"/>
-        <location filename="../res/ui/mainwindow.ui" line="946"/>
-        <location filename="../res/ui/mainwindow.ui" line="949"/>
+        <location filename="../res/ui/mainwindow.ui" line="959"/>
+        <location filename="../res/ui/mainwindow.ui" line="962"/>
+        <location filename="../res/ui/mainwindow.ui" line="965"/>
         <source>Flip Horizontal</source>
         <translation>Horizontal spiegeln</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="957"/>
-        <location filename="../res/ui/mainwindow.ui" line="960"/>
-        <location filename="../res/ui/mainwindow.ui" line="963"/>
+        <location filename="../res/ui/mainwindow.ui" line="973"/>
+        <location filename="../res/ui/mainwindow.ui" line="976"/>
+        <location filename="../res/ui/mainwindow.ui" line="979"/>
         <source>Flip Vertical</source>
         <translation>Vertikal spiegeln</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="971"/>
-        <location filename="../res/ui/mainwindow.ui" line="974"/>
-        <location filename="../res/ui/mainwindow.ui" line="977"/>
+        <location filename="../res/ui/mainwindow.ui" line="987"/>
+        <location filename="../res/ui/mainwindow.ui" line="990"/>
+        <location filename="../res/ui/mainwindow.ui" line="993"/>
         <source>Swap Up/Down</source>
         <translation>Aufwärts/Abwärts tauschen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="985"/>
-        <location filename="../res/ui/mainwindow.ui" line="988"/>
-        <location filename="../res/ui/mainwindow.ui" line="991"/>
+        <location filename="../res/ui/mainwindow.ui" line="1001"/>
+        <location filename="../res/ui/mainwindow.ui" line="1004"/>
+        <location filename="../res/ui/mainwindow.ui" line="1007"/>
         <source>Rotate 0°</source>
         <translation>0° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="999"/>
-        <location filename="../res/ui/mainwindow.ui" line="1002"/>
-        <location filename="../res/ui/mainwindow.ui" line="1005"/>
+        <location filename="../res/ui/mainwindow.ui" line="1015"/>
+        <location filename="../res/ui/mainwindow.ui" line="1018"/>
+        <location filename="../res/ui/mainwindow.ui" line="1021"/>
         <source>Rotate 90°</source>
         <translation>90° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1013"/>
-        <location filename="../res/ui/mainwindow.ui" line="1016"/>
-        <location filename="../res/ui/mainwindow.ui" line="1019"/>
+        <location filename="../res/ui/mainwindow.ui" line="1029"/>
+        <location filename="../res/ui/mainwindow.ui" line="1032"/>
+        <location filename="../res/ui/mainwindow.ui" line="1035"/>
         <source>Rotate 180°</source>
         <translation>180° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1027"/>
-        <location filename="../res/ui/mainwindow.ui" line="1030"/>
-        <location filename="../res/ui/mainwindow.ui" line="1033"/>
+        <location filename="../res/ui/mainwindow.ui" line="1043"/>
+        <location filename="../res/ui/mainwindow.ui" line="1046"/>
+        <location filename="../res/ui/mainwindow.ui" line="1049"/>
         <source>Rotate 270°</source>
         <translation>270° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1042"/>
-        <location filename="../res/ui/mainwindow.ui" line="1045"/>
+        <location filename="../res/ui/mainwindow.ui" line="1058"/>
+        <location filename="../res/ui/mainwindow.ui" line="1061"/>
         <source>Zones</source>
         <translation>Zonen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1048"/>
+        <location filename="../res/ui/mainwindow.ui" line="1064"/>
         <source>Edit Zones</source>
         <translation>Zonen anpassen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1057"/>
+        <location filename="../res/ui/mainwindow.ui" line="1073"/>
         <source>Install</source>
         <translation>Installation</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1060"/>
-        <location filename="../res/ui/mainwindow.ui" line="1063"/>
+        <location filename="../res/ui/mainwindow.ui" line="1076"/>
+        <location filename="../res/ui/mainwindow.ui" line="1079"/>
         <source>Install Valetudo</source>
         <translation>Valetudo installieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1072"/>
+        <location filename="../res/ui/mainwindow.ui" line="1088"/>
         <source>Uninstall</source>
         <translation>Deinstallation</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1075"/>
-        <location filename="../res/ui/mainwindow.ui" line="1078"/>
+        <location filename="../res/ui/mainwindow.ui" line="1091"/>
+        <location filename="../res/ui/mainwindow.ui" line="1094"/>
         <source>Uninstall Valetudo</source>
         <translation>Valetudo deinstallieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="718"/>
+        <location filename="../res/ui/mainwindow.ui" line="734"/>
         <source>File</source>
         <translation>Datei</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="728"/>
+        <location filename="../res/ui/mainwindow.ui" line="744"/>
         <source>Info</source>
         <translation>Info</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="735"/>
+        <location filename="../res/ui/mainwindow.ui" line="751"/>
         <source>Tools</source>
         <translation>Werkzeuge</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="794"/>
+        <location filename="../res/ui/mainwindow.ui" line="810"/>
         <source>Exit</source>
         <translation>Beenden</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="797"/>
+        <location filename="../res/ui/mainwindow.ui" line="813"/>
         <source>Exit Program</source>
         <translation>Programm beenden</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="806"/>
+        <location filename="../res/ui/mainwindow.ui" line="822"/>
         <source>About</source>
         <translation>Über</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="809"/>
+        <location filename="../res/ui/mainwindow.ui" line="825"/>
         <source>Show About</source>
         <translation>Zeige Info</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="818"/>
+        <location filename="../res/ui/mainwindow.ui" line="834"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="821"/>
+        <location filename="../res/ui/mainwindow.ui" line="837"/>
         <source>Show Help</source>
         <translation>Zeige Hilfe</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="830"/>
-        <location filename="../res/ui/mainwindow.ui" line="833"/>
+        <location filename="../res/ui/mainwindow.ui" line="846"/>
+        <location filename="../res/ui/mainwindow.ui" line="849"/>
         <source>Timer</source>
         <translation>Zeitsteuerung</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="836"/>
+        <location filename="../res/ui/mainwindow.ui" line="852"/>
         <source>Manage Timer</source>
         <translation>Zeitsteuerung verwalten</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="845"/>
-        <location filename="../res/ui/mainwindow.ui" line="848"/>
+        <location filename="../res/ui/mainwindow.ui" line="861"/>
+        <location filename="../res/ui/mainwindow.ui" line="864"/>
         <source>History</source>
         <translation>Verlauf</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="851"/>
+        <location filename="../res/ui/mainwindow.ui" line="867"/>
         <source>Show History</source>
         <translation>Verlauf anzeigen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="860"/>
-        <location filename="../res/ui/mainwindow.ui" line="863"/>
+        <location filename="../res/ui/mainwindow.ui" line="876"/>
+        <location filename="../res/ui/mainwindow.ui" line="879"/>
         <source>Setup</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="866"/>
+        <location filename="../res/ui/mainwindow.ui" line="882"/>
         <source>Configure Settings</source>
         <translation>Einstellungen konfigurieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="875"/>
-        <location filename="../res/ui/mainwindow.ui" line="878"/>
+        <location filename="../res/ui/mainwindow.ui" line="891"/>
+        <location filename="../res/ui/mainwindow.ui" line="894"/>
         <source>Logger</source>
         <translation>Logger</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="881"/>
+        <location filename="../res/ui/mainwindow.ui" line="897"/>
         <source>Show Log</source>
         <translation>Protokoll anzeigen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="890"/>
-        <location filename="../res/ui/mainwindow.ui" line="893"/>
+        <location filename="../res/ui/mainwindow.ui" line="906"/>
+        <location filename="../res/ui/mainwindow.ui" line="909"/>
         <source>Refresh</source>
         <translation>Aktualisieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="896"/>
+        <location filename="../res/ui/mainwindow.ui" line="912"/>
         <source>Refresh Status</source>
         <translation>Status aktualisieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="911"/>
+        <location filename="../res/ui/mainwindow.ui" line="927"/>
         <source>Show Map</source>
         <translation>Karte anzeigen</translation>
     </message>
@@ -1267,12 +1272,12 @@ Wenn Ihr Gerät noch nicht eingerichtet ist, verbinden Sie sich mit dem WLAN-Hot
 Wenn Sie Ihren Token bereits haben, klicken Sie einfach auf OK.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="408"/>
+        <location filename="../mainwindow.cpp" line="410"/>
         <source>Token not set, please configure your device token first!</source>
         <translation>Token nicht gesetzt, bitte konfigurieren Sie zuerst Ihren Geräte-Token!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="452"/>
+        <location filename="../mainwindow.cpp" line="454"/>
         <source>Network connection timed out!
 
 Please check ip / token / msgid...</source>
@@ -1307,7 +1312,7 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
         <translation>Hilfe noch nicht implementiert, sorry....</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1212"/>
+        <location filename="../mainwindow.cpp" line="1219"/>
         <source>Map function is only available on rooted devices running Valetudo!
 
 %1</source>
@@ -1316,13 +1321,13 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1352"/>
-        <location filename="../mainwindow.cpp" line="1484"/>
+        <location filename="../mainwindow.cpp" line="1359"/>
+        <location filename="../mainwindow.cpp" line="1488"/>
         <source>Map [ Zoom Factor = %1 ]</source>
         <translation>Karte [ Zoomfaktor = %1 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1435"/>
+        <location filename="../mainwindow.cpp" line="1439"/>
         <source>Start zone cleaning for selected region?
 
 [ %1 / %2 - %3 / %4 ]</source>
@@ -1331,12 +1336,12 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 [ %1 / %2 - %3 / %4 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1451"/>
+        <location filename="../mainwindow.cpp" line="1455"/>
         <source>You can customize all zones later with the zone editor.</source>
         <translation>Alle Zonen können später mit dem Zoneneditor angepasst werden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1508"/>
+        <location filename="../mainwindow.cpp" line="1512"/>
         <source>Send robot to selected position?
 
 [ %1 / %2 ]</source>
@@ -1345,17 +1350,17 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 [ %1 / %2 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1515"/>
+        <location filename="../mainwindow.cpp" line="1519"/>
         <source>Please select position inside the map!</source>
         <translation>Bitte Position innerhalb der Karte wählen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1564"/>
+        <location filename="../mainwindow.cpp" line="1568"/>
         <source>Start cleaning for zone &quot;%1&quot;?</source>
         <translation>Reinigung für Zone &quot;%1&quot; starten?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1593"/>
+        <location filename="../mainwindow.cpp" line="1597"/>
         <source>Really exit program?</source>
         <translation>Programm wirklich beenden?</translation>
     </message>
@@ -1435,87 +1440,87 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
         <translation>Vorhandene Datei kann nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="301"/>
+        <location filename="../mainwindow.h" line="302"/>
         <source>Starting</source>
         <translation>Starten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="302"/>
+        <location filename="../mainwindow.h" line="303"/>
         <source>Charger disconnected</source>
         <translation>Ladegerät getrennt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="303"/>
+        <location filename="../mainwindow.h" line="304"/>
         <source>Idle</source>
         <translation>Leerlauf</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="304"/>
+        <location filename="../mainwindow.h" line="305"/>
         <source>Remote control active</source>
         <translation>Fernbedienung aktiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="305"/>
+        <location filename="../mainwindow.h" line="306"/>
         <source>Cleaning</source>
         <translation>Reinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="306"/>
+        <location filename="../mainwindow.h" line="307"/>
         <source>Returning home</source>
         <translation>Rückkehr nach Hause</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="307"/>
+        <location filename="../mainwindow.h" line="308"/>
         <source>Manual mode</source>
         <translation>Manueller Betrieb</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="308"/>
+        <location filename="../mainwindow.h" line="309"/>
         <source>Charging</source>
         <translation>Aufladen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="309"/>
+        <location filename="../mainwindow.h" line="310"/>
         <source>Charging problem</source>
         <translation>Ladeproblem</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="310"/>
+        <location filename="../mainwindow.h" line="311"/>
         <source>Paused</source>
         <translation>Pausiert</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="311"/>
+        <location filename="../mainwindow.h" line="312"/>
         <source>Spot cleaning</source>
         <translation>Bereichsreinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="312"/>
+        <location filename="../mainwindow.h" line="313"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="313"/>
+        <location filename="../mainwindow.h" line="314"/>
         <source>Shutting down</source>
         <translation>Herunterfahren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="314"/>
+        <location filename="../mainwindow.h" line="315"/>
         <source>Updating</source>
         <translation>Aktualisierung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="315"/>
+        <location filename="../mainwindow.h" line="316"/>
         <source>Docking</source>
         <translation>Andocken</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="316"/>
+        <location filename="../mainwindow.h" line="317"/>
         <source>Going to target</source>
         <translation>Unterwegs zum Ziel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="317"/>
+        <location filename="../mainwindow.h" line="318"/>
         <source>Zoned cleaning</source>
         <translation>Zonenreinigung</translation>
     </message>
@@ -1707,50 +1712,50 @@ Möchten Sie trotzdem die weitere Entwicklung des Projektes unterstützen?</tran
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="237"/>
+        <location filename="../installer.cpp" line="239"/>
         <source>SSH: logged in
 </source>
         <translation>SSH: angemeldet
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="244"/>
+        <location filename="../installer.cpp" line="246"/>
         <source>SCP: finished
 </source>
         <translation>SCP: abgeschlossen
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="250"/>
-        <location filename="../installer.cpp" line="270"/>
+        <location filename="../installer.cpp" line="252"/>
+        <location filename="../installer.cpp" line="272"/>
         <source>SCP: %1 -&gt; %2 started
 </source>
         <translation>SCP: %1 -&gt; %2 gestartet
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="264"/>
+        <location filename="../installer.cpp" line="266"/>
         <source>SSH: %1 -&gt; %2
 </source>
         <translation>SSH: %1 -&gt; %2
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="290"/>
+        <location filename="../installer.cpp" line="292"/>
         <source>SSH: disconnected
 </source>
         <translation>SSH: getrennt
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="295"/>
-        <location filename="../installer.cpp" line="361"/>
-        <location filename="../installer.cpp" line="368"/>
+        <location filename="../installer.cpp" line="297"/>
+        <location filename="../installer.cpp" line="366"/>
+        <location filename="../installer.cpp" line="373"/>
         <source>Valetudo installation failed!</source>
         <translation>Valetudo Installation fehlgeschlagen!</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="295"/>
+        <location filename="../installer.cpp" line="297"/>
         <source>Valetudo installation finished.
 
 Read log for details.</source>
@@ -1759,19 +1764,19 @@ Read log for details.</source>
 Das Protokoll für weitere Informationen lesen.</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="302"/>
+        <location filename="../installer.cpp" line="304"/>
         <source>SSH: %1
 </source>
         <translation>SSH: %1
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="315"/>
+        <location filename="../installer.cpp" line="317"/>
         <source>Really abort download?</source>
         <translation>Download wirklich abbrechen?</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="324"/>
+        <location filename="../installer.cpp" line="326"/>
         <source>Can not abort current operation, please wait...</source>
         <translation>Kann die laufende Operation nicht abbrechen, bitte warten...</translation>
     </message>
@@ -1857,19 +1862,19 @@ Das Protokoll für weitere Informationen lesen.</translation>
 <context>
     <name>setupDialog</name>
     <message>
-        <location filename="../setup.cpp" line="137"/>
+        <location filename="../setup.cpp" line="138"/>
         <source>Select voice package to install</source>
         <translation>Zu installierendes Sprachpaket auswählen</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="149"/>
-        <location filename="../setup.cpp" line="201"/>
+        <location filename="../setup.cpp" line="150"/>
+        <location filename="../setup.cpp" line="202"/>
         <source>Selected voice package is empty!</source>
         <translation>Das ausgewählte Sprachpaket ist leer!</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="156"/>
-        <location filename="../setup.cpp" line="208"/>
+        <location filename="../setup.cpp" line="157"/>
+        <location filename="../setup.cpp" line="209"/>
         <source>Could not open voice package!
 
 %1</source>
@@ -1878,32 +1883,32 @@ Das Protokoll für weitere Informationen lesen.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="175"/>
+        <location filename="../setup.cpp" line="176"/>
         <source>Selected folder contains no voices files!</source>
         <translation>Ausgewählter Ordner enthält keine Sprachdateien!</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="184"/>
+        <location filename="../setup.cpp" line="185"/>
         <source>Select voice package to unpack</source>
         <translation>Zu entpackendes Sprachpaket auswählen</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="192"/>
+        <location filename="../setup.cpp" line="193"/>
         <source>Select folder to unpack voice package</source>
         <translation>Ordner zum Entpacken des Sprachpakets auswählen</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="259"/>
+        <location filename="../setup.cpp" line="260"/>
         <source>Select private keyfile for ssh login</source>
         <translation>Private Schlüsseldatei für SSH-Login auswählen</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="277"/>
+        <location filename="../setup.cpp" line="278"/>
         <source>Does not look like valid private key!</source>
         <translation>Sieht nicht wie ein gültiger privater Schlüssel aus!</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="282"/>
+        <location filename="../setup.cpp" line="283"/>
         <source>Could not open keyfile!
 
 %1</source>
@@ -1912,7 +1917,7 @@ Das Protokoll für weitere Informationen lesen.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="323"/>
+        <location filename="../setup.cpp" line="326"/>
         <source>AES-Token successfully extracted:
 
 %1</source>
@@ -1921,7 +1926,7 @@ Das Protokoll für weitere Informationen lesen.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="327"/>
+        <location filename="../setup.cpp" line="330"/>
         <source>AES-Token extraction failed:
 
 %1</source>
@@ -1930,12 +1935,12 @@ Das Protokoll für weitere Informationen lesen.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="327"/>
+        <location filename="../setup.cpp" line="330"/>
         <source>got empty response</source>
         <translation>leere Antwort erhalten</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="340"/>
+        <location filename="../setup.cpp" line="343"/>
         <source>SSH connection error!
 
 %1</source>
@@ -1944,32 +1949,32 @@ Das Protokoll für weitere Informationen lesen.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="422"/>
+        <location filename="../setup.cpp" line="425"/>
         <source>Please enter your ssh username!</source>
         <translation>Bitte SSH-Benutzernamen eingeben!</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="428"/>
+        <location filename="../setup.cpp" line="431"/>
         <source>Please enter your ssh password!</source>
         <translation>Bitte SSH-Passwort eingeben!</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="434"/>
+        <location filename="../setup.cpp" line="437"/>
         <source>Please select your ssh private keyfile!</source>
         <translation>Bitte private SSH-Schlüsseldatei auswählen!</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="450"/>
+        <location filename="../setup.cpp" line="454"/>
         <source>Please enter your wifi ssid!</source>
         <translation>Bitte WLAN-SSID eingeben!</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="454"/>
+        <location filename="../setup.cpp" line="458"/>
         <source>Please enter your wifi key!</source>
         <translation>Bitte WLAN-Schlüssel eingeben!</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="464"/>
+        <location filename="../setup.cpp" line="468"/>
         <source>Now extract and copy your new device token to clipboard.
 For rooted devices you can use the integrated token extractor.
 
@@ -1977,37 +1982,37 @@ Wait until device has connected to your wifi and then press OK...</source>
         <translation>Nun den neuen Geräte-Token extrahieren und in die Zwischenablage kopieren.\nFür gerootete Geräte kann der integrierte Token-Extraktor verwendet werden.\n\nWarten bis das Gerät mit dem eigenen WLAN verbunden ist und dann OK drücken....</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="347"/>
+        <location filename="../setup.cpp" line="350"/>
         <source>Program will not work without valid device token!</source>
         <translation>Das Programm funktioniert nicht ohne gültigen Geräte-Token!</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="70"/>
+        <location filename="../setup.cpp" line="71"/>
         <source>Please choose ssh private keyfile first!</source>
         <translation>Bitte zuerst SSH private Schlüsseldatei wählen!</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="80"/>
+        <location filename="../setup.cpp" line="81"/>
         <source>Please enter ssh password first!</source>
         <translation>Bitte zuerst das SSH-Passwort eingeben!</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="89"/>
+        <location filename="../setup.cpp" line="90"/>
         <source>Please enter ssh username first!</source>
         <translation>Bitte zuerst den SSH-Benutzernamen eingeben!</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="165"/>
+        <location filename="../setup.cpp" line="166"/>
         <source>Select folder with voice files</source>
         <translation>Ordner mit Sprachdateien auswählen</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="364"/>
+        <location filename="../setup.cpp" line="367"/>
         <source>Please enter your device ip-address!</source>
         <translation>Bitte IP-Adresse des Gerätes eingeben!</translation>
     </message>
     <message>
-        <location filename="../setup.cpp" line="368"/>
+        <location filename="../setup.cpp" line="371"/>
         <source>Please enter your device token!</source>
         <translation>Bitte Geräte-Token eingeben!</translation>
     </message>
@@ -2040,33 +2045,33 @@ Wait until device has connected to your wifi and then press OK...</source>
 </translation>
     </message>
     <message>
-        <location filename="../uninstaller.cpp" line="62"/>
+        <location filename="../uninstaller.cpp" line="64"/>
         <source>SSH: logged in
 </source>
         <translation>SSH: angemeldet
 </translation>
     </message>
     <message>
-        <location filename="../uninstaller.cpp" line="69"/>
+        <location filename="../uninstaller.cpp" line="71"/>
         <source>SSH: %1 -&gt; %2
 </source>
         <translation>SSH: %1 -&gt; %2
 </translation>
     </message>
     <message>
-        <location filename="../uninstaller.cpp" line="93"/>
+        <location filename="../uninstaller.cpp" line="95"/>
         <source>SSH: disconnected
 </source>
         <translation>SSH: getrennt
 </translation>
     </message>
     <message>
-        <location filename="../uninstaller.cpp" line="98"/>
+        <location filename="../uninstaller.cpp" line="100"/>
         <source>Valetudo uninstallation failed!</source>
         <translation>Valetudo Deinstallation fehlgeschlagen!</translation>
     </message>
     <message>
-        <location filename="../uninstaller.cpp" line="98"/>
+        <location filename="../uninstaller.cpp" line="100"/>
         <source>Valetudo uninstallation finished.
 
 Read log for details.</source>
@@ -2075,14 +2080,14 @@ Read log for details.</source>
 Das Protokoll für weitere Informationen lesen.</translation>
     </message>
     <message>
-        <location filename="../uninstaller.cpp" line="105"/>
+        <location filename="../uninstaller.cpp" line="107"/>
         <source>SSH: %1
 </source>
         <translation>SSH: %1
 </translation>
     </message>
     <message>
-        <location filename="../uninstaller.cpp" line="118"/>
+        <location filename="../uninstaller.cpp" line="120"/>
         <source>Can not abort current operation, please wait...</source>
         <translation>Kann die laufende Operation nicht abbrechen, bitte warten...</translation>
     </message>

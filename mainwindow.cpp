@@ -177,6 +177,7 @@ void MainWindow::getConfig()
 	cfg.ssh_user = ini.value("User", "root").toString();
 	cfg.ssh_pass = ini.value("Pass", "").toString();
 	cfg.ssh_pkey = ini.value("PKey", "").toString();
+	cfg.ssh_pkpp = ini.value("PKPP", "").toString();
 	cfg.ssh_auth = ini.value("Auth", "PKey").toString();
 	ini.endGroup();
 
@@ -219,6 +220,7 @@ void MainWindow::setConfig()
 	ini.setValue("User", cfg.ssh_user);
 	ini.setValue("Pass", cfg.ssh_pass);
 	ini.setValue("PKey", cfg.ssh_pkey);
+	ini.setValue("PKPP", cfg.ssh_pkpp);
 	ini.setValue("Auth", cfg.ssh_auth);
 	ini.endGroup();
 

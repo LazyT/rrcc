@@ -215,8 +215,6 @@ void installerDialog::ssh_connected()
 {
 	plainTextEdit->appendPlainText(tr("SSH: connected\n"));
 
-	ssh->login(((MainWindow*)parent())->cfg.ssh_user, ((MainWindow*)parent())->cfg.ssh_auth == "PKey" ? "" : ((MainWindow*)parent())->cfg.ssh_pass);
-
 	if(((MainWindow*)parent())->cfg.ssh_auth == "PKey")
 	{
 		QFile file_key(((MainWindow*)parent())->cfg.ssh_pkey);
@@ -227,8 +225,12 @@ void installerDialog::ssh_connected()
 
 			file_key.close();
 
-			ssh->setKey(key);
+			ssh->loginKey(((MainWindow*)parent())->cfg.ssh_user, key, ((MainWindow*)parent())->cfg.ssh_pkpp);
 		}
+	}
+	else
+	{
+		ssh->login(((MainWindow*)parent())->cfg.ssh_user, ((MainWindow*)parent())->cfg.ssh_pass);
 	}
 }
 

@@ -187,6 +187,7 @@ public:
 		QString ssh_user;
 		QString ssh_pass;
 		QString ssh_pkey;
+		QString ssh_pkpp;
 		QString ssh_auth;
 		bool flip_h;
 		bool flip_v;

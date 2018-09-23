@@ -33,6 +33,7 @@ setupDialog::setupDialog(QWidget *parent) : QDialog(parent)
 	lineEdit_ssh_username->setText(((MainWindow*)parent)->cfg.ssh_user);
 	lineEdit_ssh_password->setText(((MainWindow*)parent)->cfg.ssh_pass);
 	lineEdit_ssh_keyfile->setText(((MainWindow*)parent)->cfg.ssh_pkey);
+	lineEdit_ssh_keyfile_passphrase->setText(((MainWindow*)parent)->cfg.ssh_pkpp);
 
 	if(((MainWindow*)parent)->cfg.ssh_auth == "PKey")
 	{
@@ -288,8 +289,6 @@ void setupDialog::on_toolButton_ssh_keyfile_clicked()
 
 void setupDialog::ssh_connected()
 {
-	ssh->login(((MainWindow*)parent())->cfg.ssh_user, ((MainWindow*)parent())->cfg.ssh_auth == "PKey" ? "" : ((MainWindow*)parent())->cfg.ssh_pass);
-
 	if(((MainWindow*)parent())->cfg.ssh_auth == "PKey")
 	{
 		QFile file_key(((MainWindow*)parent())->cfg.ssh_pkey);
@@ -300,8 +299,12 @@ void setupDialog::ssh_connected()
 
 			file_key.close();
 
-			ssh->setKey(key);
+			ssh->loginKey(((MainWindow*)parent())->cfg.ssh_user, key, ((MainWindow*)parent())->cfg.ssh_pkpp);
 		}
+	}
+	else
+	{
+		ssh->login(((MainWindow*)parent())->cfg.ssh_user, ((MainWindow*)parent())->cfg.ssh_pass);
 	}
 }
 
@@ -438,6 +441,7 @@ void setupDialog::on_buttonBox_clicked(QAbstractButton *button)
 			((MainWindow*)parent())->cfg.ssh_user = lineEdit_ssh_username->text();
 			((MainWindow*)parent())->cfg.ssh_pass = lineEdit_ssh_password->text();
 			((MainWindow*)parent())->cfg.ssh_pkey = lineEdit_ssh_keyfile->text();
+			((MainWindow*)parent())->cfg.ssh_pkpp = lineEdit_ssh_keyfile_passphrase->text();
 			((MainWindow*)parent())->cfg.ssh_auth = groupBox_ssh_keyfile->isChecked() ? "PKey" : "Pass";
 		}
 		else if(tabWidget->currentWidget()->objectName() == "tab_wifi")

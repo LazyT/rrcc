@@ -652,6 +652,19 @@
            </widget>
           </item>
           <item>
+           <widget class="QLineEdit" name="lineEdit_ssh_keyfile_passphrase">
+            <property name="toolTip">
+             <string>SSH private Key Passphrase</string>
+            </property>
+            <property name="echoMode">
+             <enum>QLineEdit::PasswordEchoOnEdit</enum>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QToolButton" name="toolButton_ssh_keyfile">
             <property name="toolTip">
              <string>Select SSH Keyfile</string>

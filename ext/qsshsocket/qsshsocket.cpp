@@ -132,7 +132,7 @@ void QSshSocket::run()
             {
                 ssh_key private_key;
 
-                if(ssh_pki_import_privkey_base64(m_key.toUtf8().data(), NULL, NULL, NULL, &private_key) == SSH_OK)
+                if(ssh_pki_import_privkey_base64(m_key.toUtf8().data(), m_key_passphrase.toUtf8().data(), NULL, NULL, &private_key) == SSH_OK)
                 {
                     // try authenticating current user at remote host
                     int worked = ssh_userauth_publickey(m_session, m_user.toUtf8().data(), private_key);
@@ -147,6 +147,7 @@ void QSshSocket::run()
                     {
                         m_user = "";
                         m_key = "";
+                        m_key_passphrase = "";
                         error(KeyAuthenticationFailedError);
                     }
                 }
@@ -154,6 +155,7 @@ void QSshSocket::run()
                 {
                     m_user = "";
                     m_key = "";
+                    m_key_passphrase = "";
                     error(KeyAuthenticationFailedError);
                 }
             }
@@ -399,9 +401,11 @@ void QSshSocket::login(QString user, QString password)
     m_user = user;
     m_password = password;
 }
-void QSshSocket::setKey(QString key)
+void QSshSocket::loginKey(QString user, QString key, QString passphrase)
 {
+    m_user = user;
     m_key = key;
+    m_key_passphrase = passphrase;
 }
 void QSshSocket::executeCommand(QString command)
 {
