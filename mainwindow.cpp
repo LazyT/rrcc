@@ -162,7 +162,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 void MainWindow::getConfig()
 {
-	QSettings ini(CFG, QSettings::IniFormat);
+	QSettings ini(QFile::exists(CFG_P) ? CFG_P : CFG_H, QSettings::IniFormat);
 	int count;
 	CLEANZONE zone;
 
@@ -207,7 +207,7 @@ void MainWindow::getConfig()
 
 void MainWindow::setConfig()
 {
-	QSettings ini(CFG, QSettings::IniFormat);
+	QSettings ini(QFile::exists(CFG_P) ? CFG_P : CFG_H, QSettings::IniFormat);
 
 	ini.setIniCodec("UTF-8");
 

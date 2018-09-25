@@ -54,10 +54,11 @@
 #include "installer.h"
 #include "uninstaller.h"
 
-#define CFG QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/.rrcc/rrcc.cfg"
-#define LOG QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/rrcc.log"
-#define TGZ QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/rrcc.tgz"
-#define PKG QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/rrcc.pkg"
+#define CFG_H	QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/.rrcc/rrcc.cfg"
+#define CFG_P	QCoreApplication::applicationDirPath() + "/rrcc.cfg"
+#define LOG		QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/rrcc.log"
+#define TGZ		QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/rrcc.tgz"
+#define PKG		QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/rrcc.pkg"
 
 #define PKG_KEY "r0ckrobo#23456"
 
