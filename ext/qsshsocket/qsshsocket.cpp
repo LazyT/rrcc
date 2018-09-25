@@ -46,6 +46,7 @@ QSshSocket::QSshSocket(QObject * parent )
     m_user = "";
     m_password = "";
     m_key = "";
+    m_key_passphrase = "";
     m_port = -1;
     m_loggedIn = false;
     m_session  = NULL;
@@ -379,6 +380,7 @@ void QSshSocket::disconnectFromHost()
     m_user = "";
     m_password = "";
     m_key = "";
+    m_key_passphrase = "";
     m_port = -1;
     m_loggedIn = false;
     if (m_session != NULL)
