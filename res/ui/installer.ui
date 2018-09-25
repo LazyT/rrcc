@@ -27,7 +27,16 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QComboBox" name="comboBox"/>
+         <widget class="QComboBox" name="comboBox">
+          <property name="sizeAdjustPolicy">
+           <enum>QComboBox::AdjustToContents</enum>
+          </property>
+          <item>
+           <property name="text">
+            <string>Searching for Releases...</string>
+           </property>
+          </item>
+         </widget>
         </item>
         <item>
          <layout class="QGridLayout" name="gridLayout">

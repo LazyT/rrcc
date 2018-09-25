@@ -141,42 +141,47 @@
         <translation>Status</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="42"/>
+        <location filename="../res/ui/installer.ui" line="36"/>
+        <source>Searching for Releases...</source>
+        <translation>Suche nach Releases...</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="51"/>
         <source>Copy Config to Robot</source>
         <translation>Konfig zum Roboter kopieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="75"/>
+        <location filename="../res/ui/installer.ui" line="84"/>
         <source>Get Config from Github</source>
         <translation>Konfig von Github laden</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="151"/>
+        <location filename="../res/ui/installer.ui" line="160"/>
         <source>Copy Binary to Robot</source>
         <translation>Programm zum Roboter kopieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="184"/>
+        <location filename="../res/ui/installer.ui" line="193"/>
         <source>Get Binary from Github</source>
         <translation>Programm von Github laden</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="220"/>
+        <location filename="../res/ui/installer.ui" line="229"/>
         <source>Start Service Valetudo</source>
         <translation>Dienst Valetudo starten</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="263"/>
+        <location filename="../res/ui/installer.ui" line="272"/>
         <source>Change Binary Rights</source>
         <translation>Programmrechte anpassen</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="316"/>
+        <location filename="../res/ui/installer.ui" line="325"/>
         <source>Stop Service Valetudo</source>
         <translation>Dienst Valetudo stoppen</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="349"/>
+        <location filename="../res/ui/installer.ui" line="358"/>
         <source>Log</source>
         <translation>Log</translation>
     </message>
@@ -1365,162 +1370,162 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
         <translation>Programm wirklich beenden?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="149"/>
+        <location filename="../mainwindow.h" line="150"/>
         <source>No error</source>
         <translation>Kein Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="150"/>
+        <location filename="../mainwindow.h" line="151"/>
         <source>Archive has bad data</source>
         <translation>Archiv hat fehlerhafte Daten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="151"/>
+        <location filename="../mainwindow.h" line="152"/>
         <source>Archive does not exist or no permission</source>
         <translation>Archiv existiert nicht oder keine Berechtigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="152"/>
+        <location filename="../mainwindow.h" line="153"/>
         <source>Unknown error</source>
         <translation>Unbekannter Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="153"/>
+        <location filename="../mainwindow.h" line="154"/>
         <source>Fatal error</source>
         <translation>Schwerwiegender Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="154"/>
+        <location filename="../mainwindow.h" line="155"/>
         <source>Wrong password for archive</source>
         <translation>Falsches Passwort für Archiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="155"/>
+        <location filename="../mainwindow.h" line="156"/>
         <source>Empty password for archive</source>
         <translation>Leeres Kennwort für Archiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="156"/>
+        <location filename="../mainwindow.h" line="157"/>
         <source>Cannot create archive</source>
         <translation>Archiv kann nicht erstellt werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="157"/>
+        <location filename="../mainwindow.h" line="158"/>
         <source>Cannot open added file</source>
         <translation>Hinzugefügte Datei kann nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="158"/>
+        <location filename="../mainwindow.h" line="159"/>
         <source>Cannot read added file</source>
         <translation>Hinzugefügte Datei kann nicht gelesen werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="159"/>
+        <location filename="../mainwindow.h" line="160"/>
         <source>Cannot find extraction destination</source>
         <translation>Extraktionsziel kann nicht gefunden werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="160"/>
+        <location filename="../mainwindow.h" line="161"/>
         <source>File does not exists</source>
         <translation>Datei existiert nicht</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="161"/>
+        <location filename="../mainwindow.h" line="162"/>
         <source>Extraction destination invalid</source>
         <translation>Extraktionsziel ungültig</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="162"/>
+        <location filename="../mainwindow.h" line="163"/>
         <source>Memory allocation failed</source>
         <translation>Speicherzuweisung fehlgeschlagen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="163"/>
+        <location filename="../mainwindow.h" line="164"/>
         <source>Cannot open existing file</source>
         <translation>Vorhandene Datei kann nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="302"/>
+        <location filename="../mainwindow.h" line="303"/>
         <source>Starting</source>
         <translation>Starten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="303"/>
+        <location filename="../mainwindow.h" line="304"/>
         <source>Charger disconnected</source>
         <translation>Ladegerät getrennt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="304"/>
+        <location filename="../mainwindow.h" line="305"/>
         <source>Idle</source>
         <translation>Leerlauf</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="305"/>
+        <location filename="../mainwindow.h" line="306"/>
         <source>Remote control active</source>
         <translation>Fernbedienung aktiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="306"/>
+        <location filename="../mainwindow.h" line="307"/>
         <source>Cleaning</source>
         <translation>Reinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="307"/>
+        <location filename="../mainwindow.h" line="308"/>
         <source>Returning home</source>
         <translation>Rückkehr nach Hause</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="308"/>
+        <location filename="../mainwindow.h" line="309"/>
         <source>Manual mode</source>
         <translation>Manueller Betrieb</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="309"/>
+        <location filename="../mainwindow.h" line="310"/>
         <source>Charging</source>
         <translation>Aufladen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="310"/>
+        <location filename="../mainwindow.h" line="311"/>
         <source>Charging problem</source>
         <translation>Ladeproblem</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="311"/>
+        <location filename="../mainwindow.h" line="312"/>
         <source>Paused</source>
         <translation>Pausiert</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="312"/>
+        <location filename="../mainwindow.h" line="313"/>
         <source>Spot cleaning</source>
         <translation>Bereichsreinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="313"/>
+        <location filename="../mainwindow.h" line="314"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="314"/>
+        <location filename="../mainwindow.h" line="315"/>
         <source>Shutting down</source>
         <translation>Herunterfahren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="315"/>
+        <location filename="../mainwindow.h" line="316"/>
         <source>Updating</source>
         <translation>Aktualisierung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="316"/>
+        <location filename="../mainwindow.h" line="317"/>
         <source>Docking</source>
         <translation>Andocken</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="317"/>
+        <location filename="../mainwindow.h" line="318"/>
         <source>Going to target</source>
         <translation>Unterwegs zum Ziel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="318"/>
+        <location filename="../mainwindow.h" line="319"/>
         <source>Zoned cleaning</source>
         <translation>Zonenreinigung</translation>
     </message>
@@ -1670,26 +1675,26 @@ Möchten Sie trotzdem die weitere Entwicklung des Projektes unterstützen?</tran
         <translation>Installieren</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="52"/>
+        <location filename="../installer.cpp" line="59"/>
         <source>No Valetudo releases found on Github!</source>
         <translation>Keine Valetudo Releases auf Github gefunden!</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="70"/>
+        <location filename="../installer.cpp" line="77"/>
         <source>GET: %1 started
 </source>
         <translation>GET: %1 gestartet
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="138"/>
+        <location filename="../installer.cpp" line="145"/>
         <source>GET: failed -&gt; %1
 </source>
         <translation>GET: fehlgeschlagen -&gt; %1
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="146"/>
+        <location filename="../installer.cpp" line="153"/>
         <source>Download Valetudo release list from Github failed!
 
 %1</source>
@@ -1698,64 +1703,64 @@ Möchten Sie trotzdem die weitere Entwicklung des Projektes unterstützen?</tran
 %1</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="160"/>
+        <location filename="../installer.cpp" line="167"/>
         <source>GET: finished
 </source>
         <translation>GET: abgeschlossen
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="216"/>
+        <location filename="../installer.cpp" line="223"/>
         <source>SSH: connected
 </source>
         <translation>SSH: verbunden
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="239"/>
+        <location filename="../installer.cpp" line="246"/>
         <source>SSH: logged in
 </source>
         <translation>SSH: angemeldet
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="246"/>
+        <location filename="../installer.cpp" line="253"/>
         <source>SCP: finished
 </source>
         <translation>SCP: abgeschlossen
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="252"/>
-        <location filename="../installer.cpp" line="272"/>
+        <location filename="../installer.cpp" line="259"/>
+        <location filename="../installer.cpp" line="279"/>
         <source>SCP: %1 -&gt; %2 started
 </source>
         <translation>SCP: %1 -&gt; %2 gestartet
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="266"/>
+        <location filename="../installer.cpp" line="273"/>
         <source>SSH: %1 -&gt; %2
 </source>
         <translation>SSH: %1 -&gt; %2
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="292"/>
+        <location filename="../installer.cpp" line="299"/>
         <source>SSH: disconnected
 </source>
         <translation>SSH: getrennt
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="297"/>
-        <location filename="../installer.cpp" line="366"/>
+        <location filename="../installer.cpp" line="304"/>
         <location filename="../installer.cpp" line="373"/>
+        <location filename="../installer.cpp" line="380"/>
         <source>Valetudo installation failed!</source>
         <translation>Valetudo Installation fehlgeschlagen!</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="297"/>
+        <location filename="../installer.cpp" line="304"/>
         <source>Valetudo installation finished.
 
 Read log for details.</source>
@@ -1764,19 +1769,19 @@ Read log for details.</source>
 Das Protokoll für weitere Informationen lesen.</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="304"/>
+        <location filename="../installer.cpp" line="311"/>
         <source>SSH: %1
 </source>
         <translation>SSH: %1
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="317"/>
+        <location filename="../installer.cpp" line="324"/>
         <source>Really abort download?</source>
         <translation>Download wirklich abbrechen?</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="326"/>
+        <location filename="../installer.cpp" line="333"/>
         <source>Can not abort current operation, please wait...</source>
         <translation>Kann die laufende Operation nicht abbrechen, bitte warten...</translation>
     </message>

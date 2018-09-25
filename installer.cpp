@@ -23,11 +23,18 @@ void installerDialog::getReleases()
 		QJsonArray sub;
 		QString name, date, file;
 
+		comboBox->removeItem(0);
+
 		for(int i = 0; i < arr.count(); i++)
 		{
 			if(arr[i].toObject().contains("name"))
 			{
 				name = arr[i].toObject().value("name").toString();
+			}
+
+			if(arr[i].toObject().contains("tag_name") && name.isEmpty())
+			{
+				name = arr[i].toObject().value("tag_name").toString();
 			}
 
 			if(arr[i].toObject().contains("published_at"))
