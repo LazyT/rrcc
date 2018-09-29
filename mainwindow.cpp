@@ -451,7 +451,10 @@ retry_once:
 				goto retry_once;
 			}
 
-			QMessageBox::critical(isHidden() ? NULL : this, APPNAME, tr("Network connection timed out!\n\nPlease check ip / token / msgid..."));
+			if(!data.contains("get_ota_state"))
+			{
+				QMessageBox::critical(isHidden() ? NULL : this, APPNAME, tr("Network connection timed out!\n\nPlease check ip / token / msgid..."));
+			}
 
 			return false;
 		}
@@ -616,6 +619,18 @@ retry_once:
 		{
 			parseJSON(MIIO_ID_CONFIG_ROUTER, payload);
 		}
+		else if(data.contains(".ota"))
+		{
+			parseJSON(MIIO_ID_OTA, payload);
+		}
+		else if(data.contains("get_ota_state"))
+		{
+			parseJSON(MIIO_ID_GET_OTA_STATE, payload);
+		}
+		else if(data.contains("get_ota_progress"))
+		{
+			parseJSON(MIIO_ID_GET_OTA_PROGRESS, payload);
+		}
 	}
 
 	return true;
@@ -630,8 +645,6 @@ void MainWindow::parseJSON(int mid, QByteArray data)
 
 	if(mid == MIIO_ID_FIND_ME)
 	{
-qDebug()<<"find_me"<<obj;
-//		arr[0].toString();
 	}
 	else if(mid == MIIO_ID_APP_START)
 	{
@@ -867,6 +880,17 @@ qDebug()<<"find_me"<<obj;
 	else if(mid == MIIO_ID_CONFIG_ROUTER)
 	{
 	}
+	else if(mid == MIIO_ID_OTA)
+	{
+	}
+	else if(mid == MIIO_ID_GET_OTA_STATE)
+	{
+		robo.ota.state = arr[0].toString();
+	}
+	else if(mid == MIIO_ID_GET_OTA_PROGRESS)
+	{
+		robo.ota.progress = arr[0].toInt();
+	}
 }
 
 void MainWindow::on_actionExit_triggered()
@@ -979,6 +1003,53 @@ void MainWindow::on_actionValetudoUninstall_triggered()
 	else
 	{
 		uninstallerDialog(this).exec();
+	}
+}
+
+void MainWindow::on_actionUpdateFirmware_triggered()
+{
+	if(QMessageBox::question(this, APPNAME, tr("Are you really sure you want to install a firmware update?\n\nPlease choose the correct version for your model or you will brick your device!"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes)
+	{
+		if(sendUDP(MIIO_GET_STATUS))
+		{
+			if(robo.status.battery < 20)
+			{
+				QMessageBox::warning(this, APPNAME, tr("Charge battery to at least 20% first!"));
+
+				return;
+			}
+			else if(robo.status.state != 8)
+			{
+				QMessageBox::warning(this, APPNAME, tr("Send robot to docking station first!"));
+
+				return;
+			}
+try_again:
+			QFile file(QFileDialog::getOpenFileName(this, tr("Select firmware package to install"), QStandardPaths::writableLocation(QStandardPaths::DownloadLocation), "*.pkg", 0, QFileDialog::DontUseNativeDialog));
+
+			if(!file.fileName().isEmpty())
+			{
+				if(file.open(QIODevice::ReadOnly))
+				{
+					if(file.size())
+					{
+						updateDialog(this, &file).exec();
+					}
+					else
+					{
+						QMessageBox::warning(this, APPNAME, tr("Selected firmware package is empty!"));
+
+						goto try_again;
+					}
+				}
+				else
+				{
+					QMessageBox::warning(this, APPNAME, tr("Could not open firmware package!\n\n%1").arg(file.errorString()));
+
+					goto try_again;
+				}
+			}
+		}
 	}
 }
 

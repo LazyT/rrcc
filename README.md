@@ -13,6 +13,7 @@ The current version supports the following features:
 * show cleaning history
 * set sound volume
 * decrypt, encrypt and install voice packages
+* update firmware
 * control dnd and carpet modes
 * set wifi ssid and key
 * convert 96->32 byte token
@@ -22,6 +23,7 @@ The current version supports the following features:
 Only on rooted devices:
 
 * extract token via ssh
+* install/update/uninstall valetudo
 * map functions via [Valetudo](https://github.com/hypfer/valetudo) (goto spot, zone cleaning, show coordinates, flip hor/ver, rotate 90/180/270°, zoom)
 
 ## Screenshots

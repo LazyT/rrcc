@@ -764,9 +764,16 @@
     <addaction name="actionValetudoInstall"/>
     <addaction name="actionValetudoUninstall"/>
    </widget>
+   <widget class="QMenu" name="menuFirmware">
+    <property name="title">
+     <string>Firmware</string>
+    </property>
+    <addaction name="actionUpdateFirmware"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuTools"/>
    <addaction name="menuValetudo"/>
+   <addaction name="menuFirmware"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -797,6 +804,11 @@
    <addaction name="actionHistory"/>
    <addaction name="separator"/>
    <addaction name="actionZones"/>
+   <addaction name="separator"/>
+   <addaction name="actionValetudoInstall"/>
+   <addaction name="actionValetudoUninstall"/>
+   <addaction name="separator"/>
+   <addaction name="actionUpdateFirmware"/>
    <addaction name="separator"/>
    <addaction name="actionHelp"/>
    <addaction name="actionAbout"/>
@@ -1092,6 +1104,21 @@
    </property>
    <property name="statusTip">
     <string>Uninstall Valetudo</string>
+   </property>
+  </action>
+  <action name="actionUpdateFirmware">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/parcel.png</normaloff>:/png/png/parcel.png</iconset>
+   </property>
+   <property name="text">
+    <string>Update</string>
+   </property>
+   <property name="toolTip">
+    <string>Update Firmware</string>
+   </property>
+   <property name="statusTip">
+    <string>Update Firmware</string>
    </property>
   </action>
  </widget>

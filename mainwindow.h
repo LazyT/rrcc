@@ -46,6 +46,7 @@
 #include "history.h"
 #include "timer.h"
 #include "upload.h"
+#include "update.h"
 #include "packager.h"
 #include "unpackager.h"
 #include "converter.h"
@@ -104,8 +105,11 @@
 #define MIIO_SET_CARPET_MODE		"{'id':%6,'method':'set_carpet_mode','params':[{'enable':%1,'current_integral':%2,'current_high':%3,'current_low':%4,'stall_time':%5}]}"
 #define MIIO_APP_GOTO_TARGET		"{'id':%3,'method':'app_goto_target','params':[%1,%2]}"
 #define MIIO_CONFIG_ROUTER			"{'id':%3,'method':'miIO.config_router','params':{'ssid':'%1','passwd':'%2','uid':null}}"
+#define MIIO_OTA					"{'id':%3,'method':'miIO.ota','params':{'mode':'normal','install':'1','app_url':'%1','file_md5':'%2','proc':'dnld install'}}"
+#define MIIO_GET_OTA_STATE			"{'id':%1,'method':'miIO.get_ota_state'}"
+#define MIIO_GET_OTA_PROGRESS		"{'id':%1,'method':'miIO.get_ota_progress'}"
 
-enum {MIIO_ID_HELLO, MIIO_ID_APP_START, MIIO_ID_APP_STOP, MIIO_ID_APP_PAUSE, MIIO_ID_APP_CHARGE, MIIO_ID_APP_SPOT, MIIO_ID_APP_ZONED_CLEAN, MIIO_ID_FIND_ME, MIIO_ID_GET_SERIAL_NUMBER, MIIO_ID_GET_CONSUMABLE, MIIO_ID_RESET_CONSUMABLE, MIIO_ID_GET_STATUS, MIIO_ID_GET_CLEAN_SUMMARY, MIIO_ID_GET_CLEAN_RECORD, MIIO_ID_SET_CUTOM_MODE, MIIO_ID_GET_TIMER, MIIO_ID_SET_TIMER, MIIO_ID_UPD_TIMER, MIIO_ID_DEL_TIMER, MIIO_ID_GET_DND_TIMER, MIIO_ID_SET_DND_TIMER, MIIO_ID_CLOSE_DND_TIMER, MIIO_ID_GET_SOUND_VOLUME, MIIO_ID_CHANGE_SOUND_VOLUME, MIIO_ID_TEST_SOUND_VOLUME, MIIO_ID_GET_CURRENT_SOUND, MIIO_ID_DNLD_INSTALL_SOUND, MIIO_ID_GET_SOUND_PROGRESS, MIIO_ID_GET_CARPET_MODE, MIIO_ID_SET_CARPET_MODE, MIIO_ID_APP_GOTO_TARGET, MIIO_ID_CONFIG_ROUTER};
+enum {MIIO_ID_HELLO, MIIO_ID_APP_START, MIIO_ID_APP_STOP, MIIO_ID_APP_PAUSE, MIIO_ID_APP_CHARGE, MIIO_ID_APP_SPOT, MIIO_ID_APP_ZONED_CLEAN, MIIO_ID_FIND_ME, MIIO_ID_GET_SERIAL_NUMBER, MIIO_ID_GET_CONSUMABLE, MIIO_ID_RESET_CONSUMABLE, MIIO_ID_GET_STATUS, MIIO_ID_GET_CLEAN_SUMMARY, MIIO_ID_GET_CLEAN_RECORD, MIIO_ID_SET_CUTOM_MODE, MIIO_ID_GET_TIMER, MIIO_ID_SET_TIMER, MIIO_ID_UPD_TIMER, MIIO_ID_DEL_TIMER, MIIO_ID_GET_DND_TIMER, MIIO_ID_SET_DND_TIMER, MIIO_ID_CLOSE_DND_TIMER, MIIO_ID_GET_SOUND_VOLUME, MIIO_ID_CHANGE_SOUND_VOLUME, MIIO_ID_TEST_SOUND_VOLUME, MIIO_ID_GET_CURRENT_SOUND, MIIO_ID_DNLD_INSTALL_SOUND, MIIO_ID_GET_SOUND_PROGRESS, MIIO_ID_GET_CARPET_MODE, MIIO_ID_SET_CARPET_MODE, MIIO_ID_APP_GOTO_TARGET, MIIO_ID_CONFIG_ROUTER, MIIO_ID_OTA, MIIO_ID_GET_OTA_STATE, MIIO_ID_GET_OTA_PROGRESS};
 enum {AES_ENCRYPT, AES_DECRYPT};
 enum {FANSPEED_QUIET = 38, FANSPEED_BALANCED = 60, FANSPEED_TURBO = 77, FANSPEED_MAXIMUM = 90};
 
@@ -292,6 +296,13 @@ public:
 
 		}soundprogress;
 
+		struct OTA
+		{
+			QString state;
+			int progress;
+
+		}ota;
+
 	}robo = {};
 
 private:
@@ -351,6 +362,7 @@ private slots:
 	void on_actionZones_triggered();
 	void on_actionValetudoInstall_triggered();
 	void on_actionValetudoUninstall_triggered();
+	void on_actionUpdateFirmware_triggered();
 	void on_actionHelp_triggered();
 	void on_actionAbout_triggered();
 
