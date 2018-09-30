@@ -70,6 +70,8 @@ void uninstallerDialog::ssh_commandExecuted(QString command, QString response)
 {
 	plainTextEdit->appendPlainText(tr("SSH: %1 -> %2\n").arg(command).arg(response.isEmpty() ? QString("OK") : response));
 
+	QThread::msleep(250);
+
 	if(command == VALETUDO_CMD_STOP)
 	{
 		updateProgress();

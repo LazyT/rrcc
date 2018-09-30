@@ -252,6 +252,8 @@ void installerDialog::ssh_pushSuccessful(__attribute__((unused)) QString localFi
 {
 	plainTextEdit->appendPlainText(tr("SCP: finished\n"));
 
+	QThread::msleep(250);
+
 	if(remoteFile == VALETUDO_BIN_DST)
 	{
 		updateProgress();
@@ -271,6 +273,8 @@ void installerDialog::ssh_pushSuccessful(__attribute__((unused)) QString localFi
 void installerDialog::ssh_commandExecuted(QString command, QString response)
 {
 	plainTextEdit->appendPlainText(tr("SSH: %1 -> %2\n").arg(command).arg(response.isEmpty() ? QString("OK") : response));
+
+	QThread::msleep(250);
 
 	if(command == VALETUDO_CMD_STOP)
 	{
