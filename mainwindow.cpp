@@ -893,6 +893,60 @@ void MainWindow::parseJSON(int mid, QByteArray data)
 	}
 }
 
+void MainWindow::ssh_connected()
+{
+	if(cfg.ssh_auth == "PKey")
+	{
+		QFile file_key(cfg.ssh_pkey);
+
+		if(file_key.open(QIODevice::ReadOnly))
+		{
+			QByteArray key = file_key.readAll();
+
+			file_key.close();
+
+			ssh->loginKey(cfg.ssh_user, key, cfg.ssh_pkpp);
+		}
+	}
+	else
+	{
+		ssh->login(cfg.ssh_user, cfg.ssh_pass);
+	}
+}
+
+void MainWindow::ssh_loginSuccessful()
+{
+	ssh->executeCommand("cat /etc/os-release | grep ROBOROCK_VERSION");
+}
+
+void MainWindow::ssh_commandExecuted(__attribute__((unused)) QString command, QString response)
+{
+	QByteArray firmware = response.toUtf8();
+
+	ssh->disconnectFromHost();
+
+	if(firmware.contains("ROBOROCK_VERSION"))
+	{
+		QMessageBox::information(this, APPNAME, tr("Firmware %1 installed.").arg(QString(firmware.split('=').at(1))));
+	}
+	else
+	{
+		QMessageBox::warning(this, APPNAME, tr("Firmware detection failed:\n\n%1").arg(response.isEmpty() ? tr("got empty response") : response));
+	}
+}
+
+void MainWindow::ssh_disconnected()
+{
+	delete ssh;
+}
+
+void MainWindow::ssh_error(QSshSocket::SshError error)
+{
+	ssh->disconnectFromHost();
+
+	QMessageBox::warning(this, APPNAME, tr("SSH connection error!\n\n%1").arg(ssh_error_strings.at(error)));
+}
+
 void MainWindow::on_actionExit_triggered()
 {
 	close();
@@ -1003,6 +1057,26 @@ void MainWindow::on_actionValetudoUninstall_triggered()
 	else
 	{
 		uninstallerDialog(this).exec();
+	}
+}
+
+void MainWindow::on_actionCheckFirmware_triggered()
+{
+	if(cfg.ssh_pass.isEmpty() && cfg.ssh_pkey.isEmpty())
+	{
+		QMessageBox::warning(this, APPNAME, tr("Please setup your ssh settings first!"));
+	}
+	else
+	{
+		ssh = new QSshSocket(this);
+
+		connect(ssh, SIGNAL(connected()), this, SLOT(ssh_connected()));
+		connect(ssh, SIGNAL(disconnected()), this, SLOT(ssh_disconnected()));
+		connect(ssh, SIGNAL(error(QSshSocket::SshError)), this, SLOT(ssh_error(QSshSocket::SshError)));
+		connect(ssh, SIGNAL(loginSuccessful()), this, SLOT(ssh_loginSuccessful()));
+		connect(ssh, SIGNAL(commandExecuted(QString, QString)), this, SLOT(ssh_commandExecuted(QString, QString)));
+
+		ssh->connectToHost(cfg.ip);
 	}
 }
 

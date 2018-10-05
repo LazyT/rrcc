@@ -73,6 +73,7 @@
         <file>png/rotate.png</file>
         <file>png/flip.png</file>
         <file>png/question.png</file>
-        <file>png/parcel.png</file>
+        <file>png/fw_chk.png</file>
+        <file>png/fw_upd.png</file>
     </qresource>
 </RCC>

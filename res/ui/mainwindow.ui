@@ -768,6 +768,7 @@
     <property name="title">
      <string>Firmware</string>
     </property>
+    <addaction name="actionCheckFirmware"/>
     <addaction name="actionUpdateFirmware"/>
    </widget>
    <addaction name="menuFile"/>
@@ -808,6 +809,7 @@
    <addaction name="actionValetudoInstall"/>
    <addaction name="actionValetudoUninstall"/>
    <addaction name="separator"/>
+   <addaction name="actionCheckFirmware"/>
    <addaction name="actionUpdateFirmware"/>
    <addaction name="separator"/>
    <addaction name="actionHelp"/>
@@ -1109,7 +1111,7 @@
   <action name="actionUpdateFirmware">
    <property name="icon">
     <iconset resource="../rrcc.qrc">
-     <normaloff>:/png/png/parcel.png</normaloff>:/png/png/parcel.png</iconset>
+     <normaloff>:/png/png/fw_upd.png</normaloff>:/png/png/fw_upd.png</iconset>
    </property>
    <property name="text">
     <string>Update</string>
@@ -1119,6 +1121,21 @@
    </property>
    <property name="statusTip">
     <string>Update Firmware</string>
+   </property>
+  </action>
+  <action name="actionCheckFirmware">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/fw_chk.png</normaloff>:/png/png/fw_chk.png</iconset>
+   </property>
+   <property name="text">
+    <string>Version</string>
+   </property>
+   <property name="toolTip">
+    <string>Check Firmware</string>
+   </property>
+   <property name="statusTip">
+    <string>Check Firmware</string>
    </property>
   </action>
  </widget>

@@ -349,6 +349,7 @@ private:
 	QActionGroup *group_map;
 	QRubberBand *rubberBand;
 	qreal scale;
+	QSshSocket *ssh;
 
 private slots:
 
@@ -362,6 +363,7 @@ private slots:
 	void on_actionZones_triggered();
 	void on_actionValetudoInstall_triggered();
 	void on_actionValetudoUninstall_triggered();
+	void on_actionCheckFirmware_triggered();
 	void on_actionUpdateFirmware_triggered();
 	void on_actionHelp_triggered();
 	void on_actionAbout_triggered();
@@ -391,6 +393,12 @@ private slots:
 
 	void hovered(QAction*);
 	void aboutToHide();
+
+	void ssh_connected();
+	void ssh_disconnected();
+	void ssh_error(QSshSocket::SshError);
+	void ssh_loginSuccessful();
+	void ssh_commandExecuted(QString, QString);
 
 	void resizeEvent(QResizeEvent*);
 	void mousePressEvent(QMouseEvent*);
