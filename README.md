@@ -23,8 +23,9 @@ The current version supports the following features:
 Only on rooted devices:
 
 * extract token via ssh
-* install/update/uninstall valetudo
+* install/update/uninstall [Valetudo](https://github.com/hypfer/valetudo)
 * map functions via [Valetudo](https://github.com/hypfer/valetudo) (goto spot, zone cleaning, show coordinates, flip hor/ver, rotate 90/180/270°, zoom)
+* show installed firmware version
 
 ## Screenshots
 
@@ -66,21 +67,21 @@ GUI fans just install the [Qt-Environment](http://www.qt.io/download-open-source
 
 ***Hints for compiling:***
 
- - Qt5.11 or greater required
- - libarchive and libssh required
+ - Qt 5.11 or greater required
+ - libarchive-dev and libssh-dev required
 
 ## Credits
 
 RRCC is based on
 
 * [Qt](http://www.qt.io)
-* [QSshSocket](https://github.com/mikemvk/QSshSocket)
 * [QAES](https://github.com/bricke/Qt-AES)
 * [QArchive](https://github.com/antony-jr/QArchive)
+* [QSshSocket](https://github.com/mikemvk/QSshSocket)
 * [ccrypt](http://ccrypt.sourceforge.net)
 * [libarchive](https://www.libarchive.org)
-* [zlib](https://zlib.net)
 * [libssh](https://www.libssh.org)
 * [openssl](https://www.openssl.org)
+* [zlib](https://zlib.net)
 
 Thanks for this great software!
