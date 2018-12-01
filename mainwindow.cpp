@@ -1080,6 +1080,11 @@ void MainWindow::on_actionCheckFirmware_triggered()
 	}
 }
 
+void MainWindow::on_actionDownloadFirmware_triggered()
+{
+	downloadDialog(this).exec();
+}
+
 void MainWindow::on_actionUpdateFirmware_triggered()
 {
 	if(QMessageBox::question(this, APPNAME, tr("Are you really sure you want to install a firmware update?\n\nPlease choose the correct version for your model or you will brick your device!"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes)

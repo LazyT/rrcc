@@ -54,12 +54,16 @@
 #include "zones.h"
 #include "installer.h"
 #include "uninstaller.h"
+#include "download.h"
 
 #define CFG_H	QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/.rrcc/rrcc.cfg"
 #define CFG_P	QCoreApplication::applicationDirPath() + "/rrcc.cfg"
 #define LOG		QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/rrcc.log"
 #define TGZ		QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/rrcc.tgz"
 #define PKG		QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/rrcc.pkg"
+
+#define FW_DL_URL_1	"http://cdn.awsbj0.fds.api.mi-img.com/updpkg"
+#define FW_DL_URL_2	"http://cdn.awsbj0.fds.api.mi-img.com/rubys/updpkg"
 
 #define PKG_KEY "r0ckrobo#23456"
 
@@ -364,6 +368,7 @@ private slots:
 	void on_actionValetudoInstall_triggered();
 	void on_actionValetudoUninstall_triggered();
 	void on_actionCheckFirmware_triggered();
+	void on_actionDownloadFirmware_triggered();
 	void on_actionUpdateFirmware_triggered();
 	void on_actionHelp_triggered();
 	void on_actionAbout_triggered();

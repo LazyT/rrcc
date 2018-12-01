@@ -769,6 +769,7 @@
      <string>Firmware</string>
     </property>
     <addaction name="actionCheckFirmware"/>
+    <addaction name="actionDownloadFirmware"/>
     <addaction name="actionUpdateFirmware"/>
    </widget>
    <addaction name="menuFile"/>
@@ -810,6 +811,7 @@
    <addaction name="actionValetudoUninstall"/>
    <addaction name="separator"/>
    <addaction name="actionCheckFirmware"/>
+   <addaction name="actionDownloadFirmware"/>
    <addaction name="actionUpdateFirmware"/>
    <addaction name="separator"/>
    <addaction name="actionHelp"/>
@@ -1136,6 +1138,21 @@
    </property>
    <property name="statusTip">
     <string>Check Firmware</string>
+   </property>
+  </action>
+  <action name="actionDownloadFirmware">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/save.png</normaloff>:/png/png/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Download</string>
+   </property>
+   <property name="toolTip">
+    <string>Download Firmware</string>
+   </property>
+   <property name="statusTip">
+    <string>Download Firmware</string>
    </property>
   </action>
  </widget>
