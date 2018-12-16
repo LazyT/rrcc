@@ -160,6 +160,24 @@ void QSshSocket::run()
                     error(KeyAuthenticationFailedError);
                 }
             }
+            // Just try ssh-agent and default keys
+            else if (m_user != "")
+            {
+                int rc;
+
+                rc = ssh_userauth_publickey_auto(m_session,
+                                                 m_user.toUtf8().data(),
+                                                 NULL);
+                if (rc == SSH_OK) {
+                    loginSuccessful();
+                    m_loggedIn = true;
+                } else {
+                    m_user = "";
+                    m_key = "";
+                    m_key_passphrase = "";
+                    error(KeyAuthenticationFailedError);
+                }
+            }
         }
         // if all ssh setup has been completed, check to see if we have any commands to execute
         else if (!m_currentOperation.executed)
