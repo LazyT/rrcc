@@ -27,7 +27,7 @@ LIBS        += -lssh
 FORMS       += res/ui/mainwindow.ui res/ui/history.ui res/ui/timer.ui res/ui/setup.ui res/ui/logger.ui res/ui/upload.ui res/ui/packager.ui res/ui/unpackager.ui res/ui/converter.ui res/ui/about.ui res/ui/zones.ui res/ui/installer.ui res/ui/uninstaller.ui res/ui/update.ui res/ui/download.ui
 RESOURCES   += res/rrcc.qrc
 
-TRANSLATIONS+= lng/rrcc_de.ts
+TRANSLATIONS+= res/lang/rrcc_de.ts
 
 unix:!macx {
 QMAKE_LFLAGS+= -Wl,-rpath=.

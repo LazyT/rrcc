@@ -114,5 +114,4 @@ install(TARGETS
             ${CMAKE_INSTALL_BINDIR}
         COMPONENT ${PROJECT_NAME})
 
-add_subdirectory(lng)
 add_subdirectory(res)
