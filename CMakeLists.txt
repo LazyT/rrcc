@@ -22,6 +22,10 @@ find_package(Qt5LinguistTools CONFIG REQUIRED)
 find_package(libssh CONFIG REQUIRED)
 find_package(libarchive REQUIRED)
 
+# Checks for config.h
+include(ConfigureChecks.cmake)
+configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+
 set(rrcc_SRCS
     mainwindow.cpp
     history.cpp
