@@ -267,7 +267,7 @@ void setupDialog::on_toolButton_ssh_keyfile_clicked()
 
 			file_key.close();
 
-			if(key.startsWith("-----BEGIN RSA PRIVATE KEY-----\n") && key.endsWith("\n-----END RSA PRIVATE KEY-----\n"))
+			if((key.startsWith("-----BEGIN RSA PRIVATE KEY-----\n") && key.endsWith("\n-----END RSA PRIVATE KEY-----\n")) || (key.startsWith("-----BEGIN OPENSSH PRIVATE KEY-----\n") && key.endsWith("\n-----END OPENSSH PRIVATE KEY-----\n")))
 			{
 				lineEdit_ssh_keyfile->setText(file_key.fileName());
 
