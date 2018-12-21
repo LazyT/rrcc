@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "config.h"
 
 int main(int argc, char *argv[])
 {
@@ -17,7 +18,17 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 	if(!QLocale::system().name().startsWith("en_"))
 	{
-		if(appTranslator.load("rrcc_" + QLocale::system().name(), QApplication::applicationDirPath() + "/lng"))
+		QString resource_dir;
+
+		resource_dir = QString::fromUtf8(RRCC_INSOURCE_RESOURCE_DIR);
+		if (!QDir(resource_dir).exists()) {
+			resource_dir = QString::fromUtf8(RRCC_INSTALL_RESOURCE_DIR);
+			if (!QDir(resource_dir).exists()) {
+				resource_dir = QApplication::applicationDirPath();
+			}
+		}
+
+		if(appTranslator.load("rrcc_" + QLocale::system().name(), resource_dir + "/lang"))
 		{
 			QApplication::installTranslator(&appTranslator);
 
@@ -25,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 			{
 				QApplication::installTranslator(&baseTranslator);
 			}
-			else if(baseTranslator.load("qtbase_" + QLocale::system().name(), QApplication::applicationDirPath() + "/lng"))
+			else if(baseTranslator.load("qtbase_" + QLocale::system().name(), resource_dir + "/lang"))
 			{
 				QApplication::installTranslator(&baseTranslator);
 			}
@@ -34,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 			{
 				QApplication::installTranslator(&helpTranslator);
 			}
-			else if(helpTranslator.load("qt_help_" + QLocale::system().name(), QApplication::applicationDirPath() + "/lng"))
+			else if(helpTranslator.load("qt_help_" + QLocale::system().name(), resource_dir + "/lang"))
 			{
 				QApplication::installTranslator(&helpTranslator);
 			}
