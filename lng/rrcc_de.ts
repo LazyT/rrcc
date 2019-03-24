@@ -94,8 +94,8 @@
     </message>
     <message>
         <location filename="../res/ui/download.ui" line="24"/>
-        <source>Model &amp;&amp; Version</source>
-        <translation>Modell &amp;&amp; Version</translation>
+        <source>Model, Version &amp;&amp; Server</source>
+        <translation>Modell, Version &amp;&amp; Server</translation>
     </message>
     <message>
         <location filename="../res/ui/download.ui" line="32"/>
@@ -114,11 +114,16 @@
     </message>
     <message>
         <location filename="../res/ui/download.ui" line="55"/>
-        <source>Enter Version</source>
-        <translation>Version eingeben</translation>
+        <source>Enter Firmware</source>
+        <translation>Firmware eingeben</translation>
     </message>
     <message>
-        <location filename="../res/ui/download.ui" line="73"/>
+        <location filename="../res/ui/download.ui" line="70"/>
+        <source>Select Server</source>
+        <translation>Server wählen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/download.ui" line="97"/>
         <source>Download Progress</source>
         <translation>Fortschritt</translation>
     </message>
@@ -1558,162 +1563,162 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
         <translation>Programm wirklich beenden?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="158"/>
+        <location filename="../mainwindow.h" line="155"/>
         <source>No error</source>
         <translation>Kein Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="159"/>
+        <location filename="../mainwindow.h" line="156"/>
         <source>Archive has bad data</source>
         <translation>Archiv hat fehlerhafte Daten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="160"/>
+        <location filename="../mainwindow.h" line="157"/>
         <source>Archive does not exist or no permission</source>
         <translation>Archiv existiert nicht oder keine Berechtigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="161"/>
+        <location filename="../mainwindow.h" line="158"/>
         <source>Unknown error</source>
         <translation>Unbekannter Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="162"/>
+        <location filename="../mainwindow.h" line="159"/>
         <source>Fatal error</source>
         <translation>Schwerwiegender Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="163"/>
+        <location filename="../mainwindow.h" line="160"/>
         <source>Wrong password for archive</source>
         <translation>Falsches Passwort für Archiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="164"/>
+        <location filename="../mainwindow.h" line="161"/>
         <source>Empty password for archive</source>
         <translation>Leeres Kennwort für Archiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="165"/>
+        <location filename="../mainwindow.h" line="162"/>
         <source>Cannot create archive</source>
         <translation>Archiv kann nicht erstellt werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="166"/>
+        <location filename="../mainwindow.h" line="163"/>
         <source>Cannot open added file</source>
         <translation>Hinzugefügte Datei kann nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="167"/>
+        <location filename="../mainwindow.h" line="164"/>
         <source>Cannot read added file</source>
         <translation>Hinzugefügte Datei kann nicht gelesen werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="168"/>
+        <location filename="../mainwindow.h" line="165"/>
         <source>Cannot find extraction destination</source>
         <translation>Extraktionsziel kann nicht gefunden werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="169"/>
+        <location filename="../mainwindow.h" line="166"/>
         <source>File does not exists</source>
         <translation>Datei existiert nicht</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="170"/>
+        <location filename="../mainwindow.h" line="167"/>
         <source>Extraction destination invalid</source>
         <translation>Extraktionsziel ungültig</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="171"/>
+        <location filename="../mainwindow.h" line="168"/>
         <source>Memory allocation failed</source>
         <translation>Speicherzuweisung fehlgeschlagen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="172"/>
+        <location filename="../mainwindow.h" line="169"/>
         <source>Cannot open existing file</source>
         <translation>Vorhandene Datei kann nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="318"/>
+        <location filename="../mainwindow.h" line="315"/>
         <source>Starting</source>
         <translation>Starten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="319"/>
+        <location filename="../mainwindow.h" line="316"/>
         <source>Charger disconnected</source>
         <translation>Ladegerät getrennt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="320"/>
+        <location filename="../mainwindow.h" line="317"/>
         <source>Idle</source>
         <translation>Leerlauf</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="321"/>
+        <location filename="../mainwindow.h" line="318"/>
         <source>Remote control active</source>
         <translation>Fernbedienung aktiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="322"/>
+        <location filename="../mainwindow.h" line="319"/>
         <source>Cleaning</source>
         <translation>Reinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="323"/>
+        <location filename="../mainwindow.h" line="320"/>
         <source>Returning home</source>
         <translation>Rückkehr nach Hause</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="324"/>
+        <location filename="../mainwindow.h" line="321"/>
         <source>Manual mode</source>
         <translation>Manueller Betrieb</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="325"/>
+        <location filename="../mainwindow.h" line="322"/>
         <source>Charging</source>
         <translation>Aufladen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="326"/>
+        <location filename="../mainwindow.h" line="323"/>
         <source>Charging problem</source>
         <translation>Ladeproblem</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="327"/>
+        <location filename="../mainwindow.h" line="324"/>
         <source>Paused</source>
         <translation>Pausiert</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="328"/>
+        <location filename="../mainwindow.h" line="325"/>
         <source>Spot cleaning</source>
         <translation>Bereichsreinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="329"/>
+        <location filename="../mainwindow.h" line="326"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="330"/>
+        <location filename="../mainwindow.h" line="327"/>
         <source>Shutting down</source>
         <translation>Herunterfahren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="331"/>
+        <location filename="../mainwindow.h" line="328"/>
         <source>Updating</source>
         <translation>Aktualisierung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="332"/>
+        <location filename="../mainwindow.h" line="329"/>
         <source>Docking</source>
         <translation>Andocken</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="333"/>
+        <location filename="../mainwindow.h" line="330"/>
         <source>Going to target</source>
         <translation>Unterwegs zum Ziel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="334"/>
+        <location filename="../mainwindow.h" line="331"/>
         <source>Zoned cleaning</source>
         <translation>Zonenreinigung</translation>
     </message>
@@ -1755,12 +1760,12 @@ Möchten Sie trotzdem die weitere Entwicklung des Projektes unterstützen?</tran
 <context>
     <name>downloadDialog</name>
     <message>
-        <location filename="../download.cpp" line="12"/>
+        <location filename="../download.cpp" line="10"/>
         <source>Download</source>
         <translation>Herunterladen</translation>
     </message>
     <message>
-        <location filename="../download.cpp" line="61"/>
+        <location filename="../download.cpp" line="59"/>
         <source>Downloading firmware failed!
 
 %1</source>
@@ -1769,22 +1774,22 @@ Möchten Sie trotzdem die weitere Entwicklung des Projektes unterstützen?</tran
 %1</translation>
     </message>
     <message>
-        <location filename="../download.cpp" line="75"/>
+        <location filename="../download.cpp" line="73"/>
         <source>Really abort download?</source>
         <translation>Download wirklich abbrechen?</translation>
     </message>
     <message>
-        <location filename="../download.cpp" line="92"/>
-        <source>Enter valid 6 digit version number!</source>
-        <translation>Gültige 6-stellige Versionsnummer eingeben!</translation>
+        <location filename="../download.cpp" line="90"/>
+        <source>Enter valid firmware name!</source>
+        <translation>Gültigen Firmwarenamen eingeben!</translation>
     </message>
     <message>
-        <location filename="../download.cpp" line="109"/>
+        <location filename="../download.cpp" line="107"/>
         <source>Downloading firmware successfull.</source>
         <translation>Herunterladen der Firmware erfolgreich.</translation>
     </message>
     <message>
-        <location filename="../download.cpp" line="122"/>
+        <location filename="../download.cpp" line="120"/>
         <source>Could not open firmware file!
 
 %1 : %2</source>

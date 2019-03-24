@@ -62,9 +62,6 @@
 #define TGZ		QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/rrcc.tgz"
 #define PKG		QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/rrcc.pkg"
 
-#define FW_DL_URL_1	"http://cdn.awsbj0.fds.api.mi-img.com/updpkg"
-#define FW_DL_URL_2	"http://cdn.awsbj0.fds.api.mi-img.com/rubys/updpkg"
-
 #define PKG_KEY "r0ckrobo#23456"
 
 #define TIMEOUT 2500

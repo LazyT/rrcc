@@ -7,8 +7,6 @@ downloadDialog::downloadDialog(QWidget *parent) : QDialog(parent)
 	layout()->setSizeConstraint(QLayout::SetFixedSize);
 	setWindowFlags(windowFlags() | Qt::MSWindowsFixedSizeDialogHint);
 
-	lineEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{6}")));
-
 	buttonBox->button(QDialogButtonBox::Save)->setText(tr("Download"));
 }
 
@@ -87,20 +85,20 @@ void downloadDialog::on_buttonBox_clicked(QAbstractButton *button)
 {
 	if(buttonBox->standardButton(button) == QDialogButtonBox::Save)
 	{
-		if(lineEdit->text().length() < 6 || lineEdit->text() == "000000")
+		if(lineEdit->text() == "v11_00????.pkg")
 		{
-			QMessageBox::warning(this, APPNAME, tr("Enter valid 6 digit version number!"));
+			QMessageBox::warning(this, APPNAME, tr("Enter valid firmware name!"));
 
 			return;
 		}
 
-		QFile firmware(QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) + QString("/v11_%1.pkg").arg(lineEdit->text()));
+		QFile firmware(QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) + QString("/%1").arg(lineEdit->text()));
 
 		if(firmware.open(QIODevice::WriteOnly))
 		{
 			button->setDisabled(true);
 
-			if(!Download(QString("%1/v11_%2.pkg").arg(comboBox->currentIndex() ? FW_DL_URL_2 : FW_DL_URL_1).arg(lineEdit->text())))
+			if(!Download(QString("http://%1/%2/%3").arg(comboBox_server->currentText()).arg(comboBox_model->currentIndex() ? "rubys/updpkg" : "updpkg").arg(lineEdit->text())))
 			{
 				firmware.write(download);
 

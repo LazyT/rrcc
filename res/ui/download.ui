@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>259</width>
-    <height>141</height>
+    <height>169</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,13 +21,13 @@
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>Model &amp;&amp; Version</string>
+      <string>Model, Version &amp;&amp; Server</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QComboBox" name="comboBox">
+         <widget class="QComboBox" name="comboBox_model">
           <property name="toolTip">
            <string>Select Model</string>
           </property>
@@ -52,13 +52,10 @@
         <item>
          <widget class="QLineEdit" name="lineEdit">
           <property name="toolTip">
-           <string>Enter Version</string>
+           <string>Enter Firmware</string>
           </property>
           <property name="text">
-           <string notr="true">000000</string>
-          </property>
-          <property name="maxLength">
-           <number>6</number>
+           <string notr="true">v11_00????.pkg</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -66,6 +63,33 @@
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_server">
+        <property name="toolTip">
+         <string>Select Server</string>
+        </property>
+        <item>
+         <property name="text">
+          <string notr="true">cdn.awsbj0.fds.api.mi-img.com</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">cdn.awsde0.fds.api.mi-img.com</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">cdn.cnbj0.fds.api.mi-img.com</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">cdn.cnbj2.fds.api.mi-img.com</string>
+         </property>
+        </item>
+       </widget>
       </item>
       <item>
        <widget class="QProgressBar" name="progressBar">
