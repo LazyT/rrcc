@@ -761,6 +761,7 @@
     <property name="title">
      <string>Valetudo</string>
     </property>
+    <addaction name="actionValetudoVersion"/>
     <addaction name="actionValetudoInstall"/>
     <addaction name="actionValetudoUninstall"/>
    </widget>
@@ -807,6 +808,7 @@
    <addaction name="separator"/>
    <addaction name="actionZones"/>
    <addaction name="separator"/>
+   <addaction name="actionValetudoVersion"/>
    <addaction name="actionValetudoInstall"/>
    <addaction name="actionValetudoUninstall"/>
    <addaction name="separator"/>
@@ -1128,7 +1130,7 @@
   <action name="actionCheckFirmware">
    <property name="icon">
     <iconset resource="../rrcc.qrc">
-     <normaloff>:/png/png/fw_chk.png</normaloff>:/png/png/fw_chk.png</iconset>
+     <normaloff>:/png/png/search.png</normaloff>:/png/png/search.png</iconset>
    </property>
    <property name="text">
     <string>Version</string>
@@ -1153,6 +1155,21 @@
    </property>
    <property name="statusTip">
     <string>Download Firmware</string>
+   </property>
+  </action>
+  <action name="actionValetudoVersion">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/search.png</normaloff>:/png/png/search.png</iconset>
+   </property>
+   <property name="text">
+    <string>Version</string>
+   </property>
+   <property name="toolTip">
+    <string>Check Valetudo</string>
+   </property>
+   <property name="statusTip">
+    <string>Check Valetudo</string>
    </property>
   </action>
  </widget>

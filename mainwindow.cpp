@@ -916,22 +916,36 @@ void MainWindow::ssh_connected()
 
 void MainWindow::ssh_loginSuccessful()
 {
-	ssh->executeCommand("cat /etc/os-release | grep ROBOROCK_VERSION");
+	ssh->executeCommand(ssh_cmd);
 }
 
-void MainWindow::ssh_commandExecuted(__attribute__((unused)) QString command, QString response)
+void MainWindow::ssh_commandExecuted(QString command, QString response)
 {
-	QByteArray firmware = response.toUtf8();
+	QByteArray version = response.toUtf8();
 
 	ssh->disconnectFromHost();
 
-	if(firmware.contains("ROBOROCK_VERSION"))
+	if(command == SSH_GET_FIRMWARE_VERSION)
 	{
-		QMessageBox::information(this, APPNAME, tr("Firmware %1 installed.").arg(QString(firmware.split('=').at(1))));
+		if(version.contains("ROBOROCK_VERSION"))
+		{
+			QMessageBox::information(this, APPNAME, tr("Firmware %1 installed.").arg(QString(version.split('=').at(1)).replace("_", " Build ")));
+		}
+		else
+		{
+			QMessageBox::warning(this, APPNAME, tr("Firmware detection failed:\n\n%1").arg(response.isEmpty() ? tr("got empty response") : response));
+		}
 	}
-	else
+	else if(command == SSH_GET_VALETUDO_VERSION)
 	{
-		QMessageBox::warning(this, APPNAME, tr("Firmware detection failed:\n\n%1").arg(response.isEmpty() ? tr("got empty response") : response));
+		if(version.contains("valetudo"))
+		{
+			QMessageBox::information(this, APPNAME, tr("Valetudo %1 installed.").arg(QString(version.split(',').at(1).split('\"').at(3))));
+		}
+		else
+		{
+			QMessageBox::warning(this, APPNAME, tr("Valetudo detection failed:\n\n%1").arg(response.isEmpty() ? tr("got empty response") : response));
+		}
 	}
 }
 
@@ -1036,6 +1050,29 @@ void MainWindow::on_actionZones_triggered()
 	}
 }
 
+void MainWindow::on_actionValetudoVersion_triggered()
+{
+	if(cfg.ssh_pass.isEmpty() && cfg.ssh_pkey.isEmpty())
+	{
+		QMessageBox::warning(this, APPNAME, tr("Please setup your ssh settings first!"));
+	}
+	else
+	{
+		ssh = new QSshSocket(this);
+
+		connect(ssh, SIGNAL(connected()), this, SLOT(ssh_connected()));
+		connect(ssh, SIGNAL(disconnected()), this, SLOT(ssh_disconnected()));
+		connect(ssh, SIGNAL(error(QSshSocket::SshError)), this, SLOT(ssh_error(QSshSocket::SshError)));
+		connect(ssh, SIGNAL(loginSuccessful()), this, SLOT(ssh_loginSuccessful()));
+		connect(ssh, SIGNAL(commandExecuted(QString, QString)), this, SLOT(ssh_commandExecuted(QString, QString)));
+
+		ssh_cmd = SSH_GET_VALETUDO_VERSION;
+
+		ssh->connectToHost(cfg.ip);
+	}
+
+}
+
 void MainWindow::on_actionValetudoInstall_triggered()
 {
 	if(cfg.ssh_pass.isEmpty() && cfg.ssh_pkey.isEmpty())
@@ -1075,6 +1112,8 @@ void MainWindow::on_actionCheckFirmware_triggered()
 		connect(ssh, SIGNAL(error(QSshSocket::SshError)), this, SLOT(ssh_error(QSshSocket::SshError)));
 		connect(ssh, SIGNAL(loginSuccessful()), this, SLOT(ssh_loginSuccessful()));
 		connect(ssh, SIGNAL(commandExecuted(QString, QString)), this, SLOT(ssh_commandExecuted(QString, QString)));
+
+		ssh_cmd = SSH_GET_FIRMWARE_VERSION;
 
 		ssh->connectToHost(cfg.ip);
 	}

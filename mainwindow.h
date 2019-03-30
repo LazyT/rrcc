@@ -110,6 +110,9 @@
 #define MIIO_GET_OTA_STATE			"{'id':%1,'method':'miIO.get_ota_state'}"
 #define MIIO_GET_OTA_PROGRESS		"{'id':%1,'method':'miIO.get_ota_progress'}"
 
+#define SSH_GET_FIRMWARE_VERSION "fgrep ROBOROCK_VERSION /etc/os-release"
+#define SSH_GET_VALETUDO_VERSION "fgrep -a -m1 -A1 '\"name\": \"valetudo\"' /usr/local/bin/valetudo"
+
 enum {MIIO_ID_HELLO, MIIO_ID_APP_START, MIIO_ID_APP_STOP, MIIO_ID_APP_PAUSE, MIIO_ID_APP_CHARGE, MIIO_ID_APP_SPOT, MIIO_ID_APP_ZONED_CLEAN, MIIO_ID_FIND_ME, MIIO_ID_GET_SERIAL_NUMBER, MIIO_ID_GET_CONSUMABLE, MIIO_ID_RESET_CONSUMABLE, MIIO_ID_GET_STATUS, MIIO_ID_GET_CLEAN_SUMMARY, MIIO_ID_GET_CLEAN_RECORD, MIIO_ID_SET_CUTOM_MODE, MIIO_ID_GET_TIMER, MIIO_ID_SET_TIMER, MIIO_ID_UPD_TIMER, MIIO_ID_DEL_TIMER, MIIO_ID_GET_DND_TIMER, MIIO_ID_SET_DND_TIMER, MIIO_ID_CLOSE_DND_TIMER, MIIO_ID_GET_SOUND_VOLUME, MIIO_ID_CHANGE_SOUND_VOLUME, MIIO_ID_TEST_SOUND_VOLUME, MIIO_ID_GET_CURRENT_SOUND, MIIO_ID_DNLD_INSTALL_SOUND, MIIO_ID_GET_SOUND_PROGRESS, MIIO_ID_GET_CARPET_MODE, MIIO_ID_SET_CARPET_MODE, MIIO_ID_APP_GOTO_TARGET, MIIO_ID_CONFIG_ROUTER, MIIO_ID_OTA, MIIO_ID_GET_OTA_STATE, MIIO_ID_GET_OTA_PROGRESS};
 enum {AES_ENCRYPT, AES_DECRYPT};
 enum {FANSPEED_QUIET = 38, FANSPEED_BALANCED = 60, FANSPEED_TURBO = 77, FANSPEED_MAXIMUM = 90};
@@ -351,6 +354,7 @@ private:
 	QRubberBand *rubberBand;
 	qreal scale;
 	QSshSocket *ssh;
+	QString ssh_cmd;
 
 private slots:
 
@@ -362,6 +366,7 @@ private slots:
 	void on_actionTimer_triggered();
 	void on_actionHistory_triggered();
 	void on_actionZones_triggered();
+	void on_actionValetudoVersion_triggered();
 	void on_actionValetudoInstall_triggered();
 	void on_actionValetudoUninstall_triggered();
 	void on_actionCheckFirmware_triggered();
