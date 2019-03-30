@@ -938,7 +938,7 @@ void MainWindow::ssh_commandExecuted(QString command, QString response)
 	}
 	else if(command == SSH_GET_VALETUDO_VERSION)
 	{
-		if(version.contains("valetudo"))
+                if(version.contains("\"valetudo\""))
 		{
 			QMessageBox::information(this, APPNAME, tr("Valetudo %1 installed.").arg(QString(version.split(',').at(1).split('\"').at(3))));
 		}
