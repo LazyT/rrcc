@@ -76,6 +76,8 @@ void QSshSocket::run()
             {
                 m_session = ssh_new();
 
+                int timeout_sec = 30;
+
                 //set logging to verbose so all errors can be debugged if crash happens
                 int verbosity = SSH_LOG_NOLOG;
 
@@ -84,6 +86,7 @@ void QSshSocket::run()
                 ssh_options_set(m_session, SSH_OPTIONS_USER, m_user.toUtf8().data());
                 ssh_options_set(m_session, SSH_OPTIONS_LOG_VERBOSITY, &verbosity);
                 ssh_options_set(m_session, SSH_OPTIONS_PORT, &m_port);
+                ssh_options_set(m_session, SSH_OPTIONS_TIMEOUT, &timeout_sec);
 
                 // try to connect given host, user, port
                 int connectionResponse = ssh_connect(m_session);
