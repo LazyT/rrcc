@@ -1,6 +1,6 @@
 #include "download.h"
 
-downloadDialog::downloadDialog(QWidget *parent) : QDialog(parent)
+downloadDialog::downloadDialog(QWidget *parent, int model, int server, QString firmware) : QDialog(parent)
 {
 	setupUi(this);
 
@@ -8,6 +8,28 @@ downloadDialog::downloadDialog(QWidget *parent) : QDialog(parent)
 	setWindowFlags(windowFlags() | Qt::MSWindowsFixedSizeDialogHint);
 
 	buttonBox->button(QDialogButtonBox::Save)->setText(tr("Download"));
+
+	comboBox_model->setCurrentIndex(model);
+	comboBox_server->setCurrentIndex(server);
+
+	if(!firmware.isEmpty())
+	{
+		lineEdit->setText(firmware);
+
+		QTimer::singleShot(1, this, SLOT(startDownload()));
+	}
+	else
+	{
+		lineEdit->setFocus();
+		lineEdit->setSelection(6, 4);
+	}
+
+	lineEdit->setMinimumWidth(lineEdit->fontMetrics().boundingRect(lineEdit->text()).width() + 15);
+}
+
+void downloadDialog::startDownload()
+{
+	emit on_buttonBox_clicked(buttonBox->button(QDialogButtonBox::Save));
 }
 
 bool downloadDialog::Download(QString url)
@@ -85,7 +107,7 @@ void downloadDialog::on_buttonBox_clicked(QAbstractButton *button)
 {
 	if(buttonBox->standardButton(button) == QDialogButtonBox::Save)
 	{
-		if(lineEdit->text() == "v11_00????.pkg")
+		if(lineEdit->text() == "v11_00????.fullos.pkg")
 		{
 			QMessageBox::warning(this, APPNAME, tr("Enter valid firmware name!"));
 

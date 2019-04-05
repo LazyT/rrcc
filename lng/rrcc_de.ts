@@ -94,8 +94,8 @@
     </message>
     <message>
         <location filename="../res/ui/download.ui" line="24"/>
-        <source>Model, Version &amp;&amp; Server</source>
-        <translation>Modell, Version &amp;&amp; Server</translation>
+        <source>Download Parameter</source>
+        <translation>Download Parameter</translation>
     </message>
     <message>
         <location filename="../res/ui/download.ui" line="32"/>
@@ -323,6 +323,79 @@
         <location filename="../res/ui/packager.ui" line="97"/>
         <source>Elapsed Time</source>
         <translation>Verstrichene Zeit</translation>
+    </message>
+</context>
+<context>
+    <name>Dialog_Search</name>
+    <message>
+        <location filename="../res/ui/search.ui" line="14"/>
+        <source>Search Firmware</source>
+        <translation>Firmware suchen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/search.ui" line="24"/>
+        <source>Search Parameter</source>
+        <translation>Suchparameter</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/search.ui" line="32"/>
+        <source>Select Model</source>
+        <translation>Modell wählen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/search.ui" line="42"/>
+        <source>Generation 1</source>
+        <translation>Generation 1</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/search.ui" line="47"/>
+        <source>Generation 2</source>
+        <translation>Generation 2</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/search.ui" line="55"/>
+        <source>Enter Filename (???? will be replaced with version)</source>
+        <translation>Dateiname eingeben (???? wird durch Version ersetzt)</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/search.ui" line="70"/>
+        <source>Select Server</source>
+        <translation>Server wählen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/search.ui" line="99"/>
+        <source>Start Version</source>
+        <translation>Start Version</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/search.ui" line="112"/>
+        <source>Stop Version</source>
+        <translation>Stop Version</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/search.ui" line="125"/>
+        <source>Search Progress</source>
+        <translation>Fortschritt</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/search.ui" line="140"/>
+        <source>Doubleclick to download selected firmware</source>
+        <translation type="unfinished">Doppelklicken um gewählte Firmware herunterzuladen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/search.ui" line="159"/>
+        <source>Date</source>
+        <translation>Datum</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/search.ui" line="167"/>
+        <source>Size</source>
+        <translation>Größe</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/search.ui" line="175"/>
+        <source>Firmware</source>
+        <translation>Firmware</translation>
     </message>
 </context>
 <context>
@@ -1133,143 +1206,154 @@ Geduld und auf die Sprachausgabe achten...</translation>
         <translation>Firmware</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="942"/>
+        <location filename="../res/ui/mainwindow.ui" line="943"/>
         <source>Map</source>
         <translation>Karte</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="954"/>
-        <location filename="../res/ui/mainwindow.ui" line="957"/>
+        <location filename="../res/ui/mainwindow.ui" line="955"/>
+        <location filename="../res/ui/mainwindow.ui" line="958"/>
         <source>Reset Zoom</source>
         <translation>Zoom rücksetzen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="966"/>
-        <location filename="../res/ui/mainwindow.ui" line="969"/>
+        <location filename="../res/ui/mainwindow.ui" line="967"/>
+        <location filename="../res/ui/mainwindow.ui" line="970"/>
         <source>Goto Position</source>
         <translation>Gehe zu Position</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="977"/>
-        <location filename="../res/ui/mainwindow.ui" line="980"/>
-        <location filename="../res/ui/mainwindow.ui" line="983"/>
+        <location filename="../res/ui/mainwindow.ui" line="978"/>
+        <location filename="../res/ui/mainwindow.ui" line="981"/>
+        <location filename="../res/ui/mainwindow.ui" line="984"/>
         <source>Flip Horizontal</source>
         <translation>Horizontal spiegeln</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="991"/>
-        <location filename="../res/ui/mainwindow.ui" line="994"/>
-        <location filename="../res/ui/mainwindow.ui" line="997"/>
+        <location filename="../res/ui/mainwindow.ui" line="992"/>
+        <location filename="../res/ui/mainwindow.ui" line="995"/>
+        <location filename="../res/ui/mainwindow.ui" line="998"/>
         <source>Flip Vertical</source>
         <translation>Vertikal spiegeln</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1005"/>
-        <location filename="../res/ui/mainwindow.ui" line="1008"/>
-        <location filename="../res/ui/mainwindow.ui" line="1011"/>
+        <location filename="../res/ui/mainwindow.ui" line="1006"/>
+        <location filename="../res/ui/mainwindow.ui" line="1009"/>
+        <location filename="../res/ui/mainwindow.ui" line="1012"/>
         <source>Swap Up/Down</source>
         <translation>Aufwärts/Abwärts tauschen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1019"/>
-        <location filename="../res/ui/mainwindow.ui" line="1022"/>
-        <location filename="../res/ui/mainwindow.ui" line="1025"/>
+        <location filename="../res/ui/mainwindow.ui" line="1020"/>
+        <location filename="../res/ui/mainwindow.ui" line="1023"/>
+        <location filename="../res/ui/mainwindow.ui" line="1026"/>
         <source>Rotate 0°</source>
         <translation>0° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1033"/>
-        <location filename="../res/ui/mainwindow.ui" line="1036"/>
-        <location filename="../res/ui/mainwindow.ui" line="1039"/>
+        <location filename="../res/ui/mainwindow.ui" line="1034"/>
+        <location filename="../res/ui/mainwindow.ui" line="1037"/>
+        <location filename="../res/ui/mainwindow.ui" line="1040"/>
         <source>Rotate 90°</source>
         <translation>90° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1047"/>
-        <location filename="../res/ui/mainwindow.ui" line="1050"/>
-        <location filename="../res/ui/mainwindow.ui" line="1053"/>
+        <location filename="../res/ui/mainwindow.ui" line="1048"/>
+        <location filename="../res/ui/mainwindow.ui" line="1051"/>
+        <location filename="../res/ui/mainwindow.ui" line="1054"/>
         <source>Rotate 180°</source>
         <translation>180° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1061"/>
-        <location filename="../res/ui/mainwindow.ui" line="1064"/>
-        <location filename="../res/ui/mainwindow.ui" line="1067"/>
+        <location filename="../res/ui/mainwindow.ui" line="1062"/>
+        <location filename="../res/ui/mainwindow.ui" line="1065"/>
+        <location filename="../res/ui/mainwindow.ui" line="1068"/>
         <source>Rotate 270°</source>
         <translation>270° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1076"/>
-        <location filename="../res/ui/mainwindow.ui" line="1079"/>
+        <location filename="../res/ui/mainwindow.ui" line="1077"/>
+        <location filename="../res/ui/mainwindow.ui" line="1080"/>
         <source>Zones</source>
         <translation>Zonen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1082"/>
+        <location filename="../res/ui/mainwindow.ui" line="1083"/>
         <source>Edit Zones</source>
         <translation>Zonen anpassen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1091"/>
+        <location filename="../res/ui/mainwindow.ui" line="1092"/>
         <source>Install</source>
         <translation>Installation</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1094"/>
-        <location filename="../res/ui/mainwindow.ui" line="1097"/>
+        <location filename="../res/ui/mainwindow.ui" line="1095"/>
+        <location filename="../res/ui/mainwindow.ui" line="1098"/>
         <source>Install Valetudo</source>
         <translation>Valetudo installieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1106"/>
+        <location filename="../res/ui/mainwindow.ui" line="1107"/>
         <source>Uninstall</source>
         <translation>Deinstallation</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1109"/>
-        <location filename="../res/ui/mainwindow.ui" line="1112"/>
+        <location filename="../res/ui/mainwindow.ui" line="1110"/>
+        <location filename="../res/ui/mainwindow.ui" line="1113"/>
         <source>Uninstall Valetudo</source>
         <translation>Valetudo deinstallieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1121"/>
+        <location filename="../res/ui/mainwindow.ui" line="1122"/>
         <source>Update</source>
         <translation>Aktualisierung</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1124"/>
-        <location filename="../res/ui/mainwindow.ui" line="1127"/>
+        <location filename="../res/ui/mainwindow.ui" line="1125"/>
+        <location filename="../res/ui/mainwindow.ui" line="1128"/>
         <source>Update Firmware</source>
         <translation>Firmware aktualisieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1136"/>
-        <location filename="../res/ui/mainwindow.ui" line="1166"/>
+        <location filename="../res/ui/mainwindow.ui" line="1137"/>
+        <location filename="../res/ui/mainwindow.ui" line="1167"/>
         <source>Version</source>
         <translation>Version</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1139"/>
-        <location filename="../res/ui/mainwindow.ui" line="1142"/>
+        <location filename="../res/ui/mainwindow.ui" line="1140"/>
+        <location filename="../res/ui/mainwindow.ui" line="1143"/>
         <source>Check Firmware</source>
         <translation>Firmware-Version prüfen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1151"/>
+        <location filename="../res/ui/mainwindow.ui" line="1152"/>
         <source>Download</source>
         <translation>Herunterladen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1154"/>
-        <location filename="../res/ui/mainwindow.ui" line="1157"/>
+        <location filename="../res/ui/mainwindow.ui" line="1155"/>
+        <location filename="../res/ui/mainwindow.ui" line="1158"/>
         <source>Download Firmware</source>
         <translation>Firmware herunterladen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1169"/>
-        <location filename="../res/ui/mainwindow.ui" line="1172"/>
+        <location filename="../res/ui/mainwindow.ui" line="1170"/>
+        <location filename="../res/ui/mainwindow.ui" line="1173"/>
         <source>Check Valetudo</source>
         <translation>Valetudo-Version prüfen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/mainwindow.ui" line="1182"/>
+        <source>Search</source>
+        <translation>Suche</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/mainwindow.ui" line="1185"/>
+        <location filename="../res/ui/mainwindow.ui" line="1188"/>
+        <source>Search Firmware</source>
+        <translation>Firmware suchen</translation>
     </message>
     <message>
         <location filename="../res/ui/mainwindow.ui" line="734"/>
@@ -1287,92 +1371,92 @@ Geduld und auf die Sprachausgabe achten...</translation>
         <translation>Werkzeuge</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="828"/>
+        <location filename="../res/ui/mainwindow.ui" line="829"/>
         <source>Exit</source>
         <translation>Beenden</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="831"/>
+        <location filename="../res/ui/mainwindow.ui" line="832"/>
         <source>Exit Program</source>
         <translation>Programm beenden</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="840"/>
+        <location filename="../res/ui/mainwindow.ui" line="841"/>
         <source>About</source>
         <translation>Über</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="843"/>
+        <location filename="../res/ui/mainwindow.ui" line="844"/>
         <source>Show About</source>
         <translation>Zeige Info</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="852"/>
+        <location filename="../res/ui/mainwindow.ui" line="853"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="855"/>
+        <location filename="../res/ui/mainwindow.ui" line="856"/>
         <source>Show Help</source>
         <translation>Zeige Hilfe</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="864"/>
-        <location filename="../res/ui/mainwindow.ui" line="867"/>
+        <location filename="../res/ui/mainwindow.ui" line="865"/>
+        <location filename="../res/ui/mainwindow.ui" line="868"/>
         <source>Timer</source>
         <translation>Zeitsteuerung</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="870"/>
+        <location filename="../res/ui/mainwindow.ui" line="871"/>
         <source>Manage Timer</source>
         <translation>Zeitsteuerung verwalten</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="879"/>
-        <location filename="../res/ui/mainwindow.ui" line="882"/>
+        <location filename="../res/ui/mainwindow.ui" line="880"/>
+        <location filename="../res/ui/mainwindow.ui" line="883"/>
         <source>History</source>
         <translation>Verlauf</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="885"/>
+        <location filename="../res/ui/mainwindow.ui" line="886"/>
         <source>Show History</source>
         <translation>Verlauf anzeigen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="894"/>
-        <location filename="../res/ui/mainwindow.ui" line="897"/>
+        <location filename="../res/ui/mainwindow.ui" line="895"/>
+        <location filename="../res/ui/mainwindow.ui" line="898"/>
         <source>Setup</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="900"/>
+        <location filename="../res/ui/mainwindow.ui" line="901"/>
         <source>Configure Settings</source>
         <translation>Einstellungen konfigurieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="909"/>
-        <location filename="../res/ui/mainwindow.ui" line="912"/>
+        <location filename="../res/ui/mainwindow.ui" line="910"/>
+        <location filename="../res/ui/mainwindow.ui" line="913"/>
         <source>Logger</source>
         <translation>Logger</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="915"/>
+        <location filename="../res/ui/mainwindow.ui" line="916"/>
         <source>Show Log</source>
         <translation>Protokoll anzeigen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="924"/>
-        <location filename="../res/ui/mainwindow.ui" line="927"/>
+        <location filename="../res/ui/mainwindow.ui" line="925"/>
+        <location filename="../res/ui/mainwindow.ui" line="928"/>
         <source>Refresh</source>
         <translation>Aktualisieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="930"/>
+        <location filename="../res/ui/mainwindow.ui" line="931"/>
         <source>Refresh Status</source>
         <translation>Status aktualisieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="945"/>
+        <location filename="../res/ui/mainwindow.ui" line="946"/>
         <source>Show Map</source>
         <translation>Karte anzeigen</translation>
     </message>
@@ -1490,7 +1574,7 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
         <translation>Bitte zuerst die SSH-Einstellungen vornehmen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1129"/>
+        <location filename="../mainwindow.cpp" line="1134"/>
         <source>Are you really sure you want to install a firmware update?
 
 Please choose the correct version for your model or you will brick your device!</source>
@@ -1499,27 +1583,27 @@ Please choose the correct version for your model or you will brick your device!<
 Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbrauchbar!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1135"/>
+        <location filename="../mainwindow.cpp" line="1140"/>
         <source>Charge battery to at least 20% first!</source>
         <translation>Den Akku zuerst auf mindestens 20% aufladen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1141"/>
+        <location filename="../mainwindow.cpp" line="1146"/>
         <source>Send robot to docking station first!</source>
         <translation>Den Roboter zuerst zur Ladestation schicken!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1146"/>
+        <location filename="../mainwindow.cpp" line="1151"/>
         <source>Select firmware package to install</source>
         <translation>Zu installierendes Firmwarepaket auswählen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1158"/>
+        <location filename="../mainwindow.cpp" line="1163"/>
         <source>Selected firmware package is empty!</source>
         <translation>Das ausgewählte Firmwarepaket ist leer!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1165"/>
+        <location filename="../mainwindow.cpp" line="1170"/>
         <source>Could not open firmware package!
 
 %1</source>
@@ -1528,12 +1612,12 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1176"/>
+        <location filename="../mainwindow.cpp" line="1181"/>
         <source>Help not implemented yet, sorry...</source>
         <translation>Hilfe noch nicht implementiert, sorry....</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1408"/>
+        <location filename="../mainwindow.cpp" line="1413"/>
         <source>Map function is only available on rooted devices running Valetudo!
 
 %1</source>
@@ -1542,13 +1626,13 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1548"/>
-        <location filename="../mainwindow.cpp" line="1677"/>
+        <location filename="../mainwindow.cpp" line="1553"/>
+        <location filename="../mainwindow.cpp" line="1682"/>
         <source>Map [ Zoom Factor = %1 ]</source>
         <translation>Karte [ Zoomfaktor = %1 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1628"/>
+        <location filename="../mainwindow.cpp" line="1633"/>
         <source>Start zone cleaning for selected region?
 
 [ %1 / %2 - %3 / %4 ]</source>
@@ -1557,12 +1641,12 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 [ %1 / %2 - %3 / %4 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1644"/>
+        <location filename="../mainwindow.cpp" line="1649"/>
         <source>You can customize all zones later with the zone editor.</source>
         <translation>Alle Zonen können später mit dem Zoneneditor angepasst werden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1701"/>
+        <location filename="../mainwindow.cpp" line="1706"/>
         <source>Send robot to selected position?
 
 [ %1 / %2 ]</source>
@@ -1571,177 +1655,177 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 [ %1 / %2 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1708"/>
+        <location filename="../mainwindow.cpp" line="1713"/>
         <source>Please select position inside the map!</source>
         <translation>Bitte Position innerhalb der Karte wählen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1757"/>
+        <location filename="../mainwindow.cpp" line="1762"/>
         <source>Start cleaning for zone &quot;%1&quot;?</source>
         <translation>Reinigung für Zone &quot;%1&quot; starten?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1786"/>
+        <location filename="../mainwindow.cpp" line="1791"/>
         <source>Really exit program?</source>
         <translation>Programm wirklich beenden?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="158"/>
+        <location filename="../mainwindow.h" line="159"/>
         <source>No error</source>
         <translation>Kein Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="159"/>
+        <location filename="../mainwindow.h" line="160"/>
         <source>Archive has bad data</source>
         <translation>Archiv hat fehlerhafte Daten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="160"/>
+        <location filename="../mainwindow.h" line="161"/>
         <source>Archive does not exist or no permission</source>
         <translation>Archiv existiert nicht oder keine Berechtigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="161"/>
+        <location filename="../mainwindow.h" line="162"/>
         <source>Unknown error</source>
         <translation>Unbekannter Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="162"/>
+        <location filename="../mainwindow.h" line="163"/>
         <source>Fatal error</source>
         <translation>Schwerwiegender Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="163"/>
+        <location filename="../mainwindow.h" line="164"/>
         <source>Wrong password for archive</source>
         <translation>Falsches Passwort für Archiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="164"/>
+        <location filename="../mainwindow.h" line="165"/>
         <source>Empty password for archive</source>
         <translation>Leeres Kennwort für Archiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="165"/>
+        <location filename="../mainwindow.h" line="166"/>
         <source>Cannot create archive</source>
         <translation>Archiv kann nicht erstellt werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="166"/>
+        <location filename="../mainwindow.h" line="167"/>
         <source>Cannot open added file</source>
         <translation>Hinzugefügte Datei kann nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="167"/>
+        <location filename="../mainwindow.h" line="168"/>
         <source>Cannot read added file</source>
         <translation>Hinzugefügte Datei kann nicht gelesen werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="168"/>
+        <location filename="../mainwindow.h" line="169"/>
         <source>Cannot find extraction destination</source>
         <translation>Extraktionsziel kann nicht gefunden werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="169"/>
+        <location filename="../mainwindow.h" line="170"/>
         <source>File does not exists</source>
         <translation>Datei existiert nicht</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="170"/>
+        <location filename="../mainwindow.h" line="171"/>
         <source>Extraction destination invalid</source>
         <translation>Extraktionsziel ungültig</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="171"/>
+        <location filename="../mainwindow.h" line="172"/>
         <source>Memory allocation failed</source>
         <translation>Speicherzuweisung fehlgeschlagen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="172"/>
+        <location filename="../mainwindow.h" line="173"/>
         <source>Cannot open existing file</source>
         <translation>Vorhandene Datei kann nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="318"/>
+        <location filename="../mainwindow.h" line="319"/>
         <source>Starting</source>
         <translation>Starten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="319"/>
+        <location filename="../mainwindow.h" line="320"/>
         <source>Charger disconnected</source>
         <translation>Ladegerät getrennt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="320"/>
+        <location filename="../mainwindow.h" line="321"/>
         <source>Idle</source>
         <translation>Leerlauf</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="321"/>
+        <location filename="../mainwindow.h" line="322"/>
         <source>Remote control active</source>
         <translation>Fernbedienung aktiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="322"/>
+        <location filename="../mainwindow.h" line="323"/>
         <source>Cleaning</source>
         <translation>Reinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="323"/>
+        <location filename="../mainwindow.h" line="324"/>
         <source>Returning home</source>
         <translation>Rückkehr nach Hause</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="324"/>
+        <location filename="../mainwindow.h" line="325"/>
         <source>Manual mode</source>
         <translation>Manueller Betrieb</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="325"/>
+        <location filename="../mainwindow.h" line="326"/>
         <source>Charging</source>
         <translation>Aufladen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="326"/>
+        <location filename="../mainwindow.h" line="327"/>
         <source>Charging problem</source>
         <translation>Ladeproblem</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="327"/>
+        <location filename="../mainwindow.h" line="328"/>
         <source>Paused</source>
         <translation>Pausiert</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="328"/>
+        <location filename="../mainwindow.h" line="329"/>
         <source>Spot cleaning</source>
         <translation>Bereichsreinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="329"/>
+        <location filename="../mainwindow.h" line="330"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="330"/>
+        <location filename="../mainwindow.h" line="331"/>
         <source>Shutting down</source>
         <translation>Herunterfahren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="331"/>
+        <location filename="../mainwindow.h" line="332"/>
         <source>Updating</source>
         <translation>Aktualisierung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="332"/>
+        <location filename="../mainwindow.h" line="333"/>
         <source>Docking</source>
         <translation>Andocken</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="333"/>
+        <location filename="../mainwindow.h" line="334"/>
         <source>Going to target</source>
         <translation>Unterwegs zum Ziel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="334"/>
+        <location filename="../mainwindow.h" line="335"/>
         <source>Zoned cleaning</source>
         <translation>Zonenreinigung</translation>
     </message>
@@ -1788,7 +1872,7 @@ Möchten Sie trotzdem die weitere Entwicklung des Projektes unterstützen?</tran
         <translation>Herunterladen</translation>
     </message>
     <message>
-        <location filename="../download.cpp" line="59"/>
+        <location filename="../download.cpp" line="81"/>
         <source>Downloading firmware failed!
 
 %1</source>
@@ -1797,22 +1881,22 @@ Möchten Sie trotzdem die weitere Entwicklung des Projektes unterstützen?</tran
 %1</translation>
     </message>
     <message>
-        <location filename="../download.cpp" line="73"/>
+        <location filename="../download.cpp" line="95"/>
         <source>Really abort download?</source>
         <translation>Download wirklich abbrechen?</translation>
     </message>
     <message>
-        <location filename="../download.cpp" line="90"/>
+        <location filename="../download.cpp" line="112"/>
         <source>Enter valid firmware name!</source>
         <translation>Gültigen Firmwarenamen eingeben!</translation>
     </message>
     <message>
-        <location filename="../download.cpp" line="107"/>
+        <location filename="../download.cpp" line="129"/>
         <source>Downloading firmware successfull.</source>
         <translation>Herunterladen der Firmware erfolgreich.</translation>
     </message>
     <message>
-        <location filename="../download.cpp" line="120"/>
+        <location filename="../download.cpp" line="142"/>
         <source>Could not open firmware file!
 
 %1 : %2</source>
@@ -2119,6 +2203,44 @@ Das Protokoll für weitere Informationen lesen.</translation>
         <location filename="../packager.cpp" line="182"/>
         <source>Really abort packaging?</source>
         <translation>Einpacken wirklich abbrechen?</translation>
+    </message>
+</context>
+<context>
+    <name>searchDialog</name>
+    <message>
+        <location filename="../search.cpp" line="10"/>
+        <source>Search</source>
+        <translation>Suchen</translation>
+    </message>
+    <message>
+        <location filename="../search.cpp" line="56"/>
+        <location filename="../search.cpp" line="135"/>
+        <source>Really abort search?</source>
+        <translation>Suche wirklich abbrechen?</translation>
+    </message>
+    <message>
+        <location filename="../search.cpp" line="73"/>
+        <source>Filename must contain &quot;????&quot;!</source>
+        <translation>Der Dateiname muss &quot;????&quot; enthalten!</translation>
+    </message>
+    <message>
+        <location filename="../search.cpp" line="90"/>
+        <source>Scanning more than 100 versions takes a long time and is not recommended!
+
+Continue anyway?</source>
+        <translation>Das Scannen von mehr als 100 Versionen dauert lange und wird nicht empfohlen!
+
+Trotzdem fortfahren?</translation>
+    </message>
+    <message>
+        <location filename="../search.cpp" line="129"/>
+        <source>%1 firmware versions found.</source>
+        <translation>%1 Firmware Versionen gefunden.</translation>
+    </message>
+    <message>
+        <location filename="../search.cpp" line="129"/>
+        <source>Search aborted, %1 firmware versions found so far.</source>
+        <translation>Suche abgebrochen, bisher %1 Firmware Versionen gefunden.</translation>
     </message>
 </context>
 <context>

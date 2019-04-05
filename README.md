@@ -13,7 +13,7 @@ The current version supports the following features:
 * show cleaning history
 * set sound volume
 * decrypt, encrypt and install voice packages
-* update firmware
+* search, download and update firmware
 * control dnd and carpet modes
 * set wifi ssid and key
 * convert 96->32 byte token

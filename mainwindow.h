@@ -55,6 +55,7 @@
 #include "installer.h"
 #include "uninstaller.h"
 #include "download.h"
+#include "search.h"
 
 #define CFG_H	QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/.rrcc/rrcc.cfg"
 #define CFG_P	QCoreApplication::applicationDirPath() + "/rrcc.cfg"
@@ -370,6 +371,7 @@ private slots:
 	void on_actionValetudoInstall_triggered();
 	void on_actionValetudoUninstall_triggered();
 	void on_actionCheckFirmware_triggered();
+	void on_actionSearchFirmware_triggered();
 	void on_actionDownloadFirmware_triggered();
 	void on_actionUpdateFirmware_triggered();
 	void on_actionHelp_triggered();

@@ -1119,9 +1119,14 @@ void MainWindow::on_actionCheckFirmware_triggered()
 	}
 }
 
+void MainWindow::on_actionSearchFirmware_triggered()
+{
+	searchDialog(this).exec();
+}
+
 void MainWindow::on_actionDownloadFirmware_triggered()
 {
-	downloadDialog(this).exec();
+	downloadDialog(this, 0, 0, "").exec();
 }
 
 void MainWindow::on_actionUpdateFirmware_triggered()

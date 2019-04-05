@@ -10,7 +10,7 @@ class downloadDialog : public QDialog, private Ui::Dialog_Download
 
 public:
 
-	downloadDialog(QWidget*);
+	downloadDialog(QWidget*, int, int, QString);
 
 private:
 
@@ -22,6 +22,8 @@ private:
 	bool finish, failed;
 
 private slots:
+
+	void startDownload();
 
 	void downloadProgress(qint64, qint64);
 	void finished(QNetworkReply*);

@@ -21,7 +21,7 @@
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>Model, Version &amp;&amp; Server</string>
+      <string>Download Parameter</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
@@ -55,7 +55,7 @@
            <string>Enter Firmware</string>
           </property>
           <property name="text">
-           <string notr="true">v11_00????.pkg</string>
+           <string notr="true">v11_00????.fullos.pkg</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>

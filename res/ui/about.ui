@@ -322,7 +322,7 @@ QLabel:hover{image:url(:/png/png/mail-64.png)}</string>
    <item>
     <widget class="QLabel" name="label_Copyright">
      <property name="text">
-      <string notr="true">© 2018 Thomas &quot;LazyT&quot; Löwe</string>
+      <string notr="true">© 2018-2019 Thomas &quot;LazyT&quot; Löwe</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

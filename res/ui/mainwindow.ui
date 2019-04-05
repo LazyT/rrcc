@@ -770,6 +770,7 @@
      <string>Firmware</string>
     </property>
     <addaction name="actionCheckFirmware"/>
+    <addaction name="actionSearchFirmware"/>
     <addaction name="actionDownloadFirmware"/>
     <addaction name="actionUpdateFirmware"/>
    </widget>
@@ -1170,6 +1171,21 @@
    </property>
    <property name="statusTip">
     <string>Check Valetudo</string>
+   </property>
+  </action>
+  <action name="actionSearchFirmware">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/internet.png</normaloff>:/png/png/internet.png</iconset>
+   </property>
+   <property name="text">
+    <string>Search</string>
+   </property>
+   <property name="toolTip">
+    <string>Search Firmware</string>
+   </property>
+   <property name="statusTip">
+    <string>Search Firmware</string>
    </property>
   </action>
  </widget>

@@ -74,5 +74,6 @@
         <file>png/flip.png</file>
         <file>png/question.png</file>
         <file>png/fw_upd.png</file>
+        <file>png/internet.png</file>
     </qresource>
 </RCC>
