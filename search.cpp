@@ -13,6 +13,7 @@ searchDialog::searchDialog(QWidget *parent) : QDialog(parent)
 	treeWidget->resizeColumnToContents(0);
 	treeWidget->resizeColumnToContents(1);
 	treeWidget->resizeColumnToContents(2);
+	treeWidget->resizeColumnToContents(3);
 
 	QTimer::singleShot(1, this, SLOT(calcHeight()));
 }
@@ -30,11 +31,12 @@ void searchDialog::metaDataChanged()
 	{
 		reply->abort();
 
-		QTreeWidgetItem *item = new QTreeWidgetItem(QStringList() << reply->header(QNetworkRequest::LastModifiedHeader).toDateTime().toString("yyyy-MM-dd") << reply->header(QNetworkRequest::ContentLengthHeader).toString() << request.url().fileName());
+		QTreeWidgetItem *item = new QTreeWidgetItem(QStringList() << reply->header(QNetworkRequest::LastModifiedHeader).toDateTime().toString("yyyy-MM-dd") << reply->header(QNetworkRequest::LastModifiedHeader).toDateTime().toString("HH:mm:ss") << reply->header(QNetworkRequest::ContentLengthHeader).toString() << request.url().fileName());
 
 		item->setTextAlignment(0, Qt::AlignHCenter);
 		item->setTextAlignment(1, Qt::AlignHCenter);
 		item->setTextAlignment(2, Qt::AlignHCenter);
+		item->setTextAlignment(3, Qt::AlignHCenter);
 
 		treeWidget->addTopLevelItem(item);
 	}
@@ -46,7 +48,7 @@ void searchDialog::metaDataChanged()
 
 void searchDialog::on_treeWidget_itemDoubleClicked(QTreeWidgetItem *item, __attribute__((unused)) int column)
 {
-	downloadDialog(this, comboBox_model->currentIndex(), comboBox_server->currentIndex(), item->text(2)).exec();
+	downloadDialog(this, comboBox_model->currentIndex(), comboBox_server->currentIndex(), item->text(3)).exec();
 }
 
 void searchDialog::reject()

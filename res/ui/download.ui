@@ -113,6 +113,11 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>comboBox_model</tabstop>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>comboBox_server</tabstop>
+ </tabstops>
  <resources>
   <include location="../rrcc.qrc"/>
  </resources>

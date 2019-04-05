@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>263</width>
+    <width>369</width>
     <height>248</height>
    </rect>
   </property>
@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../rrcc.qrc">
-    <normaloff>:/png/png/save.png</normaloff>:/png/png/save.png</iconset>
+    <normaloff>:/png/png/internet.png</normaloff>:/png/png/internet.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -25,8 +25,48 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="lineEdit">
+          <property name="toolTip">
+           <string>Enter Filename (???? will be replaced with version)</string>
+          </property>
+          <property name="text">
+           <string notr="true">v11_00????.fullos.pkg</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="comboBox_server">
+          <property name="toolTip">
+           <string>Select Server</string>
+          </property>
+          <item>
+           <property name="text">
+            <string notr="true">cdn.awsbj0.fds.api.mi-img.com</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string notr="true">cdn.awsde0.fds.api.mi-img.com</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string notr="true">cdn.cnbj0.fds.api.mi-img.com</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string notr="true">cdn.cnbj2.fds.api.mi-img.com</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="0" column="0">
          <widget class="QComboBox" name="comboBox_model">
           <property name="toolTip">
            <string>Select Model</string>
@@ -49,90 +89,50 @@
           </item>
          </widget>
         </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit">
-          <property name="toolTip">
-           <string>Enter Filename (???? will be replaced with version)</string>
-          </property>
-          <property name="text">
-           <string notr="true">v11_00????.fullos.pkg</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
+        <item row="1" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QSpinBox" name="spinBox_Start">
+            <property name="toolTip">
+             <string>Start Version</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <number>9999</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="spinBox_Stop">
+            <property name="toolTip">
+             <string>Stop Version</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <number>9999</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
       <item>
-       <widget class="QComboBox" name="comboBox_server">
+       <widget class="QProgressBar" name="progressBar">
         <property name="toolTip">
-         <string>Select Server</string>
+         <string>Search Progress</string>
         </property>
-        <item>
-         <property name="text">
-          <string notr="true">cdn.awsbj0.fds.api.mi-img.com</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string notr="true">cdn.awsde0.fds.api.mi-img.com</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string notr="true">cdn.cnbj0.fds.api.mi-img.com</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string notr="true">cdn.cnbj2.fds.api.mi-img.com</string>
-         </property>
-        </item>
+        <property name="value">
+         <number>0</number>
+        </property>
+        <property name="format">
+         <string notr="true">0000 | 0 / 0 | %p%</string>
+        </property>
        </widget>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,1">
-        <item>
-         <widget class="QSpinBox" name="spinBox_Start">
-          <property name="toolTip">
-           <string>Start Version</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="maximum">
-           <number>9999</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QSpinBox" name="spinBox_Stop">
-          <property name="toolTip">
-           <string>Stop Version</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="maximum">
-           <number>9999</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QProgressBar" name="progressBar">
-          <property name="toolTip">
-           <string>Search Progress</string>
-          </property>
-          <property name="value">
-           <number>0</number>
-          </property>
-          <property name="format">
-           <string notr="true">0000 | 0 / 0 | %p%</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
       </item>
       <item>
        <widget class="QTreeWidget" name="treeWidget">
@@ -164,6 +164,14 @@
         </column>
         <column>
          <property name="text">
+          <string>Time</string>
+         </property>
+         <property name="textAlignment">
+          <set>AlignCenter</set>
+         </property>
+        </column>
+        <column>
+         <property name="text">
           <string>Size</string>
          </property>
          <property name="textAlignment">
@@ -181,6 +189,12 @@
         <item>
          <property name="text">
           <string notr="true"> 0000-00-00 </string>
+         </property>
+         <property name="textAlignment">
+          <set>AlignCenter</set>
+         </property>
+         <property name="text">
+          <string notr="true"> 00:00:00 </string>
          </property>
          <property name="textAlignment">
           <set>AlignCenter</set>
@@ -212,6 +226,14 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>comboBox_model</tabstop>
+  <tabstop>comboBox_server</tabstop>
+  <tabstop>spinBox_Start</tabstop>
+  <tabstop>spinBox_Stop</tabstop>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>treeWidget</tabstop>
+ </tabstops>
  <resources>
   <include location="../rrcc.qrc"/>
  </resources>

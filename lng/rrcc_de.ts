@@ -338,62 +338,67 @@
         <translation>Suchparameter</translation>
     </message>
     <message>
-        <location filename="../res/ui/search.ui" line="32"/>
+        <location filename="../res/ui/search.ui" line="72"/>
         <source>Select Model</source>
         <translation>Modell wählen</translation>
     </message>
     <message>
-        <location filename="../res/ui/search.ui" line="42"/>
+        <location filename="../res/ui/search.ui" line="82"/>
         <source>Generation 1</source>
         <translation>Generation 1</translation>
     </message>
     <message>
-        <location filename="../res/ui/search.ui" line="47"/>
+        <location filename="../res/ui/search.ui" line="87"/>
         <source>Generation 2</source>
         <translation>Generation 2</translation>
     </message>
     <message>
-        <location filename="../res/ui/search.ui" line="55"/>
+        <location filename="../res/ui/search.ui" line="32"/>
         <source>Enter Filename (???? will be replaced with version)</source>
         <translation>Dateiname eingeben (???? wird durch Version ersetzt)</translation>
     </message>
     <message>
-        <location filename="../res/ui/search.ui" line="70"/>
+        <location filename="../res/ui/search.ui" line="45"/>
         <source>Select Server</source>
         <translation>Server wählen</translation>
     </message>
     <message>
-        <location filename="../res/ui/search.ui" line="99"/>
+        <location filename="../res/ui/search.ui" line="100"/>
         <source>Start Version</source>
         <translation>Start Version</translation>
     </message>
     <message>
-        <location filename="../res/ui/search.ui" line="112"/>
+        <location filename="../res/ui/search.ui" line="113"/>
         <source>Stop Version</source>
         <translation>Stop Version</translation>
     </message>
     <message>
-        <location filename="../res/ui/search.ui" line="125"/>
+        <location filename="../res/ui/search.ui" line="130"/>
         <source>Search Progress</source>
         <translation>Fortschritt</translation>
     </message>
     <message>
-        <location filename="../res/ui/search.ui" line="140"/>
+        <location filename="../res/ui/search.ui" line="143"/>
         <source>Doubleclick to download selected firmware</source>
-        <translation type="unfinished">Doppelklicken um gewählte Firmware herunterzuladen</translation>
+        <translation>Doppelklicken um gewählte Firmware herunterzuladen</translation>
     </message>
     <message>
-        <location filename="../res/ui/search.ui" line="159"/>
+        <location filename="../res/ui/search.ui" line="162"/>
         <source>Date</source>
         <translation>Datum</translation>
     </message>
     <message>
-        <location filename="../res/ui/search.ui" line="167"/>
+        <location filename="../res/ui/search.ui" line="170"/>
+        <source>Time</source>
+        <translation>Zeit</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/search.ui" line="178"/>
         <source>Size</source>
         <translation>Größe</translation>
     </message>
     <message>
-        <location filename="../res/ui/search.ui" line="175"/>
+        <location filename="../res/ui/search.ui" line="186"/>
         <source>Firmware</source>
         <translation>Firmware</translation>
     </message>
@@ -2213,18 +2218,18 @@ Das Protokoll für weitere Informationen lesen.</translation>
         <translation>Suchen</translation>
     </message>
     <message>
-        <location filename="../search.cpp" line="56"/>
-        <location filename="../search.cpp" line="135"/>
+        <location filename="../search.cpp" line="58"/>
+        <location filename="../search.cpp" line="137"/>
         <source>Really abort search?</source>
         <translation>Suche wirklich abbrechen?</translation>
     </message>
     <message>
-        <location filename="../search.cpp" line="73"/>
+        <location filename="../search.cpp" line="75"/>
         <source>Filename must contain &quot;????&quot;!</source>
         <translation>Der Dateiname muss &quot;????&quot; enthalten!</translation>
     </message>
     <message>
-        <location filename="../search.cpp" line="90"/>
+        <location filename="../search.cpp" line="92"/>
         <source>Scanning more than 100 versions takes a long time and is not recommended!
 
 Continue anyway?</source>
@@ -2233,12 +2238,12 @@ Continue anyway?</source>
 Trotzdem fortfahren?</translation>
     </message>
     <message>
-        <location filename="../search.cpp" line="129"/>
+        <location filename="../search.cpp" line="131"/>
         <source>%1 firmware versions found.</source>
         <translation>%1 Firmware Versionen gefunden.</translation>
     </message>
     <message>
-        <location filename="../search.cpp" line="129"/>
+        <location filename="../search.cpp" line="131"/>
         <source>Search aborted, %1 firmware versions found so far.</source>
         <translation>Suche abgebrochen, bisher %1 Firmware Versionen gefunden.</translation>
     </message>
