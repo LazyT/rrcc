@@ -814,6 +814,7 @@
    <addaction name="actionValetudoUninstall"/>
    <addaction name="separator"/>
    <addaction name="actionCheckFirmware"/>
+   <addaction name="actionSearchFirmware"/>
    <addaction name="actionDownloadFirmware"/>
    <addaction name="actionUpdateFirmware"/>
    <addaction name="separator"/>
