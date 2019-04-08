@@ -57,9 +57,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	menu_map_zones = new QMenu(tr("Zone Cleaning"), this);
 	menu_map_rotation = new QMenu(tr("Rotation"), this);
 	menu_map_flipping = new QMenu(tr("Flipping"), this);
+	menu_map_swapping = new QMenu(tr("Swapping"), this);
 	menu_map_zones->setIcon(QIcon(":/png/png/zone.png"));
 	menu_map_rotation->setIcon(QIcon(":/png/png/rotate.png"));
 	menu_map_flipping->setIcon(QIcon(":/png/png/flip.png"));
+	menu_map_swapping->setIcon(QIcon(":/png/png/swap.png"));
 
 	connect(menu_map_zones, SIGNAL(hovered(QAction*)), this, SLOT(hovered(QAction*)));
 	connect(menu_map_zones, SIGNAL(aboutToHide()), this, SLOT(aboutToHide()));
@@ -79,6 +81,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	menu_map_rotation->addAction(actionMenu_Map_Rotate270);
 	menu_map_flipping->addAction(actionMenu_Map_FlipH);
 	menu_map_flipping->addAction(actionMenu_Map_FlipV);
+	menu_map_swapping->addAction(actionMenu_Map_SwapX);
+	menu_map_swapping->addAction(actionMenu_Map_SwapY);
 
 	menu_map->addAction(actionMenu_Map_Reset);
 	menu_map->addSeparator();
@@ -90,7 +94,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	menu_map->addSeparator();
 	menu_map->addMenu(menu_map_flipping);
 	menu_map->addSeparator();
-	menu_map->addAction(actionMenu_Map_SwapY);
+	menu_map->addMenu(menu_map_swapping);
 
 	group_map = new QActionGroup(this);
 	group_map->addAction(actionMenu_Map_Rotate0);
@@ -100,6 +104,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 	actionMenu_Map_FlipH->setChecked(cfg.flip_h);
 	actionMenu_Map_FlipV->setChecked(cfg.flip_v);
+	actionMenu_Map_SwapX->setChecked(cfg.swap_x);
 	actionMenu_Map_SwapY->setChecked(cfg.swap_y);
 
 	if(cfg.rotate == 270)
@@ -185,6 +190,7 @@ void MainWindow::getConfig()
 	cfg.flip_h = ini.value("Flip-H", false).toBool();
 	cfg.flip_v = ini.value("Flip-V", false).toBool();
 	cfg.rotate = ini.value("Rotate", 0).toInt();
+	cfg.swap_x = ini.value("Swap-X", false).toBool();
 	cfg.swap_y = ini.value("Swap-Y", false).toBool();
 	ini.endGroup();
 
@@ -228,6 +234,7 @@ void MainWindow::setConfig()
 	ini.setValue("Flip-H", cfg.flip_h);
 	ini.setValue("Flip-V", cfg.flip_v);
 	ini.setValue("Rotate", cfg.rotate);
+	ini.setValue("Swap-X", cfg.swap_x);
 	ini.setValue("Swap-Y", cfg.swap_y);
 	ini.endGroup();
 
@@ -1308,6 +1315,100 @@ void MainWindow::drawMapFromJson(QByteArray map)
 {
 	QJsonDocument doc = QJsonDocument::fromJson(map);
 	QJsonObject obj = doc.object();
+	QJsonObject image = obj.value("image").toObject();
+	int image_position_top = image.value("position").toObject().value("top").toInt();
+	int image_position_left = image.value("position").toObject().value("left").toInt();
+	QJsonArray image_pixels_floor = image.value("pixels").toObject().value("floor").toArray();
+	QJsonArray image_pixels_obstacle_weak = image.value("pixels").toObject().value("obstacle_weak").toArray();
+	QJsonArray image_pixels_obstacle_strong = image.value("pixels").toObject().value("obstacle_strong").toArray();
+	QJsonObject path = obj.value("path").toObject();
+	QJsonArray path_points = path.value("points").toArray();
+	QJsonArray val;
+	QGraphicsPixmapItem *png_robo, *png_dock;
+	int x1, y1, x2, y2;
+
+	zone_preview_item = nullptr;
+
+	scene->clear();
+
+	png_dock = scene->addPixmap(QPixmap(":/png/png/dock.png"));
+	png_robo = scene->addPixmap(QPixmap(":/png/png/robo.png"));
+	png_dock->setZValue(1);
+	png_robo->setZValue(2);
+	png_dock->setOffset(-16, -16);
+	png_robo->setOffset(-16, -16);
+
+	foreach(QJsonValue val, image_pixels_floor)
+	{
+		val = val.toArray();
+
+		x1 = (val[0].toInt() + image_position_left) * 4;
+		y1 = (val[1].toInt() + image_position_top) * 4;
+
+		scene->addRect(x1, y1, 1, 1, QPen(QBrush(QColor(0, 128, 255, 255)), 3, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+	}
+
+	foreach(QJsonValue val, image_pixels_obstacle_weak)
+	{
+		val = val.toArray();
+
+		x1 = (val[0].toInt() + image_position_left) * 4;
+		y1 = (val[1].toInt() + image_position_top) * 4;
+
+		scene->addRect(x1, y1, 1, 1, QPen(QBrush(QColor(255, 0, 0, 255)), 3, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+	}
+
+	foreach(QJsonValue val, image_pixels_obstacle_strong)
+	{
+		val = val.toArray();
+
+		x1 = (val[0].toInt() + image_position_left) * 4;
+		y1 = (val[1].toInt() + image_position_top) * 4;
+
+		scene->addRect(x1, y1, 1, 1, QPen(QBrush(QColor(96, 160, 255, 255)), 3, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+	}
+
+	x1 = path_points[0].toArray().first().toInt() / MAPFACTOR;
+	y1 = path_points[1].toArray().first().toInt() / MAPFACTOR;
+
+	foreach(QJsonValue val, path_points)
+	{
+		val = val.toArray();
+
+		x2 = val[0].toInt() / MAPFACTOR;
+		y2 = val[1].toInt() / MAPFACTOR;
+
+		if(!(x1 == x2 && y1 == y2))
+		{
+			scene->addLine(x1, y1, x2, y2, QPen(QBrush(Qt::white), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+		}
+
+		x1 = x2;
+		y1 = y2;
+	}
+
+	png_dock->setPos(obj.value("charger").toArray().first().toInt() / MAPFACTOR, obj.value("charger").toArray().last().toInt() / MAPFACTOR);
+
+	png_robo->setPos(obj.value("robot").toArray().first().toInt() / MAPFACTOR, obj.value("robot").toArray().last().toInt() / MAPFACTOR);
+	png_robo->setRotation(path.value("current_angle").toDouble());
+
+	if(zone_preview_rect.width() && zone_preview_rect.height())
+	{
+		zone_preview_item = scene->addRect(zone_preview_rect, QPen(Qt::red), QBrush(QColor(255, 0, 0, 64)));
+	}
+
+	graphicsView->setSceneRect(scene->itemsBoundingRect());
+
+	if(graphicsView->matrix().m11() == 1.0)
+	{
+		setMatrix();
+	}
+}
+
+void MainWindow::drawMapFromJsonOld(QByteArray map)
+{
+	QJsonDocument doc = QJsonDocument::fromJson(map);
+	QJsonObject obj = doc.object();
 	QJsonArray arr_path = obj.value("path").toArray();
 	QJsonArray arr_map = obj.value("map").toArray();
 	QJsonArray sub;
@@ -1316,7 +1417,7 @@ void MainWindow::drawMapFromJson(QByteArray map)
 	int x1, y1, x2, y2;
 	int angle = 0;
 
-	zone_preview_item = NULL;
+	zone_preview_item = nullptr;
 
 	scene->clear();
 
@@ -1387,7 +1488,7 @@ void MainWindow::drawMapFromJson(QByteArray map)
 
 	graphicsView->setSceneRect(scene->itemsBoundingRect());
 
-	if(graphicsView->matrix().m11() == 1)
+	if(graphicsView->matrix().m11() == 1.0)
 	{
 		setMatrix();
 	}
@@ -1401,7 +1502,14 @@ void MainWindow::httpFinished(QNetworkReply *reply)
 	{
 		QByteArray data = reply->readAll();
 
-		drawMapFromJson(data);
+		if(data.contains("\"image\""))
+		{
+			drawMapFromJson(data);
+		}
+		else
+		{
+			drawMapFromJsonOld(data);
+		}
 
 		timerMap.setSingleShot(true);
 		timerMap.start(5000);
@@ -1428,7 +1536,7 @@ void MainWindow::hovered(QAction *action)
 		index++;
 	}
 
-	zone_preview_rect = QRect(cfg.zones.at(index).x1 / MAPFACTOR, (cfg.swap_y ? cfg.zones.at(index).y1 : MAPSIZE - cfg.zones.at(index).y2) / MAPFACTOR, qAbs(cfg.zones.at(index).x1 - cfg.zones.at(index).x2) / MAPFACTOR, qAbs(cfg.zones.at(index).y1 - cfg.zones.at(index).y2) / MAPFACTOR);
+	zone_preview_rect = QRect((cfg.swap_x ? cfg.zones.at(index).x1 : MAPSIZE - cfg.zones.at(index).x2) / MAPFACTOR, (cfg.swap_y ? cfg.zones.at(index).y1 : MAPSIZE - cfg.zones.at(index).y2) / MAPFACTOR, qAbs(cfg.zones.at(index).x1 - cfg.zones.at(index).x2) / MAPFACTOR, qAbs(cfg.zones.at(index).y1 - cfg.zones.at(index).y2) / MAPFACTOR);
 
 	if(zone_preview_item)
 	{
@@ -1609,9 +1717,9 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 
 			rubberBand->hide();
 
-			x1 = src.x();
+			x1 = cfg.swap_x ? src.x() : MAPSIZE - src.x();
 			y1 = cfg.swap_y ? src.y() : MAPSIZE - src.y();
-			x2 = dst.x();
+			x2 = cfg.swap_x ? dst.x() : MAPSIZE - dst.x();
 			y2 = cfg.swap_y ? dst.y() : MAPSIZE - dst.y();
 
 			if(x1 > x2)
@@ -1703,9 +1811,9 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 					int x = pos.x();
 					int y = pos.y();
 
-					if(QMessageBox::question(this, APPNAME, tr("Send robot to selected position?\n\n[ %1 / %2 ]").arg(x).arg(cfg.swap_y ? y : MAPSIZE - y), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+					if(QMessageBox::question(this, APPNAME, tr("Send robot to selected position?\n\n[ %1 / %2 ]").arg(cfg.swap_x ? x : MAPSIZE - x).arg(cfg.swap_y ? y : MAPSIZE - y), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
 					{
-						sendUDP(QString(MIIO_APP_GOTO_TARGET).arg(x).arg(cfg.swap_y ? y : MAPSIZE - y).arg("%1"));
+						sendUDP(QString(MIIO_APP_GOTO_TARGET).arg(cfg.swap_x ? x : MAPSIZE - x).arg(cfg.swap_y ? y : MAPSIZE - y).arg("%1"));
 					}
 				}
 				else
@@ -1748,6 +1856,10 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 				cfg.rotate = 270;
 
 				setMatrix();
+			}
+			else if(selected->objectName() == "actionMenu_Map_SwapX")
+			{
+				cfg.swap_x = selected->isChecked();
 			}
 			else if(selected->objectName() == "actionMenu_Map_SwapY")
 			{

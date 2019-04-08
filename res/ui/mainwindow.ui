@@ -726,7 +726,7 @@
      <x>0</x>
      <y>0</y>
      <width>1123</width>
-     <height>19</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -1187,6 +1187,20 @@
    </property>
    <property name="statusTip">
     <string>Search Firmware</string>
+   </property>
+  </action>
+  <action name="actionMenu_Map_SwapX">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Swap Left/Right</string>
+   </property>
+   <property name="toolTip">
+    <string>Swap Left/Right</string>
+   </property>
+   <property name="statusTip">
+    <string>Swap Left/Right</string>
    </property>
   </action>
  </widget>

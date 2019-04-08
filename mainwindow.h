@@ -201,6 +201,7 @@ public:
 		QString ssh_auth;
 		bool flip_h;
 		bool flip_v;
+		bool swap_x;
 		bool swap_y;
 		int rotate;
 		QVector<CLEANZONE> zones;
@@ -340,6 +341,7 @@ private:
 	void findIP();
 	void getStatus();
 	void drawMapFromJson(QByteArray);
+	void drawMapFromJsonOld(QByteArray);
 	void getScale();
 	void setMatrix();
 
@@ -350,7 +352,7 @@ private:
 	QPoint drag_pos, rubber_pos;
 	QRect zone_preview_rect = {0, 0, 0, 0};
 	QGraphicsRectItem *zone_preview_item = NULL;
-	QMenu *menu_map, *menu_map_rotation, *menu_map_flipping;
+	QMenu *menu_map, *menu_map_rotation, *menu_map_flipping, *menu_map_swapping;
 	QActionGroup *group_map;
 	QRubberBand *rubberBand;
 	qreal scale;
