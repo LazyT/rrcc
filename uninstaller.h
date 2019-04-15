@@ -4,9 +4,10 @@
 #include "ui_uninstaller.h"
 #include "mainwindow.h"
 
-#define VALETUDO_CMD_STOP	"service valetudo stop"
-#define VALETUDO_CMD_RMBIN	"rm /usr/local/bin/valetudo"
-#define VALETUDO_CMD_RMCFG	"rm /etc/init/valetudo.conf"
+#define VALETUDO_CMD_RMBIN		"rm " VALETUDO_BIN_DST
+#define VALETUDO_CMD_RMCFG		"rm " VALETUDO_CFG_DST
+#define VALETUDO_CMD_HOSTS		"sed -i '/### VALETUDO HOSTS INIT ###/,/### VALETUDO HOSTS EXIT ###/d' " VALETUDO_HOSTS_DST
+#define VALETUDO_CMD_RCLOCAL	"sed -i '/### VALETUDO RC.LOCAL INIT ###/,/### VALETUDO RC.LOCAL EXIT ###/d' " VALETUDO_RCLOCAL_DST
 
 class uninstallerDialog : public QDialog, private Ui::Dialog_Uninstaller
 {

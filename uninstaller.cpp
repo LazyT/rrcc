@@ -32,6 +32,18 @@ void uninstallerDialog::updateProgress()
 
 		label_remove_cfg->setPixmap(pixmap);
 	}
+	else if(step == 4)
+	{
+		progressBar_restore_hosts->setValue(failed ? 50 : 100);
+
+		label_restore_hosts->setPixmap(pixmap);
+	}
+	else if(step == 5)
+	{
+		progressBar_restore_rclocal->setValue(failed ? 50 : 100);
+
+		label_restore_rclocal->setPixmap(pixmap);
+	}
 
 	step++;
 }
@@ -88,6 +100,18 @@ void uninstallerDialog::ssh_commandExecuted(QString command, QString response)
 	{
 		updateProgress();
 
+		ssh->executeCommand(VALETUDO_CMD_HOSTS);
+	}
+	else if(command == VALETUDO_CMD_HOSTS)
+	{
+		updateProgress();
+
+		ssh->executeCommand(VALETUDO_CMD_RCLOCAL);
+	}
+	else if(command == VALETUDO_CMD_RCLOCAL)
+	{
+		updateProgress();
+
 		ssh->disconnectFromHost();
 	}
 }
@@ -139,10 +163,14 @@ void uninstallerDialog::on_buttonBox_clicked(QAbstractButton *button)
 		label_stop_service->setPixmap(QPixmap(":/png/png/question.png"));
 		label_remove_bin->setPixmap(QPixmap(":/png/png/question.png"));
 		label_remove_cfg->setPixmap(QPixmap(":/png/png/question.png"));
+		label_restore_hosts->setPixmap(QPixmap(":/png/png/question.png"));
+		label_restore_rclocal->setPixmap(QPixmap(":/png/png/question.png"));
 
 		progressBar_stop_service->setValue(0);
 		progressBar_remove_bin->setValue(0);
 		progressBar_remove_cfg->setValue(0);
+		progressBar_restore_hosts->setValue(0);
+		progressBar_restore_rclocal->setValue(0);
 
 		plainTextEdit->clear();
 

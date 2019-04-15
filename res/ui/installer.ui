@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>496</width>
-    <height>381</height>
+    <width>506</width>
+    <height>642</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,7 +40,126 @@
         </item>
         <item>
          <layout class="QGridLayout" name="gridLayout">
-          <item row="4" column="0">
+          <item row="10" column="1">
+           <widget class="QLabel" name="label_copy_rclocal">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <layout class="QVBoxLayout" name="verticalLayout_10">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>Get hosts from Github</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QProgressBar" name="progressBar_download_hosts_github">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>15</height>
+               </size>
+              </property>
+              <property name="value">
+               <number>0</number>
+              </property>
+              <property name="format">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="3" column="0">
+           <layout class="QVBoxLayout" name="verticalLayout_11">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_8">
+              <property name="text">
+               <string>Get rc.local from Github</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QProgressBar" name="progressBar_download_rclocal_github">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>15</height>
+               </size>
+              </property>
+              <property name="value">
+               <number>0</number>
+              </property>
+              <property name="format">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="label_download_hosts_github">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0">
+           <layout class="QVBoxLayout" name="verticalLayout_12">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_9">
+              <property name="text">
+               <string>Copy hosts to Robot</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QProgressBar" name="progressBar_copy_hosts">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>15</height>
+               </size>
+              </property>
+              <property name="value">
+               <number>0</number>
+              </property>
+              <property name="textVisible">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="8" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_6">
             <property name="spacing">
              <number>0</number>
@@ -99,9 +218,6 @@
               <property name="value">
                <number>0</number>
               </property>
-              <property name="textVisible">
-               <bool>true</bool>
-              </property>
               <property name="format">
                <string/>
               </property>
@@ -109,7 +225,7 @@
             </item>
            </layout>
           </item>
-          <item row="4" column="1">
+          <item row="8" column="1">
            <widget class="QLabel" name="label_copy_cfg">
             <property name="text">
              <string/>
@@ -129,7 +245,7 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="1">
+          <item row="11" column="1">
            <widget class="QLabel" name="label_chmod_bin">
             <property name="text">
              <string/>
@@ -149,7 +265,7 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="0">
+          <item row="7" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_5">
             <property name="spacing">
              <number>0</number>
@@ -208,9 +324,6 @@
               <property name="value">
                <number>0</number>
               </property>
-              <property name="textVisible">
-               <bool>true</bool>
-              </property>
               <property name="format">
                <string/>
               </property>
@@ -218,7 +331,7 @@
             </item>
            </layout>
           </item>
-          <item row="6" column="0">
+          <item row="12" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_8">
             <property name="spacing">
              <number>0</number>
@@ -251,7 +364,7 @@
             </item>
            </layout>
           </item>
-          <item row="6" column="1">
+          <item row="12" column="1">
            <widget class="QLabel" name="label_start_service">
             <property name="text">
              <string/>
@@ -261,7 +374,7 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="0">
+          <item row="11" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_7">
             <property name="spacing">
              <number>0</number>
@@ -294,7 +407,7 @@
             </item>
            </layout>
           </item>
-          <item row="3" column="1">
+          <item row="7" column="1">
            <widget class="QLabel" name="label_copy_bin">
             <property name="text">
              <string/>
@@ -304,7 +417,7 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="1">
+          <item row="6" column="1">
            <widget class="QLabel" name="label_stop_service">
             <property name="text">
              <string/>
@@ -314,7 +427,7 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
+          <item row="6" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_14">
             <property name="spacing">
              <number>0</number>
@@ -346,6 +459,145 @@
              </widget>
             </item>
            </layout>
+          </item>
+          <item row="9" column="1">
+           <widget class="QLabel" name="label_copy_hosts">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLabel" name="label_download_hosts_robot">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <layout class="QVBoxLayout" name="verticalLayout_16">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_13">
+              <property name="text">
+               <string>Get hosts from Robot</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QProgressBar" name="progressBar_download_hosts_robot">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>15</height>
+               </size>
+              </property>
+              <property name="value">
+               <number>0</number>
+              </property>
+              <property name="textVisible">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="10" column="0">
+           <layout class="QVBoxLayout" name="verticalLayout_13">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_10">
+              <property name="text">
+               <string>Copy rc.local to Robot</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QProgressBar" name="progressBar_copy_rclocal">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>15</height>
+               </size>
+              </property>
+              <property name="value">
+               <number>0</number>
+              </property>
+              <property name="textVisible">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLabel" name="label_download_rcocal_github">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <layout class="QVBoxLayout" name="verticalLayout_17">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_15">
+              <property name="text">
+               <string>Get rc.local from Robot</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QProgressBar" name="progressBar_download_rclocal_robot">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>15</height>
+               </size>
+              </property>
+              <property name="value">
+               <number>0</number>
+              </property>
+              <property name="textVisible">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLabel" name="label_download_rclocal_robot">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>

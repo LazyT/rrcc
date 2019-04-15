@@ -8,6 +8,7 @@ installerDialog::installerDialog(QWidget *parent) : QDialog(parent)
 	setWindowFlags(windowFlags() | Qt::MSWindowsFixedSizeDialogHint);
 
 	buttonBox->button(QDialogButtonBox::Apply)->setText(tr("Install"));
+	buttonBox->button(QDialogButtonBox::Apply)->setEnabled(false);
 
 	QTimer::singleShot(1, this, SLOT(getReleases()));
 }
@@ -60,6 +61,10 @@ void installerDialog::getReleases()
 
 			close();
 		}
+		else
+		{
+			buttonBox->button(QDialogButtonBox::Apply)->setEnabled(true);
+		}
 	}
 	else
 	{
@@ -97,13 +102,21 @@ bool installerDialog::Download(QString url)
 	{
 		QFile file;
 
-		if(url.endsWith(".conf"))
+		if(url.endsWith("valetudo"))
+		{
+			file.setFileName(VALETUDO_BIN_SRC);
+		}
+		else if(url.endsWith("valetudo.conf"))
 		{
 			file.setFileName(VALETUDO_CFG_SRC);
 		}
-		else
+		else if(url.endsWith("hosts"))
 		{
-			file.setFileName(VALETUDO_BIN_SRC);
+			file.setFileName(VALETUDO_HOSTS_SRC + "_github");
+		}
+		else if(url.endsWith("rc.local"))
+		{
+			file.setFileName(VALETUDO_RCLOCAL_SRC + "_github");
 		}
 
 		if(file.open(QIODevice::WriteOnly))
@@ -116,17 +129,107 @@ bool installerDialog::Download(QString url)
 	return failed;
 }
 
+void installerDialog::mergeFiles(int type)
+{
+	QFile file(type == HOSTS ? VALETUDO_HOSTS_SRC : VALETUDO_RCLOCAL_SRC);
+	QFile file_robot((type == HOSTS ? VALETUDO_HOSTS_SRC : VALETUDO_RCLOCAL_SRC)  + "_robot");
+	QFile file_github((type == HOSTS ? VALETUDO_HOSTS_SRC : VALETUDO_RCLOCAL_SRC)  + "_github");
+	QString hosts, hosts_robot, hosts_github;
+	QString rclocal, rclocal_robot, rclocal_github;
+	int init, exit;
+
+	if(file.open(QIODevice::WriteOnly))
+	{
+		if(type == HOSTS)
+		{
+			if(file_robot.open(QIODevice::ReadOnly))
+			{
+				hosts_robot = file_robot.readAll();
+				file_robot.close();
+			}
+
+			if(file_github.open(QIODevice::ReadOnly))
+			{
+				hosts_github = file_github.readAll();
+				file_github.close();
+			}
+
+			if(hosts_robot.contains(HOSTS_INIT) && hosts_robot.contains(HOSTS_EXIT))
+			{
+				init = hosts_robot.indexOf(HOSTS_INIT);
+				exit = hosts_robot.indexOf(HOSTS_EXIT);
+
+				hosts = hosts_robot.remove(init, exit + QString(HOSTS_EXIT).length() - init);
+
+				plainTextEdit->appendPlainText(tr("Old Valetudo host entries removed!\n"));
+			}
+			else
+			{
+				hosts = hosts_robot;
+			}
+
+			hosts.append(hosts_github);
+		}
+		else if(type == RCLOCAL)
+		{
+			if(file_robot.open(QIODevice::ReadOnly))
+			{
+				rclocal_robot = file_robot.readAll();
+				file_robot.close();
+			}
+
+			if(file_github.open(QIODevice::ReadOnly))
+			{
+				rclocal_github = file_github.readAll();
+				file_github.close();
+			}
+
+			if(rclocal_robot.contains(RCLOCAL_INIT) && rclocal_robot.contains(RCLOCAL_EXIT))
+			{
+				init = rclocal_robot.indexOf(RCLOCAL_INIT);
+				exit = rclocal_robot.indexOf(RCLOCAL_EXIT);
+
+				rclocal = rclocal_robot.remove(init, exit + QString(RCLOCAL_EXIT).length() - init);
+
+				plainTextEdit->appendPlainText(tr("Old Valetudo rc.local entries removed!\n"));
+			}
+			else
+			{
+				rclocal = rclocal_robot;
+			}
+
+			rclocal.replace("exit", rclocal_github + "\nexit");
+		}
+
+		file.write((type == HOSTS ? hosts : rclocal).toUtf8());
+		file.close();
+	}
+}
+
 void installerDialog::downloadProgress(qint64 bytesReceived, qint64 bytesTotal)
 {
-	if(step == 1)
+	if(bytesReceived && bytesTotal)
 	{
-		progressBar_download_bin->setFormat(QString("%1 / %2").arg(bytesReceived).arg(bytesTotal));
-		progressBar_download_bin->setValue((bytesReceived * 100) / bytesTotal);
-	}
-	else if(step == 2)
-	{
-		progressBar_download_cfg->setFormat(QString("%1 / %2").arg(bytesReceived).arg(bytesTotal));
-		progressBar_download_cfg->setValue((bytesReceived * 100) / bytesTotal);
+		if(step == 1)
+		{
+			progressBar_download_bin->setFormat(QString("%1 / %2").arg(bytesReceived).arg(bytesTotal));
+			progressBar_download_bin->setValue((bytesReceived * 100) / bytesTotal);
+		}
+		else if(step == 2)
+		{
+			progressBar_download_cfg->setFormat(QString("%1 / %2").arg(bytesReceived).arg(bytesTotal));
+			progressBar_download_cfg->setValue((bytesReceived * 100) / bytesTotal);
+		}
+		else if(step == 3)
+		{
+			progressBar_download_hosts_github->setFormat(QString("%1 / %2").arg(bytesReceived).arg(bytesTotal));
+			progressBar_download_hosts_github->setValue((bytesReceived * 100) / bytesTotal);
+		}
+		else if(step == 4)
+		{
+			progressBar_download_rclocal_github->setFormat(QString("%1 / %2").arg(bytesReceived).arg(bytesTotal));
+			progressBar_download_rclocal_github->setValue((bytesReceived * 100) / bytesTotal);
+		}
 	}
 }
 
@@ -186,29 +289,65 @@ void installerDialog::updateProgress()
 	}
 	else if(step == 3)
 	{
+		progressBar_download_hosts_github->setValue(failed ? 50 : 100);
+
+		label_download_hosts_github->setPixmap(pixmap);
+	}
+	else if(step == 4)
+	{
+		progressBar_download_rclocal_github->setValue(failed ? 50 : 100);
+
+		label_download_rcocal_github->setPixmap(pixmap);
+	}
+	else if(step == 5)
+	{
+		progressBar_download_hosts_robot->setValue(failed ? 50 : 100);
+
+		label_download_hosts_robot->setPixmap(pixmap);
+	}
+	else if(step == 6)
+	{
+		progressBar_download_rclocal_robot->setValue(failed ? 50 : 100);
+
+		label_download_rclocal_robot->setPixmap(pixmap);
+	}
+	else if(step == 7)
+	{
 		progressBar_stop_service->setValue(failed ? 50 : 100);
 
 		label_stop_service->setPixmap(pixmap);
 	}
-	else if(step == 4)
+	else if(step == 8)
 	{
 		progressBar_copy_bin->setValue(failed ? 50 : 100);
 
 		label_copy_bin->setPixmap(pixmap);
 	}
-	else if(step == 5)
+	else if(step == 9)
 	{
 		progressBar_copy_cfg->setValue(failed ? 50 : 100);
 
 		label_copy_cfg->setPixmap(pixmap);
 	}
-	else if(step == 6)
+	else if(step == 10)
+	{
+		progressBar_copy_hosts->setValue(failed ? 50 : 100);
+
+		label_copy_hosts->setPixmap(pixmap);
+	}
+	else if(step == 11)
+	{
+		progressBar_copy_rclocal->setValue(failed ? 50 : 100);
+
+		label_copy_rclocal->setPixmap(pixmap);
+	}
+	else if(step == 12)
 	{
 		progressBar_chmod_bin->setValue(failed ? 50 : 100);
 
 		label_chmod_bin->setPixmap(pixmap);
 	}
-	else if(step == 7)
+	else if(step == 13)
 	{
 		progressBar_start_service->setValue(failed ? 50 : 100);
 
@@ -245,7 +384,35 @@ void installerDialog::ssh_loginSuccessful()
 {
 	plainTextEdit->appendPlainText(tr("SSH: logged in\n"));
 
-	ssh->executeCommand(VALETUDO_CMD_STOP);
+	plainTextEdit->appendPlainText(tr("SCP: %1 -> %2 started\n").arg(VALETUDO_HOSTS_DST).arg(VALETUDO_HOSTS_SRC + "_robot"));
+
+	ssh->pullFile(VALETUDO_HOSTS_SRC + "_robot", VALETUDO_HOSTS_DST);
+}
+
+void installerDialog::ssh_pullSuccessful(__attribute__((unused)) QString localFile, QString remoteFile)
+{
+	plainTextEdit->appendPlainText(tr("SCP: finished\n"));
+
+	QThread::msleep(250);
+
+	if(remoteFile == VALETUDO_HOSTS_DST)
+	{
+		updateProgress();
+
+		mergeFiles(HOSTS);
+
+		plainTextEdit->appendPlainText(tr("SCP: %1 -> %2 started\n").arg(VALETUDO_RCLOCAL_DST).arg(VALETUDO_RCLOCAL_SRC + "_robot"));
+
+		ssh->pullFile(VALETUDO_RCLOCAL_SRC + "_robot", VALETUDO_RCLOCAL_DST);
+	}
+	else if(remoteFile == VALETUDO_RCLOCAL_DST)
+	{
+		updateProgress();
+
+		mergeFiles(RCLOCAL);
+
+		ssh->executeCommand(VALETUDO_CMD_STOP);
+	}
 }
 
 void installerDialog::ssh_pushSuccessful(__attribute__((unused)) QString localFile, QString remoteFile)
@@ -263,6 +430,22 @@ void installerDialog::ssh_pushSuccessful(__attribute__((unused)) QString localFi
 		ssh->pushFile(VALETUDO_CFG_SRC, VALETUDO_CFG_DST);
 	}
 	else if(remoteFile == VALETUDO_CFG_DST)
+	{
+		updateProgress();
+
+		plainTextEdit->appendPlainText(tr("SCP: %1 -> %2 started\n").arg(VALETUDO_HOSTS_SRC).arg(VALETUDO_HOSTS_DST));
+
+		ssh->pushFile(VALETUDO_HOSTS_SRC, VALETUDO_HOSTS_DST);
+	}
+	else if(remoteFile == VALETUDO_HOSTS_DST)
+	{
+		updateProgress();
+
+		plainTextEdit->appendPlainText(tr("SCP: %1 -> %2 started\n").arg(VALETUDO_RCLOCAL_SRC).arg(VALETUDO_RCLOCAL_DST));
+
+		ssh->pushFile(VALETUDO_RCLOCAL_SRC, VALETUDO_RCLOCAL_DST);
+	}
+	else if(remoteFile == VALETUDO_RCLOCAL_DST)
 	{
 		updateProgress();
 
@@ -303,7 +486,7 @@ void installerDialog::ssh_disconnected()
 	plainTextEdit->appendPlainText(tr("SSH: disconnected\n"));
 
 	delete ssh;
-	ssh = NULL;
+	ssh = nullptr;
 
 	failed ? QMessageBox::warning(this, APPNAME, tr("Valetudo installation failed!")) : QMessageBox::information(this, APPNAME, tr("Valetudo installation finished.\n\nRead log for details."));
 
@@ -353,17 +536,29 @@ void installerDialog::on_buttonBox_clicked(QAbstractButton *button)
 
 		label_download_bin->setPixmap(QPixmap(":/png/png/question.png"));
 		label_download_cfg->setPixmap(QPixmap(":/png/png/question.png"));
+		label_download_hosts_github->setPixmap(QPixmap(":/png/png/question.png"));
+		label_download_rcocal_github->setPixmap(QPixmap(":/png/png/question.png"));
+		label_download_hosts_robot->setPixmap(QPixmap(":/png/png/question.png"));
+		label_download_rclocal_robot->setPixmap(QPixmap(":/png/png/question.png"));
 		label_stop_service->setPixmap(QPixmap(":/png/png/question.png"));
 		label_copy_bin->setPixmap(QPixmap(":/png/png/question.png"));
 		label_copy_cfg->setPixmap(QPixmap(":/png/png/question.png"));
+		label_copy_hosts->setPixmap(QPixmap(":/png/png/question.png"));
+		label_copy_rclocal->setPixmap(QPixmap(":/png/png/question.png"));
 		label_chmod_bin->setPixmap(QPixmap(":/png/png/question.png"));
 		label_start_service->setPixmap(QPixmap(":/png/png/question.png"));
 
 		progressBar_download_bin->setValue(0);
 		progressBar_download_cfg->setValue(0);
+		progressBar_download_hosts_github->setValue(0);
+		progressBar_download_rclocal_github->setValue(0);
+		progressBar_download_hosts_robot->setValue(0);
+		progressBar_download_rclocal_robot->setValue(0);
 		progressBar_stop_service->setValue(0);
 		progressBar_copy_bin->setValue(0);
 		progressBar_copy_cfg->setValue(0);
+		progressBar_copy_hosts->setValue(0);
+		progressBar_copy_rclocal->setValue(0);
 		progressBar_chmod_bin->setValue(0);
 		progressBar_start_service->setValue(0);
 
@@ -386,12 +581,27 @@ void installerDialog::on_buttonBox_clicked(QAbstractButton *button)
 			return;
 		}
 
+		if(Download(VALETUDO_HOSTS))
+		{
+			QMessageBox::warning(this, APPNAME, tr("Valetudo installation failed!"));
+
+			return;
+		}
+
+		if(Download(VALETUDO_RCLOCAL))
+		{
+			QMessageBox::warning(this, APPNAME, tr("Valetudo installation failed!"));
+
+			return;
+		}
+
 		ssh = new QSshSocket(this);
 
 		connect(ssh, SIGNAL(connected()), this, SLOT(ssh_connected()));
 		connect(ssh, SIGNAL(disconnected()), this, SLOT(ssh_disconnected()));
 		connect(ssh, SIGNAL(error(QSshSocket::SshError)), this, SLOT(ssh_error(QSshSocket::SshError)));
 		connect(ssh, SIGNAL(loginSuccessful()), this, SLOT(ssh_loginSuccessful()));
+		connect(ssh, SIGNAL(pullSuccessful(QString, QString)), this, SLOT(ssh_pullSuccessful(QString, QString)));
 		connect(ssh, SIGNAL(pushSuccessful(QString, QString)), this, SLOT(ssh_pushSuccessful(QString, QString)));
 		connect(ssh, SIGNAL(commandExecuted(QString, QString)), this, SLOT(ssh_commandExecuted(QString, QString)));
 

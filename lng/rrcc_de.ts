@@ -189,42 +189,72 @@
         <translation>Suche nach Releases...</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="51"/>
+        <location filename="../res/ui/installer.ui" line="61"/>
+        <source>Get hosts from Github</source>
+        <translation>hosts von Github laden</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="94"/>
+        <source>Get rc.local from Github</source>
+        <translation>rc.local von Github laden</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="137"/>
+        <source>Copy hosts to Robot</source>
+        <translation>hosts zum Roboter kopieren</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="170"/>
         <source>Copy Config to Robot</source>
         <translation>Konfig zum Roboter kopieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="84"/>
+        <location filename="../res/ui/installer.ui" line="203"/>
         <source>Get Config from Github</source>
         <translation>Konfig von Github laden</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="160"/>
+        <location filename="../res/ui/installer.ui" line="276"/>
         <source>Copy Binary to Robot</source>
         <translation>Programm zum Roboter kopieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="193"/>
+        <location filename="../res/ui/installer.ui" line="309"/>
         <source>Get Binary from Github</source>
         <translation>Programm von Github laden</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="229"/>
+        <location filename="../res/ui/installer.ui" line="342"/>
         <source>Start Service Valetudo</source>
         <translation>Dienst Valetudo starten</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="272"/>
+        <location filename="../res/ui/installer.ui" line="385"/>
         <source>Change Binary Rights</source>
         <translation>Programmrechte anpassen</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="325"/>
+        <location filename="../res/ui/installer.ui" line="438"/>
         <source>Stop Service Valetudo</source>
         <translation>Dienst Valetudo stoppen</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="358"/>
+        <location filename="../res/ui/installer.ui" line="491"/>
+        <source>Get hosts from Robot</source>
+        <translation>hosts vom Roboter laden</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="524"/>
+        <source>Copy rc.local to Robot</source>
+        <translation>rc.local zum Roboter kopieren</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="567"/>
+        <source>Get rc.local from Robot</source>
+        <translation>rc.local vom Roboter laden</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="610"/>
         <source>Log</source>
         <translation>Log</translation>
     </message>
@@ -852,7 +882,17 @@
         <translation>Programm vom Roboter löschen</translation>
     </message>
     <message>
-        <location filename="../res/ui/uninstaller.ui" line="168"/>
+        <location filename="../res/ui/uninstaller.ui" line="188"/>
+        <source>Restore hosts</source>
+        <translation>hosts wiederherstellen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/uninstaller.ui" line="221"/>
+        <source>Restore rc.local</source>
+        <translation>rc.local wiederherstellen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/uninstaller.ui" line="254"/>
         <source>Log</source>
         <translation>Log</translation>
     </message>
@@ -1634,7 +1674,7 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
         <translation>Hilfe noch nicht implementiert, sorry....</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1420"/>
+        <location filename="../mainwindow.cpp" line="1521"/>
         <source>Map function is only available on rooted devices running Valetudo!
 
 %1</source>
@@ -1643,13 +1683,13 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1560"/>
-        <location filename="../mainwindow.cpp" line="1689"/>
+        <location filename="../mainwindow.cpp" line="1661"/>
+        <location filename="../mainwindow.cpp" line="1790"/>
         <source>Map [ Zoom Factor = %1 ]</source>
         <translation>Karte [ Zoomfaktor = %1 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1640"/>
+        <location filename="../mainwindow.cpp" line="1741"/>
         <source>Start zone cleaning for selected region?
 
 [ %1 / %2 - %3 / %4 ]</source>
@@ -1658,12 +1698,12 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 [ %1 / %2 - %3 / %4 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1656"/>
+        <location filename="../mainwindow.cpp" line="1757"/>
         <source>You can customize all zones later with the zone editor.</source>
         <translation>Alle Zonen können später mit dem Zoneneditor angepasst werden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1713"/>
+        <location filename="../mainwindow.cpp" line="1814"/>
         <source>Send robot to selected position?
 
 [ %1 / %2 ]</source>
@@ -1672,17 +1712,17 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 [ %1 / %2 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1720"/>
+        <location filename="../mainwindow.cpp" line="1821"/>
         <source>Please select position inside the map!</source>
         <translation>Bitte Position innerhalb der Karte wählen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1773"/>
+        <location filename="../mainwindow.cpp" line="1874"/>
         <source>Start cleaning for zone &quot;%1&quot;?</source>
         <translation>Reinigung für Zone &quot;%1&quot; starten?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1802"/>
+        <location filename="../mainwindow.cpp" line="1903"/>
         <source>Really exit program?</source>
         <translation>Programm wirklich beenden?</translation>
     </message>
@@ -2033,26 +2073,40 @@ Möchten Sie trotzdem die weitere Entwicklung des Projektes unterstützen?</tran
         <translation>Installieren</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="59"/>
+        <location filename="../installer.cpp" line="60"/>
         <source>No Valetudo releases found on Github!</source>
         <translation>Keine Valetudo Releases auf Github gefunden!</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="77"/>
+        <location filename="../installer.cpp" line="82"/>
         <source>GET: %1 started
 </source>
         <translation>GET: %1 gestartet
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="145"/>
+        <location filename="../installer.cpp" line="164"/>
+        <source>Old Valetudo host entries removed!
+</source>
+        <translation>Alte Valetudo Host-Einträge entfernt!
+</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="194"/>
+        <source>Old Valetudo rc.local entries removed!
+</source>
+        <translation>Alte Valetudo rc.local Einträge entfernt!
+</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="248"/>
         <source>GET: failed -&gt; %1
 </source>
         <translation>GET: fehlgeschlagen -&gt; %1
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="153"/>
+        <location filename="../installer.cpp" line="256"/>
         <source>Download Valetudo release list from Github failed!
 
 %1</source>
@@ -2061,64 +2115,71 @@ Möchten Sie trotzdem die weitere Entwicklung des Projektes unterstützen?</tran
 %1</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="167"/>
+        <location filename="../installer.cpp" line="270"/>
         <source>GET: finished
 </source>
         <translation>GET: abgeschlossen
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="223"/>
+        <location filename="../installer.cpp" line="362"/>
         <source>SSH: connected
 </source>
         <translation>SSH: verbunden
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="246"/>
+        <location filename="../installer.cpp" line="385"/>
         <source>SSH: logged in
 </source>
         <translation>SSH: angemeldet
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="253"/>
+        <location filename="../installer.cpp" line="394"/>
+        <location filename="../installer.cpp" line="420"/>
         <source>SCP: finished
 </source>
         <translation>SCP: abgeschlossen
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="261"/>
-        <location filename="../installer.cpp" line="283"/>
+        <location filename="../installer.cpp" line="387"/>
+        <location filename="../installer.cpp" line="404"/>
+        <location filename="../installer.cpp" line="428"/>
+        <location filename="../installer.cpp" line="436"/>
+        <location filename="../installer.cpp" line="444"/>
+        <location filename="../installer.cpp" line="466"/>
         <source>SCP: %1 -&gt; %2 started
 </source>
         <translation>SCP: %1 -&gt; %2 gestartet
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="275"/>
+        <location filename="../installer.cpp" line="458"/>
         <source>SSH: %1 -&gt; %2
 </source>
         <translation>SSH: %1 -&gt; %2
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="303"/>
+        <location filename="../installer.cpp" line="486"/>
         <source>SSH: disconnected
 </source>
         <translation>SSH: getrennt
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="308"/>
-        <location filename="../installer.cpp" line="377"/>
-        <location filename="../installer.cpp" line="384"/>
+        <location filename="../installer.cpp" line="491"/>
+        <location filename="../installer.cpp" line="572"/>
+        <location filename="../installer.cpp" line="579"/>
+        <location filename="../installer.cpp" line="586"/>
+        <location filename="../installer.cpp" line="593"/>
         <source>Valetudo installation failed!</source>
         <translation>Valetudo Installation fehlgeschlagen!</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="308"/>
+        <location filename="../installer.cpp" line="491"/>
         <source>Valetudo installation finished.
 
 Read log for details.</source>
@@ -2127,19 +2188,19 @@ Read log for details.</source>
 Das Protokoll für weitere Informationen lesen.</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="315"/>
+        <location filename="../installer.cpp" line="498"/>
         <source>SSH: %1
 </source>
         <translation>SSH: %1
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="328"/>
+        <location filename="../installer.cpp" line="511"/>
         <source>Really abort download?</source>
         <translation>Download wirklich abbrechen?</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="337"/>
+        <location filename="../installer.cpp" line="520"/>
         <source>Can not abort current operation, please wait...</source>
         <translation>Kann die laufende Operation nicht abbrechen, bitte warten...</translation>
     </message>
@@ -2439,40 +2500,40 @@ Wait until device has connected to your wifi and then press OK...</source>
         <translation>Deinstallieren</translation>
     </message>
     <message>
-        <location filename="../uninstaller.cpp" line="41"/>
+        <location filename="../uninstaller.cpp" line="53"/>
         <source>SSH: connected
 </source>
         <translation>SSH: verbunden
 </translation>
     </message>
     <message>
-        <location filename="../uninstaller.cpp" line="64"/>
+        <location filename="../uninstaller.cpp" line="76"/>
         <source>SSH: logged in
 </source>
         <translation>SSH: angemeldet
 </translation>
     </message>
     <message>
-        <location filename="../uninstaller.cpp" line="71"/>
+        <location filename="../uninstaller.cpp" line="83"/>
         <source>SSH: %1 -&gt; %2
 </source>
         <translation>SSH: %1 -&gt; %2
 </translation>
     </message>
     <message>
-        <location filename="../uninstaller.cpp" line="97"/>
+        <location filename="../uninstaller.cpp" line="121"/>
         <source>SSH: disconnected
 </source>
         <translation>SSH: getrennt
 </translation>
     </message>
     <message>
-        <location filename="../uninstaller.cpp" line="102"/>
+        <location filename="../uninstaller.cpp" line="126"/>
         <source>Valetudo uninstallation failed!</source>
         <translation>Valetudo Deinstallation fehlgeschlagen!</translation>
     </message>
     <message>
-        <location filename="../uninstaller.cpp" line="102"/>
+        <location filename="../uninstaller.cpp" line="126"/>
         <source>Valetudo uninstallation finished.
 
 Read log for details.</source>
@@ -2481,14 +2542,14 @@ Read log for details.</source>
 Das Protokoll für weitere Informationen lesen.</translation>
     </message>
     <message>
-        <location filename="../uninstaller.cpp" line="109"/>
+        <location filename="../uninstaller.cpp" line="133"/>
         <source>SSH: %1
 </source>
         <translation>SSH: %1
 </translation>
     </message>
     <message>
-        <location filename="../uninstaller.cpp" line="122"/>
+        <location filename="../uninstaller.cpp" line="146"/>
         <source>Can not abort current operation, please wait...</source>
         <translation>Kann die laufende Operation nicht abbrechen, bitte warten...</translation>
     </message>
