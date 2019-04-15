@@ -155,6 +155,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	netmgr = new QNetworkAccessManager(this);
 	connect(netmgr, SIGNAL(finished(QNetworkReply*)), this, SLOT(httpFinished(QNetworkReply*)));
 
+	websocket = new QWebSocket();
+	connect(websocket, SIGNAL(textMessageReceived(QString)), this, SLOT(websocketTextMessageReceived(QString)));
+	connect(websocket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(websocketError(QAbstractSocket::SocketError)));
+
 	if(cfg.map)
 	{
 		actionMap->setChecked(true);
@@ -177,6 +181,7 @@ void MainWindow::getConfig()
 	cfg.token = ini.value("AES-Token", "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF").toString();
 	cfg.msgid = ini.value("Message-ID", 1).toLongLong();
 	cfg.map = ini.value("Map", false).toBool();
+	cfg.websocket = ini.value("WebSocket", false).toBool();
 
 	ini.beginGroup("SSH");
 	cfg.ssh_user = ini.value("User", "root").toString();
@@ -221,6 +226,7 @@ void MainWindow::setConfig()
 	ini.setValue("AES-Token", cfg.token);
 	ini.setValue("Message-ID", cfg.msgid);
 	ini.setValue("Map", cfg.map);
+	ini.setValue("WebSocket", cfg.websocket);
 
 	ini.beginGroup("SSH");
 	ini.setValue("User", cfg.ssh_user);
@@ -987,7 +993,14 @@ void MainWindow::on_actionMap_toggled(bool checked)
 		setWindowFlags(Qt::Window | Qt::CustomizeWindowHint | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
 		layout()->setSizeConstraint(QLayout::SetMinAndMaxSize);
 
-		emit timer_refreshMap();
+		if(cfg.websocket)
+		{
+			websocket->open(QUrl(QString("ws://%1").arg(cfg.ip)));
+		}
+		else
+		{
+			emit timer_refreshMap();
+		}
 	}
 	else
 	{
@@ -996,7 +1009,14 @@ void MainWindow::on_actionMap_toggled(bool checked)
 		setWindowFlags(Qt::Window | Qt::CustomizeWindowHint | Qt::WindowMinimizeButtonHint | Qt::WindowCloseButtonHint | Qt::MSWindowsFixedSizeDialogHint);
 		layout()->setSizeConstraint(QLayout::SetFixedSize);
 
-		timerMap.stop();
+		if(cfg.websocket)
+		{
+			websocket->close();
+		}
+		else
+		{
+			timerMap.stop();
+		}
 	}
 
 	adjustSize();
@@ -1520,6 +1540,29 @@ void MainWindow::httpFinished(QNetworkReply *reply)
 
 		QMessageBox::warning(this, APPNAME, tr("Map function is only available on rooted devices running Valetudo!\n\n%1").arg(reply->errorString()));
 	}
+}
+
+void MainWindow::websocketTextMessageReceived(QString message)
+{
+	if(!message.isEmpty())
+	{
+		drawMapFromJson(message.toUtf8());
+	}
+	else
+	{
+		progressBar_MapRefresh->setValue(0);
+
+		QThread::msleep(250);
+
+		progressBar_MapRefresh->setValue(100);
+	}
+}
+
+void MainWindow::websocketError(QAbstractSocket::SocketError error)
+{
+	QMessageBox::warning(this, APPNAME, tr("Websocket error %1, closing connection!\n\n%2").arg(error).arg(websocket->errorString()));
+
+	actionMap->setChecked(false);
 }
 
 void MainWindow::hovered(QAction *action)

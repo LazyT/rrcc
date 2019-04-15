@@ -17,6 +17,7 @@
 #include <QUdpSocket>
 #include <QTcpServer>
 #include <QTcpSocket>
+#include <QWebSocket>
 #include <QThread>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -194,6 +195,7 @@ public:
 		QString token;
 		qlonglong msgid;
 		bool map;
+		bool websocket;
 		QString ssh_user;
 		QString ssh_pass;
 		QString ssh_pkey;
@@ -348,6 +350,7 @@ private:
 	QDialog *logger;
 	QTimer timerMap, timerFanspeed;
 	QNetworkAccessManager *netmgr;
+	QWebSocket *websocket;
 	QGraphicsScene *scene;
 	QPoint drag_pos, rubber_pos;
 	QRect zone_preview_rect = {0, 0, 0, 0};
@@ -401,6 +404,9 @@ private slots:
 	void timer_setFanspeed();
 
 	void httpFinished(QNetworkReply*);
+
+	void websocketTextMessageReceived(QString);
+	void websocketError(QAbstractSocket::SocketError);
 
 	void hovered(QAction*);
 	void aboutToHide();
