@@ -1004,6 +1004,8 @@ void MainWindow::on_actionMap_toggled(bool checked)
 	}
 	else
 	{
+		showNormal();
+
 		groupBox_map->hide();
 
 		setWindowFlags(Qt::Window | Qt::CustomizeWindowHint | Qt::WindowMinimizeButtonHint | Qt::WindowCloseButtonHint | Qt::MSWindowsFixedSizeDialogHint);
@@ -1345,11 +1347,53 @@ void MainWindow::drawMapFromJson(QByteArray map)
 	QJsonArray path_points = path.value("points").toArray();
 	QJsonArray val;
 	QGraphicsPixmapItem *png_robo, *png_dock;
+	QPointF pos_flag, pos_flag_lt, pos_flag_rt, pos_flag_lb, pos_flag_rb;
 	int x1, y1, x2, y2;
 
 	zone_preview_item = nullptr;
 
+	if(png_flag)
+	{
+		pos_flag = png_flag->pos();
+	}
+
+	if(png_flag_lt && png_flag_rt && png_flag_lb && png_flag_rb)
+	{
+		pos_flag_lt = png_flag_lt->pos();
+		pos_flag_rt = png_flag_rt->pos();
+		pos_flag_lb = png_flag_lb->pos();
+		pos_flag_rb = png_flag_rb->pos();
+	}
+
 	scene->clear();
+
+	if(png_flag)
+	{
+		png_flag = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+		png_flag->setPos(pos_flag);
+		png_flag->setZValue(3);
+		png_flag->setOffset(-5, -30);
+	}
+
+	if(png_flag_lt && png_flag_rt && png_flag_lb && png_flag_rb)
+	{
+		png_flag_lt = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+		png_flag_lt->setZValue(3);
+		png_flag_lt->setOffset(-5, -30);
+		png_flag_lt->setPos(pos_flag_lt);
+		png_flag_rt = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+		png_flag_rt->setZValue(3);
+		png_flag_rt->setOffset(-5, -30);
+		png_flag_rt->setPos(pos_flag_rt);
+		png_flag_lb = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+		png_flag_lb->setZValue(3);
+		png_flag_lb->setOffset(-5, -30);
+		png_flag_lb->setPos(pos_flag_lb);
+		png_flag_rb = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+		png_flag_rb->setZValue(3);
+		png_flag_rb->setOffset(-5, -30);
+		png_flag_rb->setPos(pos_flag_rb);
+	}
 
 	png_dock = scene->addPixmap(QPixmap(":/png/png/dock.png"));
 	png_robo = scene->addPixmap(QPixmap(":/png/png/robo.png"));
@@ -1412,6 +1456,26 @@ void MainWindow::drawMapFromJson(QByteArray map)
 	png_robo->setPos(obj.value("robot").toArray().first().toInt() / MAPFACTOR, obj.value("robot").toArray().last().toInt() / MAPFACTOR);
 	png_robo->setRotation(path.value("current_angle").toDouble());
 
+	if(png_flag && png_flag->collidesWithItem(png_robo))
+	{
+		scene->removeItem(png_flag);
+
+		png_flag = nullptr;
+	}
+
+	if((png_flag_lt && png_flag_rt && png_flag_lb && png_flag_rb) && (png_flag_lt->collidesWithItem(png_robo) || png_flag_rt->collidesWithItem(png_robo) || png_flag_lb->collidesWithItem(png_robo) || png_flag_rb->collidesWithItem(png_robo)))
+	{
+		scene->removeItem(png_flag_lt);
+		scene->removeItem(png_flag_rt);
+		scene->removeItem(png_flag_lb);
+		scene->removeItem(png_flag_rb);
+
+		png_flag_lt = nullptr;
+		png_flag_rt = nullptr;
+		png_flag_lb = nullptr;
+		png_flag_rb = nullptr;
+	}
+
 	if(zone_preview_rect.width() && zone_preview_rect.height())
 	{
 		zone_preview_item = scene->addRect(zone_preview_rect, QPen(Qt::red), QBrush(QColor(255, 0, 0, 64)));
@@ -1433,13 +1497,55 @@ void MainWindow::drawMapFromJsonOld(QByteArray map)
 	QJsonArray arr_map = obj.value("map").toArray();
 	QJsonArray sub;
 	QGraphicsPixmapItem *png_robo, *png_dock;
+	QPointF pos_flag, pos_flag_lt, pos_flag_rt, pos_flag_lb, pos_flag_rb;
 	QColor col;
 	int x1, y1, x2, y2;
 	int angle = 0;
 
 	zone_preview_item = nullptr;
 
+	if(png_flag)
+	{
+		pos_flag = png_flag->pos();
+	}
+
+	if(png_flag_lt && png_flag_rt && png_flag_lb && png_flag_rb)
+	{
+		pos_flag_lt = png_flag_lt->pos();
+		pos_flag_rt = png_flag_rt->pos();
+		pos_flag_lb = png_flag_lb->pos();
+		pos_flag_rb = png_flag_rb->pos();
+	}
+
 	scene->clear();
+
+	if(png_flag)
+	{
+		png_flag = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+		png_flag->setPos(pos_flag);
+		png_flag->setZValue(3);
+		png_flag->setOffset(-5, -30);
+	}
+
+	if(png_flag_lt && png_flag_rt && png_flag_lb && png_flag_rb)
+	{
+		png_flag_lt = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+		png_flag_lt->setZValue(3);
+		png_flag_lt->setOffset(-5, -30);
+		png_flag_lt->setPos(pos_flag_lt);
+		png_flag_rt = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+		png_flag_rt->setZValue(3);
+		png_flag_rt->setOffset(-5, -30);
+		png_flag_rt->setPos(pos_flag_rt);
+		png_flag_lb = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+		png_flag_lb->setZValue(3);
+		png_flag_lb->setOffset(-5, -30);
+		png_flag_lb->setPos(pos_flag_lb);
+		png_flag_rb = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+		png_flag_rb->setZValue(3);
+		png_flag_rb->setOffset(-5, -30);
+		png_flag_rb->setPos(pos_flag_rb);
+	}
 
 	png_dock = scene->addPixmap(QPixmap(":/png/png/dock.png"));
 	png_robo = scene->addPixmap(QPixmap(":/png/png/robo.png"));
@@ -1505,6 +1611,26 @@ void MainWindow::drawMapFromJsonOld(QByteArray map)
 
 	png_robo->setPos(x1, y1);
 	png_robo->setRotation(360 - angle);
+
+	if(png_flag && png_flag->collidesWithItem(png_robo))
+	{
+		scene->removeItem(png_flag);
+
+		png_flag = nullptr;
+	}
+
+	if((png_flag_lt && png_flag_rt && png_flag_lb && png_flag_rb) && (png_flag_lt->collidesWithItem(png_robo) || png_flag_rt->collidesWithItem(png_robo) || png_flag_lb->collidesWithItem(png_robo) || png_flag_rb->collidesWithItem(png_robo)))
+	{
+		scene->removeItem(png_flag_lt);
+		scene->removeItem(png_flag_rt);
+		scene->removeItem(png_flag_lb);
+		scene->removeItem(png_flag_rb);
+
+		png_flag_lt = nullptr;
+		png_flag_rt = nullptr;
+		png_flag_lb = nullptr;
+		png_flag_rb = nullptr;
+	}
 
 	graphicsView->setSceneRect(scene->itemsBoundingRect());
 
@@ -1781,6 +1907,31 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 
 			if(src != dst)
 			{
+				if(png_flag_lt && png_flag_rt && png_flag_lb && png_flag_rb)
+				{
+					scene->removeItem(png_flag_lt);
+					scene->removeItem(png_flag_rt);
+					scene->removeItem(png_flag_lb);
+					scene->removeItem(png_flag_rb);
+				}
+
+				png_flag_lt = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+				png_flag_lt->setZValue(3);
+				png_flag_lt->setOffset(-5, -30);
+				png_flag_lt->setPos(src.x() / MAPFACTOR, src.y() / MAPFACTOR);
+				png_flag_rt = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+				png_flag_rt->setZValue(3);
+				png_flag_rt->setOffset(-5, -30);
+				png_flag_rt->setPos(dst.x() / MAPFACTOR, src.y() / MAPFACTOR);
+				png_flag_lb = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+				png_flag_lb->setZValue(3);
+				png_flag_lb->setOffset(-5, -30);
+				png_flag_lb->setPos(src.x() / MAPFACTOR, dst.y() / MAPFACTOR);
+				png_flag_rb = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+				png_flag_rb->setZValue(3);
+				png_flag_rb->setOffset(-5, -30);
+				png_flag_rb->setPos(dst.x() / MAPFACTOR,dst.y() / MAPFACTOR);
+
 				rc = QMessageBox::question(this, APPNAME, tr("Start zone cleaning for selected region?\n\n[ %1 / %2 - %3 / %4 ]").arg(x1).arg(y1).arg(x2).arg(y2), QMessageBox::Yes | QMessageBox::No | QMessageBox::Save, QMessageBox::Yes);
 
 				if(rc == QMessageBox::Yes)
@@ -1799,6 +1950,19 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 					{
 						QMessageBox::information(this, APPNAME, tr("You can customize all zones later with the zone editor."));
 					}
+				}
+
+				if(rc != QMessageBox::Yes)
+				{
+					scene->removeItem(png_flag_lt);
+					scene->removeItem(png_flag_rt);
+					scene->removeItem(png_flag_lb);
+					scene->removeItem(png_flag_rb);
+
+					png_flag_lt = nullptr;
+					png_flag_rt = nullptr;
+					png_flag_lb = nullptr;
+					png_flag_rb = nullptr;
 				}
 			}
 		}
@@ -1854,9 +2018,25 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 					int x = pos.x();
 					int y = pos.y();
 
+					if(png_flag)
+					{
+						scene->removeItem(png_flag);
+					}
+
+					png_flag = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+					png_flag->setZValue(3);
+					png_flag->setOffset(-5, -30);
+					png_flag->setPos(x / MAPFACTOR, y / MAPFACTOR);
+
 					if(QMessageBox::question(this, APPNAME, tr("Send robot to selected position?\n\n[ %1 / %2 ]").arg(cfg.swap_x ? x : MAPSIZE - x).arg(cfg.swap_y ? y : MAPSIZE - y), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
 					{
 						sendUDP(QString(MIIO_APP_GOTO_TARGET).arg(cfg.swap_x ? x : MAPSIZE - x).arg(cfg.swap_y ? y : MAPSIZE - y).arg("%1"));
+					}
+					else
+					{
+						scene->removeItem(png_flag);
+
+						png_flag = nullptr;
 					}
 				}
 				else

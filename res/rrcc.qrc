@@ -76,5 +76,6 @@
         <file>png/question.png</file>
         <file>png/fw_upd.png</file>
         <file>png/internet.png</file>
+        <file>png/flag.png</file>
     </qresource>
 </RCC>
