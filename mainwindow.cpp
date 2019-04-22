@@ -1362,7 +1362,6 @@ void MainWindow::drawMapFromJson(QByteArray map)
 	QJsonArray path_points = path.value("points").toArray();
 	QJsonArray val;
 	QGraphicsPixmapItem *png_robo, *png_dock;
-	QPointF pos_flag, pos_flag_lt, pos_flag_rt, pos_flag_lb, pos_flag_rb;
 	int x1, y1, x2, y2;
 
 	zone_preview_item = nullptr;
@@ -1384,30 +1383,12 @@ void MainWindow::drawMapFromJson(QByteArray map)
 
 	if(png_flag)
 	{
-		png_flag = scene->addPixmap(QPixmap(":/png/png/flag.png"));
-		png_flag->setPos(pos_flag);
-		png_flag->setZValue(3);
-		png_flag->setOffset(-5, -30);
+		drawFlags(true, true);
 	}
 
 	if(png_flag_lt && png_flag_rt && png_flag_lb && png_flag_rb)
 	{
-		png_flag_lt = scene->addPixmap(QPixmap(":/png/png/flag.png"));
-		png_flag_lt->setZValue(3);
-		png_flag_lt->setOffset(-5, -30);
-		png_flag_lt->setPos(pos_flag_lt);
-		png_flag_rt = scene->addPixmap(QPixmap(":/png/png/flag.png"));
-		png_flag_rt->setZValue(3);
-		png_flag_rt->setOffset(-5, -30);
-		png_flag_rt->setPos(pos_flag_rt);
-		png_flag_lb = scene->addPixmap(QPixmap(":/png/png/flag.png"));
-		png_flag_lb->setZValue(3);
-		png_flag_lb->setOffset(-5, -30);
-		png_flag_lb->setPos(pos_flag_lb);
-		png_flag_rb = scene->addPixmap(QPixmap(":/png/png/flag.png"));
-		png_flag_rb->setZValue(3);
-		png_flag_rb->setOffset(-5, -30);
-		png_flag_rb->setPos(pos_flag_rb);
+		drawFlags(true, false);
 	}
 
 	png_dock = scene->addPixmap(QPixmap(":/png/png/dock.png"));
@@ -1473,22 +1454,12 @@ void MainWindow::drawMapFromJson(QByteArray map)
 
 	if(png_flag && png_flag->collidesWithItem(png_robo))
 	{
-		scene->removeItem(png_flag);
-
-		png_flag = nullptr;
+		drawFlags(false, true);
 	}
 
 	if((png_flag_lt && png_flag_rt && png_flag_lb && png_flag_rb) && (png_flag_lt->collidesWithItem(png_robo) || png_flag_rt->collidesWithItem(png_robo) || png_flag_lb->collidesWithItem(png_robo) || png_flag_rb->collidesWithItem(png_robo)))
 	{
-		scene->removeItem(png_flag_lt);
-		scene->removeItem(png_flag_rt);
-		scene->removeItem(png_flag_lb);
-		scene->removeItem(png_flag_rb);
-
-		png_flag_lt = nullptr;
-		png_flag_rt = nullptr;
-		png_flag_lb = nullptr;
-		png_flag_rb = nullptr;
+		drawFlags(false, false);
 	}
 
 	if(zone_preview_rect.width() && zone_preview_rect.height())
@@ -1512,7 +1483,6 @@ void MainWindow::drawMapFromJsonOld(QByteArray map)
 	QJsonArray arr_map = obj.value("map").toArray();
 	QJsonArray sub;
 	QGraphicsPixmapItem *png_robo, *png_dock;
-	QPointF pos_flag, pos_flag_lt, pos_flag_rt, pos_flag_lb, pos_flag_rb;
 	QColor col;
 	int x1, y1, x2, y2;
 	int angle = 0;
@@ -1536,30 +1506,12 @@ void MainWindow::drawMapFromJsonOld(QByteArray map)
 
 	if(png_flag)
 	{
-		png_flag = scene->addPixmap(QPixmap(":/png/png/flag.png"));
-		png_flag->setPos(pos_flag);
-		png_flag->setZValue(3);
-		png_flag->setOffset(-5, -30);
+		drawFlags(true, true);
 	}
 
 	if(png_flag_lt && png_flag_rt && png_flag_lb && png_flag_rb)
 	{
-		png_flag_lt = scene->addPixmap(QPixmap(":/png/png/flag.png"));
-		png_flag_lt->setZValue(3);
-		png_flag_lt->setOffset(-5, -30);
-		png_flag_lt->setPos(pos_flag_lt);
-		png_flag_rt = scene->addPixmap(QPixmap(":/png/png/flag.png"));
-		png_flag_rt->setZValue(3);
-		png_flag_rt->setOffset(-5, -30);
-		png_flag_rt->setPos(pos_flag_rt);
-		png_flag_lb = scene->addPixmap(QPixmap(":/png/png/flag.png"));
-		png_flag_lb->setZValue(3);
-		png_flag_lb->setOffset(-5, -30);
-		png_flag_lb->setPos(pos_flag_lb);
-		png_flag_rb = scene->addPixmap(QPixmap(":/png/png/flag.png"));
-		png_flag_rb->setZValue(3);
-		png_flag_rb->setOffset(-5, -30);
-		png_flag_rb->setPos(pos_flag_rb);
+		drawFlags(true, false);
 	}
 
 	png_dock = scene->addPixmap(QPixmap(":/png/png/dock.png"));
@@ -1629,22 +1581,12 @@ void MainWindow::drawMapFromJsonOld(QByteArray map)
 
 	if(png_flag && png_flag->collidesWithItem(png_robo))
 	{
-		scene->removeItem(png_flag);
-
-		png_flag = nullptr;
+		drawFlags(false, true);
 	}
 
 	if((png_flag_lt && png_flag_rt && png_flag_lb && png_flag_rb) && (png_flag_lt->collidesWithItem(png_robo) || png_flag_rt->collidesWithItem(png_robo) || png_flag_lb->collidesWithItem(png_robo) || png_flag_rb->collidesWithItem(png_robo)))
 	{
-		scene->removeItem(png_flag_lt);
-		scene->removeItem(png_flag_rt);
-		scene->removeItem(png_flag_lb);
-		scene->removeItem(png_flag_rb);
-
-		png_flag_lt = nullptr;
-		png_flag_rt = nullptr;
-		png_flag_lb = nullptr;
-		png_flag_rb = nullptr;
+		drawFlags(false, false);
 	}
 
 	graphicsView->setSceneRect(scene->itemsBoundingRect());
@@ -1673,7 +1615,7 @@ void MainWindow::httpFinished(QNetworkReply *reply)
 		}
 
 		timerMap.setSingleShot(true);
-		timerMap.start(5000);
+		timerMap.start(3000);
 	}
 	else
 	{
@@ -1739,6 +1681,63 @@ void MainWindow::aboutToHide()
 		scene->removeItem(zone_preview_item);
 
 		zone_preview_item = NULL;
+	}
+}
+
+void MainWindow::drawFlags(bool show, bool single)
+{
+	if(show)
+	{
+		if(single)
+		{
+			png_flag = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+			png_flag->setPos(pos_flag);
+			png_flag->setZValue(3);
+			png_flag->setOffset(-16, -16);
+		}
+		else
+		{
+			png_flag_lt = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+			png_flag_lt->setZValue(3);
+			png_flag_lt->setOffset(-16, -16);
+			png_flag_lt->setPos(pos_flag_lt);
+
+			png_flag_rt = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+			png_flag_rt->setZValue(3);
+			png_flag_rt->setOffset(-16, -16);
+			png_flag_rt->setPos(pos_flag_rt);
+
+			png_flag_lb = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+			png_flag_lb->setZValue(3);
+			png_flag_lb->setOffset(-16, -16);
+			png_flag_lb->setPos(pos_flag_lb);
+
+			png_flag_rb = scene->addPixmap(QPixmap(":/png/png/flag.png"));
+			png_flag_rb->setZValue(3);
+			png_flag_rb->setOffset(-16, -16);
+			png_flag_rb->setPos(pos_flag_rb);
+		}
+	}
+	else
+	{
+		if(single)
+		{
+			scene->removeItem(png_flag);
+
+			png_flag = nullptr;
+		}
+		else
+		{
+			scene->removeItem(png_flag_lt);
+			scene->removeItem(png_flag_rt);
+			scene->removeItem(png_flag_lb);
+			scene->removeItem(png_flag_rb);
+
+			png_flag_lt = nullptr;
+			png_flag_rt = nullptr;
+			png_flag_lb = nullptr;
+			png_flag_rb = nullptr;
+		}
 	}
 }
 
@@ -1924,28 +1923,15 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 			{
 				if(png_flag_lt && png_flag_rt && png_flag_lb && png_flag_rb)
 				{
-					scene->removeItem(png_flag_lt);
-					scene->removeItem(png_flag_rt);
-					scene->removeItem(png_flag_lb);
-					scene->removeItem(png_flag_rb);
+					drawFlags(false, false);
 				}
 
-				png_flag_lt = scene->addPixmap(QPixmap(":/png/png/flag.png"));
-				png_flag_lt->setZValue(3);
-				png_flag_lt->setOffset(-5, -30);
-				png_flag_lt->setPos(src.x() / MAPFACTOR, src.y() / MAPFACTOR);
-				png_flag_rt = scene->addPixmap(QPixmap(":/png/png/flag.png"));
-				png_flag_rt->setZValue(3);
-				png_flag_rt->setOffset(-5, -30);
-				png_flag_rt->setPos(dst.x() / MAPFACTOR, src.y() / MAPFACTOR);
-				png_flag_lb = scene->addPixmap(QPixmap(":/png/png/flag.png"));
-				png_flag_lb->setZValue(3);
-				png_flag_lb->setOffset(-5, -30);
-				png_flag_lb->setPos(src.x() / MAPFACTOR, dst.y() / MAPFACTOR);
-				png_flag_rb = scene->addPixmap(QPixmap(":/png/png/flag.png"));
-				png_flag_rb->setZValue(3);
-				png_flag_rb->setOffset(-5, -30);
-				png_flag_rb->setPos(dst.x() / MAPFACTOR,dst.y() / MAPFACTOR);
+				pos_flag_lt = QPointF(src.x() / MAPFACTOR, src.y() / MAPFACTOR);
+				pos_flag_rt = QPointF(dst.x() / MAPFACTOR, src.y() / MAPFACTOR);
+				pos_flag_lb = QPointF(src.x() / MAPFACTOR, dst.y() / MAPFACTOR);
+				pos_flag_rb = QPointF(dst.x() / MAPFACTOR, dst.y() / MAPFACTOR);
+
+				drawFlags(true, false);
 
 				rc = QMessageBox::question(this, APPNAME, tr("Start zone cleaning for selected region?\n\n[ %1 / %2 - %3 / %4 ]").arg(x1).arg(y1).arg(x2).arg(y2), QMessageBox::Yes | QMessageBox::No | QMessageBox::Save, QMessageBox::Yes);
 
@@ -1969,15 +1955,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 
 				if(rc != QMessageBox::Yes)
 				{
-					scene->removeItem(png_flag_lt);
-					scene->removeItem(png_flag_rt);
-					scene->removeItem(png_flag_lb);
-					scene->removeItem(png_flag_rb);
-
-					png_flag_lt = nullptr;
-					png_flag_rt = nullptr;
-					png_flag_lb = nullptr;
-					png_flag_rb = nullptr;
+					drawFlags(false, false);
 				}
 			}
 		}
@@ -2035,13 +2013,12 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 
 					if(png_flag)
 					{
-						scene->removeItem(png_flag);
+						drawFlags(false, true);
 					}
 
-					png_flag = scene->addPixmap(QPixmap(":/png/png/flag.png"));
-					png_flag->setZValue(3);
-					png_flag->setOffset(-5, -30);
-					png_flag->setPos(x / MAPFACTOR, y / MAPFACTOR);
+					pos_flag = QPointF(x / MAPFACTOR, y / MAPFACTOR);
+
+					drawFlags(true, true);
 
 					if(QMessageBox::question(this, APPNAME, tr("Send robot to selected position?\n\n[ %1 / %2 ]").arg(cfg.swap_x ? x : MAPSIZE - x).arg(cfg.swap_y ? y : MAPSIZE - y), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
 					{
@@ -2049,9 +2026,7 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 					}
 					else
 					{
-						scene->removeItem(png_flag);
-
-						png_flag = nullptr;
+						drawFlags(false, true);
 					}
 				}
 				else

@@ -346,6 +346,7 @@ private:
 	void drawMapFromJsonOld(QByteArray);
 	void getScale();
 	void setMatrix();
+	void drawFlags(bool, bool);
 
 	QDialog *logger;
 	QTimer timerMap, timerFanspeed;
@@ -355,6 +356,7 @@ private:
 	QPoint drag_pos, rubber_pos;
 	QRect zone_preview_rect = {0, 0, 0, 0};
 	QGraphicsPixmapItem *png_flag = NULL, *png_flag_lt = NULL, *png_flag_rt = NULL, *png_flag_lb = NULL, *png_flag_rb = NULL;
+	QPointF pos_flag, pos_flag_lt, pos_flag_rt, pos_flag_lb, pos_flag_rb;
 	QGraphicsRectItem *zone_preview_item = NULL;
 	QMenu *menu_map, *menu_map_rotation, *menu_map_flipping, *menu_map_swapping;
 	QActionGroup *group_map;
