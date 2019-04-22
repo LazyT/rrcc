@@ -1110,6 +1110,11 @@ void MainWindow::on_actionValetudoInstall_triggered()
 	}
 	else
 	{
+		if(actionMap->isChecked())
+		{
+			actionMap->setChecked(false);
+		}
+
 		installerDialog(this).exec();
 	}
 }
@@ -1122,6 +1127,11 @@ void MainWindow::on_actionValetudoUninstall_triggered()
 	}
 	else
 	{
+		if(actionMap->isChecked())
+		{
+			actionMap->setChecked(false);
+		}
+
 		uninstallerDialog(this).exec();
 	}
 }
@@ -1185,6 +1195,11 @@ try_again:
 				{
 					if(file.size())
 					{
+						if(actionMap->isChecked())
+						{
+							actionMap->setChecked(false);
+						}
+
 						updateDialog(this, &file).exec();
 					}
 					else
