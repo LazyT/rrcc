@@ -1608,30 +1608,30 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1046"/>
+        <location filename="../mainwindow.cpp" line="1048"/>
         <source>No timers found, create new?</source>
         <translation>Keine Timer gefunden, einen Neuen erstellen?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1064"/>
+        <location filename="../mainwindow.cpp" line="1066"/>
         <source>No cleaning history found.</source>
         <translation>Kein Reinigungsverlauf gefunden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1076"/>
+        <location filename="../mainwindow.cpp" line="1078"/>
         <source>No cleaning zones defined yet.</source>
         <translation>Es sind noch keine Reinigungsbereiche definiert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1084"/>
-        <location filename="../mainwindow.cpp" line="1107"/>
-        <location filename="../mainwindow.cpp" line="1119"/>
-        <location filename="../mainwindow.cpp" line="1131"/>
+        <location filename="../mainwindow.cpp" line="1086"/>
+        <location filename="../mainwindow.cpp" line="1109"/>
+        <location filename="../mainwindow.cpp" line="1126"/>
+        <location filename="../mainwindow.cpp" line="1143"/>
         <source>Please setup your ssh settings first!</source>
         <translation>Bitte zuerst die SSH-Einstellungen vornehmen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1161"/>
+        <location filename="../mainwindow.cpp" line="1173"/>
         <source>Are you really sure you want to install a firmware update?
 
 Please choose the correct version for your model or you will brick your device!</source>
@@ -1640,27 +1640,27 @@ Please choose the correct version for your model or you will brick your device!<
 Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbrauchbar!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1167"/>
+        <location filename="../mainwindow.cpp" line="1179"/>
         <source>Charge battery to at least 20% first!</source>
         <translation>Den Akku zuerst auf mindestens 20% aufladen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1173"/>
+        <location filename="../mainwindow.cpp" line="1185"/>
         <source>Send robot to docking station first!</source>
         <translation>Den Roboter zuerst zur Ladestation schicken!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1178"/>
+        <location filename="../mainwindow.cpp" line="1190"/>
         <source>Select firmware package to install</source>
         <translation>Zu installierendes Firmwarepaket auswählen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1190"/>
+        <location filename="../mainwindow.cpp" line="1207"/>
         <source>Selected firmware package is empty!</source>
         <translation>Das ausgewählte Firmwarepaket ist leer!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1197"/>
+        <location filename="../mainwindow.cpp" line="1214"/>
         <source>Could not open firmware package!
 
 %1</source>
@@ -1669,12 +1669,12 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1208"/>
+        <location filename="../mainwindow.cpp" line="1225"/>
         <source>Help not implemented yet, sorry...</source>
         <translation>Hilfe noch nicht implementiert, sorry....</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1541"/>
+        <location filename="../mainwindow.cpp" line="1624"/>
         <source>Map function is only available on rooted devices running Valetudo!
 
 %1</source>
@@ -1683,7 +1683,7 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1563"/>
+        <location filename="../mainwindow.cpp" line="1646"/>
         <source>Websocket error %1, closing connection!
 
 %2</source>
@@ -1692,13 +1692,13 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1704"/>
-        <location filename="../mainwindow.cpp" line="1833"/>
+        <location filename="../mainwindow.cpp" line="1844"/>
+        <location filename="../mainwindow.cpp" line="1990"/>
         <source>Map [ Zoom Factor = %1 ]</source>
         <translation>Karte [ Zoomfaktor = %1 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1784"/>
+        <location filename="../mainwindow.cpp" line="1936"/>
         <source>Start zone cleaning for selected region?
 
 [ %1 / %2 - %3 / %4 ]</source>
@@ -1707,12 +1707,12 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 [ %1 / %2 - %3 / %4 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1800"/>
+        <location filename="../mainwindow.cpp" line="1952"/>
         <source>You can customize all zones later with the zone editor.</source>
         <translation>Alle Zonen können später mit dem Zoneneditor angepasst werden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1857"/>
+        <location filename="../mainwindow.cpp" line="2021"/>
         <source>Send robot to selected position?
 
 [ %1 / %2 ]</source>
@@ -1721,17 +1721,12 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 [ %1 / %2 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1864"/>
-        <source>Please select position inside the map!</source>
-        <translation>Bitte Position innerhalb der Karte wählen!</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="1917"/>
+        <location filename="../mainwindow.cpp" line="2080"/>
         <source>Start cleaning for zone &quot;%1&quot;?</source>
         <translation>Reinigung für Zone &quot;%1&quot; starten?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1946"/>
+        <location filename="../mainwindow.cpp" line="2109"/>
         <source>Really exit program?</source>
         <translation>Programm wirklich beenden?</translation>
     </message>

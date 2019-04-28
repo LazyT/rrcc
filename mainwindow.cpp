@@ -2005,33 +2005,26 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 			}
 			else if(selected->objectName() == "actionMenu_Map_Goto")
 			{
-				if(graphicsView->itemAt(graphicsView->mapFromGlobal(event->globalPos()).x(), graphicsView->mapFromGlobal(event->globalPos()).y()))
+				QPointF pos = graphicsView->mapToScene(graphicsView->mapFromGlobal(event->globalPos())) * MAPFACTOR;
+				int x = pos.x();
+				int y = pos.y();
+
+				if(png_flag)
 				{
-					QPointF pos = graphicsView->mapToScene(graphicsView->mapFromGlobal(event->globalPos())) * MAPFACTOR;
-					int x = pos.x();
-					int y = pos.y();
+					drawFlags(false, true);
+				}
 
-					if(png_flag)
-					{
-						drawFlags(false, true);
-					}
+				pos_flag = QPointF(x / MAPFACTOR, y / MAPFACTOR);
 
-					pos_flag = QPointF(x / MAPFACTOR, y / MAPFACTOR);
+				drawFlags(true, true);
 
-					drawFlags(true, true);
-
-					if(QMessageBox::question(this, APPNAME, tr("Send robot to selected position?\n\n[ %1 / %2 ]").arg(cfg.swap_x ? x : MAPSIZE - x).arg(cfg.swap_y ? y : MAPSIZE - y), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
-					{
-						sendUDP(QString(MIIO_APP_GOTO_TARGET).arg(cfg.swap_x ? x : MAPSIZE - x).arg(cfg.swap_y ? y : MAPSIZE - y).arg("%1"));
-					}
-					else
-					{
-						drawFlags(false, true);
-					}
+				if(QMessageBox::question(this, APPNAME, tr("Send robot to selected position?\n\n[ %1 / %2 ]").arg(cfg.swap_x ? x : MAPSIZE - x).arg(cfg.swap_y ? y : MAPSIZE - y), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+				{
+					sendUDP(QString(MIIO_APP_GOTO_TARGET).arg(cfg.swap_x ? x : MAPSIZE - x).arg(cfg.swap_y ? y : MAPSIZE - y).arg("%1"));
 				}
 				else
 				{
-					QMessageBox::information(this, APPNAME, tr("Please select position inside the map!"));
+					drawFlags(false, true);
 				}
 			}
 			else if(selected->objectName() == "actionMenu_Map_FlipH")
