@@ -1565,12 +1565,12 @@ Please check ip / token / msgid...</source>
 Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="945"/>
+        <location filename="../mainwindow.cpp" line="971"/>
         <source>Firmware %1 installed.</source>
         <translation>Firmware %1 installiert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="949"/>
+        <location filename="../mainwindow.cpp" line="975"/>
         <source>Firmware detection failed:
 
 %1</source>
@@ -1579,18 +1579,18 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="949"/>
-        <location filename="../mainwindow.cpp" line="960"/>
+        <location filename="../mainwindow.cpp" line="975"/>
+        <location filename="../mainwindow.cpp" line="986"/>
         <source>got empty response</source>
         <translation>leere Antwort erhalten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="956"/>
+        <location filename="../mainwindow.cpp" line="982"/>
         <source>Valetudo %1 installed.</source>
         <translation>Valetudo %1 installiert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="960"/>
+        <location filename="../mainwindow.cpp" line="986"/>
         <source>Valetudo detection failed:
 
 %1</source>
@@ -1599,7 +1599,7 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="974"/>
+        <location filename="../mainwindow.cpp" line="1000"/>
         <source>SSH connection error!
 
 %1</source>
@@ -1608,30 +1608,30 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1048"/>
+        <location filename="../mainwindow.cpp" line="1074"/>
         <source>No timers found, create new?</source>
         <translation>Keine Timer gefunden, einen Neuen erstellen?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1066"/>
+        <location filename="../mainwindow.cpp" line="1092"/>
         <source>No cleaning history found.</source>
         <translation>Kein Reinigungsverlauf gefunden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1078"/>
+        <location filename="../mainwindow.cpp" line="1104"/>
         <source>No cleaning zones defined yet.</source>
         <translation>Es sind noch keine Reinigungsbereiche definiert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1086"/>
-        <location filename="../mainwindow.cpp" line="1109"/>
-        <location filename="../mainwindow.cpp" line="1126"/>
-        <location filename="../mainwindow.cpp" line="1143"/>
+        <location filename="../mainwindow.cpp" line="1112"/>
+        <location filename="../mainwindow.cpp" line="1135"/>
+        <location filename="../mainwindow.cpp" line="1152"/>
+        <location filename="../mainwindow.cpp" line="1169"/>
         <source>Please setup your ssh settings first!</source>
         <translation>Bitte zuerst die SSH-Einstellungen vornehmen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1173"/>
+        <location filename="../mainwindow.cpp" line="1199"/>
         <source>Are you really sure you want to install a firmware update?
 
 Please choose the correct version for your model or you will brick your device!</source>
@@ -1640,27 +1640,27 @@ Please choose the correct version for your model or you will brick your device!<
 Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbrauchbar!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1179"/>
+        <location filename="../mainwindow.cpp" line="1205"/>
         <source>Charge battery to at least 20% first!</source>
         <translation>Den Akku zuerst auf mindestens 20% aufladen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1185"/>
+        <location filename="../mainwindow.cpp" line="1211"/>
         <source>Send robot to docking station first!</source>
         <translation>Den Roboter zuerst zur Ladestation schicken!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1190"/>
+        <location filename="../mainwindow.cpp" line="1216"/>
         <source>Select firmware package to install</source>
         <translation>Zu installierendes Firmwarepaket auswählen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1207"/>
+        <location filename="../mainwindow.cpp" line="1233"/>
         <source>Selected firmware package is empty!</source>
         <translation>Das ausgewählte Firmwarepaket ist leer!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1214"/>
+        <location filename="../mainwindow.cpp" line="1240"/>
         <source>Could not open firmware package!
 
 %1</source>
@@ -1669,12 +1669,12 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1225"/>
+        <location filename="../mainwindow.cpp" line="1251"/>
         <source>Help not implemented yet, sorry...</source>
         <translation>Hilfe noch nicht implementiert, sorry....</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1624"/>
+        <location filename="../mainwindow.cpp" line="1677"/>
         <source>Map function is only available on rooted devices running Valetudo!
 
 %1</source>
@@ -1683,7 +1683,7 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1646"/>
+        <location filename="../mainwindow.cpp" line="1699"/>
         <source>Websocket error %1, closing connection!
 
 %2</source>
@@ -1692,13 +1692,13 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1844"/>
-        <location filename="../mainwindow.cpp" line="1990"/>
+        <location filename="../mainwindow.cpp" line="1897"/>
+        <location filename="../mainwindow.cpp" line="2127"/>
         <source>Map [ Zoom Factor = %1 ]</source>
         <translation>Karte [ Zoomfaktor = %1 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1936"/>
+        <location filename="../mainwindow.cpp" line="1989"/>
         <source>Start zone cleaning for selected region?
 
 [ %1 / %2 - %3 / %4 ]</source>
@@ -1707,12 +1707,61 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 [ %1 / %2 - %3 / %4 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1952"/>
+        <location filename="../mainwindow.cpp" line="1990"/>
+        <source>You can also save this region, define as nogo zone or create a virtual wall.</source>
+        <translation>Dieser Bereich kann auch gespeichert, als Sperrzone definiert oder als virtuelle Wand erstellt werden.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1991"/>
+        <source>Save Zone</source>
+        <translation>Zone speichern</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1992"/>
+        <source>NoGo Zone</source>
+        <translation>Zone sperren</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1993"/>
+        <source>Virtual Wall</source>
+        <translation>virtuelle Wand</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1994"/>
+        <source>Reset</source>
+        <translation>Zurücksetzen</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1999"/>
+        <source>Persistent maps are disabled, activate now?
+
+Some features like nogo zones and virtual walls are otherwise not available.</source>
+        <translation>Persistente Karten sind deaktiviert, jetzt aktivieren?
+
+Einige Funktionen wie Sperrzonen und virtuelle Wände sind ansonsten nicht verfügbar.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2005"/>
+        <source>Persistent maps successfully enabled.</source>
+        <translation>Persistente Karten erfolgreich aktiviert.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2009"/>
+        <source>Persistent maps could not be enabled!</source>
+        <translation>Persistente Karten konnten nicht aktiviert werden!</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2043"/>
         <source>You can customize all zones later with the zone editor.</source>
         <translation>Alle Zonen können später mit dem Zoneneditor angepasst werden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2021"/>
+        <location filename="../mainwindow.cpp" line="2087"/>
+        <source>Really delete all virtual walls and nogo zones?</source>
+        <translation>Wirklich alle virtuellen Wände und Sperrzonen löschen?</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2158"/>
         <source>Send robot to selected position?
 
 [ %1 / %2 ]</source>
@@ -1721,172 +1770,172 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 [ %1 / %2 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2080"/>
+        <location filename="../mainwindow.cpp" line="2217"/>
         <source>Start cleaning for zone &quot;%1&quot;?</source>
         <translation>Reinigung für Zone &quot;%1&quot; starten?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2109"/>
+        <location filename="../mainwindow.cpp" line="2246"/>
         <source>Really exit program?</source>
         <translation>Programm wirklich beenden?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="160"/>
+        <location filename="../mainwindow.h" line="182"/>
         <source>No error</source>
         <translation>Kein Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="161"/>
+        <location filename="../mainwindow.h" line="183"/>
         <source>Archive has bad data</source>
         <translation>Archiv hat fehlerhafte Daten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="162"/>
+        <location filename="../mainwindow.h" line="184"/>
         <source>Archive does not exist or no permission</source>
         <translation>Archiv existiert nicht oder keine Berechtigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="163"/>
+        <location filename="../mainwindow.h" line="185"/>
         <source>Unknown error</source>
         <translation>Unbekannter Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="164"/>
+        <location filename="../mainwindow.h" line="186"/>
         <source>Fatal error</source>
         <translation>Schwerwiegender Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="165"/>
+        <location filename="../mainwindow.h" line="187"/>
         <source>Wrong password for archive</source>
         <translation>Falsches Passwort für Archiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="166"/>
+        <location filename="../mainwindow.h" line="188"/>
         <source>Empty password for archive</source>
         <translation>Leeres Kennwort für Archiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="167"/>
+        <location filename="../mainwindow.h" line="189"/>
         <source>Cannot create archive</source>
         <translation>Archiv kann nicht erstellt werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="168"/>
+        <location filename="../mainwindow.h" line="190"/>
         <source>Cannot open added file</source>
         <translation>Hinzugefügte Datei kann nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="169"/>
+        <location filename="../mainwindow.h" line="191"/>
         <source>Cannot read added file</source>
         <translation>Hinzugefügte Datei kann nicht gelesen werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="170"/>
+        <location filename="../mainwindow.h" line="192"/>
         <source>Cannot find extraction destination</source>
         <translation>Extraktionsziel kann nicht gefunden werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="171"/>
+        <location filename="../mainwindow.h" line="193"/>
         <source>File does not exists</source>
         <translation>Datei existiert nicht</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="172"/>
+        <location filename="../mainwindow.h" line="194"/>
         <source>Extraction destination invalid</source>
         <translation>Extraktionsziel ungültig</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="173"/>
+        <location filename="../mainwindow.h" line="195"/>
         <source>Memory allocation failed</source>
         <translation>Speicherzuweisung fehlgeschlagen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="174"/>
+        <location filename="../mainwindow.h" line="196"/>
         <source>Cannot open existing file</source>
         <translation>Vorhandene Datei kann nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="322"/>
+        <location filename="../mainwindow.h" line="350"/>
         <source>Starting</source>
         <translation>Starten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="323"/>
+        <location filename="../mainwindow.h" line="351"/>
         <source>Charger disconnected</source>
         <translation>Ladegerät getrennt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="324"/>
+        <location filename="../mainwindow.h" line="352"/>
         <source>Idle</source>
         <translation>Leerlauf</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="325"/>
+        <location filename="../mainwindow.h" line="353"/>
         <source>Remote control active</source>
         <translation>Fernbedienung aktiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="326"/>
+        <location filename="../mainwindow.h" line="354"/>
         <source>Cleaning</source>
         <translation>Reinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="327"/>
+        <location filename="../mainwindow.h" line="355"/>
         <source>Returning home</source>
         <translation>Rückkehr nach Hause</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="328"/>
+        <location filename="../mainwindow.h" line="356"/>
         <source>Manual mode</source>
         <translation>Manueller Betrieb</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="329"/>
+        <location filename="../mainwindow.h" line="357"/>
         <source>Charging</source>
         <translation>Aufladen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="330"/>
+        <location filename="../mainwindow.h" line="358"/>
         <source>Charging problem</source>
         <translation>Ladeproblem</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="331"/>
+        <location filename="../mainwindow.h" line="359"/>
         <source>Paused</source>
         <translation>Pausiert</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="332"/>
+        <location filename="../mainwindow.h" line="360"/>
         <source>Spot cleaning</source>
         <translation>Bereichsreinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="333"/>
+        <location filename="../mainwindow.h" line="361"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="334"/>
+        <location filename="../mainwindow.h" line="362"/>
         <source>Shutting down</source>
         <translation>Herunterfahren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="335"/>
+        <location filename="../mainwindow.h" line="363"/>
         <source>Updating</source>
         <translation>Aktualisierung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="336"/>
+        <location filename="../mainwindow.h" line="364"/>
         <source>Docking</source>
         <translation>Andocken</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="337"/>
+        <location filename="../mainwindow.h" line="365"/>
         <source>Going to target</source>
         <translation>Unterwegs zum Ziel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="338"/>
+        <location filename="../mainwindow.h" line="366"/>
         <source>Zoned cleaning</source>
         <translation>Zonenreinigung</translation>
     </message>

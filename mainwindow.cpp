@@ -628,6 +628,14 @@ retry_once:
 		{
 			parseJSON(MIIO_ID_APP_GOTO_TARGET, payload);
 		}
+		else if(data.contains("set_lab_status"))
+		{
+			parseJSON(MIIO_ID_SET_LAB_STATUS, payload);
+		}
+		else if(data.contains("save_map"))
+		{
+			parseJSON(MIIO_ID_SAVE_MAP, payload);
+		}
 		else if(data.contains("config_router"))
 		{
 			parseJSON(MIIO_ID_CONFIG_ROUTER, payload);
@@ -743,6 +751,18 @@ void MainWindow::parseJSON(int mid, QByteArray data)
 		if(arr[0].toObject().contains("in_cleaning"))
 		{
 			robo.status.in_cleaning = arr[0].toObject().value("in_cleaning").toInt();
+		}
+		if(arr[0].toObject().contains("in_returning"))
+		{
+			robo.status.in_returning = arr[0].toObject().value("in_returning").toInt();
+		}
+		if(arr[0].toObject().contains("in_fresh_state"))
+		{
+			robo.status.in_fresh_state = arr[0].toObject().value("in_fresh_state").toInt();
+		}
+		if(arr[0].toObject().contains("lab_status"))
+		{
+			robo.status.lab_status = arr[0].toObject().value("lab_status").toInt();
 		}
 		if(arr[0].toObject().contains("fan_power"))
 		{
@@ -888,6 +908,12 @@ void MainWindow::parseJSON(int mid, QByteArray data)
 	{
 	}
 	else if(mid == MIIO_ID_APP_GOTO_TARGET)
+	{
+	}
+	else if(mid == MIIO_ID_SET_LAB_STATUS)
+	{
+	}
+	else if(mid == MIIO_ID_SAVE_MAP)
 	{
 	}
 	else if(mid == MIIO_ID_CONFIG_ROUTER)
@@ -1360,11 +1386,18 @@ void MainWindow::drawMapFromJson(QByteArray map)
 	QJsonArray image_pixels_obstacle_strong = image.value("pixels").toObject().value("obstacle_strong").toArray();
 	QJsonObject path = obj.value("path").toObject();
 	QJsonArray path_points = path.value("points").toArray();
+	QJsonArray walls = obj.value("virtual_walls").toArray();
+	QJsonArray nogos = obj.value("no_go_areas").toArray();
 	QJsonArray val;
 	QGraphicsPixmapItem *png_robo, *png_dock;
+	VIRTWALL virtwall;
+	NOGOZONE nogozone;
 	int x1, y1, x2, y2;
 
 	zone_preview_item = nullptr;
+
+	robo.virtwalls.clear();
+	robo.nogozones.clear();
 
 	if(png_flag)
 	{
@@ -1400,32 +1433,26 @@ void MainWindow::drawMapFromJson(QByteArray map)
 
 	foreach(QJsonValue val, image_pixels_floor)
 	{
-		val = val.toArray();
-
 		x1 = (val[0].toInt() + image_position_left) * 4;
 		y1 = (val[1].toInt() + image_position_top) * 4;
 
-		scene->addRect(x1, y1, 1, 1, QPen(QBrush(QColor(0, 128, 255, 255)), 3, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+		scene->addRect(x1, y1, 1, 1, QPen(QColor(0, 128, 255, 255), 3, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
 	}
 
 	foreach(QJsonValue val, image_pixels_obstacle_weak)
 	{
-		val = val.toArray();
-
 		x1 = (val[0].toInt() + image_position_left) * 4;
 		y1 = (val[1].toInt() + image_position_top) * 4;
 
-		scene->addRect(x1, y1, 1, 1, QPen(QBrush(QColor(255, 0, 0, 255)), 3, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+		scene->addRect(x1, y1, 1, 1, QPen(QColor(0, 0, 255, 255), 3, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
 	}
 
 	foreach(QJsonValue val, image_pixels_obstacle_strong)
 	{
-		val = val.toArray();
-
 		x1 = (val[0].toInt() + image_position_left) * 4;
 		y1 = (val[1].toInt() + image_position_top) * 4;
 
-		scene->addRect(x1, y1, 1, 1, QPen(QBrush(QColor(96, 160, 255, 255)), 3, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+		scene->addRect(x1, y1, 1, 1, QPen(QColor(96, 160, 255, 255), 3, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
 	}
 
 	x1 = path_points[0].toArray().first().toInt() / MAPFACTOR;
@@ -1433,18 +1460,44 @@ void MainWindow::drawMapFromJson(QByteArray map)
 
 	foreach(QJsonValue val, path_points)
 	{
-		val = val.toArray();
-
 		x2 = val[0].toInt() / MAPFACTOR;
 		y2 = val[1].toInt() / MAPFACTOR;
 
 		if(!(x1 == x2 && y1 == y2))
 		{
-			scene->addLine(x1, y1, x2, y2, QPen(QBrush(Qt::white), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+			scene->addLine(x1, y1, x2, y2, QPen(Qt::white, 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
 		}
 
 		x1 = x2;
 		y1 = y2;
+	}
+
+	foreach(QJsonValue val, walls)
+	{
+		x1 = val[0].toInt();
+		y1 = val[1].toInt();
+		x2 = val[2].toInt();
+		y2 = val[3].toInt();
+
+		virtwall = { x1, y1, x2, y2 };
+
+		scene->addLine(x1 / MAPFACTOR, y1 / MAPFACTOR, x2 / MAPFACTOR, y2 / MAPFACTOR, QPen(Qt::red, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+
+		robo.virtwalls.append(virtwall);
+	}
+
+	foreach(QJsonValue val, nogos)
+	{
+		x1 = val[0].toInt();
+		y1 = val[1].toInt();
+		x2 = val[4].toInt();
+		y2 = val[5].toInt();
+
+		nogozone = { x1, y1, val[2].toInt(), val[3].toInt(), x2, y2, val[6].toInt(), val[7].toInt() };
+
+		scene->addRect(x1 / MAPFACTOR, y1 / MAPFACTOR, (x2 - x1) / MAPFACTOR, (y2 - y1) / MAPFACTOR, QPen(Qt::red, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin), QColor(255, 0, 0, 64));
+
+		robo.nogozones.append(nogozone);
 	}
 
 	png_dock->setPos(obj.value("charger").toArray().first().toInt() / MAPFACTOR, obj.value("charger").toArray().last().toInt() / MAPFACTOR);
@@ -1464,7 +1517,7 @@ void MainWindow::drawMapFromJson(QByteArray map)
 
 	if(zone_preview_rect.width() && zone_preview_rect.height())
 	{
-		zone_preview_item = scene->addRect(zone_preview_rect, QPen(Qt::red), QBrush(QColor(255, 0, 0, 64)));
+		zone_preview_item = scene->addRect(zone_preview_rect, QPen(Qt::green, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin), QColor(0, 255, 0, 64));
 	}
 
 	graphicsView->setSceneRect(scene->itemsBoundingRect());
@@ -1573,7 +1626,7 @@ void MainWindow::drawMapFromJsonOld(QByteArray map)
 
 	if(zone_preview_rect.width() && zone_preview_rect.height())
 	{
-		zone_preview_item = scene->addRect(zone_preview_rect, QPen(Qt::red), QBrush(QColor(255, 0, 0, 64)));
+		zone_preview_item = scene->addRect(zone_preview_rect, QPen(Qt::green, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin), QBrush(QColor(0, 255, 0, 64)));
 	}
 
 	png_robo->setPos(x1, y1);
@@ -1669,7 +1722,7 @@ void MainWindow::hovered(QAction *action)
 		scene->removeItem(zone_preview_item);
 	}
 
-	zone_preview_item = scene->addRect(zone_preview_rect, QPen(Qt::red), QBrush(QColor(255, 0, 0, 64)));
+	zone_preview_item = scene->addRect(zone_preview_rect, QPen(Qt::green, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin), QBrush(QColor(0, 255, 0, 64)));
 }
 
 void MainWindow::aboutToHide()
@@ -1895,8 +1948,8 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 		{
 			QPointF src = graphicsView->mapToScene(rubber_pos) * MAPFACTOR;
 			QPointF dst = graphicsView->mapToScene(graphicsView->mapFromGlobal(event->globalPos())) * MAPFACTOR;
-			int x1, y1, x2, y2, swap;
-			int rc;
+			QAbstractButton *clicked;
+			int x1, y1, x2, y2, swap_x = 0, swap_y = 0;
 
 			rubberBand->hide();
 
@@ -1907,16 +1960,16 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 
 			if(x1 > x2)
 			{
-				swap = x1;
+				swap_x = x1;
 				x1 = x2;
-				x2 = swap;
+				x2 = swap_x;
 			}
 
 			if(y1 > y2)
 			{
-				swap = y1;
+				swap_y = y1;
 				y1 = y2;
-				y2 = swap;
+				y2 = swap_y;
 			}
 
 			if(src != dst)
@@ -1933,13 +1986,51 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 
 				drawFlags(true, false);
 
-				rc = QMessageBox::question(this, APPNAME, tr("Start zone cleaning for selected region?\n\n[ %1 / %2 - %3 / %4 ]").arg(x1).arg(y1).arg(x2).arg(y2), QMessageBox::Yes | QMessageBox::No | QMessageBox::Save, QMessageBox::Yes);
+				QMessageBox msgBox(QMessageBox::Question, APPNAME, tr("Start zone cleaning for selected region?\n\n[ %1 / %2 - %3 / %4 ]").arg(x1).arg(y1).arg(x2).arg(y2), QMessageBox::Yes | QMessageBox::No);
+				msgBox.setInformativeText(tr("You can also save this region, define as nogo zone or create a virtual wall."));
+				QPushButton *save = msgBox.addButton(tr("Save Zone"), QMessageBox::ActionRole);
+				QPushButton *nogo = msgBox.addButton(tr("NoGo Zone"), QMessageBox::ActionRole);
+				QPushButton *wall = msgBox.addButton(tr("Virtual Wall"), QMessageBox::ActionRole);
+				QPushButton *rset = msgBox.addButton(tr("Reset"), QMessageBox::ActionRole);
+				QString walls, nogos, map;
 
-				if(rc == QMessageBox::Yes)
+				if(!robo.status.lab_status)
+				{
+					if(QMessageBox::question(this, APPNAME, tr("Persistent maps are disabled, activate now?\n\nSome features like nogo zones and virtual walls are otherwise not available."), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+					{
+						if(sendUDP(QString(MIIO_SET_LAB_STATUS).arg(1)))
+						{
+							if(sendUDP(MIIO_GET_STATUS) && robo.status.lab_status)
+							{
+								QMessageBox::information(this, APPNAME, tr("Persistent maps successfully enabled."));
+							}
+							else
+							{
+								QMessageBox::warning(this, APPNAME, tr("Persistent maps could not be enabled!"));
+
+								nogo->setDisabled(true);
+								wall->setDisabled(true);
+								rset->setDisabled(true);
+							}
+						}
+					}
+					else
+					{
+						nogo->setDisabled(true);
+						wall->setDisabled(true);
+						rset->setDisabled(true);
+					}
+				}
+
+				msgBox.exec();
+
+				clicked = msgBox.clickedButton();
+
+				if(clicked == msgBox.button(QMessageBox::Yes))
 				{
 					sendUDP(QString(MIIO_APP_ZONED_CLEAN).arg(x1).arg(y1).arg(x2).arg(y2).arg(1).arg("%1"));
 				}
-				else if(rc == QMessageBox::Save)
+				else if(clicked == save)
 				{
 					CLEANZONE zone = { QString("Zone %1").arg(cfg.zones.count() + 1), x1, y1, x2, y2, 1 };
 
@@ -1952,8 +2043,54 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 						QMessageBox::information(this, APPNAME, tr("You can customize all zones later with the zone editor."));
 					}
 				}
+				else if(clicked == nogo || clicked == wall)
+				{
+					foreach(NOGOZONE nogo, robo.nogozones)
+					{
+						nogos.append(QString("[0,%1,%2,%3,%4,%5,%6,%7,%8],").arg(nogo.x1).arg(MAPSIZE - nogo.y1).arg(nogo.x2).arg(MAPSIZE - nogo.y2).arg(nogo.x3).arg(MAPSIZE - nogo.y3).arg(nogo.x4).arg(MAPSIZE - nogo.y4)); // FIXME: swap y, bug?
+					}
 
-				if(rc != QMessageBox::Yes)
+					foreach(VIRTWALL wall, robo.virtwalls)
+					{
+						walls.append(QString("[1,%1,%2,%3,%4],").arg(wall.x1).arg(MAPSIZE - wall.y1).arg(wall.x2).arg(MAPSIZE - wall.y2)); // FIXME: swap y, bug?
+					}
+
+					if(clicked == nogo)
+					{
+						nogos.append(QString("[0,%1,%2,%3,%4,%5,%6,%7,%8]").arg(swap_x ? x2 : x1).arg(swap_y ? y2 : y1).arg(swap_x ? x1 : x2).arg(swap_y ? y2 : y1).arg(swap_x ? x1 : x2).arg(swap_y ? y1 : y2).arg(swap_x ? x2 : x1).arg(swap_y ? y1 : y2));
+
+						walls.chop(1);
+					}
+					else
+					{
+						walls.append(QString("[1,%1,%2,%3,%4]").arg(swap_x ? x2 : x1).arg(swap_y ? y2 : y1).arg(swap_x ? x1 : x2).arg(swap_y ? y1 : y2));
+
+						nogos.chop(1);
+					}
+
+					if(!nogos.isEmpty())
+					{
+						map.append(nogos);
+					}
+
+					if(!walls.isEmpty())
+					{
+						map.append(walls);
+					}
+
+					map.replace("][", "],[");
+
+					sendUDP(QString(MIIO_SAVE_MAP).arg(map).arg("%1"));
+				}
+				else if(clicked == rset)
+				{
+					if(QMessageBox::question(this, APPNAME, tr("Really delete all virtual walls and nogo zones?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+					{
+						sendUDP(QString(MIIO_SAVE_MAP).arg("").arg("%1"));
+					}
+				}
+
+				if(clicked != msgBox.button(QMessageBox::Yes))
 				{
 					drawFlags(false, false);
 				}

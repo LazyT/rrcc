@@ -25,7 +25,7 @@ Only on rooted devices:
 * extract token via ssh
 * install/update/uninstall [Valetudo](https://github.com/hypfer/valetudo)
 * map functions via [Valetudo](https://github.com/hypfer/valetudo) (goto spot, zone cleaning, show coordinates, flip hor/ver, rotate 90/180/270°, zoom)
-* show installed firmware version
+* show installed firmware and valetudo version
 
 ## Screenshots
 

@@ -107,6 +107,8 @@
 #define MIIO_GET_CARPET_MODE		"{'id':%1,'method':'get_carpet_mode'}"
 #define MIIO_SET_CARPET_MODE		"{'id':%6,'method':'set_carpet_mode','params':[{'enable':%1,'current_integral':%2,'current_high':%3,'current_low':%4,'stall_time':%5}]}"
 #define MIIO_APP_GOTO_TARGET		"{'id':%3,'method':'app_goto_target','params':[%1,%2]}"
+#define MIIO_SET_LAB_STATUS			"{'id':%2,'method':'set_lab_status','params':[%1]}"
+#define MIIO_SAVE_MAP				"{'id':%2,'method':'save_map','params':[%1]}"
 #define MIIO_CONFIG_ROUTER			"{'id':%3,'method':'miIO.config_router','params':{'ssid':'%1','passwd':'%2','uid':null}}"
 #define MIIO_OTA					"{'id':%3,'method':'miIO.ota','params':{'mode':'normal','install':'1','app_url':'%1','file_md5':'%2','proc':'dnld install'}}"
 #define MIIO_GET_OTA_STATE			"{'id':%1,'method':'miIO.get_ota_state'}"
@@ -115,7 +117,7 @@
 #define SSH_GET_FIRMWARE_VERSION "fgrep ROBOROCK_VERSION /etc/os-release"
 #define SSH_GET_VALETUDO_VERSION "fgrep -a -m1 -A1 '\"name\": \"valetudo\"' /usr/local/bin/valetudo"
 
-enum {MIIO_ID_HELLO, MIIO_ID_APP_START, MIIO_ID_APP_STOP, MIIO_ID_APP_PAUSE, MIIO_ID_APP_CHARGE, MIIO_ID_APP_SPOT, MIIO_ID_APP_ZONED_CLEAN, MIIO_ID_FIND_ME, MIIO_ID_GET_SERIAL_NUMBER, MIIO_ID_GET_CONSUMABLE, MIIO_ID_RESET_CONSUMABLE, MIIO_ID_GET_STATUS, MIIO_ID_GET_CLEAN_SUMMARY, MIIO_ID_GET_CLEAN_RECORD, MIIO_ID_SET_CUTOM_MODE, MIIO_ID_GET_TIMER, MIIO_ID_SET_TIMER, MIIO_ID_UPD_TIMER, MIIO_ID_DEL_TIMER, MIIO_ID_GET_DND_TIMER, MIIO_ID_SET_DND_TIMER, MIIO_ID_CLOSE_DND_TIMER, MIIO_ID_GET_SOUND_VOLUME, MIIO_ID_CHANGE_SOUND_VOLUME, MIIO_ID_TEST_SOUND_VOLUME, MIIO_ID_GET_CURRENT_SOUND, MIIO_ID_DNLD_INSTALL_SOUND, MIIO_ID_GET_SOUND_PROGRESS, MIIO_ID_GET_CARPET_MODE, MIIO_ID_SET_CARPET_MODE, MIIO_ID_APP_GOTO_TARGET, MIIO_ID_CONFIG_ROUTER, MIIO_ID_OTA, MIIO_ID_GET_OTA_STATE, MIIO_ID_GET_OTA_PROGRESS};
+enum {MIIO_ID_HELLO, MIIO_ID_APP_START, MIIO_ID_APP_STOP, MIIO_ID_APP_PAUSE, MIIO_ID_APP_CHARGE, MIIO_ID_APP_SPOT, MIIO_ID_APP_ZONED_CLEAN, MIIO_ID_FIND_ME, MIIO_ID_GET_SERIAL_NUMBER, MIIO_ID_GET_CONSUMABLE, MIIO_ID_RESET_CONSUMABLE, MIIO_ID_GET_STATUS, MIIO_ID_GET_CLEAN_SUMMARY, MIIO_ID_GET_CLEAN_RECORD, MIIO_ID_SET_CUTOM_MODE, MIIO_ID_GET_TIMER, MIIO_ID_SET_TIMER, MIIO_ID_UPD_TIMER, MIIO_ID_DEL_TIMER, MIIO_ID_GET_DND_TIMER, MIIO_ID_SET_DND_TIMER, MIIO_ID_CLOSE_DND_TIMER, MIIO_ID_GET_SOUND_VOLUME, MIIO_ID_CHANGE_SOUND_VOLUME, MIIO_ID_TEST_SOUND_VOLUME, MIIO_ID_GET_CURRENT_SOUND, MIIO_ID_DNLD_INSTALL_SOUND, MIIO_ID_GET_SOUND_PROGRESS, MIIO_ID_GET_CARPET_MODE, MIIO_ID_SET_CARPET_MODE, MIIO_ID_APP_GOTO_TARGET, MIIO_ID_SET_LAB_STATUS, MIIO_ID_SAVE_MAP, MIIO_ID_CONFIG_ROUTER, MIIO_ID_OTA, MIIO_ID_GET_OTA_STATE, MIIO_ID_GET_OTA_PROGRESS};
 enum {AES_ENCRYPT, AES_DECRYPT};
 enum {FANSPEED_QUIET = 38, FANSPEED_BALANCED = 60, FANSPEED_TURBO = 77, FANSPEED_MAXIMUM = 90};
 
@@ -136,6 +138,26 @@ struct CLEANZONE
 	int x2;
 	int y2;
 	int times;
+};
+
+struct NOGOZONE
+{
+	int x1;
+	int y1;
+	int x2;
+	int y2;
+	int x3;
+	int y3;
+	int x4;
+	int y4;
+};
+
+struct VIRTWALL
+{
+	int x1;
+	int y1;
+	int x2;
+	int y2;
 };
 
 class MainWindow : public QMainWindow, private Ui::MainWindow
@@ -234,6 +256,9 @@ public:
 			int error_code;
 			int map_present;
 			int in_cleaning;
+			int in_returning;
+			int in_fresh_state;
+			int lab_status;
 			int fan_power;
 			int dnd_enabled;
 
@@ -310,6 +335,9 @@ public:
 			int progress;
 
 		}ota;
+
+		QVector<VIRTWALL> virtwalls;
+		QVector<NOGOZONE> nogozones;
 
 	}robo = {};
 
