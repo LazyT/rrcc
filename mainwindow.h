@@ -387,6 +387,7 @@ private:
 	QPointF pos_flag, pos_flag_lt, pos_flag_rt, pos_flag_lb, pos_flag_rb;
 	QGraphicsRectItem *zone_preview_item = NULL;
 	QMenu *menu_map, *menu_map_rotation, *menu_map_flipping, *menu_map_swapping;
+	QMenu *menu_map_delete;
 	QActionGroup *group_map;
 	QRubberBand *rubberBand;
 	qreal scale;

@@ -10,6 +10,9 @@
     <height>533</height>
    </rect>
   </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
   <property name="windowTitle">
    <string>RoboRock Control Center</string>
   </property>
@@ -726,7 +729,7 @@
      <x>0</x>
      <y>0</y>
      <width>1123</width>
-     <height>22</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -1201,6 +1204,66 @@
    </property>
    <property name="statusTip">
     <string>Swap Left/Right</string>
+   </property>
+  </action>
+  <action name="actionMenu_Map_Delete_All">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/canceled.png</normaloff>:/png/png/canceled.png</iconset>
+   </property>
+   <property name="text">
+    <string>Delete All</string>
+   </property>
+   <property name="toolTip">
+    <string>Delete All</string>
+   </property>
+   <property name="statusTip">
+    <string>Delete All</string>
+   </property>
+  </action>
+  <action name="actionMenu_Map_Delete_Walls">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/canceled.png</normaloff>:/png/png/canceled.png</iconset>
+   </property>
+   <property name="text">
+    <string>Delete Walls</string>
+   </property>
+   <property name="toolTip">
+    <string>Delete Walls</string>
+   </property>
+   <property name="statusTip">
+    <string>Delete Walls</string>
+   </property>
+  </action>
+  <action name="actionMenu_Map_Delete_Nogos">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/canceled.png</normaloff>:/png/png/canceled.png</iconset>
+   </property>
+   <property name="text">
+    <string>Delete NoGos</string>
+   </property>
+   <property name="toolTip">
+    <string>Delete NoGos</string>
+   </property>
+   <property name="statusTip">
+    <string>Delete NoGos</string>
+   </property>
+  </action>
+  <action name="actionMenu_Map_Delete_Item">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/canceled.png</normaloff>:/png/png/canceled.png</iconset>
+   </property>
+   <property name="text">
+    <string>Delete Item</string>
+   </property>
+   <property name="toolTip">
+    <string>Delete Item</string>
+   </property>
+   <property name="statusTip">
+    <string>Delete Item</string>
    </property>
   </action>
  </widget>

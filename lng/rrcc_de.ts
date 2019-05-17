@@ -1074,441 +1074,469 @@ Geduld und auf die Sprachausgabe achten...</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="14"/>
+        <location filename="../res/ui/mainwindow.ui" line="17"/>
         <source>RoboRock Control Center</source>
         <translation>RoboRock Control Center</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="27"/>
+        <location filename="../res/ui/mainwindow.ui" line="30"/>
         <source>Control</source>
         <translation>Steuerung</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="43"/>
         <location filename="../res/ui/mainwindow.ui" line="46"/>
+        <location filename="../res/ui/mainwindow.ui" line="49"/>
         <source>Goto Charger</source>
         <translation>Zum Ladegerät</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="66"/>
         <location filename="../res/ui/mainwindow.ui" line="69"/>
+        <location filename="../res/ui/mainwindow.ui" line="72"/>
         <source>Start Cleaning</source>
         <translation>Starte Reinigung</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="89"/>
         <location filename="../res/ui/mainwindow.ui" line="92"/>
+        <location filename="../res/ui/mainwindow.ui" line="95"/>
         <source>Spot Cleaning</source>
         <translation>Starte Punktreinigung</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="112"/>
         <location filename="../res/ui/mainwindow.ui" line="115"/>
+        <location filename="../res/ui/mainwindow.ui" line="118"/>
         <source>Pause Cleaning</source>
         <translation>Pausiere Reinigung</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="135"/>
         <location filename="../res/ui/mainwindow.ui" line="138"/>
+        <location filename="../res/ui/mainwindow.ui" line="141"/>
         <source>Stop Cleaning</source>
         <translation>Stoppe Reinigung</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="158"/>
         <location filename="../res/ui/mainwindow.ui" line="161"/>
+        <location filename="../res/ui/mainwindow.ui" line="164"/>
         <source>Find Cleaner</source>
         <translation>Finde Reiniger</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="200"/>
         <location filename="../res/ui/mainwindow.ui" line="203"/>
+        <location filename="../res/ui/mainwindow.ui" line="206"/>
         <source>Set Custom Fanspeed</source>
         <translation>Benutzerdefinierte Lüfterdrehzahl einstellen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="245"/>
         <location filename="../res/ui/mainwindow.ui" line="248"/>
+        <location filename="../res/ui/mainwindow.ui" line="251"/>
         <source>Set Maximum Fanspeed</source>
         <translation>Maximale Lüfterdrehzahl einstellen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="262"/>
         <location filename="../res/ui/mainwindow.ui" line="265"/>
+        <location filename="../res/ui/mainwindow.ui" line="268"/>
         <source>Set Turbo Fanspeed</source>
         <translation>Turbo Lüfterdrehzahl einstellen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="279"/>
         <location filename="../res/ui/mainwindow.ui" line="282"/>
+        <location filename="../res/ui/mainwindow.ui" line="285"/>
         <source>Set Quiet Fanspeed</source>
         <translation>Leise Lüfterdrehzahl einstellen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="296"/>
         <location filename="../res/ui/mainwindow.ui" line="299"/>
+        <location filename="../res/ui/mainwindow.ui" line="302"/>
         <source>Set Balanced Fanspeed</source>
         <translation>Ausgewogene Lüfterdrehzahl einstellen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="331"/>
+        <location filename="../res/ui/mainwindow.ui" line="334"/>
         <source>Battery Level</source>
         <translation>Batteriestand</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="346"/>
+        <location filename="../res/ui/mainwindow.ui" line="349"/>
         <source>Consumables</source>
         <translation>Verbrauchsmaterial</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="357"/>
-        <location filename="../res/ui/mainwindow.ui" line="435"/>
+        <location filename="../res/ui/mainwindow.ui" line="360"/>
+        <location filename="../res/ui/mainwindow.ui" line="438"/>
         <source>Sensors</source>
         <translation>Sensoren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="370"/>
-        <location filename="../res/ui/mainwindow.ui" line="451"/>
+        <location filename="../res/ui/mainwindow.ui" line="373"/>
+        <location filename="../res/ui/mainwindow.ui" line="454"/>
         <source>Filter</source>
         <translation>Filter</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="383"/>
-        <location filename="../res/ui/mainwindow.ui" line="422"/>
+        <location filename="../res/ui/mainwindow.ui" line="386"/>
+        <location filename="../res/ui/mainwindow.ui" line="425"/>
         <source>Sidebrush</source>
         <translation>Seitenbürste</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="396"/>
-        <location filename="../res/ui/mainwindow.ui" line="409"/>
+        <location filename="../res/ui/mainwindow.ui" line="399"/>
+        <location filename="../res/ui/mainwindow.ui" line="412"/>
         <source>Mainbrush</source>
         <translation>Hauptbürste</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="464"/>
         <location filename="../res/ui/mainwindow.ui" line="467"/>
+        <location filename="../res/ui/mainwindow.ui" line="470"/>
         <source>Reset Mainbrush</source>
         <translation>Hauptbürste zurücksetzen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="487"/>
         <location filename="../res/ui/mainwindow.ui" line="490"/>
+        <location filename="../res/ui/mainwindow.ui" line="493"/>
         <source>Reset Sidebrush</source>
         <translation>Seitenbürste zurücksetzen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="510"/>
         <location filename="../res/ui/mainwindow.ui" line="513"/>
+        <location filename="../res/ui/mainwindow.ui" line="516"/>
         <source>Reset Filter</source>
         <translation>Filter zurücksetzen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="533"/>
         <location filename="../res/ui/mainwindow.ui" line="536"/>
+        <location filename="../res/ui/mainwindow.ui" line="539"/>
         <source>Reset Sensors</source>
         <translation>Sensoren zurücksetzen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="561"/>
+        <location filename="../res/ui/mainwindow.ui" line="564"/>
         <source>Totals</source>
         <translation>Gesamtwerte</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="573"/>
+        <location filename="../res/ui/mainwindow.ui" line="576"/>
         <source>Serial Number</source>
         <translation>Seriennummer</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="598"/>
-        <location filename="../res/ui/mainwindow.ui" line="624"/>
+        <location filename="../res/ui/mainwindow.ui" line="601"/>
+        <location filename="../res/ui/mainwindow.ui" line="627"/>
         <source>Cleaned Area</source>
         <translation>Gereinigter Bereich</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="611"/>
-        <location filename="../res/ui/mainwindow.ui" line="663"/>
+        <location filename="../res/ui/mainwindow.ui" line="614"/>
+        <location filename="../res/ui/mainwindow.ui" line="666"/>
         <source>Cleaning Count</source>
         <translation>Reinigungsanzahl</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="637"/>
-        <location filename="../res/ui/mainwindow.ui" line="650"/>
+        <location filename="../res/ui/mainwindow.ui" line="640"/>
+        <location filename="../res/ui/mainwindow.ui" line="653"/>
         <source>Cleaned Hours</source>
         <translation>Gereinigte Stunden</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="683"/>
+        <location filename="../res/ui/mainwindow.ui" line="686"/>
         <source>Map [ Zoom Factor = 1.00 ]</source>
         <translation>Karte [ Zoomfaktor = 1.00 ]</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="762"/>
+        <location filename="../res/ui/mainwindow.ui" line="765"/>
         <source>Valetudo</source>
         <translation>Valetudo</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="770"/>
+        <location filename="../res/ui/mainwindow.ui" line="773"/>
         <source>Firmware</source>
         <translation>Firmware</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="944"/>
+        <location filename="../res/ui/mainwindow.ui" line="947"/>
         <source>Map</source>
         <translation>Karte</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="956"/>
         <location filename="../res/ui/mainwindow.ui" line="959"/>
+        <location filename="../res/ui/mainwindow.ui" line="962"/>
         <source>Reset Zoom</source>
         <translation>Zoom rücksetzen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="968"/>
         <location filename="../res/ui/mainwindow.ui" line="971"/>
+        <location filename="../res/ui/mainwindow.ui" line="974"/>
         <source>Goto Position</source>
         <translation>Gehe zu Position</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="979"/>
         <location filename="../res/ui/mainwindow.ui" line="982"/>
         <location filename="../res/ui/mainwindow.ui" line="985"/>
+        <location filename="../res/ui/mainwindow.ui" line="988"/>
         <source>Flip Horizontal</source>
         <translation>Horizontal spiegeln</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="993"/>
         <location filename="../res/ui/mainwindow.ui" line="996"/>
         <location filename="../res/ui/mainwindow.ui" line="999"/>
+        <location filename="../res/ui/mainwindow.ui" line="1002"/>
         <source>Flip Vertical</source>
         <translation>Vertikal spiegeln</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1007"/>
         <location filename="../res/ui/mainwindow.ui" line="1010"/>
         <location filename="../res/ui/mainwindow.ui" line="1013"/>
+        <location filename="../res/ui/mainwindow.ui" line="1016"/>
         <source>Swap Up/Down</source>
         <translation>Aufwärts/Abwärts tauschen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1021"/>
         <location filename="../res/ui/mainwindow.ui" line="1024"/>
         <location filename="../res/ui/mainwindow.ui" line="1027"/>
+        <location filename="../res/ui/mainwindow.ui" line="1030"/>
         <source>Rotate 0°</source>
         <translation>0° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1035"/>
         <location filename="../res/ui/mainwindow.ui" line="1038"/>
         <location filename="../res/ui/mainwindow.ui" line="1041"/>
+        <location filename="../res/ui/mainwindow.ui" line="1044"/>
         <source>Rotate 90°</source>
         <translation>90° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1049"/>
         <location filename="../res/ui/mainwindow.ui" line="1052"/>
         <location filename="../res/ui/mainwindow.ui" line="1055"/>
+        <location filename="../res/ui/mainwindow.ui" line="1058"/>
         <source>Rotate 180°</source>
         <translation>180° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1063"/>
         <location filename="../res/ui/mainwindow.ui" line="1066"/>
         <location filename="../res/ui/mainwindow.ui" line="1069"/>
+        <location filename="../res/ui/mainwindow.ui" line="1072"/>
         <source>Rotate 270°</source>
         <translation>270° drehen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1078"/>
         <location filename="../res/ui/mainwindow.ui" line="1081"/>
+        <location filename="../res/ui/mainwindow.ui" line="1084"/>
         <source>Zones</source>
         <translation>Zonen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1084"/>
+        <location filename="../res/ui/mainwindow.ui" line="1087"/>
         <source>Edit Zones</source>
         <translation>Zonen anpassen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1093"/>
+        <location filename="../res/ui/mainwindow.ui" line="1096"/>
         <source>Install</source>
         <translation>Installation</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1096"/>
         <location filename="../res/ui/mainwindow.ui" line="1099"/>
+        <location filename="../res/ui/mainwindow.ui" line="1102"/>
         <source>Install Valetudo</source>
         <translation>Valetudo installieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1108"/>
+        <location filename="../res/ui/mainwindow.ui" line="1111"/>
         <source>Uninstall</source>
         <translation>Deinstallation</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1111"/>
         <location filename="../res/ui/mainwindow.ui" line="1114"/>
+        <location filename="../res/ui/mainwindow.ui" line="1117"/>
         <source>Uninstall Valetudo</source>
         <translation>Valetudo deinstallieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1123"/>
+        <location filename="../res/ui/mainwindow.ui" line="1126"/>
         <source>Update</source>
         <translation>Aktualisierung</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1126"/>
         <location filename="../res/ui/mainwindow.ui" line="1129"/>
+        <location filename="../res/ui/mainwindow.ui" line="1132"/>
         <source>Update Firmware</source>
         <translation>Firmware aktualisieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1138"/>
-        <location filename="../res/ui/mainwindow.ui" line="1168"/>
+        <location filename="../res/ui/mainwindow.ui" line="1141"/>
+        <location filename="../res/ui/mainwindow.ui" line="1171"/>
         <source>Version</source>
         <translation>Version</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1141"/>
         <location filename="../res/ui/mainwindow.ui" line="1144"/>
+        <location filename="../res/ui/mainwindow.ui" line="1147"/>
         <source>Check Firmware</source>
         <translation>Firmware-Version prüfen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1153"/>
+        <location filename="../res/ui/mainwindow.ui" line="1156"/>
         <source>Download</source>
         <translation>Herunterladen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1156"/>
         <location filename="../res/ui/mainwindow.ui" line="1159"/>
+        <location filename="../res/ui/mainwindow.ui" line="1162"/>
         <source>Download Firmware</source>
         <translation>Firmware herunterladen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1171"/>
         <location filename="../res/ui/mainwindow.ui" line="1174"/>
+        <location filename="../res/ui/mainwindow.ui" line="1177"/>
         <source>Check Valetudo</source>
         <translation>Valetudo-Version prüfen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1183"/>
+        <location filename="../res/ui/mainwindow.ui" line="1186"/>
         <source>Search</source>
         <translation>Suche</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1186"/>
         <location filename="../res/ui/mainwindow.ui" line="1189"/>
+        <location filename="../res/ui/mainwindow.ui" line="1192"/>
         <source>Search Firmware</source>
         <translation>Firmware suchen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="1197"/>
         <location filename="../res/ui/mainwindow.ui" line="1200"/>
         <location filename="../res/ui/mainwindow.ui" line="1203"/>
+        <location filename="../res/ui/mainwindow.ui" line="1206"/>
         <source>Swap Left/Right</source>
         <translation>Links/Rechts tauschen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="734"/>
+        <location filename="../res/ui/mainwindow.ui" line="1215"/>
+        <location filename="../res/ui/mainwindow.ui" line="1218"/>
+        <location filename="../res/ui/mainwindow.ui" line="1221"/>
+        <source>Delete All</source>
+        <translation>Alles löschen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/mainwindow.ui" line="1230"/>
+        <location filename="../res/ui/mainwindow.ui" line="1233"/>
+        <location filename="../res/ui/mainwindow.ui" line="1236"/>
+        <source>Delete Walls</source>
+        <translation>Wände löschen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/mainwindow.ui" line="1245"/>
+        <location filename="../res/ui/mainwindow.ui" line="1248"/>
+        <location filename="../res/ui/mainwindow.ui" line="1251"/>
+        <source>Delete NoGos</source>
+        <translation>Sperrzonen löschen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/mainwindow.ui" line="1260"/>
+        <location filename="../res/ui/mainwindow.ui" line="1263"/>
+        <location filename="../res/ui/mainwindow.ui" line="1266"/>
+        <source>Delete Item</source>
+        <translation>Element löschen</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/mainwindow.ui" line="737"/>
         <source>File</source>
         <translation>Datei</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="744"/>
+        <location filename="../res/ui/mainwindow.ui" line="747"/>
         <source>Info</source>
         <translation>Info</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="751"/>
+        <location filename="../res/ui/mainwindow.ui" line="754"/>
         <source>Tools</source>
         <translation>Werkzeuge</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="830"/>
+        <location filename="../res/ui/mainwindow.ui" line="833"/>
         <source>Exit</source>
         <translation>Beenden</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="833"/>
+        <location filename="../res/ui/mainwindow.ui" line="836"/>
         <source>Exit Program</source>
         <translation>Programm beenden</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="842"/>
+        <location filename="../res/ui/mainwindow.ui" line="845"/>
         <source>About</source>
         <translation>Über</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="845"/>
+        <location filename="../res/ui/mainwindow.ui" line="848"/>
         <source>Show About</source>
         <translation>Zeige Info</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="854"/>
+        <location filename="../res/ui/mainwindow.ui" line="857"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="857"/>
+        <location filename="../res/ui/mainwindow.ui" line="860"/>
         <source>Show Help</source>
         <translation>Zeige Hilfe</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="866"/>
         <location filename="../res/ui/mainwindow.ui" line="869"/>
+        <location filename="../res/ui/mainwindow.ui" line="872"/>
         <source>Timer</source>
         <translation>Zeitsteuerung</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="872"/>
+        <location filename="../res/ui/mainwindow.ui" line="875"/>
         <source>Manage Timer</source>
         <translation>Zeitsteuerung verwalten</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="881"/>
         <location filename="../res/ui/mainwindow.ui" line="884"/>
+        <location filename="../res/ui/mainwindow.ui" line="887"/>
         <source>History</source>
         <translation>Verlauf</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="887"/>
+        <location filename="../res/ui/mainwindow.ui" line="890"/>
         <source>Show History</source>
         <translation>Verlauf anzeigen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="896"/>
         <location filename="../res/ui/mainwindow.ui" line="899"/>
+        <location filename="../res/ui/mainwindow.ui" line="902"/>
         <source>Setup</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="902"/>
+        <location filename="../res/ui/mainwindow.ui" line="905"/>
         <source>Configure Settings</source>
         <translation>Einstellungen konfigurieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="911"/>
         <location filename="../res/ui/mainwindow.ui" line="914"/>
+        <location filename="../res/ui/mainwindow.ui" line="917"/>
         <source>Logger</source>
         <translation>Logger</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="917"/>
+        <location filename="../res/ui/mainwindow.ui" line="920"/>
         <source>Show Log</source>
         <translation>Protokoll anzeigen</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="926"/>
         <location filename="../res/ui/mainwindow.ui" line="929"/>
+        <location filename="../res/ui/mainwindow.ui" line="932"/>
         <source>Refresh</source>
         <translation>Aktualisieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="932"/>
+        <location filename="../res/ui/mainwindow.ui" line="935"/>
         <source>Refresh Status</source>
         <translation>Status aktualisieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/mainwindow.ui" line="947"/>
+        <location filename="../res/ui/mainwindow.ui" line="950"/>
         <source>Show Map</source>
         <translation>Karte anzeigen</translation>
     </message>
@@ -1538,7 +1566,7 @@ Geduld und auf die Sprachausgabe achten...</translation>
         <translation>Reinige Bereich %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="134"/>
+        <location filename="../mainwindow.cpp" line="140"/>
         <source>Please configure your device:
 
 If your device is not provisioned yet connect to the wifi hotspot (&quot;roborock-vacuum...&quot;) and then click OK.
@@ -1551,12 +1579,12 @@ Wenn Ihr Gerät noch nicht eingerichtet ist, verbinden Sie sich mit dem WLAN-Hot
 Wenn Sie Ihren Token bereits haben, klicken Sie einfach auf OK.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="423"/>
+        <location filename="../mainwindow.cpp" line="429"/>
         <source>Token not set, please configure your device token first!</source>
         <translation>Token nicht gesetzt, bitte konfigurieren Sie zuerst Ihren Geräte-Token!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="469"/>
+        <location filename="../mainwindow.cpp" line="475"/>
         <source>Network connection timed out!
 
 Please check ip / token / msgid...</source>
@@ -1565,12 +1593,12 @@ Please check ip / token / msgid...</source>
 Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="971"/>
+        <location filename="../mainwindow.cpp" line="977"/>
         <source>Firmware %1 installed.</source>
         <translation>Firmware %1 installiert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="975"/>
+        <location filename="../mainwindow.cpp" line="981"/>
         <source>Firmware detection failed:
 
 %1</source>
@@ -1579,18 +1607,18 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="975"/>
-        <location filename="../mainwindow.cpp" line="986"/>
+        <location filename="../mainwindow.cpp" line="981"/>
+        <location filename="../mainwindow.cpp" line="992"/>
         <source>got empty response</source>
         <translation>leere Antwort erhalten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="982"/>
+        <location filename="../mainwindow.cpp" line="988"/>
         <source>Valetudo %1 installed.</source>
         <translation>Valetudo %1 installiert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="986"/>
+        <location filename="../mainwindow.cpp" line="992"/>
         <source>Valetudo detection failed:
 
 %1</source>
@@ -1599,7 +1627,7 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1000"/>
+        <location filename="../mainwindow.cpp" line="1006"/>
         <source>SSH connection error!
 
 %1</source>
@@ -1608,30 +1636,30 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1074"/>
+        <location filename="../mainwindow.cpp" line="1080"/>
         <source>No timers found, create new?</source>
         <translation>Keine Timer gefunden, einen Neuen erstellen?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1092"/>
+        <location filename="../mainwindow.cpp" line="1098"/>
         <source>No cleaning history found.</source>
         <translation>Kein Reinigungsverlauf gefunden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1104"/>
+        <location filename="../mainwindow.cpp" line="1110"/>
         <source>No cleaning zones defined yet.</source>
         <translation>Es sind noch keine Reinigungsbereiche definiert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1112"/>
-        <location filename="../mainwindow.cpp" line="1135"/>
-        <location filename="../mainwindow.cpp" line="1152"/>
-        <location filename="../mainwindow.cpp" line="1169"/>
+        <location filename="../mainwindow.cpp" line="1118"/>
+        <location filename="../mainwindow.cpp" line="1141"/>
+        <location filename="../mainwindow.cpp" line="1158"/>
+        <location filename="../mainwindow.cpp" line="1175"/>
         <source>Please setup your ssh settings first!</source>
         <translation>Bitte zuerst die SSH-Einstellungen vornehmen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1199"/>
+        <location filename="../mainwindow.cpp" line="1205"/>
         <source>Are you really sure you want to install a firmware update?
 
 Please choose the correct version for your model or you will brick your device!</source>
@@ -1640,27 +1668,27 @@ Please choose the correct version for your model or you will brick your device!<
 Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbrauchbar!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1205"/>
+        <location filename="../mainwindow.cpp" line="1211"/>
         <source>Charge battery to at least 20% first!</source>
         <translation>Den Akku zuerst auf mindestens 20% aufladen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1211"/>
+        <location filename="../mainwindow.cpp" line="1217"/>
         <source>Send robot to docking station first!</source>
         <translation>Den Roboter zuerst zur Ladestation schicken!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1216"/>
+        <location filename="../mainwindow.cpp" line="1222"/>
         <source>Select firmware package to install</source>
         <translation>Zu installierendes Firmwarepaket auswählen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1233"/>
+        <location filename="../mainwindow.cpp" line="1239"/>
         <source>Selected firmware package is empty!</source>
         <translation>Das ausgewählte Firmwarepaket ist leer!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1240"/>
+        <location filename="../mainwindow.cpp" line="1246"/>
         <source>Could not open firmware package!
 
 %1</source>
@@ -1669,12 +1697,12 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1251"/>
+        <location filename="../mainwindow.cpp" line="1257"/>
         <source>Help not implemented yet, sorry...</source>
         <translation>Hilfe noch nicht implementiert, sorry....</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1677"/>
+        <location filename="../mainwindow.cpp" line="1685"/>
         <source>Map function is only available on rooted devices running Valetudo!
 
 %1</source>
@@ -1683,7 +1711,7 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1699"/>
+        <location filename="../mainwindow.cpp" line="1707"/>
         <source>Websocket error %1, closing connection!
 
 %2</source>
@@ -1692,13 +1720,28 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1897"/>
-        <location filename="../mainwindow.cpp" line="2127"/>
+        <location filename="../mainwindow.cpp" line="1905"/>
+        <location filename="../mainwindow.cpp" line="2236"/>
         <source>Map [ Zoom Factor = %1 ]</source>
         <translation>Karte [ Zoomfaktor = %1 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1989"/>
+        <location filename="../mainwindow.cpp" line="1947"/>
+        <source>Really delete selected item?</source>
+        <translation>Ausgewähltes Element wirklich löschen?</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1998"/>
+        <source>Really delete all virtual walls?</source>
+        <translation>Wirklich alle virtuellen Wände löschen?</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2014"/>
+        <source>Really delete all nogo zones?</source>
+        <translation>Wirklich alle Sperrzonen löschen?</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2108"/>
         <source>Start zone cleaning for selected region?
 
 [ %1 / %2 - %3 / %4 ]</source>
@@ -1707,32 +1750,27 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 [ %1 / %2 - %3 / %4 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1990"/>
+        <location filename="../mainwindow.cpp" line="2109"/>
         <source>You can also save this region, define as nogo zone or create a virtual wall.</source>
         <translation>Dieser Bereich kann auch gespeichert, als Sperrzone definiert oder als virtuelle Wand erstellt werden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1991"/>
+        <location filename="../mainwindow.cpp" line="2110"/>
         <source>Save Zone</source>
         <translation>Zone speichern</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1992"/>
+        <location filename="../mainwindow.cpp" line="2111"/>
         <source>NoGo Zone</source>
         <translation>Zone sperren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1993"/>
+        <location filename="../mainwindow.cpp" line="2112"/>
         <source>Virtual Wall</source>
         <translation>virtuelle Wand</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1994"/>
-        <source>Reset</source>
-        <translation>Zurücksetzen</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="1999"/>
+        <location filename="../mainwindow.cpp" line="2117"/>
         <source>Persistent maps are disabled, activate now?
 
 Some features like nogo zones and virtual walls are otherwise not available.</source>
@@ -1741,27 +1779,27 @@ Some features like nogo zones and virtual walls are otherwise not available.</so
 Einige Funktionen wie Sperrzonen und virtuelle Wände sind ansonsten nicht verfügbar.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2005"/>
+        <location filename="../mainwindow.cpp" line="2123"/>
         <source>Persistent maps successfully enabled.</source>
         <translation>Persistente Karten erfolgreich aktiviert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2009"/>
+        <location filename="../mainwindow.cpp" line="2127"/>
         <source>Persistent maps could not be enabled!</source>
         <translation>Persistente Karten konnten nicht aktiviert werden!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2043"/>
+        <location filename="../mainwindow.cpp" line="2159"/>
         <source>You can customize all zones later with the zone editor.</source>
         <translation>Alle Zonen können später mit dem Zoneneditor angepasst werden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2087"/>
+        <location filename="../mainwindow.cpp" line="1991"/>
         <source>Really delete all virtual walls and nogo zones?</source>
         <translation>Wirklich alle virtuellen Wände und Sperrzonen löschen?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2158"/>
+        <location filename="../mainwindow.cpp" line="2267"/>
         <source>Send robot to selected position?
 
 [ %1 / %2 ]</source>
@@ -1770,12 +1808,12 @@ Einige Funktionen wie Sperrzonen und virtuelle Wände sind ansonsten nicht verf�
 [ %1 / %2 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2217"/>
+        <location filename="../mainwindow.cpp" line="2326"/>
         <source>Start cleaning for zone &quot;%1&quot;?</source>
         <translation>Reinigung für Zone &quot;%1&quot; starten?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2246"/>
+        <location filename="../mainwindow.cpp" line="2355"/>
         <source>Really exit program?</source>
         <translation>Programm wirklich beenden?</translation>
     </message>

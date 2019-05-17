@@ -124,6 +124,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 		actionMenu_Map_Rotate0->setChecked(true);
 	}
 
+	menu_map_delete = new QMenu(this);
+	menu_map_delete->addAction(actionMenu_Map_Delete_Item);
+	menu_map_delete->addAction(actionMenu_Map_Delete_All);
+	menu_map_delete->addAction(actionMenu_Map_Delete_Walls);
+	menu_map_delete->addAction(actionMenu_Map_Delete_Nogos);
+
 	logger = new loggerDialog(this);
 
 	connect(&timerMap, SIGNAL(timeout()), this, SLOT(timer_refreshMap()));
@@ -1481,7 +1487,7 @@ void MainWindow::drawMapFromJson(QByteArray map)
 
 		virtwall = { x1, y1, x2, y2 };
 
-		scene->addLine(x1 / MAPFACTOR, y1 / MAPFACTOR, x2 / MAPFACTOR, y2 / MAPFACTOR, QPen(Qt::red, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+		scene->addLine(x1 / MAPFACTOR, y1 / MAPFACTOR, x2 / MAPFACTOR, y2 / MAPFACTOR, QPen(Qt::red, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin))->setData(0, robo.virtwalls.count());
 
 		robo.virtwalls.append(virtwall);
 	}
@@ -1495,7 +1501,9 @@ void MainWindow::drawMapFromJson(QByteArray map)
 
 		nogozone = { x1, y1, val[2].toInt(), val[3].toInt(), x2, y2, val[6].toInt(), val[7].toInt() };
 
-		scene->addRect(x1 / MAPFACTOR, y1 / MAPFACTOR, (x2 - x1) / MAPFACTOR, (y2 - y1) / MAPFACTOR, QPen(Qt::red, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin), QColor(255, 0, 0, 64));
+		QPolygonF polygon;
+		polygon << QPointF(nogozone.x1, nogozone.y1) / MAPFACTOR << QPointF(nogozone.x2, nogozone.y2) / MAPFACTOR << QPointF(nogozone.x3, nogozone.y3) / MAPFACTOR << QPointF(nogozone.x4, nogozone.y4) / MAPFACTOR;
+		scene->addPolygon(polygon, QPen(Qt::red, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin), QColor(255, 0, 0, 64))->setData(0, robo.nogozones.count());
 
 		robo.nogozones.append(nogozone);
 	}
@@ -1914,6 +1922,110 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 
 			setCursor(QCursor(Qt::ClosedHandCursor));
 		}
+		else if(event->button() == Qt::RightButton)
+		{
+			QGraphicsItem *item = graphicsView->itemAt(graphicsView->mapFromGlobal(event->globalPos()));
+
+			if(item)
+			{
+				QGraphicsLineItem *line = qgraphicsitem_cast<QGraphicsLineItem*>(item);
+				QGraphicsPolygonItem *poly = qgraphicsitem_cast<QGraphicsPolygonItem*>(item);
+
+				if((poly && poly->pen().color() == Qt::red) || (line && line->pen().color() == Qt::red))
+				{
+					int index = (poly ? poly->data(0) : line->data(0)).toInt();
+					QAction *selected;
+
+					actionMenu_Map_Delete_All->setEnabled(robo.nogozones.count() && robo.virtwalls.count() ? true : false);
+					actionMenu_Map_Delete_Walls->setEnabled(robo.virtwalls.count() > 1 ? true : false);
+					actionMenu_Map_Delete_Nogos->setEnabled(robo.nogozones.count() > 1 ? true : false);
+
+					if((selected = menu_map_delete->exec(event->globalPos())))
+					{
+						if(selected->objectName() == "actionMenu_Map_Delete_Item")
+						{
+							if(QMessageBox::question(this, APPNAME, tr("Really delete selected item?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+							{
+								QString walls, nogos, map;
+
+								poly ? robo.nogozones.removeAt(index) : robo.virtwalls.removeAt(index);
+
+								foreach(NOGOZONE nogo, robo.nogozones)
+								{
+									nogos.append(QString("[0,%1,%2,%3,%4,%5,%6,%7,%8],").arg(nogo.x1).arg(MAPSIZE - nogo.y1).arg(nogo.x2).arg(MAPSIZE - nogo.y2).arg(nogo.x3).arg(MAPSIZE - nogo.y3).arg(nogo.x4).arg(MAPSIZE - nogo.y4)); // FIXME: swap y, bug?
+								}
+
+								nogos.chop(1);
+
+								foreach(VIRTWALL wall, robo.virtwalls)
+								{
+									walls.append(QString("[1,%1,%2,%3,%4],").arg(wall.x1).arg(MAPSIZE - wall.y1).arg(wall.x2).arg(MAPSIZE - wall.y2)); // FIXME: swap y, bug?
+								}
+
+								walls.chop(1);
+
+								if(!nogos.isEmpty())
+								{
+									map.append(nogos);
+								}
+
+								if(!walls.isEmpty())
+								{
+									map.append(walls);
+								}
+
+								map.replace("][", "],[");
+
+								sendUDP(QString(MIIO_SAVE_MAP).arg(map).arg("%1"));
+							}
+						}
+						else if(selected->objectName() == "actionMenu_Map_Delete_All")
+						{
+							if(QMessageBox::question(this, APPNAME, tr("Really delete all virtual walls and nogo zones?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+							{
+								sendUDP(QString(MIIO_SAVE_MAP).arg("").arg("%1"));
+							}
+						}
+						else if(selected->objectName() == "actionMenu_Map_Delete_Walls")
+						{
+							if(QMessageBox::question(this, APPNAME, tr("Really delete all virtual walls?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+							{
+								QString nogos;
+
+								foreach(NOGOZONE nogo, robo.nogozones)
+								{
+									nogos.append(QString("[0,%1,%2,%3,%4,%5,%6,%7,%8],").arg(nogo.x1).arg(MAPSIZE - nogo.y1).arg(nogo.x2).arg(MAPSIZE - nogo.y2).arg(nogo.x3).arg(MAPSIZE - nogo.y3).arg(nogo.x4).arg(MAPSIZE - nogo.y4)); // FIXME: swap y, bug?
+								}
+
+								nogos.chop(1);
+
+								sendUDP(QString(MIIO_SAVE_MAP).arg(nogos).arg("%1"));
+							}
+						}
+						else if(selected->objectName() == "actionMenu_Map_Delete_Nogos")
+						{
+							if(QMessageBox::question(this, APPNAME, tr("Really delete all nogo zones?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+							{
+								QString walls;
+
+								foreach(VIRTWALL wall, robo.virtwalls)
+								{
+									walls.append(QString("[1,%1,%2,%3,%4],").arg(wall.x1).arg(MAPSIZE - wall.y1).arg(wall.x2).arg(MAPSIZE - wall.y2)); // FIXME: swap y, bug?
+								}
+
+								walls.chop(1);
+
+								sendUDP(QString(MIIO_SAVE_MAP).arg(walls).arg("%1"));
+							}
+						}
+					}
+
+					return;
+				}
+			}
+
+			emit contextMenuEvent(new QContextMenuEvent(QContextMenuEvent::Mouse, event->pos(), event->globalPos()));
+		}
 	}
 }
 
@@ -1991,7 +2103,6 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 				QPushButton *save = msgBox.addButton(tr("Save Zone"), QMessageBox::ActionRole);
 				QPushButton *nogo = msgBox.addButton(tr("NoGo Zone"), QMessageBox::ActionRole);
 				QPushButton *wall = msgBox.addButton(tr("Virtual Wall"), QMessageBox::ActionRole);
-				QPushButton *rset = msgBox.addButton(tr("Reset"), QMessageBox::ActionRole);
 				QString walls, nogos, map;
 
 				if(!robo.status.lab_status)
@@ -2010,7 +2121,6 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 
 								nogo->setDisabled(true);
 								wall->setDisabled(true);
-								rset->setDisabled(true);
 							}
 						}
 					}
@@ -2018,7 +2128,6 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 					{
 						nogo->setDisabled(true);
 						wall->setDisabled(true);
-						rset->setDisabled(true);
 					}
 				}
 
@@ -2081,13 +2190,6 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 					map.replace("][", "],[");
 
 					sendUDP(QString(MIIO_SAVE_MAP).arg(map).arg("%1"));
-				}
-				else if(clicked == rset)
-				{
-					if(QMessageBox::question(this, APPNAME, tr("Really delete all virtual walls and nogo zones?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
-					{
-						sendUDP(QString(MIIO_SAVE_MAP).arg("").arg("%1"));
-					}
 				}
 
 				if(clicked != msgBox.button(QMessageBox::Yes))
