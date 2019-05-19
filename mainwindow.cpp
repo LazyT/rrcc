@@ -2104,10 +2104,11 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 				QPushButton *nogo = msgBox.addButton(tr("NoGo Zone"), QMessageBox::ActionRole);
 				QPushButton *wall = msgBox.addButton(tr("Virtual Wall"), QMessageBox::ActionRole);
 				QString walls, nogos, map;
+				static bool labmode = true;
 
 				if(!robo.status.lab_status)
 				{
-					if(QMessageBox::question(this, APPNAME, tr("Persistent maps are disabled, activate now?\n\nSome features like nogo zones and virtual walls are otherwise not available."), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+					if(labmode && QMessageBox::question(this, APPNAME, tr("Persistent maps are disabled, activate now?\n\nSome features like nogo zones and virtual walls are otherwise not available."), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
 					{
 						if(sendUDP(QString(MIIO_SET_LAB_STATUS).arg(1)))
 						{
@@ -2117,7 +2118,9 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 							}
 							else
 							{
-								QMessageBox::warning(this, APPNAME, tr("Persistent maps could not be enabled!"));
+								QMessageBox::warning(this, APPNAME, tr("Persistent maps could not be enabled!\n\nMake sure installed firmware supports this feature."));
+
+								labmode = false;
 
 								nogo->setDisabled(true);
 								wall->setDisabled(true);
@@ -2126,6 +2129,8 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 					}
 					else
 					{
+						labmode = false;
+
 						nogo->setDisabled(true);
 						wall->setDisabled(true);
 					}
