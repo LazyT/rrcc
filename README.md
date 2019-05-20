@@ -1,5 +1,6 @@
 # **RoboRock Control Center**
 [![](https://img.shields.io/github/license/lazyt/rrcc.svg?color=blue)](https://github.com/LazyT/rrcc/blob/master/LICENSE)
+[![](https://img.shields.io/badge/platform-win%20%7C%20lin%20%7C%20mac-blue.svg)](https://github.com/LazyT/rrcc#download)
 [![](https://img.shields.io/badge/paypal-buy%20me%20a%20beer-red.svg)](https://paypal.me/LazyT)
 [![](https://img.shields.io/github/downloads/lazyt/rrcc/total.svg?color=orange)](https://github.com/LazyT/rrcc/releases)
 [![](https://img.shields.io/github/last-commit/lazyt/rrcc/master.svg?color=yellow)](https://github.com/LazyT/rrcc/commits/master)
@@ -75,6 +76,10 @@ GUI fans just install the [Qt-Environment](http://www.qt.io/download-open-source
 
  - Qt 5.11 or greater required
  - libarchive-dev and libssh-dev required
+
+## Contact
+
+You can reach me at [Roboter-Forum](https://www.roboter-forum.com/index.php?thread/30309-roborock-control-center-desktop-app-f%C3%BCr-win-lin-osx).
 
 ## Credits
 
