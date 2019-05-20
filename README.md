@@ -1,4 +1,10 @@
 # **RoboRock Control Center**
+[![](https://img.shields.io/github/license/lazyt/rrcc.svg?color=blue)](https://github.com/LazyT/rrcc/blob/master/LICENSE)
+[![](https://img.shields.io/badge/paypal-buy%20me%20a%20beer-red.svg)](https://paypal.me/LazyT)
+[![](https://img.shields.io/github/downloads/lazyt/rrcc/total.svg?color=orange)](https://github.com/LazyT/rrcc/releases)
+[![](https://img.shields.io/github/last-commit/lazyt/rrcc/master.svg?color=yellow)](https://github.com/LazyT/rrcc/commits/master)
+[![](https://img.shields.io/github/release-date/lazyt/rrcc.svg?color=brightgreen)](https://github.com/LazyT/rrcc/releases/latest)
+[![](https://img.shields.io/github/release/lazyt/rrcc.svg?color=brightgreen)](https://github.com/LazyT/rrcc/releases/latest)
 
 ## Description
 
@@ -24,7 +30,7 @@ Only on rooted devices:
 
 * extract token via ssh
 * install/update/uninstall [Valetudo](https://github.com/hypfer/valetudo)
-* map functions via [Valetudo](https://github.com/hypfer/valetudo) (goto spot, zone cleaning, show coordinates, flip hor/ver, rotate 90/180/270°, zoom)
+* map functions via [Valetudo](https://github.com/hypfer/valetudo) (goto, zone cleaning, virtual walls and nogo zones, flip, rotate, zoom)
 * show installed firmware and valetudo version
 
 ## Screenshots
