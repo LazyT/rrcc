@@ -748,6 +748,8 @@
     </property>
     <addaction name="actionHelp"/>
     <addaction name="actionAbout"/>
+    <addaction name="separator"/>
+    <addaction name="actionOnlineUpdate"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -823,6 +825,7 @@
    <addaction name="separator"/>
    <addaction name="actionHelp"/>
    <addaction name="actionAbout"/>
+   <addaction name="actionOnlineUpdate"/>
   </widget>
   <action name="actionExit">
    <property name="icon">
@@ -1264,6 +1267,18 @@
    </property>
    <property name="statusTip">
     <string>Delete Item</string>
+   </property>
+  </action>
+  <action name="actionOnlineUpdate">
+   <property name="icon">
+    <iconset resource="../rrcc.qrc">
+     <normaloff>:/png/png/update.png</normaloff>:/png/png/update.png</iconset>
+   </property>
+   <property name="text">
+    <string>Update</string>
+   </property>
+   <property name="statusTip">
+    <string>Online Update</string>
    </property>
   </action>
  </widget>

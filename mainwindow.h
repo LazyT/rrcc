@@ -57,6 +57,7 @@
 #include "uninstaller.h"
 #include "download.h"
 #include "search.h"
+#include "onlineupd.h"
 
 #define CFG_H	QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/.rrcc/rrcc.cfg"
 #define CFG_P	QCoreApplication::applicationDirPath() + "/rrcc.cfg"
@@ -168,14 +169,16 @@ public:
 
 	explicit MainWindow(QWidget *parent = 0);
 
+	bool sendUDP(QString);
+	void parseJSON(int, QByteArray);
+
 	QMenu *menu_map_zones;
 	QByteArray did, cnt;
 	uint timediff;
 	QString src_ip;
 	QByteArray AESPayload(bool, QByteArray);
-	bool sendUDP(QString);
-	void parseJSON(int, QByteArray);
 	bool provisioning = false;
+	bool forceclose = false;
 
 	QStringList qarchive_error_strings
 	{
@@ -218,6 +221,7 @@ public:
 		qlonglong msgid;
 		bool map;
 		bool websocket;
+		bool update;
 		QString ssh_user;
 		QString ssh_pass;
 		QString ssh_pkey;
@@ -343,8 +347,6 @@ public:
 
 private:
 
-	QTranslator baseTranslator, helpTranslator, appTranslator;
-
 	QStringList state_strings
 	{
 		tr("Starting"),
@@ -366,17 +368,9 @@ private:
 		tr("Zoned cleaning")
 	};
 
-	void getConfig();
-	void setConfig();
-	void findIP();
-	void getStatus();
-	void drawMapFromJson(QByteArray);
-	void drawMapFromJsonOld(QByteArray);
-	void getScale();
-	void setMatrix();
-	void drawFlags(bool, bool);
-
+	QTranslator baseTranslator, helpTranslator, appTranslator;
 	QDialog *logger;
+	QDialog *upddlg = nullptr;
 	QTimer timerMap, timerFanspeed;
 	QNetworkAccessManager *netmgr;
 	QWebSocket *websocket;
@@ -393,6 +387,16 @@ private:
 	qreal scale;
 	QSshSocket *ssh;
 	QString ssh_cmd;
+
+	void getConfig();
+	void setConfig();
+	void findIP();
+	void getStatus();
+	void drawMapFromJson(QByteArray);
+	void drawMapFromJsonOld(QByteArray);
+	void getScale();
+	void setMatrix();
+	void drawFlags(bool, bool);
 
 private slots:
 
@@ -413,6 +417,7 @@ private slots:
 	void on_actionUpdateFirmware_triggered();
 	void on_actionHelp_triggered();
 	void on_actionAbout_triggered();
+	void on_actionOnlineUpdate_triggered();
 
 	void on_toolButton_Dock_clicked();
 	void on_toolButton_Start_clicked();

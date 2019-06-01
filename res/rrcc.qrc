@@ -77,5 +77,9 @@
         <file>png/fw_upd.png</file>
         <file>png/internet.png</file>
         <file>png/flag.png</file>
+        <file>png/upd_win.png</file>
+        <file>png/upd_lin.png</file>
+        <file>png/upd_mac.png</file>
+        <file>png/update.png</file>
     </qresource>
 </RCC>

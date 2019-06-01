@@ -173,6 +173,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	{
 		groupBox_map->hide();
 	}
+
+	if(cfg.update)
+	{
+		upddlg = new onlineUpdDialog(this, true);
+	}
 }
 
 void MainWindow::getConfig()
@@ -188,6 +193,7 @@ void MainWindow::getConfig()
 	cfg.msgid = ini.value("Message-ID", 1).toLongLong();
 	cfg.map = ini.value("Map", false).toBool();
 	cfg.websocket = ini.value("WebSocket", false).toBool();
+	cfg.update = ini.value("OnlineUpdate", true).toBool();
 
 	ini.beginGroup("SSH");
 	cfg.ssh_user = ini.value("User", "root").toString();
@@ -233,6 +239,7 @@ void MainWindow::setConfig()
 	ini.setValue("Message-ID", cfg.msgid);
 	ini.setValue("Map", cfg.map);
 	ini.setValue("WebSocket", cfg.websocket);
+	ini.setValue("OnlineUpdate", cfg.update);
 
 	ini.beginGroup("SSH");
 	ini.setValue("User", cfg.ssh_user);
@@ -1260,6 +1267,18 @@ void MainWindow::on_actionHelp_triggered()
 void MainWindow::on_actionAbout_triggered()
 {
 	aboutDialog(this).exec();
+}
+
+void MainWindow::on_actionOnlineUpdate_triggered()
+{
+	if(upddlg && upddlg->isVisible())
+	{
+		upddlg->activateWindow();
+	}
+	else
+	{
+		upddlg = new onlineUpdDialog(this, false);
+	}
 }
 
 void MainWindow::on_toolButton_Dock_clicked()
@@ -2350,7 +2369,7 @@ void MainWindow::keyPressEvent(QKeyEvent *ke)
 
 void MainWindow::closeEvent(QCloseEvent *ce)
 {
-	if(QMessageBox::question(this, APPNAME, tr("Really exit program?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+	if(forceclose || QMessageBox::question(this, APPNAME, tr("Really exit program?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
 	{
 		cfg.map = actionMap->isChecked();
 

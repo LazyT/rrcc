@@ -29,6 +29,7 @@ setupDialog::setupDialog(QWidget *parent) : QDialog(parent)
 	spinBox_carpet_high->setValue(((MainWindow*)parent)->robo.carpetmode.current_high);
 	spinBox_carpet_low->setValue(((MainWindow*)parent)->robo.carpetmode.current_low);
 	spinBox_carpet_stalltime->setValue(((MainWindow*)parent)->robo.carpetmode.stall_time);
+	checkBox_update->setChecked(((MainWindow*)parent)->cfg.update);
 
 	lineEdit_ssh_username->setText(((MainWindow*)parent)->cfg.ssh_user);
 	lineEdit_ssh_password->setText(((MainWindow*)parent)->cfg.ssh_pass);
@@ -413,6 +414,8 @@ void setupDialog::on_buttonBox_clicked(QAbstractButton *button)
 				((MainWindow*)parent())->robo.carpetmode.current_low = spinBox_carpet_low->value();
 				((MainWindow*)parent())->robo.carpetmode.stall_time = spinBox_carpet_stalltime->value();
 			}
+
+			((MainWindow*)parent())->cfg.update = checkBox_update->isChecked();
 		}
 		else if(tabWidget->currentWidget()->objectName() == "tab_ssh")
 		{
