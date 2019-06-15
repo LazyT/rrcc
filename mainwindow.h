@@ -2,8 +2,8 @@
 #define MAINWINDOW_H
 
 #define APPNAME "RoboRock Control Center"
-#define APPVERS "0.8.5"
-#define APPDATE "19.05.2019"
+#define APPVERS "0.8.6"
+#define APPDATE "15.06.2019"
 
 #include <QApplication>
 #include <QMainWindow>
