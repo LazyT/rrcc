@@ -24,6 +24,7 @@ private slots:
 
 	void calcHeight();
 	void metaDataChanged();
+	void on_comboBox_model_currentIndexChanged(int);
 	void on_treeWidget_itemDoubleClicked(QTreeWidgetItem*, int);
 	void reject();
 	void on_buttonBox_clicked(QAbstractButton*);

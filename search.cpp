@@ -15,6 +15,8 @@ searchDialog::searchDialog(QWidget *parent) : QDialog(parent)
 	treeWidget->resizeColumnToContents(2);
 	treeWidget->resizeColumnToContents(3);
 
+	comboBox_model->currentIndexChanged(0);
+
 	QTimer::singleShot(1, this, SLOT(calcHeight()));
 }
 
@@ -45,6 +47,11 @@ void searchDialog::metaDataChanged()
 	progressBar->setValue((version - spinBox_Start->value() + 1)*100 / counter);
 }
 
+void searchDialog::on_comboBox_model_currentIndexChanged(int index)
+{
+	spinBox_Start->setValue(index ? 1768 : 3468);
+	spinBox_Stop->setValue(spinBox_Start->value() + 100);
+}
 
 void searchDialog::on_treeWidget_itemDoubleClicked(QTreeWidgetItem *item, __attribute__((unused)) int column)
 {
@@ -87,7 +94,7 @@ void searchDialog::on_buttonBox_clicked(QAbstractButton *button)
 
 		counter = spinBox_Stop->value() - spinBox_Start->value() + 1;
 
-		if(counter > 100)
+		if(counter > 101)
 		{
 			if(QMessageBox::warning(this, APPNAME, tr("Scanning more than 100 versions takes a long time and is not recommended!\n\nContinue anyway?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::No)
 			{
