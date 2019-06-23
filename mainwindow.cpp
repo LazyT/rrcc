@@ -1481,7 +1481,7 @@ void MainWindow::drawMapFromJson(QByteArray map)
 	}
 
 	x1 = path_points[0].toArray().at(0).toInt() / MAPFACTOR;
-	y1 = path_points[1].toArray().at(1).toInt() / MAPFACTOR;
+	y1 = path_points[0].toArray().at(1).toInt() / MAPFACTOR;
 
 	foreach(QJsonValue val, path_points)
 	{
