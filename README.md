@@ -46,6 +46,8 @@ Download the latest version for your operating system. All 3 files (exe, dmg, Ap
 
 This is an [7zip](https://www.7-zip.org) self extracting archive. It will be automatically extracted to "%temp%\7zxxxxxxxx" and after that the "rrcc.exe" is started. You can copy this directory or extract the file with 7z if you want the content.
 
+Note: some virus scanners classify RRCC as malicious. This is due to the use of [7zsfx](https://www.7-zip.org/a/lzma1900.7z). If you don't trust me unzip the exe and scan that directory, no warnings should appear now.
+
 * [MacOS (dmg)](https://github.com/LazyT/rrcc/releases)
 
 This is an Apple disc image. You can mount and run or copy the application.
