@@ -53,6 +53,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 	rubberBand = new QRubberBand(QRubberBand::Rectangle, graphicsView);
 
+	toolBar->insertWidget(toolBar->insertWidget(actionSetup, doubleSpinBox_Zoom), new QLabel());
+	toolBar->insertWidget(actionSetup, new QLabel());
+	toolBar->insertSeparator(actionSetup);
+
 	menu_map = new QMenu(this);
 	menu_map_zones = new QMenu(tr("Zone Cleaning"), this);
 	menu_map_rotation = new QMenu(tr("Rotation"), this);
@@ -171,6 +175,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	}
 	else
 	{
+		doubleSpinBox_Zoom->setDisabled(true);
+
 		groupBox_map->hide();
 	}
 
@@ -1063,6 +1069,8 @@ void MainWindow::on_actionMap_toggled(bool checked)
 	adjustSize();
 	show();
 
+	doubleSpinBox_Zoom->setEnabled(checked);
+
 	QCoreApplication::processEvents();
 
 	move(qApp->desktop()->availableGeometry().center() - rect().center());
@@ -1417,9 +1425,9 @@ void MainWindow::drawMapFromJson(QByteArray map)
 	QGraphicsPixmapItem *png_robo, *png_dock;
 	VIRTWALL virtwall;
 	NOGOZONE nogozone;
-	int x1, y1, x2, y2;
-
 	zone_preview_item = nullptr;
+	int x1, y1, x2, y2;
+	static bool firstdraw = true;
 
 	robo.virtwalls.clear();
 	robo.nogozones.clear();
@@ -1549,8 +1557,10 @@ void MainWindow::drawMapFromJson(QByteArray map)
 
 	graphicsView->setSceneRect(scene->itemsBoundingRect());
 
-	if(graphicsView->matrix().m11() == 1.0)
+	if(firstdraw)
 	{
+		firstdraw = false;
+
 		setMatrix();
 	}
 }
@@ -1566,6 +1576,7 @@ void MainWindow::drawMapFromJsonOld(QByteArray map)
 	QColor col;
 	int x1, y1, x2, y2;
 	int angle = 0;
+	static bool firstdraw = true;
 
 	zone_preview_item = nullptr;
 
@@ -1671,8 +1682,10 @@ void MainWindow::drawMapFromJsonOld(QByteArray map)
 
 	graphicsView->setSceneRect(scene->itemsBoundingRect());
 
-	if(graphicsView->matrix().m11() == 1.0)
+	if(firstdraw)
 	{
+		firstdraw = false;
+
 		setMatrix();
 	}
 }
@@ -1921,7 +1934,9 @@ void MainWindow::resizeEvent(QResizeEvent*)
 
 	getScale();
 
-	groupBox_map->setTitle(tr("Map [ Zoom Factor = %1 ]").arg(QString::number(scale, 'f', 2)));
+	doubleSpinBox_Zoom->blockSignals(true);
+	doubleSpinBox_Zoom->setValue(scale);
+	doubleSpinBox_Zoom->blockSignals(false);
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
@@ -2250,8 +2265,19 @@ void MainWindow::wheelEvent(QWheelEvent *event)
 
 		graphicsView->centerOn(graphicsView->mapToScene(graphicsView->mapFromGlobal(event->globalPos())));
 
-		groupBox_map->setTitle(tr("Map [ Zoom Factor = %1 ]").arg(QString::number(scale, 'f', 2)));
+		doubleSpinBox_Zoom->blockSignals(true);
+		doubleSpinBox_Zoom->setValue(scale);
+		doubleSpinBox_Zoom->blockSignals(false);
 	}
+}
+
+void MainWindow::on_doubleSpinBox_Zoom_valueChanged(double zoom)
+{
+	getScale();
+
+	graphicsView->scale(zoom/scale, zoom/scale);
+
+	graphicsView->centerOn(graphicsView->mapToScene(graphicsView->mapFromGlobal(graphicsView->cursor().pos())));
 }
 
 void MainWindow::contextMenuEvent(QContextMenuEvent *event)

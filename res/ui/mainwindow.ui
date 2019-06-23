@@ -683,9 +683,43 @@
     <item>
      <widget class="QGroupBox" name="groupBox_map">
       <property name="title">
-       <string>Map [ Zoom Factor = 1.00 ]</string>
+       <string>Map</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QDoubleSpinBox" name="doubleSpinBox_Zoom">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>Zoom Factor</string>
+         </property>
+         <property name="statusTip">
+          <string>Change Zoom Factor</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::PlusMinus</enum>
+         </property>
+         <property name="minimum">
+          <double>0.010000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>10.000000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>0.010000000000000</double>
+         </property>
+         <property name="value">
+          <double>1.000000000000000</double>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QGraphicsView" name="graphicsView">
          <property name="enabled">
@@ -804,7 +838,6 @@
    <addaction name="actionRefresh"/>
    <addaction name="separator"/>
    <addaction name="actionMap"/>
-   <addaction name="separator"/>
    <addaction name="actionSetup"/>
    <addaction name="separator"/>
    <addaction name="actionLogger"/>

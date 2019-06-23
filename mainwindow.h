@@ -437,6 +437,8 @@ private slots:
 
 	void on_dial_valueChanged(int);
 
+	void on_doubleSpinBox_Zoom_valueChanged(double);
+
 	void timer_refreshMap();
 	void timer_setFanspeed();
 
