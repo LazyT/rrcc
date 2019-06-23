@@ -1480,8 +1480,8 @@ void MainWindow::drawMapFromJson(QByteArray map)
 		scene->addRect(x1, y1, 1, 1, QPen(QColor(96, 160, 255, 255), 3, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
 	}
 
-	x1 = path_points[0].toArray().first().toInt() / MAPFACTOR;
-	y1 = path_points[1].toArray().first().toInt() / MAPFACTOR;
+	x1 = path_points[0].toArray().at(0).toInt() / MAPFACTOR;
+	y1 = path_points[1].toArray().at(1).toInt() / MAPFACTOR;
 
 	foreach(QJsonValue val, path_points)
 	{
