@@ -1073,7 +1073,7 @@ void MainWindow::on_actionMap_toggled(bool checked)
 
 	QCoreApplication::processEvents();
 
-	move(qApp->desktop()->availableGeometry().center() - rect().center());
+	move(QApplication::primaryScreen()->availableGeometry().center() - rect().center());
 }
 
 void MainWindow::on_actionSetup_triggered()

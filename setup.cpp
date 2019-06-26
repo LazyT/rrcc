@@ -59,7 +59,7 @@ setupDialog::setupDialog(QWidget *parent) : QDialog(parent)
 
 	if(parent->isHidden())
 	{
-		move(qApp->desktop()->screen()->rect().center() - rect().center());
+		move(QApplication::primaryScreen()->availableGeometry().center() - rect().center());
 	}
 }
 

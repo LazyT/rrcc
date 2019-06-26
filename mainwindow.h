@@ -7,7 +7,7 @@
 
 #include <QApplication>
 #include <QMainWindow>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QTranslator>
 #include <QLibraryInfo>
 #include <QSettings>

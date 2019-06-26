@@ -8,7 +8,7 @@ loggerDialog::loggerDialog(QWidget *parent) : QDialog(parent)
 
 	connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(on_customContextMenuRequested(QPoint)));
 
-	resize(qApp->desktop()->screen()->width(), 0);
+	resize(QApplication::primaryScreen()->availableGeometry().width(), 0);
 	move(0, 0);
 
 	QTimer::singleShot(1, this, SLOT(calcHeight()));
