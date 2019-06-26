@@ -32,9 +32,9 @@ void updateDialog::startUpdating()
 
 	connect(server, SIGNAL(newConnection()), this, SLOT(newConnection()));
 
-	if(server->listen(QHostAddress(((MainWindow*)parent())->src_ip), 8080))
+	if(server->listen(QHostAddress(reinterpret_cast<MainWindow*>(parent())->src_ip), 8080))
 	{
-		if(!((MainWindow*)parent())->sendUDP(QString(MIIO_OTA).arg(QString("http://%1:8080/%2").arg(((MainWindow*)parent())->src_ip).arg(QFileInfo(file->fileName()).fileName())).arg(QString(QCryptographicHash::hash(pkg, QCryptographicHash::Md5).toHex())).arg("%1")))
+		if(!reinterpret_cast<MainWindow*>(parent())->sendUDP(QString(MIIO_OTA).arg(QString("http://%1:8080/%2").arg(reinterpret_cast<MainWindow*>(parent())->src_ip).arg(QFileInfo(file->fileName()).fileName())).arg(QString(QCryptographicHash::hash(pkg, QCryptographicHash::Md5).toHex())).arg("%1")))
 		{
 			timer.stop();
 
@@ -69,7 +69,7 @@ void updateDialog::timer_refreshTime()
 
 		canceled = true;
 
-		QMessageBox::warning(this, APPNAME, tr("Robot does not send firmware package request!\n\nMake sure your firewall accepts incoming tcp connections for\n\n   %1 -> %2:8080\n\nand try again...").arg(((MainWindow*)parent())->cfg.ip).arg(((MainWindow*)parent())->src_ip));
+		QMessageBox::warning(this, APPNAME, tr("Robot does not send firmware package request!\n\nMake sure your firewall accepts incoming tcp connections for\n\n   %1 -> %2:8080\n\nand try again...").arg(reinterpret_cast<MainWindow*>(parent())->cfg.ip).arg(reinterpret_cast<MainWindow*>(parent())->src_ip));
 
 		close();
 	}
@@ -128,20 +128,20 @@ void updateDialog::disconnected()
 
 	do
 	{
-		((MainWindow*)parent())->sendUDP(MIIO_GET_OTA_STATE);
+		reinterpret_cast<MainWindow*>(parent())->sendUDP(MIIO_GET_OTA_STATE);
 
 		QThread::msleep(1000);
 		QCoreApplication::processEvents();
 	}
-	while(((MainWindow*)parent())->robo.ota.state == "downloading" || ((MainWindow*)parent())->robo.ota.state == "installing");
+	while(reinterpret_cast<MainWindow*>(parent())->robo.ota.state == "downloading" || reinterpret_cast<MainWindow*>(parent())->robo.ota.state == "installing");
 
 	progressBar_install->setValue(100);
 
 	timer.stop();
 
-	((MainWindow*)parent())->robo.ota.state == "failed" ? QMessageBox::warning(this, APPNAME, tr("Firmware update failed!")) : QMessageBox::information(this, APPNAME, tr("Firmware update successful."));
+	reinterpret_cast<MainWindow*>(parent())->robo.ota.state == "failed" ? QMessageBox::warning(this, APPNAME, tr("Firmware update failed!")) : QMessageBox::information(this, APPNAME, tr("Firmware update successful."));
 
-	((MainWindow*)parent())->sendUDP(nullptr);
+	reinterpret_cast<MainWindow*>(parent())->sendUDP(nullptr);
 
 	close();
 }

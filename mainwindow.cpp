@@ -462,7 +462,7 @@ retry_once:
 
 	bytes = static_cast<quint64>(socket->writeDatagram(send, QHostAddress(cfg.ip), 54321));
 
-	((loggerDialog*)logger)->log(src_ip, cfg.ip, QString::number(bytes), QString("1 ms"), data.isEmpty() ? "{'HELLO?'}" : data.arg(cfg.msgid - 1), QString(send.toHex().toUpper()));
+	reinterpret_cast<loggerDialog*>(logger)->log(src_ip, cfg.ip, QString::number(bytes), QString("1 ms"), data.isEmpty() ? "{'HELLO?'}" : data.arg(cfg.msgid - 1), QString(send.toHex().toUpper()));
 
 	timer.start();
 
@@ -470,7 +470,7 @@ retry_once:
 	{
 		if(timer.elapsed() >= TIMEOUT)
 		{
-			((loggerDialog*)logger)->log(cfg.ip, src_ip, QString("0"), QString("%1 ms").arg(timer.elapsed()), retry ? QString("{'TIMEOUT!'}") : QString("{'TIMEOUT, RETRY...'}"), QString());
+			reinterpret_cast<loggerDialog*>(logger)->log(cfg.ip, src_ip, QString("0"), QString("%1 ms").arg(timer.elapsed()), retry ? QString("{'TIMEOUT!'}") : QString("{'TIMEOUT, RETRY...'}"), QString());
 
 			if(!retry)
 			{
@@ -519,13 +519,13 @@ retry_once:
 			cfg.ip = QHostAddress(address.toIPv4Address()).toString();
 		}
 
-		((loggerDialog*)logger)->log(QHostAddress(address.toIPv4Address()).toString(), src_ip, QString::number(bytes), QString("%1 ms").arg(time), QString("{device = %1, stamp = %2, token = %3}").arg(did.toHex(':').toUpper().data()).arg(cnt.toHex(':').toUpper().data()).arg(recv.mid(16).toHex(':').toUpper().data()), QString(recv.toHex().toUpper()));
+		reinterpret_cast<loggerDialog*>(logger)->log(QHostAddress(address.toIPv4Address()).toString(), src_ip, QString::number(bytes), QString("%1 ms").arg(time), QString("{device = %1, stamp = %2, token = %3}").arg(did.toHex(':').toUpper().data()).arg(cnt.toHex(':').toUpper().data()).arg(recv.mid(16).toHex(':').toUpper().data()), QString(recv.toHex().toUpper()));
 	}
 	else
 	{
 		payload = AESPayload(AES_DECRYPT, recv.mid(32));
 
-		((loggerDialog*)logger)->log(QHostAddress(address.toIPv4Address()).toString(), src_ip, QString::number(bytes), QString("%1 ms").arg(time), payload, QString(recv.toHex().toUpper()));
+		reinterpret_cast<loggerDialog*>(logger)->log(QHostAddress(address.toIPv4Address()).toString(), src_ip, QString::number(bytes), QString("%1 ms").arg(time), payload, QString(recv.toHex().toUpper()));
 
 		if(data.contains("find_me"))
 		{
@@ -1654,7 +1654,7 @@ void MainWindow::drawMapFromJsonOld(QByteArray map)
 
 			if(qAbs(x2 - x1) > 2 || qAbs(y2 - y1) > 2)
 			{
-				angle = (int)(qRadiansToDegrees(qAtan2(y1 - y2, x2 - x1)) + 360) % 360;
+				angle = static_cast<int>(qRadiansToDegrees(qAtan2(y1 - y2, x2 - x1)) + 360) % 360;
 			}
 		}
 
@@ -2071,7 +2071,7 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
 		{
 			rubberBand->setGeometry(QRect(rubber_pos, graphicsView->mapFromGlobal(event->globalPos())).normalized());
 
-			QToolTip::showText(event->globalPos(), QString("%1 x %2").arg(qAbs((int)((graphicsView->mapToScene(graphicsView->mapFromGlobal(event->globalPos())).x() - graphicsView->mapToScene(rubber_pos).x()) * MAPFACTOR))).arg(qAbs((int)((graphicsView->mapToScene(graphicsView->mapFromGlobal(event->globalPos())).y() - graphicsView->mapToScene(rubber_pos).y()) * MAPFACTOR))));
+			QToolTip::showText(event->globalPos(), QString("%1 x %2").arg(qAbs(static_cast<int>((graphicsView->mapToScene(graphicsView->mapFromGlobal(event->globalPos())).x() - graphicsView->mapToScene(rubber_pos).x()) * MAPFACTOR))).arg(qAbs(static_cast<int>((graphicsView->mapToScene(graphicsView->mapFromGlobal(event->globalPos())).y() - graphicsView->mapToScene(rubber_pos).y()) * MAPFACTOR))));
 		}
 		else if(event->buttons() & Qt::MiddleButton)
 		{

@@ -106,7 +106,7 @@ void unpackagerDialog::startUnpackaging()
 		}
 		else
 		{
-			QMessageBox::critical(this, APPNAME, tr("Unpackaging error!\n\n%1\n\n%2").arg(((MainWindow*)parent())->qarchive_error_strings.at(err_code)).arg(err_msg));
+			QMessageBox::critical(this, APPNAME, tr("Unpackaging error!\n\n%1\n\n%2").arg(reinterpret_cast<MainWindow*>(parent())->qarchive_error_strings.at(err_code)).arg(err_msg));
 		}
 
 		close();

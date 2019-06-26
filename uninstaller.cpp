@@ -52,9 +52,9 @@ void uninstallerDialog::ssh_connected()
 {
 	plainTextEdit->appendPlainText(tr("SSH: connected\n"));
 
-	if(((MainWindow*)parent())->cfg.ssh_auth == "PKey")
+	if(reinterpret_cast<MainWindow*>(parent())->cfg.ssh_auth == "PKey")
 	{
-		QFile file_key(((MainWindow*)parent())->cfg.ssh_pkey);
+		QFile file_key(reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pkey);
 
 		if(file_key.open(QIODevice::ReadOnly))
 		{
@@ -62,12 +62,12 @@ void uninstallerDialog::ssh_connected()
 
 			file_key.close();
 
-			ssh->loginKey(((MainWindow*)parent())->cfg.ssh_user, key, ((MainWindow*)parent())->cfg.ssh_pkpp);
+			ssh->loginKey(reinterpret_cast<MainWindow*>(parent())->cfg.ssh_user, key, reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pkpp);
 		}
 	}
 	else
 	{
-		ssh->login(((MainWindow*)parent())->cfg.ssh_user, ((MainWindow*)parent())->cfg.ssh_pass);
+		ssh->login(reinterpret_cast<MainWindow*>(parent())->cfg.ssh_user, reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pass);
 	}
 }
 
@@ -130,7 +130,7 @@ void uninstallerDialog::ssh_disconnected()
 
 void uninstallerDialog::ssh_error(QSshSocket::SshError error)
 {
-	plainTextEdit->appendPlainText(tr("SSH: %1\n").arg(((MainWindow*)parent())->ssh_error_strings.at(error)));
+	plainTextEdit->appendPlainText(tr("SSH: %1\n").arg(reinterpret_cast<MainWindow*>(parent())->ssh_error_strings.at(error)));
 
 	failed = true;
 
@@ -182,7 +182,7 @@ void uninstallerDialog::on_buttonBox_clicked(QAbstractButton *button)
 		connect(ssh, SIGNAL(loginSuccessful()), this, SLOT(ssh_loginSuccessful()));
 		connect(ssh, SIGNAL(commandExecuted(QString, QString)), this, SLOT(ssh_commandExecuted(QString, QString)));
 
-		ssh->connectToHost(((MainWindow*)parent())->cfg.ip);
+		ssh->connectToHost(reinterpret_cast<MainWindow*>(parent())->cfg.ip);
 	}
 	else if(buttonBox->standardButton(button) == QDialogButtonBox::Close)
 	{

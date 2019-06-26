@@ -32,11 +32,11 @@ void uploadDialog::startUploading()
 
 	connect(server, SIGNAL(newConnection()), this, SLOT(newConnection()));
 
-	if(server->listen(QHostAddress(((MainWindow*)parent())->src_ip), 8080))
+	if(server->listen(QHostAddress(reinterpret_cast<MainWindow*>(parent())->src_ip), 8080))
 	{
-		if(((MainWindow*)parent())->sendUDP(MIIO_GET_CURRENT_SOUND))
+		if(reinterpret_cast<MainWindow*>(parent())->sendUDP(MIIO_GET_CURRENT_SOUND))
 		{
-			if(!((MainWindow*)parent())->sendUDP(QString(MIIO_DNLD_INSTALL_SOUND).arg(QString("http://%1:8080/%2").arg(((MainWindow*)parent())->src_ip).arg(QFileInfo(file->fileName()).fileName())).arg(QString(QCryptographicHash::hash(pkg, QCryptographicHash::Md5).toHex())).arg(((MainWindow*)parent())->robo.currentsound.sid_in_use).arg("%1")))
+			if(!reinterpret_cast<MainWindow*>(parent())->sendUDP(QString(MIIO_DNLD_INSTALL_SOUND).arg(QString("http://%1:8080/%2").arg(reinterpret_cast<MainWindow*>(parent())->src_ip).arg(QFileInfo(file->fileName()).fileName())).arg(QString(QCryptographicHash::hash(pkg, QCryptographicHash::Md5).toHex())).arg(reinterpret_cast<MainWindow*>(parent())->robo.currentsound.sid_in_use).arg("%1")))
 			{
 				timer.stop();
 
@@ -82,7 +82,7 @@ void uploadDialog::timer_refreshTime()
 
 		canceled = true;
 
-		QMessageBox::warning(this, APPNAME, tr("Robot does not send voice package request!\n\nMake sure your firewall accepts incoming tcp connections for\n\n   %1 -> %2:8080\n\nand try again...").arg(((MainWindow*)parent())->cfg.ip).arg(((MainWindow*)parent())->src_ip));
+		QMessageBox::warning(this, APPNAME, tr("Robot does not send voice package request!\n\nMake sure your firewall accepts incoming tcp connections for\n\n   %1 -> %2:8080\n\nand try again...").arg(reinterpret_cast<MainWindow*>(parent())->cfg.ip).arg(reinterpret_cast<MainWindow*>(parent())->src_ip));
 
 		close();
 	}
@@ -141,18 +141,18 @@ void uploadDialog::disconnected()
 
 	do
 	{
-		((MainWindow*)parent())->sendUDP(MIIO_GET_SOUND_PROGRESS);
+		reinterpret_cast<MainWindow*>(parent())->sendUDP(MIIO_GET_SOUND_PROGRESS);
 
 		QThread::msleep(1000);
 		QCoreApplication::processEvents();
 	}
-	while(((MainWindow*)parent())->robo.soundprogress.sid_in_progress);
+	while(reinterpret_cast<MainWindow*>(parent())->robo.soundprogress.sid_in_progress);
 
 	timer.stop();
 
 	progressBar_install->setValue(100);
 
-	((MainWindow*)parent())->robo.soundprogress.error ? QMessageBox::warning(this, APPNAME, tr("Voice installation failed!\n\nErrorcode: %1").arg(((MainWindow*)parent())->robo.soundprogress.error)) : QMessageBox::information(this, APPNAME, tr("Voice installation successful."));
+	reinterpret_cast<MainWindow*>(parent())->robo.soundprogress.error ? QMessageBox::warning(this, APPNAME, tr("Voice installation failed!\n\nErrorcode: %1").arg(reinterpret_cast<MainWindow*>(parent())->robo.soundprogress.error)) : QMessageBox::information(this, APPNAME, tr("Voice installation successful."));
 
 	close();
 }

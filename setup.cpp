@@ -12,31 +12,31 @@ setupDialog::setupDialog(QWidget *parent) : QDialog(parent)
 	lineEdit_ip->setValidator(new QRegExpValidator(QRegExp("(([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\\.){3}([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])")));
 	lineEdit_token->setValidator(new QRegExpValidator(QRegExp("[0-9a-fA-F]{32}")));
 
-	spinBox_id->setValue(static_cast<int>(((MainWindow*)parent)->cfg.msgid));
-	lineEdit_ip->setText(((MainWindow*)parent)->cfg.ip);
-	lineEdit_token->setText(QString(((MainWindow*)parent)->cfg.token).toUpper());
+	spinBox_id->setValue(static_cast<int>(reinterpret_cast<MainWindow*>(parent)->cfg.msgid));
+	lineEdit_ip->setText(reinterpret_cast<MainWindow*>(parent)->cfg.ip);
+	lineEdit_token->setText(QString(reinterpret_cast<MainWindow*>(parent)->cfg.token).toUpper());
 
 	horizontalSlider_volume->blockSignals(true);
-	horizontalSlider_volume->setValue(((MainWindow*)parent)->robo.volume);
+	horizontalSlider_volume->setValue(reinterpret_cast<MainWindow*>(parent)->robo.volume);
 	horizontalSlider_volume->blockSignals(false);
-	label_volume->setText(QString::number(((MainWindow*)parent)->robo.volume));
-	groupBox_dnd->setChecked(((MainWindow*)parent)->robo.dnd.enabled ? true : false);
-	timeEdit_dnd1->setTime(QTime(((MainWindow*)parent)->robo.dnd.start_hour, ((MainWindow*)parent)->robo.dnd.start_minute));
-	timeEdit_dnd0->setTime(QTime(((MainWindow*)parent)->robo.dnd.end_hour, ((MainWindow*)parent)->robo.dnd.end_minute));
+	label_volume->setText(QString::number(reinterpret_cast<MainWindow*>(parent)->robo.volume));
+	groupBox_dnd->setChecked(reinterpret_cast<MainWindow*>(parent)->robo.dnd.enabled ? true : false);
+	timeEdit_dnd1->setTime(QTime(reinterpret_cast<MainWindow*>(parent)->robo.dnd.start_hour, reinterpret_cast<MainWindow*>(parent)->robo.dnd.start_minute));
+	timeEdit_dnd0->setTime(QTime(reinterpret_cast<MainWindow*>(parent)->robo.dnd.end_hour, reinterpret_cast<MainWindow*>(parent)->robo.dnd.end_minute));
 
-	groupBox_carpet->setChecked(((MainWindow*)parent)->robo.carpetmode.enable);
-	spinBox_carpet_integral->setValue(((MainWindow*)parent)->robo.carpetmode.current_integral);
-	spinBox_carpet_high->setValue(((MainWindow*)parent)->robo.carpetmode.current_high);
-	spinBox_carpet_low->setValue(((MainWindow*)parent)->robo.carpetmode.current_low);
-	spinBox_carpet_stalltime->setValue(((MainWindow*)parent)->robo.carpetmode.stall_time);
-	checkBox_update->setChecked(((MainWindow*)parent)->cfg.update);
+	groupBox_carpet->setChecked(reinterpret_cast<MainWindow*>(parent)->robo.carpetmode.enable);
+	spinBox_carpet_integral->setValue(reinterpret_cast<MainWindow*>(parent)->robo.carpetmode.current_integral);
+	spinBox_carpet_high->setValue(reinterpret_cast<MainWindow*>(parent)->robo.carpetmode.current_high);
+	spinBox_carpet_low->setValue(reinterpret_cast<MainWindow*>(parent)->robo.carpetmode.current_low);
+	spinBox_carpet_stalltime->setValue(reinterpret_cast<MainWindow*>(parent)->robo.carpetmode.stall_time);
+	checkBox_update->setChecked(reinterpret_cast<MainWindow*>(parent)->cfg.update);
 
-	lineEdit_ssh_username->setText(((MainWindow*)parent)->cfg.ssh_user);
-	lineEdit_ssh_password->setText(((MainWindow*)parent)->cfg.ssh_pass);
-	lineEdit_ssh_keyfile->setText(((MainWindow*)parent)->cfg.ssh_pkey);
-	lineEdit_ssh_keyfile_passphrase->setText(((MainWindow*)parent)->cfg.ssh_pkpp);
+	lineEdit_ssh_username->setText(reinterpret_cast<MainWindow*>(parent)->cfg.ssh_user);
+	lineEdit_ssh_password->setText(reinterpret_cast<MainWindow*>(parent)->cfg.ssh_pass);
+	lineEdit_ssh_keyfile->setText(reinterpret_cast<MainWindow*>(parent)->cfg.ssh_pkey);
+	lineEdit_ssh_keyfile_passphrase->setText(reinterpret_cast<MainWindow*>(parent)->cfg.ssh_pkpp);
 
-	if(((MainWindow*)parent)->cfg.ssh_auth == "PKey")
+	if(reinterpret_cast<MainWindow*>(parent)->cfg.ssh_auth == "PKey")
 	{
 		groupBox_ssh_password->setChecked(false);
 		groupBox_ssh_keyfile->setChecked(true);
@@ -47,12 +47,12 @@ setupDialog::setupDialog(QWidget *parent) : QDialog(parent)
 		groupBox_ssh_keyfile->setChecked(false);
 	}
 
-	if(((MainWindow*)parent)->cfg.token == "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
+	if(reinterpret_cast<MainWindow*>(parent)->cfg.token == "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
 	{
 		lineEdit_token->setFocus();
 	}
 
-	if(((MainWindow*)parent)->provisioning)
+	if(reinterpret_cast<MainWindow*>(parent)->provisioning)
 	{
 		tabWidget->setCurrentWidget(tabWidget->findChild<QWidget*>("tab_wifi"));
 	}
@@ -67,7 +67,7 @@ setupDialog::setupDialog(QWidget *parent) : QDialog(parent)
 
 void setupDialog::on_toolButton_ssh_clicked()
 {
-	if(((MainWindow*)parent())->cfg.ssh_auth == "PKey" && ((MainWindow*)parent())->cfg.ssh_pkey.isEmpty())
+	if(reinterpret_cast<MainWindow*>(parent())->cfg.ssh_auth == "PKey" && reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pkey.isEmpty())
 	{
 		QMessageBox::warning(this, APPNAME, tr("Please choose ssh private keyfile first!"));
 
@@ -77,7 +77,7 @@ void setupDialog::on_toolButton_ssh_clicked()
 
 		return;
 	}
-	else if(((MainWindow*)parent())->cfg.ssh_auth == "Pass" && ((MainWindow*)parent())->cfg.ssh_pass.isEmpty())
+	else if(reinterpret_cast<MainWindow*>(parent())->cfg.ssh_auth == "Pass" && reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pass.isEmpty())
 	{
 		QMessageBox::warning(this, APPNAME, tr("Please enter ssh password first!"));
 
@@ -86,7 +86,7 @@ void setupDialog::on_toolButton_ssh_clicked()
 
 		return;
 	}
-	else if(((MainWindow*)parent())->cfg.ssh_user.isEmpty())
+	else if(reinterpret_cast<MainWindow*>(parent())->cfg.ssh_user.isEmpty())
 	{
 		QMessageBox::warning(this, APPNAME, tr("Please enter ssh username first!"));
 
@@ -104,12 +104,12 @@ void setupDialog::on_toolButton_ssh_clicked()
 	connect(ssh, SIGNAL(loginSuccessful()), this, SLOT(ssh_loginSuccessful()));
 	connect(ssh, SIGNAL(commandExecuted(QString, QString)), this, SLOT(ssh_commandExecuted(QString, QString)));
 
-	ssh->connectToHost(((MainWindow*)parent())->cfg.ip);
+	ssh->connectToHost(reinterpret_cast<MainWindow*>(parent())->cfg.ip);
 }
 
 void setupDialog::on_toolButton_convert_clicked()
 {
-	converterDialog((QWidget*)parent()).exec();
+	converterDialog(reinterpret_cast<QWidget*>(parent())).exec();
 }
 
 // tab sound
@@ -126,11 +126,11 @@ void setupDialog::timer_setVolume()
 {
 	int volume = horizontalSlider_volume->value();
 
-	if(((MainWindow*)parent())->sendUDP(QString(MIIO_CHANGE_SOUND_VOLUME).arg(volume).arg("%1")))
+	if(reinterpret_cast<MainWindow*>(parent())->sendUDP(QString(MIIO_CHANGE_SOUND_VOLUME).arg(volume).arg("%1")))
 	{
-		((MainWindow*)parent())->robo.volume = volume;
+		reinterpret_cast<MainWindow*>(parent())->robo.volume = volume;
 
-		((MainWindow*)parent())->sendUDP(MIIO_TEST_SOUND_VOLUME);
+		reinterpret_cast<MainWindow*>(parent())->sendUDP(MIIO_TEST_SOUND_VOLUME);
 	}
 }
 
@@ -144,7 +144,7 @@ void setupDialog::on_toolButton_sound_install_clicked()
 		{
 			if(file.size())
 			{
-				uploadDialog((QWidget*)parent(), &file).exec();
+				uploadDialog(reinterpret_cast<QWidget*>(parent()), &file).exec();
 			}
 			else
 			{
@@ -170,7 +170,7 @@ void setupDialog::on_toolButton_sound_pack_clicked()
 	{
 		if(QDir(dir.fileName(), "*.wav", QDir::Name, QDir::Files).entryInfoList().count())
 		{
-			packagerDialog((QWidget*)parent(), &dir).exec();
+			packagerDialog(reinterpret_cast<QWidget*>(parent()), &dir).exec();
 		}
 		else
 		{
@@ -195,7 +195,7 @@ void setupDialog::on_toolButton_sound_unpack_clicked()
 
 				if(!file_dir.fileName().isEmpty())
 				{
-					unpackagerDialog((QWidget*)parent(), &file_pkg, &file_dir).exec();
+					unpackagerDialog(reinterpret_cast<QWidget*>(parent()), &file_pkg, &file_dir).exec();
 				}
 			}
 			else
@@ -290,9 +290,9 @@ void setupDialog::on_toolButton_ssh_keyfile_clicked()
 
 void setupDialog::ssh_connected()
 {
-	if(((MainWindow*)parent())->cfg.ssh_auth == "PKey")
+	if(reinterpret_cast<MainWindow*>(parent())->cfg.ssh_auth == "PKey")
 	{
-		QFile file_key(((MainWindow*)parent())->cfg.ssh_pkey);
+		QFile file_key(reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pkey);
 
 		if(file_key.open(QIODevice::ReadOnly))
 		{
@@ -300,12 +300,12 @@ void setupDialog::ssh_connected()
 
 			file_key.close();
 
-			ssh->loginKey(((MainWindow*)parent())->cfg.ssh_user, key, ((MainWindow*)parent())->cfg.ssh_pkpp);
+			ssh->loginKey(reinterpret_cast<MainWindow*>(parent())->cfg.ssh_user, key, reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pkpp);
 		}
 	}
 	else
 	{
-		ssh->login(((MainWindow*)parent())->cfg.ssh_user, ((MainWindow*)parent())->cfg.ssh_pass);
+		ssh->login(reinterpret_cast<MainWindow*>(parent())->cfg.ssh_user, reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pass);
 	}
 }
 
@@ -341,12 +341,12 @@ void setupDialog::ssh_error(QSshSocket::SshError error)
 {
 	ssh->disconnectFromHost();
 
-	QMessageBox::warning(this, APPNAME, tr("SSH connection error!\n\n%1").arg(((MainWindow*)parent())->ssh_error_strings.at(error)));
+	QMessageBox::warning(this, APPNAME, tr("SSH connection error!\n\n%1").arg(reinterpret_cast<MainWindow*>(parent())->ssh_error_strings.at(error)));
 }
 
 void setupDialog::reject()
 {
-	if(((MainWindow*)parent())->cfg.token == "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
+	if(reinterpret_cast<MainWindow*>(parent())->cfg.token == "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
 	{
 		QMessageBox::warning(this, APPNAME, tr("Program will not work without valid device token!"));
 	}
@@ -373,9 +373,9 @@ void setupDialog::on_buttonBox_clicked(QAbstractButton *button)
 			}
 			else
 			{
-				((MainWindow*)parent())->cfg.ip = ip;
-				((MainWindow*)parent())->cfg.token = token;
-				((MainWindow*)parent())->cfg.msgid = spinBox_id->value();
+				reinterpret_cast<MainWindow*>(parent())->cfg.ip = ip;
+				reinterpret_cast<MainWindow*>(parent())->cfg.token = token;
+				reinterpret_cast<MainWindow*>(parent())->cfg.msgid = spinBox_id->value();
 			}
 		}
 		else if(tabWidget->currentWidget()->objectName() == "tab_sound")
@@ -387,35 +387,35 @@ void setupDialog::on_buttonBox_clicked(QAbstractButton *button)
 				int eh = timeEdit_dnd0->time().hour();
 				int em = timeEdit_dnd0->time().minute();
 
-				if(((MainWindow*)parent())->sendUDP(QString(MIIO_SET_DND_TIMER).arg(QString("%1,%2,%3,%4").arg(sh).arg(sm).arg(eh).arg(em)).arg("%1")))
+				if(reinterpret_cast<MainWindow*>(parent())->sendUDP(QString(MIIO_SET_DND_TIMER).arg(QString("%1,%2,%3,%4").arg(sh).arg(sm).arg(eh).arg(em)).arg("%1")))
 				{
-					((MainWindow*)parent())->robo.dnd.start_hour = sh;
-					((MainWindow*)parent())->robo.dnd.start_minute = sm;
-					((MainWindow*)parent())->robo.dnd.end_hour = eh;
-					((MainWindow*)parent())->robo.dnd.end_minute = em;
-					((MainWindow*)parent())->robo.dnd.enabled = 1;
+					reinterpret_cast<MainWindow*>(parent())->robo.dnd.start_hour = sh;
+					reinterpret_cast<MainWindow*>(parent())->robo.dnd.start_minute = sm;
+					reinterpret_cast<MainWindow*>(parent())->robo.dnd.end_hour = eh;
+					reinterpret_cast<MainWindow*>(parent())->robo.dnd.end_minute = em;
+					reinterpret_cast<MainWindow*>(parent())->robo.dnd.enabled = 1;
 				}
 			}
 			else
 			{
-				if(((MainWindow*)parent())->sendUDP(MIIO_CLOSE_DND_TIMER))
+				if(reinterpret_cast<MainWindow*>(parent())->sendUDP(MIIO_CLOSE_DND_TIMER))
 				{
-					((MainWindow*)parent())->robo.dnd.enabled = 0;
+					reinterpret_cast<MainWindow*>(parent())->robo.dnd.enabled = 0;
 				}
 			}
 		}
 		else if(tabWidget->currentWidget()->objectName() == "tab_misc")
 		{
-			if(((MainWindow*)parent())->sendUDP(QString(MIIO_SET_CARPET_MODE).arg(groupBox_carpet->isChecked() ? 1 : 0).arg(spinBox_carpet_integral->value()).arg(spinBox_carpet_high->value()).arg(spinBox_carpet_low->value()).arg(spinBox_carpet_stalltime->value()).arg("%1")))
+			if(reinterpret_cast<MainWindow*>(parent())->sendUDP(QString(MIIO_SET_CARPET_MODE).arg(groupBox_carpet->isChecked() ? 1 : 0).arg(spinBox_carpet_integral->value()).arg(spinBox_carpet_high->value()).arg(spinBox_carpet_low->value()).arg(spinBox_carpet_stalltime->value()).arg("%1")))
 			{
-				((MainWindow*)parent())->robo.carpetmode.enable = groupBox_carpet->isChecked();
-				((MainWindow*)parent())->robo.carpetmode.current_integral = spinBox_carpet_integral->value();
-				((MainWindow*)parent())->robo.carpetmode.current_high = spinBox_carpet_high->value();
-				((MainWindow*)parent())->robo.carpetmode.current_low = spinBox_carpet_low->value();
-				((MainWindow*)parent())->robo.carpetmode.stall_time = spinBox_carpet_stalltime->value();
+				reinterpret_cast<MainWindow*>(parent())->robo.carpetmode.enable = groupBox_carpet->isChecked();
+				reinterpret_cast<MainWindow*>(parent())->robo.carpetmode.current_integral = spinBox_carpet_integral->value();
+				reinterpret_cast<MainWindow*>(parent())->robo.carpetmode.current_high = spinBox_carpet_high->value();
+				reinterpret_cast<MainWindow*>(parent())->robo.carpetmode.current_low = spinBox_carpet_low->value();
+				reinterpret_cast<MainWindow*>(parent())->robo.carpetmode.stall_time = spinBox_carpet_stalltime->value();
 			}
 
-			((MainWindow*)parent())->cfg.update = checkBox_update->isChecked();
+			reinterpret_cast<MainWindow*>(parent())->cfg.update = checkBox_update->isChecked();
 		}
 		else if(tabWidget->currentWidget()->objectName() == "tab_ssh")
 		{
@@ -441,11 +441,11 @@ void setupDialog::on_buttonBox_clicked(QAbstractButton *button)
 				return;
 			}
 
-			((MainWindow*)parent())->cfg.ssh_user = lineEdit_ssh_username->text();
-			((MainWindow*)parent())->cfg.ssh_pass = lineEdit_ssh_password->text();
-			((MainWindow*)parent())->cfg.ssh_pkey = lineEdit_ssh_keyfile->text();
-			((MainWindow*)parent())->cfg.ssh_pkpp = lineEdit_ssh_keyfile_passphrase->text();
-			((MainWindow*)parent())->cfg.ssh_auth = groupBox_ssh_keyfile->isChecked() ? "PKey" : "Pass";
+			reinterpret_cast<MainWindow*>(parent())->cfg.ssh_user = lineEdit_ssh_username->text();
+			reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pass = lineEdit_ssh_password->text();
+			reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pkey = lineEdit_ssh_keyfile->text();
+			reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pkpp = lineEdit_ssh_keyfile_passphrase->text();
+			reinterpret_cast<MainWindow*>(parent())->cfg.ssh_auth = groupBox_ssh_keyfile->isChecked() ? "PKey" : "Pass";
 		}
 		else if(tabWidget->currentWidget()->objectName() == "tab_wifi")
 		{
@@ -464,19 +464,19 @@ void setupDialog::on_buttonBox_clicked(QAbstractButton *button)
 			{
 				QClipboard *clipboard = QGuiApplication::clipboard();
 
-				((MainWindow*)parent())->sendUDP(QString(MIIO_CONFIG_ROUTER).arg(ssid).arg(key).arg("%1"));
+				reinterpret_cast<MainWindow*>(parent())->sendUDP(QString(MIIO_CONFIG_ROUTER).arg(ssid).arg(key).arg("%1"));
 
-				((MainWindow*)parent())->provisioning = false;
+				reinterpret_cast<MainWindow*>(parent())->provisioning = false;
 
 				QMessageBox::information(this, APPNAME, tr("Now extract and copy your new device token to clipboard.\nFor rooted devices you can use the integrated token extractor.\n\nWait until device has connected to your wifi and then press OK..."));
 
-				((MainWindow*)parent())->cfg.ip = "255.255.255.255";
-				((MainWindow*)parent())->cfg.token = "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF";
+				reinterpret_cast<MainWindow*>(parent())->cfg.ip = "255.255.255.255";
+				reinterpret_cast<MainWindow*>(parent())->cfg.token = "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF";
 
-				((MainWindow*)parent())->sendUDP(nullptr);
+				reinterpret_cast<MainWindow*>(parent())->sendUDP(nullptr);
 
-				lineEdit_ip->setText(((MainWindow*)parent())->cfg.ip);
-				lineEdit_token->setText(QString(((MainWindow*)parent())->cfg.token).toUpper());
+				lineEdit_ip->setText(reinterpret_cast<MainWindow*>(parent())->cfg.ip);
+				lineEdit_token->setText(QString(reinterpret_cast<MainWindow*>(parent())->cfg.token).toUpper());
 				lineEdit_token->setFocus();
 
 				if(clipboard->text().length() == 32)

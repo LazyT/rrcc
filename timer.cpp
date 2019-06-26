@@ -7,9 +7,9 @@ timerDialog::timerDialog(QWidget *parent) : QDialog(parent)
 	layout()->setSizeConstraint(QLayout::SetFixedSize);
 	setWindowFlags(windowFlags() | Qt::MSWindowsFixedSizeDialogHint);
 
-	if(((MainWindow*)parent)->robo.timers.size())
+	if(reinterpret_cast<MainWindow*>(parent)->robo.timers.size())
 	{
-		foreach(TIMER val, ((MainWindow*)parent)->robo.timers)
+		foreach(TIMER val, reinterpret_cast<MainWindow*>(parent)->robo.timers)
 		{
 			comboBox->addItem(QString("ID %1").arg(val.id), val.id);
 		}
@@ -53,9 +53,9 @@ void timerDialog::addTimer()
 
 void timerDialog::delTimer()
 {
-	if(((MainWindow*)parent())->sendUDP(QString(MIIO_DEL_TIMER).arg(comboBox->itemData(comboBox->currentIndex()).toLongLong()).arg("%1")))
+	if(reinterpret_cast<MainWindow*>(parent())->sendUDP(QString(MIIO_DEL_TIMER).arg(comboBox->itemData(comboBox->currentIndex()).toLongLong()).arg("%1")))
 	{
-		((MainWindow*)parent())->robo.timers.remove(comboBox->currentIndex(), 1);
+		reinterpret_cast<MainWindow*>(parent())->robo.timers.remove(comboBox->currentIndex(), 1);
 
 		comboBox->removeItem(comboBox->currentIndex());
 
@@ -68,19 +68,19 @@ void timerDialog::delTimer()
 
 void timerDialog::on_comboBox_currentIndexChanged(int index)
 {
-	if(((MainWindow*)parent())->robo.timers.size() && ((MainWindow*)parent())->robo.timers.size() > index)
+	if(reinterpret_cast<MainWindow*>(parent())->robo.timers.size() && reinterpret_cast<MainWindow*>(parent())->robo.timers.size() > index)
 	{
-		QStringList entries = ((MainWindow*)parent())->robo.timers.at(index).crontab.split(' ');
+		QStringList entries = reinterpret_cast<MainWindow*>(parent())->robo.timers.at(index).crontab.split(' ');
 
-		if(((MainWindow*)parent())->robo.timers.at(index).fanspeed > FANSPEED_TURBO)
+		if(reinterpret_cast<MainWindow*>(parent())->robo.timers.at(index).fanspeed > FANSPEED_TURBO)
 		{
 			comboBox_fanspeed->setCurrentIndex(3);
 		}
-		else if(((MainWindow*)parent())->robo.timers.at(index).fanspeed > FANSPEED_BALANCED)
+		else if(reinterpret_cast<MainWindow*>(parent())->robo.timers.at(index).fanspeed > FANSPEED_BALANCED)
 		{
 			comboBox_fanspeed->setCurrentIndex(2);
 		}
-		else if(((MainWindow*)parent())->robo.timers.at(index).fanspeed > FANSPEED_QUIET)
+		else if(reinterpret_cast<MainWindow*>(parent())->robo.timers.at(index).fanspeed > FANSPEED_QUIET)
 		{
 			comboBox_fanspeed->setCurrentIndex(1);
 		}
@@ -89,7 +89,7 @@ void timerDialog::on_comboBox_currentIndexChanged(int index)
 			comboBox_fanspeed->setCurrentIndex(0);
 		}
 
-		pushButton_state->setChecked(((MainWindow*)parent())->robo.timers.at(index).state == "off" ? 0 : 1);
+		pushButton_state->setChecked(reinterpret_cast<MainWindow*>(parent())->robo.timers.at(index).state == "off" ? 0 : 1);
 
 		dial_hour->setValue(entries.at(1) == "*" ? -1 : entries.at(1).toInt());
 		dial_minute->setValue(entries.at(0) == "*" ? -1 : entries.at(0).toInt());
@@ -182,11 +182,11 @@ void timerDialog::on_buttonBox_clicked(QAbstractButton *button)
 
 		QString crontab = QString("%1 %2 %3 %4 %5").arg(minute < 0 ? "*" : QString::number(minute)).arg(hour < 0 ? "*" : QString::number(hour)).arg(day == 0 ? "*" : QString::number(day)).arg(month == 0 ? "*" : QString::number(month)).arg(weekdays);
 
-		if(((MainWindow*)parent())->sendUDP(QString(MIIO_SET_TIMER).arg(comboBox->itemData(comboBox->currentIndex()).toLongLong()).arg(crontab).arg(fanspeeds[comboBox_fanspeed->currentIndex()]).arg("%1")))
+		if(reinterpret_cast<MainWindow*>(parent())->sendUDP(QString(MIIO_SET_TIMER).arg(comboBox->itemData(comboBox->currentIndex()).toLongLong()).arg(crontab).arg(fanspeeds[comboBox_fanspeed->currentIndex()]).arg("%1")))
 		{
 			if(!pushButton_state->isChecked())
 			{
-				((MainWindow*)parent())->sendUDP(QString(MIIO_UPD_TIMER).arg(comboBox->itemData(comboBox->currentIndex()).toLongLong()).arg("off").arg("%1"));
+				reinterpret_cast<MainWindow*>(parent())->sendUDP(QString(MIIO_UPD_TIMER).arg(comboBox->itemData(comboBox->currentIndex()).toLongLong()).arg("off").arg("%1"));
 			}
 
 			close();

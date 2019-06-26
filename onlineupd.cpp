@@ -103,7 +103,7 @@ void onlineUpdDialog::checkUpdate()
 		{
 			if(!silent)
 			{
-				QMessageBox::information((QWidget*)parent(), APPNAME, tr("No new version found."));
+				QMessageBox::information(reinterpret_cast<QWidget*>(parent()), APPNAME, tr("No new version found."));
 			}
 
 			close();
@@ -113,7 +113,7 @@ void onlineUpdDialog::checkUpdate()
 	{
 		if(!silent)
 		{
-			QMessageBox::warning((QWidget*)parent(), APPNAME, tr("Online update check failed!\n\n%1").arg(reply->errorString()));
+			QMessageBox::warning(reinterpret_cast<QWidget*>(parent()), APPNAME, tr("Online update check failed!\n\n%1").arg(reply->errorString()));
 		}
 
 		close();
@@ -157,9 +157,9 @@ void onlineUpdDialog::finished(QNetworkReply *reply)
 				if(QProcess::startDetached(file.fileName()))
 #endif
 				{
-					((MainWindow*)parent())->forceclose = true;
+					reinterpret_cast<MainWindow*>(parent())->forceclose = true;
 
-					((MainWindow*)parent())->close();
+					reinterpret_cast<MainWindow*>(parent())->close();
 				}
 				else
 				{
