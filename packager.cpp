@@ -147,7 +147,7 @@ void packagerDialog::startPackaging()
 		}
 		else
 		{
-			QFile save(QFileDialog::getSaveFileName(this, tr("Select file to save voice package"), QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) + "/rrcc-voice.pkg", "*.pkg", 0, QFileDialog::DontUseNativeDialog));
+			QFile save(QFileDialog::getSaveFileName(this, tr("Select file to save voice package"), QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) + "/rrcc-voice.pkg", "*.pkg", nullptr, QFileDialog::DontUseNativeDialog));
 
 			if(!save.fileName().isEmpty())
 			{

@@ -21,7 +21,7 @@ private:
 
 	void updateProgress();
 
-	QSshSocket *ssh = NULL;
+	QSshSocket *ssh = nullptr;
 	bool failed;
 	int step;
 

@@ -28,7 +28,7 @@ void uploadDialog::startUploading()
 	size = pkg.size();
 
 	server = new QTcpServer(this);
-	socket = 0;
+	socket = nullptr;
 
 	connect(server, SIGNAL(newConnection()), this, SLOT(newConnection()));
 

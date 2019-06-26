@@ -167,7 +167,7 @@ class MainWindow : public QMainWindow, private Ui::MainWindow
 
 public:
 
-	explicit MainWindow(QWidget *parent = 0);
+	explicit MainWindow(QWidget *parent = nullptr);
 
 	bool sendUDP(QString);
 	void parseJSON(int, QByteArray);
@@ -377,9 +377,9 @@ private:
 	QGraphicsScene *scene;
 	QPoint drag_pos, rubber_pos;
 	QRect zone_preview_rect = {0, 0, 0, 0};
-	QGraphicsPixmapItem *png_flag = NULL, *png_flag_lt = NULL, *png_flag_rt = NULL, *png_flag_lb = NULL, *png_flag_rb = NULL;
+	QGraphicsPixmapItem *png_flag = nullptr, *png_flag_lt = nullptr, *png_flag_rt = nullptr, *png_flag_lb = nullptr, *png_flag_rb = nullptr;
 	QPointF pos_flag, pos_flag_lt, pos_flag_rt, pos_flag_lb, pos_flag_rb;
-	QGraphicsRectItem *zone_preview_item = NULL;
+	QGraphicsRectItem *zone_preview_item = nullptr;
 	QMenu *menu_map, *menu_map_rotation, *menu_map_flipping, *menu_map_swapping;
 	QMenu *menu_map_delete;
 	QActionGroup *group_map;

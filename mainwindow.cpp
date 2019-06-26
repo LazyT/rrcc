@@ -141,12 +141,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 	if(cfg.token == "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" && cfg.ip == "255.255.255.255")
 	{
-		QMessageBox::information(NULL, APPNAME, tr("Please configure your device:\n\nIf your device is not provisioned yet connect to the wifi hotspot (\"roborock-vacuum...\") and then click OK.\n\nIf you have your token already simply click OK now."));
+		QMessageBox::information(nullptr, APPNAME, tr("Please configure your device:\n\nIf your device is not provisioned yet connect to the wifi hotspot (\"roborock-vacuum...\") and then click OK.\n\nIf you have your token already simply click OK now."));
 	}
 
 	findIP();
 
-	if(sendUDP(NULL))
+	if(sendUDP(nullptr))
 	{
 		if(provisioning || cfg.token == "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
 		{
@@ -421,7 +421,7 @@ bool MainWindow::sendUDP(QString data)
 
 	if(did.isEmpty() && !data.isEmpty())
 	{
-		if(!sendUDP(NULL))
+		if(!sendUDP(nullptr))
 		{
 			return false;
 		}
@@ -485,7 +485,7 @@ retry_once:
 
 			if(!data.contains("get_ota_state"))
 			{
-				QMessageBox::critical(isHidden() ? NULL : this, APPNAME, tr("Network connection timed out!\n\nPlease check ip / token / msgid..."));
+				QMessageBox::critical(isHidden() ? nullptr : this, APPNAME, tr("Network connection timed out!\n\nPlease check ip / token / msgid..."));
 			}
 
 			return false;
@@ -496,7 +496,7 @@ retry_once:
 
 	recv.resize(socket->pendingDatagramSize());
 
-	bytes = socket->readDatagram(recv.data(), recv.size(), &address, NULL);
+	bytes = socket->readDatagram(recv.data(), recv.size(), &address, nullptr);
 
 	time = timer.elapsed();
 
@@ -505,7 +505,7 @@ retry_once:
 		did = recv.mid(8, 4);
 		cnt = recv.mid(12, 4);
 
-		timediff = QDateTime::currentDateTime().toTime_t() - cnt.toHex().toUInt(NULL, 16);
+		timediff = QDateTime::currentDateTime().toTime_t() - cnt.toHex().toUInt(nullptr, 16);
 
 		if(recv.mid(16).toHex().toUpper() != "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
 		{
@@ -1234,7 +1234,7 @@ void MainWindow::on_actionUpdateFirmware_triggered()
 				return;
 			}
 try_again:
-			QFile file(QFileDialog::getOpenFileName(this, tr("Select firmware package to install"), QStandardPaths::writableLocation(QStandardPaths::DownloadLocation), "*.pkg", 0, QFileDialog::DontUseNativeDialog));
+			QFile file(QFileDialog::getOpenFileName(this, tr("Select firmware package to install"), QStandardPaths::writableLocation(QStandardPaths::DownloadLocation), "*.pkg", nullptr, QFileDialog::DontUseNativeDialog));
 
 			if(!file.fileName().isEmpty())
 			{
@@ -1773,7 +1773,7 @@ void MainWindow::aboutToHide()
 	{
 		scene->removeItem(zone_preview_item);
 
-		zone_preview_item = NULL;
+		zone_preview_item = nullptr;
 	}
 }
 
@@ -1925,7 +1925,7 @@ void MainWindow::setMatrix()
 
 	graphicsView->setMatrix(QMatrix(m11, m12, m21, m22, 0, 0));
 
-	emit resizeEvent(NULL);
+	emit resizeEvent(nullptr);
 }
 
 void MainWindow::resizeEvent(QResizeEvent*)
@@ -2290,7 +2290,7 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 		{
 			if(selected->objectName() == "actionMenu_Map_Reset")
 			{
-				emit resizeEvent(NULL);
+				emit resizeEvent(nullptr);
 			}
 			else if(selected->objectName() == "actionMenu_Map_Goto")
 			{

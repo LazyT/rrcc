@@ -16,7 +16,7 @@ private:
 
 	bool Download(QString);
 
-	QNetworkReply *reply = NULL;
+	QNetworkReply *reply = nullptr;
 	QByteArray download;
 
 	bool finish, failed;

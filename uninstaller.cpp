@@ -121,7 +121,7 @@ void uninstallerDialog::ssh_disconnected()
 	plainTextEdit->appendPlainText(tr("SSH: disconnected\n"));
 
 	delete ssh;
-	ssh = NULL;
+	ssh = nullptr;
 
 	failed ? QMessageBox::warning(this, APPNAME, tr("Valetudo uninstallation failed!")) : QMessageBox::information(this, APPNAME, tr("Valetudo uninstallation finished.\n\nRead log for details."));
 

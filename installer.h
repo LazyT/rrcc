@@ -44,9 +44,9 @@ private:
 	void mergeFiles(int);
 	void updateProgress();
 
-	QNetworkReply *reply = NULL;
+	QNetworkReply *reply = nullptr;
 	QByteArray download;
-	QSshSocket *ssh = NULL;
+	QSshSocket *ssh = nullptr;
 	bool finish, failed;
 	int step;
 

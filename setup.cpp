@@ -136,7 +136,7 @@ void setupDialog::timer_setVolume()
 
 void setupDialog::on_toolButton_sound_install_clicked()
 {
-	QFile file(QFileDialog::getOpenFileName(this, tr("Select voice package to install"), QStandardPaths::writableLocation(QStandardPaths::DownloadLocation), "*.pkg", 0, QFileDialog::DontUseNativeDialog));
+	QFile file(QFileDialog::getOpenFileName(this, tr("Select voice package to install"), QStandardPaths::writableLocation(QStandardPaths::DownloadLocation), "*.pkg", nullptr, QFileDialog::DontUseNativeDialog));
 
 	if(!file.fileName().isEmpty())
 	{
@@ -183,7 +183,7 @@ void setupDialog::on_toolButton_sound_pack_clicked()
 
 void setupDialog::on_toolButton_sound_unpack_clicked()
 {
-	QFile file_pkg(QFileDialog::getOpenFileName(this, tr("Select voice package to unpack"), QStandardPaths::writableLocation(QStandardPaths::DownloadLocation), "*.pkg", 0, QFileDialog::DontUseNativeDialog));
+	QFile file_pkg(QFileDialog::getOpenFileName(this, tr("Select voice package to unpack"), QStandardPaths::writableLocation(QStandardPaths::DownloadLocation), "*.pkg", nullptr, QFileDialog::DontUseNativeDialog));
 
 	if(!file_pkg.fileName().isEmpty())
 	{
@@ -258,7 +258,7 @@ void setupDialog::on_groupBox_ssh_keyfile_clicked(bool checked)
 
 void setupDialog::on_toolButton_ssh_keyfile_clicked()
 {
-	QFile file_key(QFileDialog::getOpenFileName(this, tr("Select private keyfile for ssh login"), QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/.ssh", "*", 0, QFileDialog::DontUseNativeDialog));
+	QFile file_key(QFileDialog::getOpenFileName(this, tr("Select private keyfile for ssh login"), QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/.ssh", "*", nullptr, QFileDialog::DontUseNativeDialog));
 
 	if(!file_key.fileName().isEmpty())
 	{
@@ -473,7 +473,7 @@ void setupDialog::on_buttonBox_clicked(QAbstractButton *button)
 				((MainWindow*)parent())->cfg.ip = "255.255.255.255";
 				((MainWindow*)parent())->cfg.token = "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF";
 
-				((MainWindow*)parent())->sendUDP(NULL);
+				((MainWindow*)parent())->sendUDP(nullptr);
 
 				lineEdit_ip->setText(((MainWindow*)parent())->cfg.ip);
 				lineEdit_token->setText(QString(((MainWindow*)parent())->cfg.token).toUpper());

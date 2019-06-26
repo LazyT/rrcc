@@ -144,7 +144,7 @@ void loggerDialog::on_buttonBox_clicked(QAbstractButton *button)
 {
     if(buttonBox->standardButton(button) == QDialogButtonBox::Save)
     {
-		QFile logfile(QFileDialog::getSaveFileName(this, tr("Select file to save log"), LOG, "*.*", 0, QFileDialog::DontUseNativeDialog));
+		QFile logfile(QFileDialog::getSaveFileName(this, tr("Select file to save log"), LOG, "*.*", nullptr, QFileDialog::DontUseNativeDialog));
 
 		if(!logfile.fileName().isEmpty())
 		{

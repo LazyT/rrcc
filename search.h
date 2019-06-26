@@ -15,7 +15,7 @@ public:
 private:
 
 	QNetworkRequest request;
-	QNetworkReply *reply = NULL;
+	QNetworkReply *reply = nullptr;
 	int counter;
 	int version;
 	bool abort;

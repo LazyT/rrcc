@@ -28,7 +28,7 @@ void updateDialog::startUpdating()
 	size = pkg.size();
 
 	server = new QTcpServer(this);
-	socket = 0;
+	socket = nullptr;
 
 	connect(server, SIGNAL(newConnection()), this, SLOT(newConnection()));
 
@@ -141,7 +141,7 @@ void updateDialog::disconnected()
 
 	((MainWindow*)parent())->robo.ota.state == "failed" ? QMessageBox::warning(this, APPNAME, tr("Firmware update failed!")) : QMessageBox::information(this, APPNAME, tr("Firmware update successful."));
 
-	((MainWindow*)parent())->sendUDP(NULL);
+	((MainWindow*)parent())->sendUDP(nullptr);
 
 	close();
 }
