@@ -9,7 +9,7 @@ historyDialog::historyDialog(QWidget *parent) : QDialog(parent)
 
 	foreach(int id, ((MainWindow*)parent)->robo.cleansummary.id)
 	{
-		record = QDateTime::fromTime_t(id);
+		record = QDateTime::fromTime_t(static_cast<uint>(id));
 
 		comboBox->addItem(record.toString("dddd, dd.MM.yyyy - hh:mm"), id);
 	}
@@ -25,10 +25,10 @@ void historyDialog::on_comboBox_currentIndexChanged(int index)
 
 		label_state->setPixmap((((MainWindow*)parent())->robo.cleanrecord.complete ? QPixmap(":/png/png/complete.png") : QPixmap(":/png/png/canceled.png")));
 
-		record = QDateTime::fromTime_t(((MainWindow*)parent())->robo.cleanrecord.begin);
+		record = QDateTime::fromTime_t(static_cast<uint>(((MainWindow*)parent())->robo.cleanrecord.begin));
 		lcdNumber_start->display(record.toString("hh:mm:ss"));
 
-		record = QDateTime::fromTime_t(((MainWindow*)parent())->robo.cleanrecord.finish);
+		record = QDateTime::fromTime_t(static_cast<uint>(((MainWindow*)parent())->robo.cleanrecord.finish));
 		lcdNumber_stop->display(record.toString("hh:mm:ss"));
 
 		lcdNumber_duration->display(time.toString("hh:mm:ss"));

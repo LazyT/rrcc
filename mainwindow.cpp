@@ -460,7 +460,7 @@ retry_once:
 		socket->bind(QHostAddress(src_ip));
 	}
 
-	bytes = socket->writeDatagram(send, QHostAddress(cfg.ip), 54321);
+	bytes = static_cast<quint64>(socket->writeDatagram(send, QHostAddress(cfg.ip), 54321));
 
 	((loggerDialog*)logger)->log(src_ip, cfg.ip, QString::number(bytes), QString("1 ms"), data.isEmpty() ? "{'HELLO?'}" : data.arg(cfg.msgid - 1), QString(send.toHex().toUpper()));
 
@@ -494,9 +494,9 @@ retry_once:
 		QThread::msleep(1);
 	}
 
-	recv.resize(socket->pendingDatagramSize());
+	recv.resize(static_cast<int>(socket->pendingDatagramSize()));
 
-	bytes = socket->readDatagram(recv.data(), recv.size(), &address, nullptr);
+	bytes = static_cast<quint64>(socket->readDatagram(recv.data(), recv.size(), &address, nullptr));
 
 	time = timer.elapsed();
 
@@ -1488,13 +1488,13 @@ void MainWindow::drawMapFromJson(QByteArray map)
 		scene->addRect(x1, y1, 1, 1, QPen(QColor(96, 160, 255, 255), 3, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
 	}
 
-	x1 = path_points[0].toArray().at(0).toInt() / MAPFACTOR;
-	y1 = path_points[0].toArray().at(1).toInt() / MAPFACTOR;
+	x1 = static_cast<int>(path_points[0].toArray().at(0).toInt() / MAPFACTOR);
+	y1 = static_cast<int>(path_points[0].toArray().at(1).toInt() / MAPFACTOR);
 
 	foreach(QJsonValue val, path_points)
 	{
-		x2 = val[0].toInt() / MAPFACTOR;
-		y2 = val[1].toInt() / MAPFACTOR;
+		x2 = static_cast<int>(val[0].toInt() / MAPFACTOR);
+		y2 = static_cast<int>(val[1].toInt() / MAPFACTOR);
 
 		if(!(x1 == x2 && y1 == y2))
 		{
@@ -1755,7 +1755,7 @@ void MainWindow::hovered(QAction *action)
 		index++;
 	}
 
-	zone_preview_rect = QRect((cfg.swap_x ? cfg.zones.at(index).x1 : MAPSIZE - cfg.zones.at(index).x2) / MAPFACTOR, (cfg.swap_y ? cfg.zones.at(index).y1 : MAPSIZE - cfg.zones.at(index).y2) / MAPFACTOR, qAbs(cfg.zones.at(index).x1 - cfg.zones.at(index).x2) / MAPFACTOR, qAbs(cfg.zones.at(index).y1 - cfg.zones.at(index).y2) / MAPFACTOR);
+	zone_preview_rect = QRect(static_cast<int>((cfg.swap_x ? cfg.zones.at(index).x1 : MAPSIZE - cfg.zones.at(index).x2) / MAPFACTOR), static_cast<int>((cfg.swap_y ? cfg.zones.at(index).y1 : MAPSIZE - cfg.zones.at(index).y2) / MAPFACTOR), static_cast<int>(qAbs(cfg.zones.at(index).x1 - cfg.zones.at(index).x2) / MAPFACTOR), static_cast<int>(qAbs(cfg.zones.at(index).y1 - cfg.zones.at(index).y2) / MAPFACTOR));
 
 	if(zone_preview_item)
 	{
@@ -1838,11 +1838,11 @@ void MainWindow::getScale()
 {
 	QMatrix matrix = graphicsView->matrix();
 
-	if(matrix.m11() != 0)
+	if(matrix.m11() != 0.0)
 	{
 		scale = qAbs(matrix.m11());
 	}
-	else if(matrix.m12() != 0)
+	else if(matrix.m12() != 0.0)
 	{
 		scale = qAbs(matrix.m12());
 	}
@@ -2099,10 +2099,10 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 
 			rubberBand->hide();
 
-			x1 = cfg.swap_x ? src.x() : MAPSIZE - src.x();
-			y1 = cfg.swap_y ? src.y() : MAPSIZE - src.y();
-			x2 = cfg.swap_x ? dst.x() : MAPSIZE - dst.x();
-			y2 = cfg.swap_y ? dst.y() : MAPSIZE - dst.y();
+			x1 = static_cast<int>(cfg.swap_x ? src.x() : MAPSIZE - src.x());
+			y1 = static_cast<int>(cfg.swap_y ? src.y() : MAPSIZE - src.y());
+			x2 = static_cast<int>(cfg.swap_x ? dst.x() : MAPSIZE - dst.x());
+			y2 = static_cast<int>(cfg.swap_y ? dst.y() : MAPSIZE - dst.y());
 
 			if(x1 > x2)
 			{
@@ -2295,8 +2295,8 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 			else if(selected->objectName() == "actionMenu_Map_Goto")
 			{
 				QPointF pos = graphicsView->mapToScene(graphicsView->mapFromGlobal(event->globalPos())) * MAPFACTOR;
-				int x = pos.x();
-				int y = pos.y();
+				int x = static_cast<int>(pos.x());
+				int y = static_cast<int>(pos.y());
 
 				if(png_flag)
 				{

@@ -9,7 +9,7 @@ onlineUpdDialog::onlineUpdDialog(QWidget *parent, bool mode) : QDialog(parent)
 
 	silent = mode;
 
-	textEdit->setFixedHeight(5 * textEdit->fontMetrics().height() + textEdit->document()->documentMargin() + 2);
+	textEdit->setFixedHeight(5 * textEdit->fontMetrics().height() + static_cast<int>(textEdit->document()->documentMargin()) + 2);
 
 	buttonBox->button(QDialogButtonBox::Cancel)->setText(tr("Ignore"));
 	buttonBox->button(QDialogButtonBox::Apply)->setText(tr("Update"));
@@ -124,7 +124,7 @@ void onlineUpdDialog::downloadProgress(qint64 bytesReceived, qint64 bytesTotal)
 {
 	if(bytesReceived && bytesTotal)
 	{
-		progressBar->setValue((100 * bytesReceived) / bytesTotal);
+		progressBar->setValue(static_cast<int>((100 * bytesReceived) / bytesTotal));
 		progressBar->setFormat(QString("%p% [ %1 / %2 ]").arg(bytesReceived).arg(bytesTotal));
 	}
 }

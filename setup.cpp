@@ -12,7 +12,7 @@ setupDialog::setupDialog(QWidget *parent) : QDialog(parent)
 	lineEdit_ip->setValidator(new QRegExpValidator(QRegExp("(([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\\.){3}([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])")));
 	lineEdit_token->setValidator(new QRegExpValidator(QRegExp("[0-9a-fA-F]{32}")));
 
-	spinBox_id->setValue(((MainWindow*)parent)->cfg.msgid);
+	spinBox_id->setValue(static_cast<int>(((MainWindow*)parent)->cfg.msgid));
 	lineEdit_ip->setText(((MainWindow*)parent)->cfg.ip);
 	lineEdit_token->setText(QString(((MainWindow*)parent)->cfg.token).toUpper());
 

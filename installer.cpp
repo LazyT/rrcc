@@ -213,22 +213,22 @@ void installerDialog::downloadProgress(qint64 bytesReceived, qint64 bytesTotal)
 		if(step == 1)
 		{
 			progressBar_download_bin->setFormat(QString("%1 / %2").arg(bytesReceived).arg(bytesTotal));
-			progressBar_download_bin->setValue((bytesReceived * 100) / bytesTotal);
+			progressBar_download_bin->setValue(static_cast<int>((bytesReceived * 100) / bytesTotal));
 		}
 		else if(step == 2)
 		{
 			progressBar_download_cfg->setFormat(QString("%1 / %2").arg(bytesReceived).arg(bytesTotal));
-			progressBar_download_cfg->setValue((bytesReceived * 100) / bytesTotal);
+			progressBar_download_cfg->setValue(static_cast<int>((bytesReceived * 100) / bytesTotal));
 		}
 		else if(step == 3)
 		{
 			progressBar_download_hosts_github->setFormat(QString("%1 / %2").arg(bytesReceived).arg(bytesTotal));
-			progressBar_download_hosts_github->setValue((bytesReceived * 100) / bytesTotal);
+			progressBar_download_hosts_github->setValue(static_cast<int>((bytesReceived * 100) / bytesTotal));
 		}
 		else if(step == 4)
 		{
 			progressBar_download_rclocal_github->setFormat(QString("%1 / %2").arg(bytesReceived).arg(bytesTotal));
-			progressBar_download_rclocal_github->setValue((bytesReceived * 100) / bytesTotal);
+			progressBar_download_rclocal_github->setValue(static_cast<int>((bytesReceived * 100) / bytesTotal));
 		}
 	}
 }

@@ -40,9 +40,9 @@ void unpackagerDialog::startUnpackaging()
 	tgz.resize(pkg.size() - 32);
 
 	ccrypt.next_in = pkg.data();
-	ccrypt.avail_in = pkg.size();
+	ccrypt.avail_in = static_cast<uint>(pkg.size());
 	ccrypt.next_out = tgz.data();
-	ccrypt.avail_out = tgz.size();
+	ccrypt.avail_out = static_cast<uint>(tgz.size());
 
 	progressBar_decrypt->setValue(50);
 

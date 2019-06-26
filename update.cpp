@@ -92,7 +92,7 @@ void updateDialog::readyRead()
 
 	header = QString("HTTP/1.1 200 OK\r\nDate: %1 GMT\r\nContent-Type: application/octet-stream\r\nContent-Length: %2\r\nConnection: close\r\n\r\n").arg(QLocale("en_US").toString(QDateTime::currentDateTime().toUTC(), "ddd, dd MMM yyyy hh:mm:ss")).arg(size).toUtf8();
 
-	total = header.size() * -1;
+	total = static_cast<quint64>(header.size() * -1);
 
 	socket->write(header);
 	socket->write(pkg);
@@ -100,9 +100,9 @@ void updateDialog::readyRead()
 
 void updateDialog::bytesWritten(qint64 byte)
 {
-	total += byte;
+	total += static_cast<quint64>(byte);
 
-	progressBar_upload->setValue((100 * total) / size);
+	progressBar_upload->setValue(static_cast<int>((100 * total) / static_cast<quint64>(size)));
 	label_bytes->setText(QString("%1 / %2 Byte").arg(total).arg(size));
 }
 

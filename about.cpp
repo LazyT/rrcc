@@ -12,7 +12,7 @@ aboutDialog::aboutDialog(QWidget *parent) : QDialog(parent)
 	textEdit->setAlignment(Qt::AlignCenter);
 	textEdit->textCursor().insertText(tr("This program is Freeware and may be installed and used free of charge for non-commercial use on as many computers as you like without limitations.\n\nA liability for any damages resulting from the use is excluded. Use at your own risk!"));
 	textEdit->moveCursor(QTextCursor::Start);
-	textEdit->setFixedHeight(5 * textEdit->fontMetrics().height() + textEdit->document()->documentMargin() + 2);
+	textEdit->setFixedHeight(5 * textEdit->fontMetrics().height() + static_cast<int>(textEdit->document()->documentMargin()) + 2);
 }
 
 void aboutDialog::mouseReleaseEvent(QMouseEvent *me)

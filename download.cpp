@@ -61,7 +61,7 @@ void downloadDialog::downloadProgress(qint64 bytesReceived, qint64 bytesTotal)
 	if(bytesTotal)
 	{
 		progressBar->setFormat(QString("%p% [%1 / %2]").arg(bytesReceived).arg(bytesTotal));
-		progressBar->setValue((bytesReceived * 100) / bytesTotal);
+		progressBar->setValue(static_cast<int>((bytesReceived * 100) / bytesTotal));
 	}
 }
 

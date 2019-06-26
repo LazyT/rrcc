@@ -112,9 +112,9 @@ void packagerDialog::startPackaging()
 	pkg.resize(32 + tgz.size());
 
 	ccrypt.next_in = tgz.data();
-	ccrypt.avail_in = tgz.size();
+	ccrypt.avail_in = static_cast<uint>(tgz.size());
 	ccrypt.next_out = pkg.data();
-	ccrypt.avail_out = pkg.size();
+	ccrypt.avail_out = static_cast<uint>(pkg.size());
 
 	progressBar_encrypt->setValue(50);
 
