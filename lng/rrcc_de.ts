@@ -71,8 +71,8 @@
     </message>
     <message>
         <location filename="../res/ui/converter.ui" line="24"/>
-        <source>Paste your 96 Byte Token to convert into 32 Byte Token</source>
-        <translation>96 Byte Token einfügen um in 32 Byte Token umzuwandeln</translation>
+        <source>Paste your 96 / 16 Byte Token to convert into 32 Byte Token</source>
+        <translation>96 / 16 Byte Token einfügen um in 32 Byte Token umzuwandeln</translation>
     </message>
     <message>
         <location filename="../res/ui/converter.ui" line="36"/>
@@ -81,6 +81,11 @@
     </message>
     <message>
         <location filename="../res/ui/converter.ui" line="52"/>
+        <source>16 Byte Token</source>
+        <translation>16 Byte Token</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/converter.ui" line="65"/>
         <source>32 Byte Token</source>
         <translation>32 Byte Token</translation>
     </message>
@@ -535,8 +540,8 @@
     </message>
     <message>
         <location filename="../res/ui/setup.ui" line="186"/>
-        <source>Convert 96 Byte to 32 Byte Token</source>
-        <translation>Umwandeln von 96 Byte in 32 Byte Token</translation>
+        <source>Convert 96 / 16 Byte to 32 Byte Token</source>
+        <translation>Umwandeln von 96 / 16 Byte in 32 Byte Token</translation>
     </message>
     <message>
         <location filename="../res/ui/setup.ui" line="214"/>
@@ -2102,22 +2107,22 @@ Möchten Sie trotzdem die weitere Entwicklung des Projektes unterstützen?</tran
 %1</translation>
     </message>
     <message>
-        <location filename="../download.cpp" line="100"/>
+        <location filename="../download.cpp" line="103"/>
         <source>Really abort download?</source>
         <translation>Download wirklich abbrechen?</translation>
     </message>
     <message>
-        <location filename="../download.cpp" line="117"/>
+        <location filename="../download.cpp" line="120"/>
         <source>Enter valid firmware name!</source>
         <translation>Gültigen Firmwarenamen eingeben!</translation>
     </message>
     <message>
-        <location filename="../download.cpp" line="134"/>
+        <location filename="../download.cpp" line="137"/>
         <source>Downloading firmware successfull.</source>
         <translation>Herunterladen der Firmware erfolgreich.</translation>
     </message>
     <message>
-        <location filename="../download.cpp" line="147"/>
+        <location filename="../download.cpp" line="150"/>
         <source>Could not open firmware file!
 
 %1 : %2</source>

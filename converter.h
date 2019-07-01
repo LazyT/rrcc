@@ -15,6 +15,7 @@ public:
 private slots:
 
 	void on_lineEdit_96_textChanged(QString);
+	void on_lineEdit_16_textChanged(QString);
 
 	void on_buttonBox_clicked(QAbstractButton*);
 };

@@ -183,7 +183,7 @@
           <item>
            <widget class="QToolButton" name="toolButton_convert">
             <property name="toolTip">
-             <string>Convert 96 Byte to 32 Byte Token</string>
+             <string>Convert 96 / 16 Byte to 32 Byte Token</string>
             </property>
             <property name="text">
              <string/>
