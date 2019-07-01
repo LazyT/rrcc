@@ -14,6 +14,14 @@ public:
 
 private:
 
+	struct
+	{
+		QString names[3] = { FW_NAME_G1, FW_NAME_G2, FW_NAME_G3 };
+		QString dirs[3] = { FW_DIR_G1, FW_DIR_G2, FW_DIR_G3 };
+		int versions[3] = { FW_VER_G1, FW_VER_G2, FW_VER_G3 };
+
+	}fw;
+
 	QNetworkRequest request;
 	QNetworkReply *reply = nullptr;
 	int counter;

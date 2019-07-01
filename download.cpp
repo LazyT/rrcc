@@ -88,6 +88,14 @@ void downloadDialog::finished(QNetworkReply *reply)
 	failed = false;
 }
 
+void downloadDialog::on_comboBox_model_currentIndexChanged(int index)
+{
+	lineEdit->setText(fw.names[index]);
+
+	lineEdit->setFocus();
+	lineEdit->setSelection(index == 2 ? 3 : 6, 4);
+}
+
 void downloadDialog::reject()
 {
 	if(reply && reply->isRunning())
@@ -107,7 +115,7 @@ void downloadDialog::on_buttonBox_clicked(QAbstractButton *button)
 {
 	if(buttonBox->standardButton(button) == QDialogButtonBox::Save)
 	{
-		if(lineEdit->text() == "v11_00????.fullos.pkg")
+		if(lineEdit->text() == FW_NAME_G1 || lineEdit->text() == FW_NAME_G2 || lineEdit->text() == FW_NAME_G3)
 		{
 			QMessageBox::warning(this, APPNAME, tr("Enter valid firmware name!"));
 
@@ -120,7 +128,7 @@ void downloadDialog::on_buttonBox_clicked(QAbstractButton *button)
 		{
 			button->setDisabled(true);
 
-			if(!Download(QString("http://%1/%2/%3").arg(comboBox_server->currentText()).arg(comboBox_model->currentIndex() ? "rubys/updpkg" : "updpkg").arg(lineEdit->text())))
+			if(!Download(QString("http://%1/%2/%3").arg(comboBox_server->currentText()).arg(fw.dirs[comboBox_model->currentIndex()]).arg(lineEdit->text())))
 			{
 				firmware.write(download);
 

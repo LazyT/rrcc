@@ -49,8 +49,10 @@ void searchDialog::metaDataChanged()
 
 void searchDialog::on_comboBox_model_currentIndexChanged(int index)
 {
-	spinBox_Start->setValue(index ? 1768 : 3468);
-	spinBox_Stop->setValue(spinBox_Start->value() + 100);
+	spinBox_Start->setValue(fw.versions[index]);
+	spinBox_Stop->setValue(spinBox_Start->value() + 99);
+
+	lineEdit->setText(fw.names[index]);
 }
 
 void searchDialog::on_treeWidget_itemDoubleClicked(QTreeWidgetItem *item, __attribute__((unused)) int column)
@@ -94,7 +96,7 @@ void searchDialog::on_buttonBox_clicked(QAbstractButton *button)
 
 		counter = spinBox_Stop->value() - spinBox_Start->value() + 1;
 
-		if(counter > 101)
+		if(counter > 100)
 		{
 			if(QMessageBox::warning(this, APPNAME, tr("Scanning more than 100 versions takes a long time and is not recommended!\n\nContinue anyway?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::No)
 			{
@@ -110,7 +112,7 @@ void searchDialog::on_buttonBox_clicked(QAbstractButton *button)
 		progressBar->setValue(0);
 
 		QNetworkAccessManager *netmgr = new QNetworkAccessManager(this);
-		request = QNetworkRequest(QUrl(QString("http://%1/%2/%3").arg(comboBox_server->currentText()).arg(comboBox_model->currentIndex() ? "rubys/updpkg" : "updpkg").arg(lineEdit->text().replace("????", QString::number(version).rightJustified(4, '0')))));
+		request = QNetworkRequest(QUrl(QString("http://%1/%2/%3").arg(comboBox_server->currentText()).arg(fw.dirs[comboBox_model->currentIndex()]).arg(lineEdit->text().replace("????", QString::number(version).rightJustified(4, '0')))));
 
 		abort = false;
 
@@ -127,7 +129,7 @@ void searchDialog::on_buttonBox_clicked(QAbstractButton *button)
 
 			version++;
 
-			request.setUrl(QUrl(QString("http://%1/%2/%3").arg(comboBox_server->currentText()).arg(comboBox_model->currentIndex() ? "rubys/updpkg" : "updpkg").arg(lineEdit->text().replace("????", QString::number(version).rightJustified(4, '0')))));
+			request.setUrl(QUrl(QString("http://%1/%2/%3").arg(comboBox_server->currentText()).arg(fw.dirs[comboBox_model->currentIndex()]).arg(lineEdit->text().replace("????", QString::number(version).rightJustified(4, '0')))));
 
 		}while(!abort && version <= spinBox_Stop->value());
 

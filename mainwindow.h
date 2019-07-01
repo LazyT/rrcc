@@ -5,6 +5,16 @@
 #define APPVERS "0.8.6"
 #define APPDATE "15.06.2019"
 
+#define FW_NAME_G1 "v11_00????.fullos.pkg"
+#define FW_NAME_G2 "v11_00????.fullos.pkg"
+#define FW_NAME_G3 "t6_????.fullos.pkg"
+#define FW_DIR_G1 "updpkg"
+#define FW_DIR_G2 "rubys/updpkg"
+#define FW_DIR_G3 "tanos/updpkg"
+#define FW_VER_G1 3468
+#define FW_VER_G2 1768
+#define FW_VER_G3 412
+
 #include <QApplication>
 #include <QMainWindow>
 #include <QScreen>
