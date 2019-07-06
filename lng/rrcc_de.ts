@@ -85,7 +85,7 @@
         <translation>16 Byte Token</translation>
     </message>
     <message>
-        <location filename="../res/ui/converter.ui" line="65"/>
+        <location filename="../res/ui/converter.ui" line="72"/>
         <source>32 Byte Token</source>
         <translation>32 Byte Token</translation>
     </message>
@@ -2232,6 +2232,30 @@ Möchten Sie trotzdem die weitere Entwicklung des Projektes unterstützen?</tran
         <location filename="../history.h" line="38"/>
         <source>Unpowered charging station</source>
         <translation>Ladestation ohne Stromzufuhr</translation>
+    </message>
+    <message>
+        <location filename="../history.cpp" line="10"/>
+        <source>Export</source>
+        <translation>Export</translation>
+    </message>
+    <message>
+        <location filename="../history.cpp" line="69"/>
+        <source>Select file to export cleaning history</source>
+        <translation>Datei für den Export des Reinigungsverlauf auswählen</translation>
+    </message>
+    <message>
+        <location filename="../history.cpp" line="78"/>
+        <source>Cleaning history successfully exported.</source>
+        <translation>Reinigungsverlauf erfolgreich exportiert.</translation>
+    </message>
+    <message>
+        <location filename="../history.cpp" line="82"/>
+        <source>Could not open csv export!
+
+%1 : %2</source>
+        <translation>CSV Export konnte nicht geöffnet werden!
+
+%1 : %2</translation>
     </message>
 </context>
 <context>

@@ -7,6 +7,8 @@ historyDialog::historyDialog(QWidget *parent) : QDialog(parent)
 	layout()->setSizeConstraint(QLayout::SetFixedSize);
 	setWindowFlags(windowFlags() | Qt::MSWindowsFixedSizeDialogHint);
 
+	buttonBox->button(QDialogButtonBox::Save)->setText(tr("Export"));
+
 	foreach(int id, reinterpret_cast<MainWindow*>(parent)->robo.cleansummary.id)
 	{
 		record = QDateTime::fromTime_t(static_cast<uint>(id));
@@ -42,5 +44,47 @@ void historyDialog::on_comboBox_currentIndexChanged(int index)
 
 void historyDialog::on_buttonBox_clicked(__attribute__((unused)) QAbstractButton *button)
 {
-	close();
+	if(buttonBox->standardButton(button) == QDialogButtonBox::Save)
+	{
+		QString data("ID;DATE;BEGIN;FINISH;DURATION;AREA;ERROR;COMPLETE\n");
+
+		foreach(int id, reinterpret_cast<MainWindow*>(parent())->robo.cleansummary.id)
+		{
+			if(reinterpret_cast<MainWindow*>(parent())->sendUDP(QString(MIIO_GET_CLEAN_RECORD).arg(id).arg("%1")))
+			{
+				QTime time(0, 0, 0, 0);
+
+				time = time.addSecs(reinterpret_cast<MainWindow*>(parent())->robo.cleanrecord.duration);
+
+				data.append(QString("%1;%2;%3;%4;%5;%6;%7;%8\n").arg(id).arg(QDateTime::fromTime_t(static_cast<uint>(reinterpret_cast<MainWindow*>(parent())->robo.cleanrecord.begin)).toString("dd.MM.yyyy")).arg(QDateTime::fromTime_t(static_cast<uint>(reinterpret_cast<MainWindow*>(parent())->robo.cleanrecord.begin)).toString("hh:mm:ss")).arg(QDateTime::fromTime_t(static_cast<uint>(reinterpret_cast<MainWindow*>(parent())->robo.cleanrecord.finish)).toString("hh:mm:ss")).arg(time.toString("hh:mm:ss")).arg(reinterpret_cast<MainWindow*>(parent())->robo.cleanrecord.area / 1000000.0).arg(error_strings.at(reinterpret_cast<MainWindow*>(parent())->robo.cleanrecord.error)).arg(reinterpret_cast<MainWindow*>(parent())->robo.cleanrecord.complete));
+			}
+			else
+			{
+				QMessageBox::warning(this, APPNAME, "Communication error during export!");
+
+				break;
+			}
+		}
+
+		QFile csv(QFileDialog::getSaveFileName(this, tr("Select file to export cleaning history"), QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation), "*.csv", nullptr, QFileDialog::DontUseNativeDialog));
+
+		if(!csv.fileName().isEmpty())
+		{
+			if(csv.open(QIODevice::WriteOnly | QIODevice::Text))
+			{
+				csv.write(data.toUtf8());
+				csv.close();
+
+				QMessageBox::information(this, APPNAME, tr("Cleaning history successfully exported."));
+			}
+			else
+			{
+				QMessageBox::warning(this, APPNAME, tr("Could not open csv export!\n\n%1 : %2").arg(csv.fileName()).arg(csv.errorString()));
+			}
+		}
+	}
+	else if(buttonBox->standardButton(button) == QDialogButtonBox::Close)
+	{
+		close();
+	}
 }

@@ -185,7 +185,7 @@
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
-      <set>QDialogButtonBox::Close</set>
+      <set>QDialogButtonBox::Close|QDialogButtonBox::Save</set>
      </property>
     </widget>
    </item>
