@@ -16,7 +16,8 @@ private slots:
 
 	void on_buttonBox_clicked(QAbstractButton*);
 
-	void on_comboBox_zone_currentIndexChanged(int index);
+	void on_comboBox_zone_currentIndexChanged(int);
+	void on_comboBox_goto_currentIndexChanged(int);
 };
 
 #endif // ZONESDLG_H

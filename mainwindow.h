@@ -171,6 +171,13 @@ struct VIRTWALL
 	int y2;
 };
 
+struct GOTO
+{
+	QString label;
+	int x;
+	int y;
+};
+
 class MainWindow : public QMainWindow, private Ui::MainWindow
 {
 	Q_OBJECT
@@ -182,7 +189,7 @@ public:
 	bool sendUDP(QString);
 	void parseJSON(int, QByteArray);
 
-	QMenu *menu_map_zones;
+	QMenu *menu_map_zones, *menu_map_gotos;
 	QByteArray did, cnt;
 	uint timediff;
 	QString src_ip;
@@ -243,6 +250,7 @@ public:
 		bool swap_y;
 		int rotate;
 		QVector<CLEANZONE> zones;
+		QVector<GOTO> gotos;
 
 	}cfg;
 
@@ -417,7 +425,7 @@ private slots:
 	void on_actionLogger_triggered();
 	void on_actionTimer_triggered();
 	void on_actionHistory_triggered();
-	void on_actionZones_triggered();
+	void on_actionEditor_triggered();
 	void on_actionValetudoVersion_triggered();
 	void on_actionValetudoInstall_triggered();
 	void on_actionValetudoUninstall_triggered();
@@ -457,8 +465,10 @@ private slots:
 	void websocketTextMessageReceived(QString);
 	void websocketError(QAbstractSocket::SocketError);
 
-	void hovered(QAction*);
-	void aboutToHide();
+	void hoveredGoto(QAction*);
+	void hoveredZone(QAction*);
+	void aboutToHideGoto();
+	void aboutToHideZone();
 
 	void ssh_connected();
 	void ssh_disconnected();

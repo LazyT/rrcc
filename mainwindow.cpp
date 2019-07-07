@@ -58,17 +58,30 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	toolBar->insertSeparator(actionSetup);
 
 	menu_map = new QMenu(this);
+	menu_map_gotos = new QMenu(tr("Goto Position"), this);
 	menu_map_zones = new QMenu(tr("Zone Cleaning"), this);
 	menu_map_rotation = new QMenu(tr("Rotation"), this);
 	menu_map_flipping = new QMenu(tr("Flipping"), this);
 	menu_map_swapping = new QMenu(tr("Swapping"), this);
+	menu_map_gotos->setIcon(QIcon(":/png/png/goto.png"));
 	menu_map_zones->setIcon(QIcon(":/png/png/zone.png"));
 	menu_map_rotation->setIcon(QIcon(":/png/png/rotate.png"));
 	menu_map_flipping->setIcon(QIcon(":/png/png/flip.png"));
 	menu_map_swapping->setIcon(QIcon(":/png/png/swap.png"));
 
-	connect(menu_map_zones, SIGNAL(hovered(QAction*)), this, SLOT(hovered(QAction*)));
-	connect(menu_map_zones, SIGNAL(aboutToHide()), this, SLOT(aboutToHide()));
+	connect(menu_map_gotos, SIGNAL(hovered(QAction*)), this, SLOT(hoveredGoto(QAction*)));
+	connect(menu_map_gotos, SIGNAL(aboutToHide()), this, SLOT(aboutToHideGoto()));
+	connect(menu_map_zones, SIGNAL(hovered(QAction*)), this, SLOT(hoveredZone(QAction*)));
+	connect(menu_map_zones, SIGNAL(aboutToHide()), this, SLOT(aboutToHideZone()));
+
+	foreach(GOTO gotO, cfg.gotos)
+	{
+		QAction *action = new QAction(QIcon(":/png/png/goto.png"), gotO.label, this);
+
+		action->setStatusTip(tr("Goto %1").arg(gotO.label));
+
+		menu_map_gotos->addAction(action);
+	}
 
 	foreach(CLEANZONE zone, cfg.zones)
 	{
@@ -91,6 +104,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	menu_map->addAction(actionMenu_Map_Reset);
 	menu_map->addSeparator();
 	menu_map->addAction(actionMenu_Map_Goto);
+	menu_map->addMenu(menu_map_gotos);
 	menu_map->addSeparator();
 	menu_map->addMenu(menu_map_zones);
 	menu_map->addSeparator();
@@ -191,6 +205,7 @@ void MainWindow::getConfig()
 	QSettings ini(QFile::exists(CFG_P) ? CFG_P : CFG_H, QSettings::IniFormat);
 	int count;
 	CLEANZONE zone;
+	GOTO gotO;
 
 	ini.setIniCodec("UTF-8");
 
@@ -229,6 +244,19 @@ void MainWindow::getConfig()
 		zone.y2 = ini.value("PosY2").toInt();
 		zone.times = ini.value("Times").toInt();
 		cfg.zones.append(zone);
+	}
+	ini.endArray();
+	ini.endGroup();
+
+	ini.beginGroup("GOTOS");
+	count = ini.beginReadArray("Data");
+	for(int i = 0; i < count; ++i)
+	{
+		ini.setArrayIndex(i);
+		gotO.label = ini.value("Label").toString();
+		gotO.x = ini.value("PosX").toInt();
+		gotO.y = ini.value("PosY").toInt();
+		cfg.gotos.append(gotO);
 	}
 	ini.endArray();
 	ini.endGroup();
@@ -277,6 +305,22 @@ void MainWindow::setConfig()
 			ini.setValue("PosX2", cfg.zones.at(i).x2);
 			ini.setValue("PosY2", cfg.zones.at(i).y2);
 			ini.setValue("Times", cfg.zones.at(i).times);
+		}
+		ini.endArray();
+		ini.endGroup();
+	}
+
+	ini.remove("GOTOS");
+	if(cfg.gotos.count())
+	{
+		ini.beginGroup("GOTOS");
+		ini.beginWriteArray("Data");
+		for(int i = 0; i < cfg.gotos.count(); ++i)
+		{
+			ini.setArrayIndex(i);
+			ini.setValue("Label", cfg.gotos.at(i).label);
+			ini.setValue("PosX", cfg.gotos.at(i).x);
+			ini.setValue("PosY", cfg.gotos.at(i).y);
 		}
 		ini.endArray();
 		ini.endGroup();
@@ -1114,15 +1158,15 @@ void MainWindow::on_actionHistory_triggered()
 	}
 }
 
-void MainWindow::on_actionZones_triggered()
+void MainWindow::on_actionEditor_triggered()
 {
-	if(cfg.zones.count())
+	if(cfg.zones.count() || cfg.gotos.count())
 	{
 		zonesDialog(this).exec();
 	}
 	else
 	{
-		QMessageBox::information(this, APPNAME, tr("No cleaning zones defined yet."));
+		QMessageBox::information(this, APPNAME, tr("No cleaning zones or gotos defined yet."));
 	}
 }
 
@@ -1741,7 +1785,31 @@ void MainWindow::websocketError(QAbstractSocket::SocketError error)
 	actionMap->setChecked(false);
 }
 
-void MainWindow::hovered(QAction *action)
+void MainWindow::hoveredGoto(QAction *action)
+{
+	int index = 0;
+
+	foreach(QAction *current, menu_map_gotos->actions())
+	{
+		if(current == action)
+		{
+			break;
+		}
+
+		index++;
+	}
+
+	if(png_flag)
+	{
+		drawFlags(false, true);
+	}
+
+	pos_flag = QPointF((cfg.swap_x ? cfg.gotos.at(index).x : MAPSIZE - cfg.gotos.at(index).x) / MAPFACTOR, (cfg.swap_y ? cfg.gotos.at(index).y : MAPSIZE - cfg.gotos.at(index).y) / MAPFACTOR);
+
+	drawFlags(true, true);
+}
+
+void MainWindow::hoveredZone(QAction *action)
 {
 	int index = 0;
 
@@ -1765,7 +1833,12 @@ void MainWindow::hovered(QAction *action)
 	zone_preview_item = scene->addRect(zone_preview_rect, QPen(Qt::green, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin), QBrush(QColor(0, 255, 0, 64)));
 }
 
-void MainWindow::aboutToHide()
+void MainWindow::aboutToHideGoto()
+{
+	drawFlags(false, true);
+}
+
+void MainWindow::aboutToHideZone()
 {
 	zone_preview_rect = QRect();
 
@@ -2297,6 +2370,7 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 				QPointF pos = graphicsView->mapToScene(graphicsView->mapFromGlobal(event->globalPos())) * MAPFACTOR;
 				int x = static_cast<int>(pos.x());
 				int y = static_cast<int>(pos.y());
+				int button;
 
 				if(png_flag)
 				{
@@ -2307,13 +2381,25 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 
 				drawFlags(true, true);
 
-				if(QMessageBox::question(this, APPNAME, tr("Send robot to selected position?\n\n[ %1 / %2 ]").arg(cfg.swap_x ? x : MAPSIZE - x).arg(cfg.swap_y ? y : MAPSIZE - y), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+				if((button = QMessageBox::question(this, APPNAME, tr("Send robot to selected position?\n\n[ %1 / %2 ]\n\nYou can also save this target.").arg(cfg.swap_x ? x : MAPSIZE - x).arg(cfg.swap_y ? y : MAPSIZE - y), QMessageBox::Yes | QMessageBox::No | QMessageBox::Save, QMessageBox::Yes)) == QMessageBox::Yes)
 				{
 					sendUDP(QString(MIIO_APP_GOTO_TARGET).arg(cfg.swap_x ? x : MAPSIZE - x).arg(cfg.swap_y ? y : MAPSIZE - y).arg("%1"));
 				}
 				else
 				{
 					drawFlags(false, true);
+
+					if(button == QMessageBox::Save)
+					{
+						GOTO gotO = { QString("Goto %1").arg(cfg.gotos.count() + 1), cfg.swap_x ? x : MAPSIZE - x, cfg.swap_y ? y : MAPSIZE - y };
+						QAction *action = new QAction(QIcon(":/png/png/goto.png"), gotO.label, this);
+
+						action->setStatusTip(tr("Goto %1").arg(gotO.label));
+
+						cfg.gotos.append(gotO);
+
+						menu_map_gotos->addAction(action);
+					}
 				}
 			}
 			else if(selected->objectName() == "actionMenu_Map_FlipH")
@@ -2362,6 +2448,16 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 			}
 			else
 			{
+				foreach(GOTO gotO, cfg.gotos)
+				{
+					if(gotO.label == selected->text())
+					{
+						sendUDP(QString(MIIO_APP_GOTO_TARGET).arg(gotO.x).arg(gotO.y).arg("%1"));
+
+						break;
+					}
+				}
+
 				foreach(CLEANZONE zone, cfg.zones)
 				{
 					if(zone.label == selected->text())
