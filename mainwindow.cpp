@@ -2254,14 +2254,17 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 				else if(clicked == save)
 				{
 					CLEANZONE zone = { QString("Zone %1").arg(cfg.zones.count() + 1), x1, y1, x2, y2, 1 };
+					QAction *action = new QAction(QIcon(":/png/png/zone.png"), zone.label, this);
+
+					action->setStatusTip(tr("Clean Zone %1").arg(zone.label));
 
 					cfg.zones.append(zone);
 
-					menu_map_zones->addAction(QIcon(":/png/png/zone.png"), zone.label);
+					menu_map_zones->addAction(action);
 
 					if(cfg.zones.count() == 1)
 					{
-						QMessageBox::information(this, APPNAME, tr("You can customize all zones later with the zone editor."));
+						QMessageBox::information(this, APPNAME, tr("You can customize all zones later with the editor."));
 					}
 				}
 				else if(clicked == nogo || clicked == wall)
@@ -2399,6 +2402,11 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 						cfg.gotos.append(gotO);
 
 						menu_map_gotos->addAction(action);
+
+						if(cfg.gotos.count() == 1)
+						{
+							QMessageBox::information(this, APPNAME, tr("You can customize all gotos later with the editor."));
+						}
 					}
 				}
 			}

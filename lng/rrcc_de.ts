@@ -1670,12 +1670,13 @@ Geduld und auf die Sprachausgabe achten...</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="81"/>
-        <location filename="../mainwindow.cpp" line="2368"/>
+        <location filename="../mainwindow.cpp" line="2400"/>
         <source>Goto %1</source>
         <translation>Gehe zu %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="90"/>
+        <location filename="../mainwindow.cpp" line="2259"/>
         <source>Clean Zone %1</source>
         <translation>Reinige Bereich %1</translation>
     </message>
@@ -1829,22 +1830,22 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2025"/>
+        <location filename="../mainwindow.cpp" line="2054"/>
         <source>Really delete selected item?</source>
         <translation>Ausgewähltes Element wirklich löschen?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2069"/>
+        <location filename="../mainwindow.cpp" line="2098"/>
         <source>Really delete all virtual walls?</source>
         <translation>Wirklich alle virtuellen Wände löschen?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2085"/>
+        <location filename="../mainwindow.cpp" line="2114"/>
         <source>Really delete all nogo zones?</source>
         <translation>Wirklich alle Sperrzonen löschen?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2179"/>
+        <location filename="../mainwindow.cpp" line="2208"/>
         <source>Start zone cleaning for selected region?
 
 [ %1 / %2 - %3 / %4 ]</source>
@@ -1853,27 +1854,27 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 [ %1 / %2 - %3 / %4 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2180"/>
+        <location filename="../mainwindow.cpp" line="2209"/>
         <source>You can also save this region, define as nogo zone or create a virtual wall.</source>
         <translation>Dieser Bereich kann auch gespeichert, als Sperrzone definiert oder als virtuelle Wand erstellt werden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2181"/>
+        <location filename="../mainwindow.cpp" line="2210"/>
         <source>Save Zone</source>
         <translation>Zone speichern</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2182"/>
+        <location filename="../mainwindow.cpp" line="2211"/>
         <source>NoGo Zone</source>
         <translation>Zone sperren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2183"/>
+        <location filename="../mainwindow.cpp" line="2212"/>
         <source>Virtual Wall</source>
         <translation>virtuelle Wand</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2189"/>
+        <location filename="../mainwindow.cpp" line="2218"/>
         <source>Persistent maps are disabled, activate now?
 
 Some features like nogo zones and virtual walls are otherwise not available.</source>
@@ -1882,17 +1883,12 @@ Some features like nogo zones and virtual walls are otherwise not available.</so
 Einige Funktionen wie Sperrzonen und virtuelle Wände sind ansonsten nicht verfügbar.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2195"/>
+        <location filename="../mainwindow.cpp" line="2224"/>
         <source>Persistent maps successfully enabled.</source>
         <translation>Persistente Karten erfolgreich aktiviert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2235"/>
-        <source>You can customize all zones later with the zone editor.</source>
-        <translation>Alle Zonen können später mit dem Zoneneditor angepasst werden.</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2062"/>
+        <location filename="../mainwindow.cpp" line="2091"/>
         <source>Really delete all virtual walls and nogo zones?</source>
         <translation>Wirklich alle virtuellen Wände und Sperrzonen löschen?</translation>
     </message>
@@ -1902,7 +1898,7 @@ Einige Funktionen wie Sperrzonen und virtuelle Wände sind ansonsten nicht verf�
         <translation>Es sind noch keine Reinigungsbereiche oder Ziele definiert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2199"/>
+        <location filename="../mainwindow.cpp" line="2228"/>
         <source>Persistent maps could not be enabled!
 
 Make sure installed firmware supports this feature.</source>
@@ -1911,7 +1907,12 @@ Make sure installed firmware supports this feature.</source>
 Bitte sicherstellen, dass die installierte Firmware diese Funktion unterstützt.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2355"/>
+        <location filename="../mainwindow.cpp" line="2267"/>
+        <source>You can customize all zones later with the editor.</source>
+        <translation>Alle Zonen können später mit dem Editor angepasst werden.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2387"/>
         <source>Send robot to selected position?
 
 [ %1 / %2 ]
@@ -1924,12 +1925,17 @@ You can also save this target.</source>
 Dieses Ziel kann auch gespeichert werden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2436"/>
+        <location filename="../mainwindow.cpp" line="2408"/>
+        <source>You can customize all gotos later with the editor.</source>
+        <translation>Alle Ziele können später mit dem Editor angepasst werden.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2473"/>
         <source>Start cleaning for zone &quot;%1&quot;?</source>
         <translation>Reinigung für Zone &quot;%1&quot; starten?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2465"/>
+        <location filename="../mainwindow.cpp" line="2502"/>
         <source>Really exit program?</source>
         <translation>Programm wirklich beenden?</translation>
     </message>
@@ -3015,17 +3021,27 @@ Fehlercode: %1</translation>
         <translation>Bitte eine Bezeichnung für diese Zone eingeben!</translation>
     </message>
     <message>
-        <location filename="../zones.cpp" line="86"/>
+        <location filename="../zones.cpp" line="73"/>
+        <source>Clean Zone %1</source>
+        <translation>Reinige Bereich %1</translation>
+    </message>
+    <message>
+        <location filename="../zones.cpp" line="87"/>
         <source>Please enter a label for this goto!</source>
         <translation>Bitte eine Bezeichnung für diese Ziel eingeben!</translation>
     </message>
     <message>
-        <location filename="../zones.cpp" line="104"/>
+        <location filename="../zones.cpp" line="94"/>
+        <source>Goto %1</source>
+        <translation>Gehe zu %1</translation>
+    </message>
+    <message>
+        <location filename="../zones.cpp" line="106"/>
         <source>Really delete zone &quot;%1&quot;?</source>
         <translation>Den Bereich &quot;%1&quot; wirklich löschen?</translation>
     </message>
     <message>
-        <location filename="../zones.cpp" line="129"/>
+        <location filename="../zones.cpp" line="131"/>
         <source>Really delete goto &quot;%1&quot;?</source>
         <translation>Das Ziel &quot;%1&quot; wirklich löschen?</translation>
     </message>

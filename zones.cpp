@@ -70,6 +70,7 @@ void zonesDialog::on_buttonBox_clicked(QAbstractButton *button)
 				comboBox_zone->setItemText(index_zone, comboBox_zone->currentText());
 
 				reinterpret_cast<MainWindow*>(parent())->menu_map_zones->actions().at(index_zone)->setText(comboBox_zone->currentText());
+				reinterpret_cast<MainWindow*>(parent())->menu_map_zones->actions().at(index_zone)->setStatusTip(tr("Clean Zone %1").arg(comboBox_zone->currentText()));
 
 				reinterpret_cast<MainWindow*>(parent())->cfg.zones.data()[index_zone].label = comboBox_zone->currentText();
 				reinterpret_cast<MainWindow*>(parent())->cfg.zones.data()[index_zone].x1 = spinBox_x1->value();
@@ -90,6 +91,7 @@ void zonesDialog::on_buttonBox_clicked(QAbstractButton *button)
 					comboBox_goto->setItemText(index_goto, comboBox_goto->currentText());
 
 					reinterpret_cast<MainWindow*>(parent())->menu_map_gotos->actions().at(index_goto)->setText(comboBox_goto->currentText());
+					reinterpret_cast<MainWindow*>(parent())->menu_map_gotos->actions().at(index_goto)->setStatusTip(tr("Goto %1").arg(comboBox_goto->currentText()));
 
 					reinterpret_cast<MainWindow*>(parent())->cfg.gotos.data()[index_goto].label = comboBox_goto->currentText();
 					reinterpret_cast<MainWindow*>(parent())->cfg.gotos.data()[index_goto].x = spinBox_x->value();
