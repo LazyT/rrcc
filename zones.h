@@ -14,10 +14,14 @@ public:
 
 private slots:
 
-	void on_buttonBox_clicked(QAbstractButton*);
+	void on_tabWidget_currentChanged(int);
 
 	void on_comboBox_zone_currentIndexChanged(int);
 	void on_comboBox_goto_currentIndexChanged(int);
+
+	void on_buttonBox_clicked(QAbstractButton*);
+
+	void reject();
 };
 
 #endif // ZONESDLG_H

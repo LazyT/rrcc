@@ -29,6 +29,24 @@ zonesDialog::zonesDialog(QWidget *parent) : QDialog(parent)
 	}
 
 	buttonBox->button(QDialogButtonBox::Discard)->setText(tr("Delete"));
+
+	emit on_tabWidget_currentChanged(tabWidget->currentIndex());
+}
+
+void zonesDialog::on_tabWidget_currentChanged(int index)
+{
+	if(index)
+	{
+		emit reinterpret_cast<MainWindow*>(parent())->aboutToHideZone();
+
+		emit reinterpret_cast<MainWindow*>(parent())->hoveredGoto(reinterpret_cast<MainWindow*>(parent())->menu_map_gotos->actions().at(comboBox_goto->currentIndex()));
+	}
+	else
+	{
+		emit reinterpret_cast<MainWindow*>(parent())->aboutToHideGoto();
+
+		emit reinterpret_cast<MainWindow*>(parent())->hoveredZone(reinterpret_cast<MainWindow*>(parent())->menu_map_zones->actions().at(comboBox_zone->currentIndex()));
+	}
 }
 
 // tab zone
@@ -42,6 +60,8 @@ void zonesDialog::on_comboBox_zone_currentIndexChanged(int index)
 	spinBox_x2->setValue(reinterpret_cast<MainWindow*>(parent())->cfg.zones.at(index).x2);
 	spinBox_y2->setValue(reinterpret_cast<MainWindow*>(parent())->cfg.zones.at(index).y2);
 	spinBox_times->setValue(reinterpret_cast<MainWindow*>(parent())->cfg.zones.at(index).times);
+
+	emit reinterpret_cast<MainWindow*>(parent())->hoveredZone(reinterpret_cast<MainWindow*>(parent())->menu_map_zones->actions().at(index));
 }
 
 // tab goto
@@ -50,6 +70,16 @@ void zonesDialog::on_comboBox_goto_currentIndexChanged(int index)
 {
 	spinBox_x->setValue(reinterpret_cast<MainWindow*>(parent())->cfg.gotos.at(index).x);
 	spinBox_y->setValue(reinterpret_cast<MainWindow*>(parent())->cfg.gotos.at(index).y);
+
+	emit reinterpret_cast<MainWindow*>(parent())->hoveredGoto(reinterpret_cast<MainWindow*>(parent())->menu_map_gotos->actions().at(index));
+}
+
+void zonesDialog::reject()
+{
+	emit reinterpret_cast<MainWindow*>(parent())->aboutToHideZone();
+	emit reinterpret_cast<MainWindow*>(parent())->aboutToHideGoto();
+
+	accept();
 }
 
 void zonesDialog::on_buttonBox_clicked(QAbstractButton *button)

@@ -416,6 +416,13 @@ private:
 	void setMatrix();
 	void drawFlags(bool, bool);
 
+public slots:
+
+	void hoveredGoto(QAction*);
+	void hoveredZone(QAction*);
+	void aboutToHideGoto();
+	void aboutToHideZone();
+
 private slots:
 
 	void on_actionExit_triggered();
@@ -464,11 +471,6 @@ private slots:
 
 	void websocketTextMessageReceived(QString);
 	void websocketError(QAbstractSocket::SocketError);
-
-	void hoveredGoto(QAction*);
-	void hoveredZone(QAction*);
-	void aboutToHideGoto();
-	void aboutToHideZone();
 
 	void ssh_connected();
 	void ssh_disconnected();
