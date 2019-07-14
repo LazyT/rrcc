@@ -19,6 +19,22 @@ private slots:
 	void on_comboBox_zone_currentIndexChanged(int);
 	void on_comboBox_goto_currentIndexChanged(int);
 
+	void zonePositionChanged();
+	void on_spinBox_x1_editingFinished();
+	void on_spinBox_y1_editingFinished();
+	void on_spinBox_x2_editingFinished();
+	void on_spinBox_y2_editingFinished();
+	void on_spinBox_x1_valueChanged(int);
+	void on_spinBox_y1_valueChanged(int);
+	void on_spinBox_x2_valueChanged(int);
+	void on_spinBox_y2_valueChanged(int);
+
+	void gotoPositionChanged();
+	void on_spinBox_x_editingFinished();
+	void on_spinBox_y_editingFinished();
+	void on_spinBox_x_valueChanged(int);
+	void on_spinBox_y_valueChanged(int);
+
 	void on_buttonBox_clicked(QAbstractButton*);
 
 	void reject();

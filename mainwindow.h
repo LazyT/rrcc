@@ -188,6 +188,7 @@ public:
 
 	bool sendUDP(QString);
 	void parseJSON(int, QByteArray);
+	void drawFlags(bool, bool);
 
 	QMenu *menu_map_zones, *menu_map_gotos;
 	QByteArray did, cnt;
@@ -196,6 +197,10 @@ public:
 	QByteArray AESPayload(bool, QByteArray);
 	bool provisioning = false;
 	bool forceclose = false;
+	QGraphicsScene *scene;
+	QPointF pos_flag;
+	QRect zone_preview_rect = {0, 0, 0, 0};
+	QGraphicsRectItem *zone_preview_item = nullptr;
 
 	QStringList qarchive_error_strings
 	{
@@ -392,12 +397,9 @@ private:
 	QTimer timerMap, timerFanspeed;
 	QNetworkAccessManager *netmgr;
 	QWebSocket *websocket;
-	QGraphicsScene *scene;
 	QPoint drag_pos, rubber_pos;
-	QRect zone_preview_rect = {0, 0, 0, 0};
 	QGraphicsPixmapItem *png_flag = nullptr, *png_flag_lt = nullptr, *png_flag_rt = nullptr, *png_flag_lb = nullptr, *png_flag_rb = nullptr;
-	QPointF pos_flag, pos_flag_lt, pos_flag_rt, pos_flag_lb, pos_flag_rb;
-	QGraphicsRectItem *zone_preview_item = nullptr;
+	QPointF pos_flag_lt, pos_flag_rt, pos_flag_lb, pos_flag_rb;
 	QMenu *menu_map, *menu_map_rotation, *menu_map_flipping, *menu_map_swapping;
 	QMenu *menu_map_delete;
 	QActionGroup *group_map;
@@ -414,7 +416,6 @@ private:
 	void drawMapFromJsonOld(QByteArray);
 	void getScale();
 	void setMatrix();
-	void drawFlags(bool, bool);
 
 public slots:
 

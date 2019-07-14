@@ -61,6 +61,9 @@
               <property name="alignment">
                <set>Qt::AlignCenter</set>
               </property>
+              <property name="keyboardTracking">
+               <bool>false</bool>
+              </property>
               <property name="maximum">
                <number>51200</number>
               </property>
@@ -73,6 +76,9 @@
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
+              </property>
+              <property name="keyboardTracking">
+               <bool>false</bool>
               </property>
               <property name="maximum">
                <number>51200</number>
@@ -87,6 +93,9 @@
               <property name="alignment">
                <set>Qt::AlignCenter</set>
               </property>
+              <property name="keyboardTracking">
+               <bool>false</bool>
+              </property>
               <property name="maximum">
                <number>51200</number>
               </property>
@@ -99,6 +108,9 @@
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
+              </property>
+              <property name="keyboardTracking">
+               <bool>false</bool>
               </property>
               <property name="maximum">
                <number>51200</number>
@@ -182,6 +194,9 @@
               <property name="alignment">
                <set>Qt::AlignCenter</set>
               </property>
+              <property name="keyboardTracking">
+               <bool>false</bool>
+              </property>
               <property name="maximum">
                <number>51200</number>
               </property>
@@ -194,6 +209,9 @@
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
+              </property>
+              <property name="keyboardTracking">
+               <bool>false</bool>
               </property>
               <property name="maximum">
                <number>51200</number>
