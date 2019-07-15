@@ -56,7 +56,7 @@ This is an Apple disc image. You can mount and run or copy the application.
 
 This is an [AppImage](https://appimage.org) package. Don't forget to "chmod +x *.AppImage" after download and then run it. You can use the parameter "--appimage-extract" if you want the content.
 
-For better system integration it's recommended to install [AppImageD](https://github.com/AppImage/appimaged).
+For better system integration it's recommended to install [AppImageD](https://github.com/AppImage/appimaged) or [AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher).
 
 ## Build from Source
 
