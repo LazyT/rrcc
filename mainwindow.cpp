@@ -12,7 +12,9 @@ int main(int argc, char *argv[])
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
-    QApplication::setStyle("Fusion");
+	QApplication::setApplicationName(APPNAME);
+	QApplication::setApplicationVersion(APPVERS);
+	QApplication::setStyle("Fusion");
     QApplication::setAttribute(Qt::AA_DisableWindowContextHelpButton);
 
 	if(!QLocale::system().name().startsWith("en_"))
@@ -39,6 +41,16 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 				QApplication::installTranslator(&helpTranslator);
 			}
 		}
+	}
+
+	cmd.addVersionOption();
+	cmd.addHelpOption();
+	cmd.addOption(QCommandLineOption({"c", "config"}, tr("Use specified config file."), "cfg"));
+	cmd.process(QCoreApplication::arguments());
+
+	if(cmd.isSet("c") && !QFile::exists(cmd.value("c")))
+	{
+		QMessageBox::warning(nullptr, APPNAME, tr("Specified config file \"%1\" does not exist!").arg(cmd.value("c")));
 	}
 
 	setupUi(this);
@@ -202,7 +214,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 void MainWindow::getConfig()
 {
-	QSettings ini(QFile::exists(CFG_P) ? CFG_P : CFG_H, QSettings::IniFormat);
+	QSettings ini(QFile::exists(cmd.value("c")) ? cmd.value("c") : QFile::exists(CFG_P) ? CFG_P : CFG_H, QSettings::IniFormat);
 	int count;
 	CLEANZONE zone;
 	GOTO gotO;
@@ -264,7 +276,7 @@ void MainWindow::getConfig()
 
 void MainWindow::setConfig()
 {
-	QSettings ini(QFile::exists(CFG_P) ? CFG_P : CFG_H, QSettings::IniFormat);
+	QSettings ini(QFile::exists(cmd.value("c")) ? cmd.value("c") : QFile::exists(CFG_P) ? CFG_P : CFG_H, QSettings::IniFormat);
 
 	ini.setIniCodec("UTF-8");
 

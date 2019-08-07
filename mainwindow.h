@@ -392,6 +392,7 @@ private:
 	};
 
 	QTranslator baseTranslator, helpTranslator, appTranslator;
+	QCommandLineParser cmd;
 	QDialog *logger;
 	QDialog *upddlg = nullptr;
 	QTimer timerMap, timerFanspeed;

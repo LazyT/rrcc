@@ -1105,7 +1105,7 @@ Geduld und auf die Sprachausgabe achten...</translation>
     </message>
     <message>
         <location filename="../res/ui/zones.ui" line="38"/>
-        <location filename="../res/ui/zones.ui" line="159"/>
+        <location filename="../res/ui/zones.ui" line="171"/>
         <source>Parameter</source>
         <translation>Parameter</translation>
     </message>
@@ -1120,47 +1120,47 @@ Geduld und auf die Sprachausgabe achten...</translation>
         <translation>Startposition (X1)</translation>
     </message>
     <message>
-        <location filename="../res/ui/zones.ui" line="72"/>
+        <location filename="../res/ui/zones.ui" line="75"/>
         <source>Ending Position (X2)</source>
         <translation>Endposition (X2)</translation>
     </message>
     <message>
-        <location filename="../res/ui/zones.ui" line="85"/>
+        <location filename="../res/ui/zones.ui" line="91"/>
         <source>Starting Position (Y1)</source>
         <translation>Startposition (Y1)</translation>
     </message>
     <message>
-        <location filename="../res/ui/zones.ui" line="98"/>
+        <location filename="../res/ui/zones.ui" line="107"/>
         <source>Ending Position (Y2)</source>
         <translation>Endposition (Y2)</translation>
     </message>
     <message>
-        <location filename="../res/ui/zones.ui" line="111"/>
+        <location filename="../res/ui/zones.ui" line="123"/>
         <source>Cleaning Cycles</source>
         <translation>Reinigungszyklen</translation>
     </message>
     <message>
-        <location filename="../res/ui/zones.ui" line="127"/>
+        <location filename="../res/ui/zones.ui" line="139"/>
         <source>Current Zone</source>
         <translation>Aktueller Bereich</translation>
     </message>
     <message>
-        <location filename="../res/ui/zones.ui" line="153"/>
+        <location filename="../res/ui/zones.ui" line="165"/>
         <source>GoTo</source>
         <translation>Ziel</translation>
     </message>
     <message>
-        <location filename="../res/ui/zones.ui" line="165"/>
+        <location filename="../res/ui/zones.ui" line="177"/>
         <source>GoTo Label</source>
         <translation>Zielbezeichnung</translation>
     </message>
     <message>
-        <location filename="../res/ui/zones.ui" line="180"/>
+        <location filename="../res/ui/zones.ui" line="192"/>
         <source>Position X</source>
         <translation>Position X</translation>
     </message>
     <message>
-        <location filename="../res/ui/zones.ui" line="193"/>
+        <location filename="../res/ui/zones.ui" line="208"/>
         <source>Position Y</source>
         <translation>Position Y</translation>
     </message>
@@ -1376,7 +1376,7 @@ Geduld und auf die Sprachausgabe achten...</translation>
     <message>
         <location filename="../res/ui/mainwindow.ui" line="1007"/>
         <location filename="../res/ui/mainwindow.ui" line="1010"/>
-        <location filename="../mainwindow.cpp" line="61"/>
+        <location filename="../mainwindow.cpp" line="73"/>
         <source>Goto Position</source>
         <translation>Gehe zu Position</translation>
     </message>
@@ -1649,39 +1649,39 @@ Geduld und auf die Sprachausgabe achten...</translation>
         <translation>Karte anzeigen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="62"/>
+        <location filename="../mainwindow.cpp" line="74"/>
         <source>Zone Cleaning</source>
         <translation>Bereichsreinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="63"/>
+        <location filename="../mainwindow.cpp" line="75"/>
         <source>Rotation</source>
         <translation>Drehung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="64"/>
+        <location filename="../mainwindow.cpp" line="76"/>
         <source>Flipping</source>
         <translation>Spiegelung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="65"/>
+        <location filename="../mainwindow.cpp" line="77"/>
         <source>Swapping</source>
         <translation>Tauschen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="81"/>
-        <location filename="../mainwindow.cpp" line="2400"/>
+        <location filename="../mainwindow.cpp" line="93"/>
+        <location filename="../mainwindow.cpp" line="2412"/>
         <source>Goto %1</source>
         <translation>Gehe zu %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="90"/>
-        <location filename="../mainwindow.cpp" line="2259"/>
+        <location filename="../mainwindow.cpp" line="102"/>
+        <location filename="../mainwindow.cpp" line="2271"/>
         <source>Clean Zone %1</source>
         <translation>Reinige Bereich %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="158"/>
+        <location filename="../mainwindow.cpp" line="170"/>
         <source>Please configure your device:
 
 If your device is not provisioned yet connect to the wifi hotspot (&quot;roborock-vacuum...&quot;) and then click OK.
@@ -1694,12 +1694,12 @@ Wenn Ihr Gerät noch nicht eingerichtet ist, verbinden Sie sich mit dem WLAN-Hot
 Wenn Sie Ihren Token bereits haben, klicken Sie einfach auf OK.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="486"/>
+        <location filename="../mainwindow.cpp" line="498"/>
         <source>Token not set, please configure your device token first!</source>
         <translation>Token nicht gesetzt, bitte konfigurieren Sie zuerst Ihren Geräte-Token!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="532"/>
+        <location filename="../mainwindow.cpp" line="544"/>
         <source>Network connection timed out!
 
 Please check ip / token / msgid...</source>
@@ -1708,12 +1708,12 @@ Please check ip / token / msgid...</source>
 Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1034"/>
+        <location filename="../mainwindow.cpp" line="1046"/>
         <source>Firmware %1 installed.</source>
         <translation>Firmware %1 installiert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1038"/>
+        <location filename="../mainwindow.cpp" line="1050"/>
         <source>Firmware detection failed:
 
 %1</source>
@@ -1722,18 +1722,18 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1038"/>
-        <location filename="../mainwindow.cpp" line="1049"/>
+        <location filename="../mainwindow.cpp" line="1050"/>
+        <location filename="../mainwindow.cpp" line="1061"/>
         <source>got empty response</source>
         <translation>leere Antwort erhalten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1045"/>
+        <location filename="../mainwindow.cpp" line="1057"/>
         <source>Valetudo %1 installed.</source>
         <translation>Valetudo %1 installiert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1049"/>
+        <location filename="../mainwindow.cpp" line="1061"/>
         <source>Valetudo detection failed:
 
 %1</source>
@@ -1742,7 +1742,7 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1063"/>
+        <location filename="../mainwindow.cpp" line="1075"/>
         <source>SSH connection error!
 
 %1</source>
@@ -1751,25 +1751,25 @@ Bitte überprüfen Sie IP / Token / Nachrichten-ID....</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1139"/>
+        <location filename="../mainwindow.cpp" line="1151"/>
         <source>No timers found, create new?</source>
         <translation>Keine Timer gefunden, einen Neuen erstellen?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1157"/>
+        <location filename="../mainwindow.cpp" line="1169"/>
         <source>No cleaning history found.</source>
         <translation>Kein Reinigungsverlauf gefunden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1177"/>
-        <location filename="../mainwindow.cpp" line="1200"/>
-        <location filename="../mainwindow.cpp" line="1217"/>
-        <location filename="../mainwindow.cpp" line="1234"/>
+        <location filename="../mainwindow.cpp" line="1189"/>
+        <location filename="../mainwindow.cpp" line="1212"/>
+        <location filename="../mainwindow.cpp" line="1229"/>
+        <location filename="../mainwindow.cpp" line="1246"/>
         <source>Please setup your ssh settings first!</source>
         <translation>Bitte zuerst die SSH-Einstellungen vornehmen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1264"/>
+        <location filename="../mainwindow.cpp" line="1276"/>
         <source>Are you really sure you want to install a firmware update?
 
 Please choose the correct version for your model or you will brick your device!</source>
@@ -1778,27 +1778,27 @@ Please choose the correct version for your model or you will brick your device!<
 Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbrauchbar!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1270"/>
+        <location filename="../mainwindow.cpp" line="1282"/>
         <source>Charge battery to at least 20% first!</source>
         <translation>Den Akku zuerst auf mindestens 20% aufladen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1276"/>
+        <location filename="../mainwindow.cpp" line="1288"/>
         <source>Send robot to docking station first!</source>
         <translation>Den Roboter zuerst zur Ladestation schicken!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1281"/>
+        <location filename="../mainwindow.cpp" line="1293"/>
         <source>Select firmware package to install</source>
         <translation>Zu installierendes Firmwarepaket auswählen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1298"/>
+        <location filename="../mainwindow.cpp" line="1310"/>
         <source>Selected firmware package is empty!</source>
         <translation>Das ausgewählte Firmwarepaket ist leer!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1305"/>
+        <location filename="../mainwindow.cpp" line="1317"/>
         <source>Could not open firmware package!
 
 %1</source>
@@ -1807,12 +1807,12 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1316"/>
+        <location filename="../mainwindow.cpp" line="1328"/>
         <source>Help not implemented yet, sorry...</source>
         <translation>Hilfe noch nicht implementiert, sorry....</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1761"/>
+        <location filename="../mainwindow.cpp" line="1773"/>
         <source>Map function is only available on rooted devices running Valetudo!
 
 %1</source>
@@ -1821,7 +1821,7 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1783"/>
+        <location filename="../mainwindow.cpp" line="1795"/>
         <source>Websocket error %1, closing connection!
 
 %2</source>
@@ -1830,22 +1830,22 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2054"/>
+        <location filename="../mainwindow.cpp" line="2066"/>
         <source>Really delete selected item?</source>
         <translation>Ausgewähltes Element wirklich löschen?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2098"/>
+        <location filename="../mainwindow.cpp" line="2110"/>
         <source>Really delete all virtual walls?</source>
         <translation>Wirklich alle virtuellen Wände löschen?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2114"/>
+        <location filename="../mainwindow.cpp" line="2126"/>
         <source>Really delete all nogo zones?</source>
         <translation>Wirklich alle Sperrzonen löschen?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2208"/>
+        <location filename="../mainwindow.cpp" line="2220"/>
         <source>Start zone cleaning for selected region?
 
 [ %1 / %2 - %3 / %4 ]</source>
@@ -1854,27 +1854,27 @@ Bitte die richtige Version für das Modell auswählen sonst wird das Gerät unbr
 [ %1 / %2 - %3 / %4 ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2209"/>
+        <location filename="../mainwindow.cpp" line="2221"/>
         <source>You can also save this region, define as nogo zone or create a virtual wall.</source>
         <translation>Dieser Bereich kann auch gespeichert, als Sperrzone definiert oder als virtuelle Wand erstellt werden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2210"/>
+        <location filename="../mainwindow.cpp" line="2222"/>
         <source>Save Zone</source>
         <translation>Zone speichern</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2211"/>
+        <location filename="../mainwindow.cpp" line="2223"/>
         <source>NoGo Zone</source>
         <translation>Zone sperren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2212"/>
+        <location filename="../mainwindow.cpp" line="2224"/>
         <source>Virtual Wall</source>
         <translation>virtuelle Wand</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2218"/>
+        <location filename="../mainwindow.cpp" line="2230"/>
         <source>Persistent maps are disabled, activate now?
 
 Some features like nogo zones and virtual walls are otherwise not available.</source>
@@ -1883,22 +1883,32 @@ Some features like nogo zones and virtual walls are otherwise not available.</so
 Einige Funktionen wie Sperrzonen und virtuelle Wände sind ansonsten nicht verfügbar.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2224"/>
+        <location filename="../mainwindow.cpp" line="2236"/>
         <source>Persistent maps successfully enabled.</source>
         <translation>Persistente Karten erfolgreich aktiviert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2091"/>
+        <location filename="../mainwindow.cpp" line="2103"/>
         <source>Really delete all virtual walls and nogo zones?</source>
         <translation>Wirklich alle virtuellen Wände und Sperrzonen löschen?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1169"/>
+        <location filename="../mainwindow.cpp" line="48"/>
+        <source>Use specified config file.</source>
+        <translation>Angegebene Konfigurationsdatei verwenden.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="53"/>
+        <source>Specified config file &quot;%1&quot; does not exist!</source>
+        <translation>Die angegebene Konfigurationsdatei &quot;%1&quot; existiert nicht!</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1181"/>
         <source>No cleaning zones or gotos defined yet.</source>
         <translation>Es sind noch keine Reinigungsbereiche oder Ziele definiert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2228"/>
+        <location filename="../mainwindow.cpp" line="2240"/>
         <source>Persistent maps could not be enabled!
 
 Make sure installed firmware supports this feature.</source>
@@ -1907,12 +1917,12 @@ Make sure installed firmware supports this feature.</source>
 Bitte sicherstellen, dass die installierte Firmware diese Funktion unterstützt.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2267"/>
+        <location filename="../mainwindow.cpp" line="2279"/>
         <source>You can customize all zones later with the editor.</source>
         <translation>Alle Zonen können später mit dem Editor angepasst werden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2387"/>
+        <location filename="../mainwindow.cpp" line="2399"/>
         <source>Send robot to selected position?
 
 [ %1 / %2 ]
@@ -1925,177 +1935,177 @@ You can also save this target.</source>
 Dieses Ziel kann auch gespeichert werden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2408"/>
+        <location filename="../mainwindow.cpp" line="2420"/>
         <source>You can customize all gotos later with the editor.</source>
         <translation>Alle Ziele können später mit dem Editor angepasst werden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2473"/>
+        <location filename="../mainwindow.cpp" line="2485"/>
         <source>Start cleaning for zone &quot;%1&quot;?</source>
         <translation>Reinigung für Zone &quot;%1&quot; starten?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2502"/>
+        <location filename="../mainwindow.cpp" line="2514"/>
         <source>Really exit program?</source>
         <translation>Programm wirklich beenden?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="202"/>
+        <location filename="../mainwindow.h" line="207"/>
         <source>No error</source>
         <translation>Kein Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="203"/>
+        <location filename="../mainwindow.h" line="208"/>
         <source>Archive has bad data</source>
         <translation>Archiv hat fehlerhafte Daten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="204"/>
+        <location filename="../mainwindow.h" line="209"/>
         <source>Archive does not exist or no permission</source>
         <translation>Archiv existiert nicht oder keine Berechtigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="205"/>
+        <location filename="../mainwindow.h" line="210"/>
         <source>Unknown error</source>
         <translation>Unbekannter Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="206"/>
+        <location filename="../mainwindow.h" line="211"/>
         <source>Fatal error</source>
         <translation>Schwerwiegender Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="207"/>
+        <location filename="../mainwindow.h" line="212"/>
         <source>Wrong password for archive</source>
         <translation>Falsches Passwort für Archiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="208"/>
+        <location filename="../mainwindow.h" line="213"/>
         <source>Empty password for archive</source>
         <translation>Leeres Kennwort für Archiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="209"/>
+        <location filename="../mainwindow.h" line="214"/>
         <source>Cannot create archive</source>
         <translation>Archiv kann nicht erstellt werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="210"/>
+        <location filename="../mainwindow.h" line="215"/>
         <source>Cannot open added file</source>
         <translation>Hinzugefügte Datei kann nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="211"/>
+        <location filename="../mainwindow.h" line="216"/>
         <source>Cannot read added file</source>
         <translation>Hinzugefügte Datei kann nicht gelesen werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="212"/>
+        <location filename="../mainwindow.h" line="217"/>
         <source>Cannot find extraction destination</source>
         <translation>Extraktionsziel kann nicht gefunden werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="213"/>
+        <location filename="../mainwindow.h" line="218"/>
         <source>File does not exists</source>
         <translation>Datei existiert nicht</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="214"/>
+        <location filename="../mainwindow.h" line="219"/>
         <source>Extraction destination invalid</source>
         <translation>Extraktionsziel ungültig</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="215"/>
+        <location filename="../mainwindow.h" line="220"/>
         <source>Memory allocation failed</source>
         <translation>Speicherzuweisung fehlgeschlagen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="216"/>
+        <location filename="../mainwindow.h" line="221"/>
         <source>Cannot open existing file</source>
         <translation>Vorhandene Datei kann nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="370"/>
+        <location filename="../mainwindow.h" line="375"/>
         <source>Starting</source>
         <translation>Starten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="371"/>
+        <location filename="../mainwindow.h" line="376"/>
         <source>Charger disconnected</source>
         <translation>Ladegerät getrennt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="372"/>
+        <location filename="../mainwindow.h" line="377"/>
         <source>Idle</source>
         <translation>Leerlauf</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="373"/>
+        <location filename="../mainwindow.h" line="378"/>
         <source>Remote control active</source>
         <translation>Fernbedienung aktiv</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="374"/>
+        <location filename="../mainwindow.h" line="379"/>
         <source>Cleaning</source>
         <translation>Reinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="375"/>
+        <location filename="../mainwindow.h" line="380"/>
         <source>Returning home</source>
         <translation>Rückkehr nach Hause</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="376"/>
+        <location filename="../mainwindow.h" line="381"/>
         <source>Manual mode</source>
         <translation>Manueller Betrieb</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="377"/>
+        <location filename="../mainwindow.h" line="382"/>
         <source>Charging</source>
         <translation>Aufladen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="378"/>
+        <location filename="../mainwindow.h" line="383"/>
         <source>Charging problem</source>
         <translation>Ladeproblem</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="379"/>
+        <location filename="../mainwindow.h" line="384"/>
         <source>Paused</source>
         <translation>Pausiert</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="380"/>
+        <location filename="../mainwindow.h" line="385"/>
         <source>Spot cleaning</source>
         <translation>Bereichsreinigung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="381"/>
+        <location filename="../mainwindow.h" line="386"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="382"/>
+        <location filename="../mainwindow.h" line="387"/>
         <source>Shutting down</source>
         <translation>Herunterfahren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="383"/>
+        <location filename="../mainwindow.h" line="388"/>
         <source>Updating</source>
         <translation>Aktualisierung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="384"/>
+        <location filename="../mainwindow.h" line="389"/>
         <source>Docking</source>
         <translation>Andocken</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="385"/>
+        <location filename="../mainwindow.h" line="390"/>
         <source>Going to target</source>
         <translation>Unterwegs zum Ziel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="386"/>
+        <location filename="../mainwindow.h" line="391"/>
         <source>Zoned cleaning</source>
         <translation>Zonenreinigung</translation>
     </message>
@@ -3011,37 +3021,37 @@ Fehlercode: %1</translation>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../zones.cpp" line="38"/>
+        <location filename="../zones.cpp" line="58"/>
         <source>Zone %1 / %2</source>
         <translation>Bereich %1 / %2</translation>
     </message>
     <message>
-        <location filename="../zones.cpp" line="66"/>
+        <location filename="../zones.cpp" line="183"/>
         <source>Please enter a label for this zone!</source>
         <translation>Bitte eine Bezeichnung für diese Zone eingeben!</translation>
     </message>
     <message>
-        <location filename="../zones.cpp" line="73"/>
+        <location filename="../zones.cpp" line="190"/>
         <source>Clean Zone %1</source>
         <translation>Reinige Bereich %1</translation>
     </message>
     <message>
-        <location filename="../zones.cpp" line="87"/>
+        <location filename="../zones.cpp" line="204"/>
         <source>Please enter a label for this goto!</source>
         <translation>Bitte eine Bezeichnung für diese Ziel eingeben!</translation>
     </message>
     <message>
-        <location filename="../zones.cpp" line="94"/>
+        <location filename="../zones.cpp" line="211"/>
         <source>Goto %1</source>
         <translation>Gehe zu %1</translation>
     </message>
     <message>
-        <location filename="../zones.cpp" line="106"/>
+        <location filename="../zones.cpp" line="223"/>
         <source>Really delete zone &quot;%1&quot;?</source>
         <translation>Den Bereich &quot;%1&quot; wirklich löschen?</translation>
     </message>
     <message>
-        <location filename="../zones.cpp" line="131"/>
+        <location filename="../zones.cpp" line="248"/>
         <source>Really delete goto &quot;%1&quot;?</source>
         <translation>Das Ziel &quot;%1&quot; wirklich löschen?</translation>
     </message>
