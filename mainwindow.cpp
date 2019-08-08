@@ -176,7 +176,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	{
 		if(provisioning || cfg.token == "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
 		{
-			setupDialog(this).exec();
+			setupDialog(this, nullptr).exec();
 
 			findIP();
 
@@ -189,6 +189,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	}
 
 	netmgr = new QNetworkAccessManager(this);
+	connect(netmgr, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)), this, SLOT(httpAuthenticationRequired(QNetworkReply*, QAuthenticator*)));
 	connect(netmgr, SIGNAL(finished(QNetworkReply*)), this, SLOT(httpFinished(QNetworkReply*)));
 
 	websocket = new QWebSocket();
@@ -234,6 +235,11 @@ void MainWindow::getConfig()
 	cfg.ssh_pkey = ini.value("PKey", "").toString();
 	cfg.ssh_pkpp = ini.value("PKPP", "").toString();
 	cfg.ssh_auth = ini.value("Auth", "PKey").toString();
+	ini.endGroup();
+
+	ini.beginGroup("VALETUDO");
+	cfg.valetudo_user = ini.value("User", "").toString();
+	cfg.valetudo_pass = ini.value("Pass", "").toString();
 	ini.endGroup();
 
 	ini.beginGroup("MAP");
@@ -293,6 +299,11 @@ void MainWindow::setConfig()
 	ini.setValue("PKey", cfg.ssh_pkey);
 	ini.setValue("PKPP", cfg.ssh_pkpp);
 	ini.setValue("Auth", cfg.ssh_auth);
+	ini.endGroup();
+
+	ini.beginGroup("VALETUDO");
+	ini.setValue("User", cfg.valetudo_user);
+	ini.setValue("Pass", cfg.valetudo_pass);
 	ini.endGroup();
 
 	ini.beginGroup("MAP");
@@ -1134,7 +1145,7 @@ void MainWindow::on_actionMap_toggled(bool checked)
 
 void MainWindow::on_actionSetup_triggered()
 {
-	setupDialog(this).exec();
+	setupDialog(this, nullptr).exec();
 }
 
 void MainWindow::on_actionLogger_triggered()
@@ -1743,6 +1754,42 @@ void MainWindow::drawMapFromJsonOld(QByteArray map)
 		firstdraw = false;
 
 		setMatrix();
+	}
+}
+
+void MainWindow::httpAuthenticationRequired(__attribute__((unused)) QNetworkReply *reply, QAuthenticator *authenticator)
+{
+	if(authenticator->user().isEmpty() && authenticator->password().isEmpty())
+	{
+		if(!cfg.valetudo_user.isEmpty() && !cfg.valetudo_pass.isEmpty())
+		{
+			authenticator->setUser(cfg.valetudo_user);
+			authenticator->setPassword(cfg.valetudo_pass);
+		}
+		else
+		{
+			QMessageBox::warning(this, APPNAME, tr("Valetudo authentication is enabled, but no credentials configured!"));
+
+			setupDialog(this, "tab_valetudo").exec();
+
+			if(!cfg.valetudo_user.isEmpty() && !cfg.valetudo_pass.isEmpty())
+			{
+				authenticator->setUser(cfg.valetudo_user);
+				authenticator->setPassword(cfg.valetudo_pass);
+			}
+		}
+	}
+	else if(authenticator->user() == cfg.valetudo_user && authenticator->password() == cfg.valetudo_pass)
+	{
+		QMessageBox::warning(this, APPNAME, tr("Valetudo authentication is enabled, but wrong credentials configured!"));
+
+		setupDialog(this, "tab_valetudo").exec();
+
+		if(cfg.valetudo_user != authenticator->user() || cfg.valetudo_pass != authenticator->password())
+		{
+			authenticator->setUser(cfg.valetudo_user);
+			authenticator->setPassword(cfg.valetudo_pass);
+		}
 	}
 }
 

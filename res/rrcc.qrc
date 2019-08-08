@@ -81,5 +81,6 @@
         <file>png/upd_lin.png</file>
         <file>png/upd_mac.png</file>
         <file>png/update.png</file>
+        <file>png/plugin.png</file>
     </qresource>
 </RCC>

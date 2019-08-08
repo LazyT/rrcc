@@ -1,3 +1,4 @@
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -36,6 +37,7 @@
 #include <QTimer>
 #include <QNetworkInterface>
 #include <QNetworkAccessManager>
+#include <QAuthenticator>
 #include <QNetworkReply>
 #include <QFileDialog>
 #include <QStandardPaths>
@@ -249,6 +251,8 @@ public:
 		QString ssh_pkey;
 		QString ssh_pkpp;
 		QString ssh_auth;
+		QString valetudo_user;
+		QString valetudo_pass;
 		bool flip_h;
 		bool flip_v;
 		bool swap_x;
@@ -469,6 +473,7 @@ private slots:
 	void timer_refreshMap();
 	void timer_setFanspeed();
 
+	void httpAuthenticationRequired(QNetworkReply*, QAuthenticator*);
 	void httpFinished(QNetworkReply*);
 
 	void websocketTextMessageReceived(QString);

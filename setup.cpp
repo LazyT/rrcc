@@ -1,6 +1,6 @@
 #include "setup.h"
 
-setupDialog::setupDialog(QWidget *parent) : QDialog(parent)
+setupDialog::setupDialog(QWidget *parent, QString tab) : QDialog(parent)
 {
 	setupUi(this);
 
@@ -47,6 +47,9 @@ setupDialog::setupDialog(QWidget *parent) : QDialog(parent)
 		groupBox_ssh_keyfile->setChecked(false);
 	}
 
+	lineEdit_valetudo_username->setText(reinterpret_cast<MainWindow*>(parent)->cfg.valetudo_user);
+	lineEdit_valetudo_password->setText(reinterpret_cast<MainWindow*>(parent)->cfg.valetudo_pass);
+
 	if(reinterpret_cast<MainWindow*>(parent)->cfg.token == "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
 	{
 		lineEdit_token->setFocus();
@@ -60,6 +63,11 @@ setupDialog::setupDialog(QWidget *parent) : QDialog(parent)
 	if(parent->isHidden())
 	{
 		move(QApplication::primaryScreen()->availableGeometry().center() - rect().center());
+	}
+
+	if(!tab.isNull())
+	{
+		tabWidget->setCurrentWidget(tabWidget->findChild<QWidget*>(tab));
 	}
 }
 
@@ -441,11 +449,31 @@ void setupDialog::on_buttonBox_clicked(QAbstractButton *button)
 				return;
 			}
 
-			reinterpret_cast<MainWindow*>(parent())->cfg.ssh_user = lineEdit_ssh_username->text();
-			reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pass = lineEdit_ssh_password->text();
-			reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pkey = lineEdit_ssh_keyfile->text();
+			reinterpret_cast<MainWindow*>(parent())->cfg.ssh_user = usr;
+			reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pass = pwd;
+			reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pkey = key;
 			reinterpret_cast<MainWindow*>(parent())->cfg.ssh_pkpp = lineEdit_ssh_keyfile_passphrase->text();
 			reinterpret_cast<MainWindow*>(parent())->cfg.ssh_auth = groupBox_ssh_keyfile->isChecked() ? "PKey" : "Pass";
+		}
+		else if(tabWidget->currentWidget()->objectName() == "tab_valetudo")
+		{
+			QString usr = lineEdit_valetudo_username->text();
+			QString pwd = lineEdit_valetudo_password->text();
+
+			if(usr.isEmpty())
+			{
+				QMessageBox::warning(this, APPNAME, tr("Please enter your valetudo username!"));
+				return;
+			}
+
+			if(pwd.isEmpty())
+			{
+				QMessageBox::warning(this, APPNAME, tr("Please enter your valetudo password!"));
+				return;
+			}
+
+			reinterpret_cast<MainWindow*>(parent())->cfg.valetudo_user = usr;
+			reinterpret_cast<MainWindow*>(parent())->cfg.valetudo_pass = pwd;
 		}
 		else if(tabWidget->currentWidget()->objectName() == "tab_wifi")
 		{

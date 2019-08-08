@@ -10,7 +10,7 @@ class setupDialog : public QDialog, private Ui::Dialog_Setup
 
 public:
 
-	setupDialog(QWidget*);
+	setupDialog(QWidget*, QString);
 
 private:
 
