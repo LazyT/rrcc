@@ -1052,7 +1052,7 @@ void MainWindow::ssh_commandExecuted(QString command, QString response)
 
 	if(command == SSH_GET_FIRMWARE_VERSION)
 	{
-		if(version.contains("ROBOROCK_VERSION"))
+		if(version.contains("ROBOROCK_VERSION") || version.contains("ROCKROBO_VERSION"))
 		{
 			QMessageBox::information(this, APPNAME, tr("Firmware %1 installed.").arg(QString(version.split('=').at(1)).replace("_", " Build ")));
 		}
