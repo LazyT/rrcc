@@ -3,8 +3,8 @@
 #define MAINWINDOW_H
 
 #define APPNAME "RoboRock Control Center"
-#define APPVERS "0.8.7"
-#define APPDATE "14.07.2019"
+#define APPVERS "0.8.8"
+#define APPDATE "25.01.2020"
 
 #define FW_NAME_G1 "v11_00????.fullos.pkg"
 #define FW_NAME_G2 "v11_00????.fullos.pkg"
