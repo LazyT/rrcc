@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>506</width>
-    <height>642</height>
+    <width>652</width>
+    <height>755</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,13 +19,66 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QGroupBox" name="groupBox_3">
+       <property name="title">
+        <string>Version</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QRadioButton" name="radioButton_valetudo">
+          <property name="text">
+           <string notr="true">Valetudo (Hypfer)</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="radioButton_valetudore">
+          <property name="text">
+           <string notr="true">Valetudo RE (rand256)</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox_4">
+       <property name="title">
+        <string>Control</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QComboBox" name="comboBox_control">
+          <item>
+           <property name="text">
+            <string notr="true">service valetudo &lt;stop|start&gt;</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string notr="true">/etc/init/S11valetudo &lt;stop|start&gt;</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QGroupBox" name="groupBox">
        <property name="title">
         <string>Status</string>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,1">
         <item>
          <widget class="QComboBox" name="comboBox">
           <property name="sizeAdjustPolicy">

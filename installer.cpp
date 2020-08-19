@@ -10,6 +10,8 @@ installerDialog::installerDialog(QWidget *parent) : QDialog(parent)
 	buttonBox->button(QDialogButtonBox::Apply)->setText(tr("Install"));
 	buttonBox->button(QDialogButtonBox::Apply)->setEnabled(false);
 
+	QMessageBox::warning(parent, APPNAME, tr("Installing Valetudo > 0.5.x or Valetudo RE will make map display unusable!"));
+
 	QTimer::singleShot(1, this, SLOT(getReleases()));
 }
 
@@ -17,7 +19,10 @@ void installerDialog::getReleases()
 {
 	step = 0;
 
-	if(!Download(VALETUDO_REL))
+	comboBox->clear();
+	comboBox->addItem(tr("Searching for Releases..."));
+
+	if(!Download(vre ? VALETUDORE_REL : VALETUDO_REL))
 	{
 		QJsonDocument doc = QJsonDocument::fromJson(download);
 		QJsonArray arr = doc.array();
@@ -45,12 +50,18 @@ void installerDialog::getReleases()
 
 			sub = arr[i].toObject().value("assets").toArray();
 
-			if(sub[0].toObject().contains("browser_download_url"))
+			for(int i = 0; i < sub.count(); i++)
 			{
-				file = sub[0].toObject().value("browser_download_url").toString();
-			}
+				if(sub[i].toObject().contains("browser_download_url"))
+				{
+					if(sub[i].toObject().value("name").toString().endsWith("valetudo") || sub[i].toObject().value("name").toString().endsWith("valetudo.tar.gz"))
+					{
+						file = sub[i].toObject().value("browser_download_url").toString();
 
-			comboBox->addItem(QString("%1 [ %2 %3 ]").arg(name).arg(date.left(10)).arg(date.mid(11, 8)), file);
+						comboBox->addItem(QString("%1 [ %2 %3 ]").arg(name).arg(date.left(10)).arg(date.mid(11, 8)), file);
+					}
+				}
+			}
 		}
 
 		if(!comboBox->count())
@@ -76,6 +87,8 @@ bool installerDialog::Download(QString url)
 {
 	QNetworkAccessManager *netmgr = new QNetworkAccessManager(this);
 	QNetworkRequest request = QNetworkRequest(QUrl(url));
+
+	bool tgz = false, canceled = false, finished = false;
 
 	if(step)
 	{
@@ -106,6 +119,12 @@ bool installerDialog::Download(QString url)
 		{
 			file.setFileName(VALETUDO_BIN_SRC);
 		}
+		else if(url.endsWith("valetudo.tar.gz"))
+		{
+			file.setFileName(VALETUDO_BIN_SRC + ".tar.gz");
+
+			tgz = true;
+		}
 		else if(url.endsWith("valetudo.conf"))
 		{
 			file.setFileName(VALETUDO_CFG_SRC);
@@ -123,6 +142,34 @@ bool installerDialog::Download(QString url)
 		{
 			file.write(download);
 			file.close();
+		}
+
+		if(tgz)
+		{
+			QArchive::Extractor extractor;
+
+			extractor
+			.setArchive(file.fileName(), QStandardPaths::writableLocation(QStandardPaths::TempLocation))
+			.setFunc(QArchive::FINISHED, [&]()
+			{
+				finished = true;
+
+				plainTextEdit->appendPlainText(tr("TGZ: finished\n"));
+			})
+			.setFunc(QArchive::CANCELED, [&]()
+			{
+				canceled = true;
+				failed = true;
+
+				plainTextEdit->appendPlainText(tr("TGZ: failed!"));
+			})
+			.start();
+
+			while(!finished && !canceled)
+			{
+				QThread::msleep(10);
+				QCoreApplication::processEvents();
+			}
 		}
 	}
 
@@ -241,7 +288,7 @@ void installerDialog::finished(QNetworkReply *reply)
 	{
 		failed = true;
 
-		if(reply->url().toString() != VALETUDO_REL)
+		if(reply->url().toString() != (vre ? VALETUDORE_REL : VALETUDO_REL))
 		{
 			updateProgress();
 
@@ -411,7 +458,7 @@ void installerDialog::ssh_pullSuccessful(__attribute__((unused)) QString localFi
 
 		mergeFiles(RCLOCAL);
 
-		ssh->executeCommand(VALETUDO_CMD_STOP);
+		ssh->executeCommand(QString(VALETUDO_CMD_STOP).arg(comboBox_control->currentText().split("<").at(0)));
 	}
 }
 
@@ -459,7 +506,7 @@ void installerDialog::ssh_commandExecuted(QString command, QString response)
 
 	QThread::msleep(250);
 
-	if(command == VALETUDO_CMD_STOP)
+	if(command == QString(VALETUDO_CMD_STOP).arg(comboBox_control->currentText().split("<").at(0)))
 	{
 		updateProgress();
 
@@ -471,9 +518,9 @@ void installerDialog::ssh_commandExecuted(QString command, QString response)
 	{
 		updateProgress();
 
-		ssh->executeCommand(VALETUDO_CMD_START);
+		ssh->executeCommand(QString(VALETUDO_CMD_START).arg(comboBox_control->currentText().split("<").at(0)));
 	}
-	else if(command == VALETUDO_CMD_START)
+	else if(command == QString(VALETUDO_CMD_START).arg(comboBox_control->currentText().split("<").at(0)))
 	{
 		updateProgress();
 
@@ -502,6 +549,21 @@ void installerDialog::ssh_error(QSshSocket::SshError error)
 	updateProgress();
 
 	ssh->disconnectFromHost();
+}
+
+
+void installerDialog::on_radioButton_valetudo_clicked()
+{
+	vre  = false;
+
+	getReleases();
+}
+
+void installerDialog::on_radioButton_valetudore_clicked()
+{
+	vre = true;
+
+	getReleases();
 }
 
 void installerDialog::reject()
@@ -574,21 +636,21 @@ void installerDialog::on_buttonBox_clicked(QAbstractButton *button)
 			return;
 		}
 
-		if(Download(VALETUDO_CFG))
+		if(Download(vre ? VALETUDORE_CFG : VALETUDO_CFG))
 		{
 			QMessageBox::warning(this, APPNAME, tr("Valetudo installation failed!"));
 
 			return;
 		}
 
-		if(Download(VALETUDO_HOSTS))
+		if(Download(vre ? VALETUDORE_HOSTS : VALETUDO_HOSTS))
 		{
 			QMessageBox::warning(this, APPNAME, tr("Valetudo installation failed!"));
 
 			return;
 		}
 
-		if(Download(VALETUDO_RCLOCAL))
+		if(Download(vre ? VALETUDORE_RCLOCAL : VALETUDO_RCLOCAL))
 		{
 			QMessageBox::warning(this, APPNAME, tr("Valetudo installation failed!"));
 

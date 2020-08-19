@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>519</width>
-    <height>277</height>
+    <height>386</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,232 +21,259 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QGroupBox" name="groupBox">
-       <property name="title">
-        <string>Status</string>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <layout class="QGridLayout" name="gridLayout">
-          <item row="0" column="1">
-           <widget class="QLabel" name="label_stop_service">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
-            </property>
+      <layout class="QVBoxLayout" name="verticalLayout_10">
+       <item>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>Control</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_11">
+          <item>
+           <widget class="QComboBox" name="comboBox_control">
+            <item>
+             <property name="text">
+              <string notr="true">service valetudo &lt;stop|start&gt;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">/etc/init/S11valetudo &lt;stop|start&gt;</string>
+             </property>
+            </item>
            </widget>
           </item>
-          <item row="1" column="1">
-           <widget class="QLabel" name="label_remove_bin">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLabel" name="label_remove_cfg">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout_5">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_3">
-              <property name="text">
-               <string>Remove Config from Robot</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QProgressBar" name="progressBar_remove_cfg">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>15</height>
-               </size>
-              </property>
-              <property name="value">
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Status</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <layout class="QGridLayout" name="gridLayout">
+            <item row="0" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <property name="spacing">
                <number>0</number>
               </property>
-              <property name="textVisible">
-               <bool>false</bool>
-              </property>
-             </widget>
+              <item>
+               <widget class="QLabel" name="label_1">
+                <property name="text">
+                 <string>Stop Service Valetudo</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QProgressBar" name="progressBar_stop_service">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="value">
+                 <number>0</number>
+                </property>
+                <property name="textVisible">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
-           </layout>
-          </item>
-          <item row="0" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout_3">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_1">
+            <item row="1" column="1">
+             <widget class="QLabel" name="label_remove_bin">
               <property name="text">
-               <string>Stop Service Valetudo</string>
+               <string/>
               </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
+              <property name="pixmap">
+               <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
               </property>
              </widget>
             </item>
-            <item>
-             <widget class="QProgressBar" name="progressBar_stop_service">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>15</height>
-               </size>
-              </property>
-              <property name="value">
+            <item row="4" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <property name="spacing">
                <number>0</number>
               </property>
-              <property name="textVisible">
-               <bool>false</bool>
-              </property>
-             </widget>
+              <item>
+               <widget class="QLabel" name="label_5">
+                <property name="text">
+                 <string>Restore rc.local</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QProgressBar" name="progressBar_restore_rclocal">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="value">
+                 <number>0</number>
+                </property>
+                <property name="textVisible">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
-           </layout>
-          </item>
-          <item row="1" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout_4">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_2">
+            <item row="2" column="1">
+             <widget class="QLabel" name="label_remove_cfg">
               <property name="text">
-               <string>Remove Binary from Robot</string>
+               <string/>
               </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
+              <property name="pixmap">
+               <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
               </property>
              </widget>
             </item>
-            <item>
-             <widget class="QProgressBar" name="progressBar_remove_bin">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>15</height>
-               </size>
-              </property>
-              <property name="value">
+            <item row="1" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <property name="spacing">
                <number>0</number>
               </property>
-              <property name="textVisible">
-               <bool>false</bool>
-              </property>
-             </widget>
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>Remove Binary from Robot</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QProgressBar" name="progressBar_remove_bin">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="value">
+                 <number>0</number>
+                </property>
+                <property name="textVisible">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
-           </layout>
-          </item>
-          <item row="3" column="1">
-           <widget class="QLabel" name="label_restore_hosts">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QLabel" name="label_restore_rclocal">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout_8">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_4">
+            <item row="3" column="1">
+             <widget class="QLabel" name="label_restore_hosts">
               <property name="text">
-               <string>Restore hosts</string>
+               <string/>
               </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
+              <property name="pixmap">
+               <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
               </property>
              </widget>
             </item>
-            <item>
-             <widget class="QProgressBar" name="progressBar_restore_hosts">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>15</height>
-               </size>
-              </property>
-              <property name="value">
+            <item row="3" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <property name="spacing">
                <number>0</number>
               </property>
-              <property name="textVisible">
-               <bool>false</bool>
-              </property>
-             </widget>
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>Restore hosts</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QProgressBar" name="progressBar_restore_hosts">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="value">
+                 <number>0</number>
+                </property>
+                <property name="textVisible">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
-           </layout>
-          </item>
-          <item row="4" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout_9">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_5">
-              <property name="text">
-               <string>Restore rc.local</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QProgressBar" name="progressBar_restore_rclocal">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>15</height>
-               </size>
-              </property>
-              <property name="value">
+            <item row="2" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <property name="spacing">
                <number>0</number>
               </property>
-              <property name="textVisible">
-               <bool>false</bool>
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>Remove Config from Robot</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QProgressBar" name="progressBar_remove_cfg">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="value">
+                 <number>0</number>
+                </property>
+                <property name="textVisible">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="label_stop_service">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLabel" name="label_restore_rclocal">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap resource="../rrcc.qrc">:/png/png/question.png</pixmap>
               </property>
              </widget>
             </item>
            </layout>
           </item>
          </layout>
-        </item>
-       </layout>
-      </widget>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
       <widget class="QGroupBox" name="groupBox_2">

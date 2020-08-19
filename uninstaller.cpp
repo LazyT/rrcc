@@ -75,7 +75,7 @@ void uninstallerDialog::ssh_loginSuccessful()
 {
 	plainTextEdit->appendPlainText(tr("SSH: logged in\n"));
 
-	ssh->executeCommand(VALETUDO_CMD_STOP);
+	ssh->executeCommand(QString(VALETUDO_CMD_STOP).arg(comboBox_control->currentText().split("<").at(0)));
 }
 
 void uninstallerDialog::ssh_commandExecuted(QString command, QString response)
@@ -84,7 +84,7 @@ void uninstallerDialog::ssh_commandExecuted(QString command, QString response)
 
 	QThread::msleep(250);
 
-	if(command == VALETUDO_CMD_STOP)
+	if(command == QString(VALETUDO_CMD_STOP).arg(comboBox_control->currentText().split("<").at(0)))
 	{
 		updateProgress();
 

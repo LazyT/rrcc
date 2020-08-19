@@ -190,81 +190,91 @@
     </message>
     <message>
         <location filename="../res/ui/installer.ui" line="26"/>
+        <source>Version</source>
+        <translation>Version</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="52"/>
+        <source>Control</source>
+        <translation>Steuerung</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/installer.ui" line="79"/>
         <source>Status</source>
         <translation>Status</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="36"/>
+        <location filename="../res/ui/installer.ui" line="89"/>
         <source>Searching for Releases...</source>
         <translation>Suche nach Releases...</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="61"/>
+        <location filename="../res/ui/installer.ui" line="114"/>
         <source>Get hosts from Github</source>
         <translation>hosts von Github laden</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="94"/>
+        <location filename="../res/ui/installer.ui" line="147"/>
         <source>Get rc.local from Github</source>
         <translation>rc.local von Github laden</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="137"/>
+        <location filename="../res/ui/installer.ui" line="190"/>
         <source>Copy hosts to Robot</source>
         <translation>hosts zum Roboter kopieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="170"/>
+        <location filename="../res/ui/installer.ui" line="223"/>
         <source>Copy Config to Robot</source>
         <translation>Konfig zum Roboter kopieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="203"/>
+        <location filename="../res/ui/installer.ui" line="256"/>
         <source>Get Config from Github</source>
         <translation>Konfig von Github laden</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="276"/>
+        <location filename="../res/ui/installer.ui" line="329"/>
         <source>Copy Binary to Robot</source>
         <translation>Programm zum Roboter kopieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="309"/>
+        <location filename="../res/ui/installer.ui" line="362"/>
         <source>Get Binary from Github</source>
         <translation>Programm von Github laden</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="342"/>
+        <location filename="../res/ui/installer.ui" line="395"/>
         <source>Start Service Valetudo</source>
         <translation>Dienst Valetudo starten</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="385"/>
+        <location filename="../res/ui/installer.ui" line="438"/>
         <source>Change Binary Rights</source>
         <translation>Programmrechte anpassen</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="438"/>
+        <location filename="../res/ui/installer.ui" line="491"/>
         <source>Stop Service Valetudo</source>
         <translation>Dienst Valetudo stoppen</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="491"/>
+        <location filename="../res/ui/installer.ui" line="544"/>
         <source>Get hosts from Robot</source>
         <translation>hosts vom Roboter laden</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="524"/>
+        <location filename="../res/ui/installer.ui" line="577"/>
         <source>Copy rc.local to Robot</source>
         <translation>rc.local zum Roboter kopieren</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="567"/>
+        <location filename="../res/ui/installer.ui" line="620"/>
         <source>Get rc.local from Robot</source>
         <translation>rc.local vom Roboter laden</translation>
     </message>
     <message>
-        <location filename="../res/ui/installer.ui" line="610"/>
+        <location filename="../res/ui/installer.ui" line="663"/>
         <source>Log</source>
         <translation>Log</translation>
     </message>
@@ -943,37 +953,42 @@
         <translation>Valetudo Deinstallation</translation>
     </message>
     <message>
-        <location filename="../res/ui/uninstaller.ui" line="26"/>
+        <location filename="../res/ui/uninstaller.ui" line="28"/>
+        <source>Control</source>
+        <translation>Steuerung</translation>
+    </message>
+    <message>
+        <location filename="../res/ui/uninstaller.ui" line="51"/>
         <source>Status</source>
         <translation>Status</translation>
     </message>
     <message>
-        <location filename="../res/ui/uninstaller.ui" line="69"/>
+        <location filename="../res/ui/uninstaller.ui" line="226"/>
         <source>Remove Config from Robot</source>
         <translation>Konfig vom Roboter löschen</translation>
     </message>
     <message>
-        <location filename="../res/ui/uninstaller.ui" line="102"/>
+        <location filename="../res/ui/uninstaller.ui" line="64"/>
         <source>Stop Service Valetudo</source>
         <translation>Dienst Valetudo stoppen</translation>
     </message>
     <message>
-        <location filename="../res/ui/uninstaller.ui" line="135"/>
+        <location filename="../res/ui/uninstaller.ui" line="150"/>
         <source>Remove Binary from Robot</source>
         <translation>Programm vom Roboter löschen</translation>
     </message>
     <message>
-        <location filename="../res/ui/uninstaller.ui" line="188"/>
+        <location filename="../res/ui/uninstaller.ui" line="193"/>
         <source>Restore hosts</source>
         <translation>hosts wiederherstellen</translation>
     </message>
     <message>
-        <location filename="../res/ui/uninstaller.ui" line="221"/>
+        <location filename="../res/ui/uninstaller.ui" line="107"/>
         <source>Restore rc.local</source>
         <translation>rc.local wiederherstellen</translation>
     </message>
     <message>
-        <location filename="../res/ui/uninstaller.ui" line="254"/>
+        <location filename="../res/ui/uninstaller.ui" line="281"/>
         <source>Log</source>
         <translation>Log</translation>
     </message>
@@ -2343,40 +2358,62 @@ Möchten Sie trotzdem die weitere Entwicklung des Projektes unterstützen?</tran
         <translation>Installieren</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="60"/>
+        <location filename="../installer.cpp" line="13"/>
+        <source>Installing Valetudo &gt; 0.5.x or Valetudo RE will make map display unusable!</source>
+        <translation>Die Installation von Valetudo &gt; 0.5.x oder Valetudo RE macht die Kartenanzeige unbrauchbar!</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="23"/>
+        <source>Searching for Releases...</source>
+        <translation>Suche nach Releases...</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="71"/>
         <source>No Valetudo releases found on Github!</source>
         <translation>Keine Valetudo Releases auf Github gefunden!</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="82"/>
+        <location filename="../installer.cpp" line="95"/>
         <source>GET: %1 started
 </source>
         <translation>GET: %1 gestartet
 </translation>
     </message>
     <message>
+        <location filename="../installer.cpp" line="157"/>
+        <source>TGZ: finished
+</source>
+        <translation>TGZ: abgeschlossen
+</translation>
+    </message>
+    <message>
         <location filename="../installer.cpp" line="164"/>
+        <source>TGZ: failed!</source>
+        <translation>TGZ: fehlgeschlagen!</translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="211"/>
         <source>Old Valetudo host entries removed!
 </source>
         <translation>Alte Valetudo Host-Einträge entfernt!
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="194"/>
+        <location filename="../installer.cpp" line="241"/>
         <source>Old Valetudo rc.local entries removed!
 </source>
         <translation>Alte Valetudo rc.local Einträge entfernt!
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="248"/>
+        <location filename="../installer.cpp" line="295"/>
         <source>GET: failed -&gt; %1
 </source>
         <translation>GET: fehlgeschlagen -&gt; %1
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="256"/>
+        <location filename="../installer.cpp" line="303"/>
         <source>Download Valetudo release list from Github failed!
 
 %1</source>
@@ -2385,71 +2422,71 @@ Möchten Sie trotzdem die weitere Entwicklung des Projektes unterstützen?</tran
 %1</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="270"/>
+        <location filename="../installer.cpp" line="317"/>
         <source>GET: finished
 </source>
         <translation>GET: abgeschlossen
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="362"/>
+        <location filename="../installer.cpp" line="409"/>
         <source>SSH: connected
 </source>
         <translation>SSH: verbunden
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="385"/>
+        <location filename="../installer.cpp" line="432"/>
         <source>SSH: logged in
 </source>
         <translation>SSH: angemeldet
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="394"/>
-        <location filename="../installer.cpp" line="420"/>
+        <location filename="../installer.cpp" line="441"/>
+        <location filename="../installer.cpp" line="467"/>
         <source>SCP: finished
 </source>
         <translation>SCP: abgeschlossen
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="387"/>
-        <location filename="../installer.cpp" line="404"/>
-        <location filename="../installer.cpp" line="428"/>
-        <location filename="../installer.cpp" line="436"/>
-        <location filename="../installer.cpp" line="444"/>
-        <location filename="../installer.cpp" line="466"/>
+        <location filename="../installer.cpp" line="434"/>
+        <location filename="../installer.cpp" line="451"/>
+        <location filename="../installer.cpp" line="475"/>
+        <location filename="../installer.cpp" line="483"/>
+        <location filename="../installer.cpp" line="491"/>
+        <location filename="../installer.cpp" line="513"/>
         <source>SCP: %1 -&gt; %2 started
 </source>
         <translation>SCP: %1 -&gt; %2 gestartet
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="458"/>
+        <location filename="../installer.cpp" line="505"/>
         <source>SSH: %1 -&gt; %2
 </source>
         <translation>SSH: %1 -&gt; %2
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="486"/>
+        <location filename="../installer.cpp" line="533"/>
         <source>SSH: disconnected
 </source>
         <translation>SSH: getrennt
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="491"/>
-        <location filename="../installer.cpp" line="572"/>
-        <location filename="../installer.cpp" line="579"/>
-        <location filename="../installer.cpp" line="586"/>
-        <location filename="../installer.cpp" line="593"/>
+        <location filename="../installer.cpp" line="538"/>
+        <location filename="../installer.cpp" line="634"/>
+        <location filename="../installer.cpp" line="641"/>
+        <location filename="../installer.cpp" line="648"/>
+        <location filename="../installer.cpp" line="655"/>
         <source>Valetudo installation failed!</source>
         <translation>Valetudo Installation fehlgeschlagen!</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="491"/>
+        <location filename="../installer.cpp" line="538"/>
         <source>Valetudo installation finished.
 
 Read log for details.</source>
@@ -2458,19 +2495,19 @@ Read log for details.</source>
 Das Protokoll für weitere Informationen lesen.</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="498"/>
+        <location filename="../installer.cpp" line="545"/>
         <source>SSH: %1
 </source>
         <translation>SSH: %1
 </translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="511"/>
+        <location filename="../installer.cpp" line="573"/>
         <source>Really abort download?</source>
         <translation>Download wirklich abbrechen?</translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="520"/>
+        <location filename="../installer.cpp" line="582"/>
         <source>Can not abort current operation, please wait...</source>
         <translation>Kann die laufende Operation nicht abbrechen, bitte warten...</translation>
     </message>

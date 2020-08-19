@@ -9,6 +9,11 @@
 #define VALETUDO_HOSTS			"https://github.com/Hypfer/Valetudo/raw/master/deployment/etc/hosts"
 #define VALETUDO_RCLOCAL		"https://github.com/Hypfer/Valetudo/raw/master/deployment/etc/rc.local"
 
+#define VALETUDORE_REL			"https://api.github.com/repos/rand256/valetudo/releases"
+#define VALETUDORE_CFG			"https://github.com/rand256/Valetudo/raw/testing/deployment/valetudo.conf"
+#define VALETUDORE_HOSTS		"https://github.com/rand256/Valetudo/raw/testing/deployment/etc/hosts"
+#define VALETUDORE_RCLOCAL		"https://github.com/rand256/Valetudo/raw/testing/deployment/etc/rc.local"
+
 #define VALETUDO_BIN_SRC		QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/valetudo"
 #define VALETUDO_CFG_SRC		QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/valetudo.conf"
 #define VALETUDO_HOSTS_SRC		QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/hosts"
@@ -20,8 +25,8 @@
 #define VALETUDO_RCLOCAL_DST	"/etc/rc.local"
 
 #define VALETUDO_CMD_CHMOD		"chmod +x " VALETUDO_BIN_DST
-#define VALETUDO_CMD_STOP		"service valetudo stop"
-#define VALETUDO_CMD_START		"service valetudo start"
+#define VALETUDO_CMD_STOP		"%1 stop"
+#define VALETUDO_CMD_START		"%1 start"
 
 #define HOSTS_INIT				"### VALETUDO HOSTS INIT ###"
 #define HOSTS_EXIT				"### VALETUDO HOSTS EXIT ###"
@@ -49,6 +54,7 @@ private:
 	QSshSocket *ssh = nullptr;
 	bool finish, failed;
 	int step;
+	bool vre = false;
 
 private slots:
 
@@ -64,6 +70,9 @@ private slots:
 	void ssh_pullSuccessful(QString, QString);
 	void ssh_pushSuccessful(QString, QString);
 	void ssh_commandExecuted(QString, QString);
+
+	void on_radioButton_valetudo_clicked();
+	void on_radioButton_valetudore_clicked();
 
 	void reject();
 
