@@ -98,6 +98,46 @@ void QSshSocket::run()
                 else
                     error(SessionCreationError);
 
+                // TODO: Add known hosts checking
+                //{
+                //    enum ssh_known_hosts_e state;
+                //    ssh_key srv_pubkey;
+                //    int rc;
+
+                //    rc = ssh_get_server_publickey(session, &srv_pubkey);
+                //    if (rc != SSH_OK) {
+                //        // ??
+                //    }
+
+                //    rc = ssh_get_publickey_hash(srv_pubkey,
+                //                                SSH_PUBLICKEY_HASH_SHA256,
+                //                                &hash,
+                //                                &hlen);
+                //    ssh_key_free(srv_pubkey);
+                //    if (rc != SSH_OK) {
+                //        // ???
+                //    }
+
+                //    state = ssh_session_is_known_server(session)
+                //    switch(state) {
+                //        case SSH_KNOWN_HOSTS_CHANGED:
+                //            /* FAIL */
+                //        case SSH_KNOWN_HOSTS_OTHER:
+                //            /* FAIL */
+                //        case SSH_KNOWN_HOSTS_NOT_FOUND:
+                //            /* FALL_THROUGH */
+                //        case SSH_SERVER_NOT_KNOWN:
+                //            /* Ask user to accept key */
+                //            if (accept) {
+                //                rc = ssh_session_update_known_hosts(m_session);
+                //            }
+                //            break;
+                //        case SSH_KNOWN_HOSTS_ERROR:
+                //            /* FAIL */
+                //        case SSH_KNOWN_HOSTS_OK:
+                //            break; /* OK */
+                //    }
+                //}
             }
 
         }
